@@ -1,1367 +1,156 @@
-<!doctype html>
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="#0f2142" name="theme-color"/>
-<meta content="Md Shahin Alam — Supply Chain &amp; Operations Professional. Explore 8+ years of supply chain and operations experience, courier and e-commerce logistics, team leadership, process improvement, projects, tools and professional qualifications." name="description"/>
-<meta content="Md Shahin Alam, Supply Chain Professional, Operations Management, Courier Operations, Logistics, Team Performance Monitoring, Lean Six Sigma, Inventory Management, Productivity, Cost Analysis, Forecasting, Employee Turnover, KPI Metrics" name="keywords"/>
-<meta content="Md Shahin Alam | Supply Chain &amp; Operations Professional" property="og:title"/>
-<meta content="Operational excellence through stronger teams, smarter processes, and measurable results." property="og:description"/>
-<meta content="website" property="og:type"/>
-<title>Md Shahin Alam | Supply Chain &amp; Operations Professional</title>
-<style>
-    :root {
-      --navy: #0f2142;
-      --navy-2: #1a3358;
-      --blue: #1f4e8c;
-      --blue-2: #4a78b0;
-      --teal: #2f7a80;
-      --ink: #14223a;
-      --muted: #617087;
-      --line: #e2e8f1;
-      --surface: #ffffff;
-      --soft: #f3f6fa;
-      --soft-blue: #eaf0f7;
-      --shadow: 0 18px 55px rgba(22, 39, 68, .09);
-      --radius: 22px;
-      --max: 1160px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: #fff;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea { font: inherit; }
-    img { max-width: 100%; display: block; }
-    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
-    .skip-link { position: absolute; top: -50px; left: 16px; background: #fff; padding: 10px 14px; z-index: 1000; border-radius: 8px; }
-    .skip-link:focus { top: 12px; }
-    .site-header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,.92); backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(226,232,241,.85);
-    }
-    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.03em; }
-    .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; color: #fff; border-radius: 13px; background: var(--navy); box-shadow: 0 6px 16px #0f214226; }
-    .brand small { display: block; font-size: .69rem; color: var(--muted); font-weight: 600; letter-spacing: .02em; }
-    .nav-links { display: flex; align-items: center; gap: 17px; font-size: .88rem; font-weight: 650; color: #44536a; }
-    .nav-links a { white-space: nowrap; }
-    .nav-links a:hover, .nav-links a:focus-visible { color: var(--blue); }
-    .nav-cta { white-space: nowrap; }
-    .nav-cta, .btn { display: inline-flex; justify-content: center; align-items: center; gap: 9px; border-radius: 12px; padding: 12px 17px; font-weight: 750; border: 1px solid transparent; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; cursor: pointer; }
-    .nav-cta, .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 10px 24px #1f4e8c2b; }
-    .nav-cta:hover, .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px #172b4b22; }
-    .btn-secondary { color: var(--navy); background: #fff; border-color: #d7e0ef; }
-    .menu-toggle { display: none; border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; background: white; color: var(--navy); }
-    .hero {
-      position: relative; overflow: hidden; padding: 82px 0 70px;
-      background: radial-gradient(ellipse at 85% 10%, #e3ebf5 0, transparent 36%),
-                  radial-gradient(ellipse at 8% 90%, #e6eef6 0, transparent 31%),
-                  linear-gradient(180deg, #f8faff, #fff);
-    }
-    .hero::before { content: ""; position: absolute; width: 340px; height: 340px; right: -190px; top: 110px; border: 1px solid #1f4e8c1c; border-radius: 50%; box-shadow: 0 0 0 35px #1f4e8c08, 0 0 0 75px #1f4e8c06; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(300px, .82fr); align-items: center; gap: 64px; position: relative; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; color: #1b4378; background: #e8eef7; border: 1px solid #d3dfee; border-radius: 999px; text-transform: uppercase; letter-spacing: .095em; font-size: .72rem; font-weight: 850; }
-    .eyebrow .dot { width: 7px; height: 7px; background: var(--teal); border-radius: 50%; box-shadow: 0 0 0 4px #2f7a801c; }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 { font-size: clamp(2.65rem, 5.2vw, 4.55rem); line-height: 1.06; letter-spacing: -.065em; margin: 22px 0 20px; color: var(--navy); max-width: 760px; }
-    .accent-text { color: var(--blue); }
-    .hero-copy { color: #58677d; font-size: 1.1rem; max-width: 680px; margin-bottom: 28px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
-    .trust-line { display: flex; align-items: center; gap: 10px; color: #5d6a7e; font-size: .87rem; }
-    .trust-icon { color: var(--teal); font-weight: 900; }
-    .portrait-wrap { justify-self: center; width: min(100%, 360px); position: relative; }
-    .portrait-frame { padding: 10px; background: rgba(255,255,255,.82); border: 1px solid #dce5f3; border-radius: 30px; box-shadow: 0 28px 75px rgba(24,43,75,.16); transform: rotate(1.2deg); }
-    .portrait-placeholder {
-      width: 100%; aspect-ratio: 4 / 4.55; border-radius: 22px; overflow: hidden;
-      display: grid; place-items: center; text-align: center; color: #52627a;
-      background: linear-gradient(145deg, #e8eef8, #f7f9fd 48%, #dce8fa);
-      border: 1px dashed #b8c8df; padding: 25px;
-    }
-    .portrait-placeholder .avatar-icon { width: 76px; height: 76px; margin: 0 auto 15px; display: grid; place-items: center; border-radius: 50%; background: #fff; color: #6c83a8; font-size: 2rem; box-shadow: 0 8px 25px #203e6814; }
-    .portrait-placeholder strong { display: block; color: var(--navy); font-size: 1.05rem; }
-    .portrait-placeholder span { font-size: .84rem; }
-    .portrait-caption { margin: 14px 4px 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: .78rem; color: var(--muted); }
-    .floating-note { position: absolute; bottom: 40px; left: -45px; max-width: 205px; padding: 15px 17px; border: 1px solid #e4eaf4; border-radius: 17px; background: rgba(255,255,255,.95); box-shadow: var(--shadow); transform: rotate(-2deg); }
-    .floating-note strong { display: block; color: var(--navy); font-size: .9rem; }
-    .floating-note span { color: var(--muted); font-size: .76rem; }
-    .stats-strip { position: relative; margin-top: 58px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }
-    .stat-card { background: rgba(255,255,255,.9); border: 1px solid #e2e9f4; border-radius: 17px; padding: 20px; box-shadow: 0 8px 25px #1c355508; }
-    .stat-value { color: var(--navy); font-size: clamp(1.55rem, 2.4vw, 2rem); line-height: 1.1; font-weight: 850; letter-spacing: -.045em; }
-    .stat-label { color: var(--muted); font-size: .81rem; margin-top: 8px; }
-    .stat-context { color: #2c6a69; font-size: .7rem; font-weight: 750; margin-top: 6px; }
-    section { padding: 88px 0; }
-    .section-soft { background: var(--soft); }
-    .section-dark { background: var(--navy); color: #fff; position: relative; overflow: hidden; }
-    .section-dark::before { content: ""; position: absolute; width: 450px; height: 450px; top: -260px; right: -100px; border: 1px solid #ffffff14; border-radius: 50%; box-shadow: 0 0 0 50px #ffffff05, 0 0 0 100px #ffffff03; }
-    .section-head { max-width: 760px; margin-bottom: 38px; }
-    .section-kicker { color: var(--blue); font-size: .75rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 10px; }
-    h2 { font-size: clamp(2rem, 3.7vw, 3.05rem); line-height: 1.13; letter-spacing: -.05em; color: var(--navy); margin-bottom: 16px; }
-    .section-dark h2 { color: white; }
-    .section-intro { color: var(--muted); font-size: 1.02rem; max-width: 720px; margin-bottom: 0; }
-    .section-dark .section-intro { color: #bdc9dd; }
-    .about-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: start; }
-    .about-copy p { color: #526178; }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
-    .pill { display: inline-flex; align-items: center; gap: 7px; padding: 8px 11px; border-radius: 999px; background: var(--soft-blue); color: #3155a0; font-size: .78rem; font-weight: 750; border: 1px solid #dbe6ff; }
-    .value-panel { background: #fff; border: 1px solid var(--line); padding: 27px; border-radius: var(--radius); box-shadow: var(--shadow); }
-    .value-panel h3 { font-size: 1.2rem; margin-bottom: 17px; color: var(--navy); }
-    .value-item { display: grid; grid-template-columns: 38px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid #edf0f5; }
-    .value-item:last-child { border-bottom: 0; padding-bottom: 0; }
-    .value-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; color: var(--blue); background: var(--soft-blue); font-weight: 900; }
-    .value-item strong { display: block; font-size: .93rem; color: var(--navy); }
-    .value-item span { color: var(--muted); font-size: .84rem; }
-    .team-toolbar { display: flex; justify-content: space-between; gap: 20px; align-items: center; margin-bottom: 24px; }
-    .search-box { width: min(100%, 320px); position: relative; }
-    .search-box input { width: 100%; padding: 12px 14px 12px 40px; border-radius: 12px; border: 1px solid #dce4ef; background: #fff; color: var(--ink); outline: none; }
-    .search-box input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px #1f4e8c1a; }
-    .search-symbol { position: absolute; left: 14px; top: 9px; color: #78869a; }
-    .team-count { color: var(--muted); font-size: .85rem; }
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
-    .team-card { display: flex; flex-direction: column; min-height: 260px; padding: 23px; border-radius: 19px; background: #fff; border: 1px solid #e1e8f2; box-shadow: 0 8px 25px #1b315708; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
-    .team-card:hover { transform: translateY(-5px); box-shadow: 0 18px 38px #1b315713; border-color: #c3d4f7; }
-    .team-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
-    .team-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px; background: linear-gradient(145deg, #eaf0f7, #e8eff7); color: #1f4e8c; font-weight: 900; font-size: .86rem; }
-    .team-number { color: #95a1b3; font-size: .76rem; font-weight: 800; letter-spacing: .08em; }
-    .team-card h3 { font-size: 1.07rem; line-height: 1.3; letter-spacing: -.025em; color: var(--navy); margin-bottom: 9px; }
-    .team-card p { color: var(--muted); font-size: .87rem; margin-bottom: 16px; }
-    .team-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-    .mini-tag { padding: 5px 8px; background: #f3f6fa; border-radius: 7px; color: #51627a; font-size: .68rem; font-weight: 750; }
-    .team-card details { margin-top: 15px; border-top: 1px solid #edf0f5; padding-top: 12px; }
-    .team-card summary { cursor: pointer; font-size: .82rem; color: var(--blue); font-weight: 800; }
-    .team-card details p { margin: 10px 0 0; font-size: .82rem; }
-    .team-card[hidden] { display: none; }
-    .dashboard-shell { background: #fff; color: var(--ink); border: 1px solid #dfe7f3; padding: 22px; border-radius: 25px; box-shadow: 0 25px 70px #07152b24; position: relative; }
-    .dash-top { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 4px 3px 20px; border-bottom: 1px solid #edf0f5; }
-    .dash-top h3 { margin: 0; font-size: 1.08rem; color: var(--navy); }
-    .demo-badge { font-size: .69rem; font-weight: 850; color: #825a13; background: #fff5d9; border: 1px solid #f2e1a9; border-radius: 999px; padding: 6px 10px; }
-    .dash-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 18px 0; }
-    .dash-kpi { padding: 16px; background: #f8faff; border: 1px solid #e8edf5; border-radius: 14px; }
-    .dash-kpi span { display: block; color: #68778c; font-size: .74rem; }
-    .dash-kpi strong { display: block; color: var(--navy); font-size: 1.4rem; margin: 5px 0 2px; letter-spacing: -.04em; }
-    .dash-kpi small { color: #4f6a78; font-size: .69rem; }
-    .dash-lower { display: grid; grid-template-columns: 1.2fr .8fr; gap: 15px; }
-    .chart-card { border: 1px solid #e8edf5; border-radius: 15px; padding: 17px; }
-    .chart-card h4 { margin: 0 0 15px; font-size: .87rem; color: var(--navy); }
-    .bars { height: 175px; display: flex; align-items: end; gap: 13px; padding: 12px 6px 0; border-bottom: 1px solid #dce4ef; background: repeating-linear-gradient(to bottom, transparent 0, transparent 42px, #edf1f7 43px, transparent 44px); }
-    .bar-col { flex: 1; display: flex; height: 100%; align-items: center; justify-content: end; flex-direction: column; gap: 7px; }
-    .bar { width: min(100%, 35px); min-height: 12px; border-radius: 7px 7px 2px 2px; background: linear-gradient(180deg, #3d6aa3, #1f4e8c); }
-    .bar-col span { color: #728097; font-size: .65rem; }
-    .progress-row { margin: 13px 0 17px; }
-    .progress-label { display: flex; justify-content: space-between; gap: 12px; color: #536279; font-size: .76rem; margin-bottom: 6px; }
-    .progress-track { height: 7px; background: #edf1f7; border-radius: 99px; overflow: hidden; }
-    .progress-fill { height: 100%; background: var(--blue); border-radius: inherit; }
-    .dashboard-note { margin: 14px 2px 0; font-size: .74rem; color: #bdc9dd; }
-    .framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
-    .framework-card { background: #fff; border: 1px solid var(--line); border-radius: 19px; padding: 24px; transition: transform .2s ease; }
-    .framework-card:hover { transform: translateY(-4px); }
-    .framework-index { display: inline-grid; place-items: center; width: 37px; height: 37px; border-radius: 12px; color: #fff; background: var(--navy-2); font-weight: 850; margin-bottom: 17px; }
-    .framework-card h3 { color: var(--navy); font-size: 1.08rem; margin-bottom: 8px; }
-    .framework-card p { color: var(--muted); font-size: .88rem; margin-bottom: 0; }
-    .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; position: relative; }
-    .roadmap-card { border-radius: 20px; padding: 25px; border: 1px solid #dfe6f0; background: #fff; }
-    .roadmap-period { color: var(--blue); font-weight: 850; font-size: .76rem; text-transform: uppercase; letter-spacing: .1em; }
-    .roadmap-card h3 { color: var(--navy); font-size: 1.22rem; margin: 9px 0 12px; }
-    .roadmap-card ul { padding-left: 19px; color: var(--muted); font-size: .87rem; margin-bottom: 0; }
-    .roadmap-card li { margin: 6px 0; }
-    .timeline { position: relative; max-width: 900px; }
-    .timeline::before { content: ""; position: absolute; left: 145px; top: 12px; bottom: 12px; width: 2px; background: linear-gradient(var(--blue), #b7d5f5); }
-    .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: 50px; padding-bottom: 28px; position: relative; }
-    .timeline-item::before { content: ""; position: absolute; left: 139px; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 4px solid var(--blue); box-shadow: 0 0 0 5px #1f4e8c15; }
-    .timeline-date { color: #6d7b90; font-size: .8rem; font-weight: 800; text-align: right; padding-top: 2px; }
-    .timeline-content { background: #fff; border: 1px solid var(--line); border-radius: 17px; padding: 22px; box-shadow: 0 8px 22px #152b4c06; }
-    .timeline-content h3 { color: var(--navy); font-size: 1.08rem; margin-bottom: 4px; }
-    .timeline-content .role { color: var(--blue); font-size: .84rem; font-weight: 800; margin-bottom: 11px; }
-    .timeline-content ul { padding-left: 18px; margin: 0; color: var(--muted); font-size: .87rem; }
-    .timeline-content li { margin: 5px 0; }
-    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-    .skill-card { padding: 22px; border-radius: 18px; background: #fff; border: 1px solid var(--line); }
-    .skill-card h3 { font-size: .98rem; color: var(--navy); margin-bottom: 13px; }
-    .skill-card p { font-size: .83rem; color: var(--muted); margin: 0; }
-    .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .education-card { padding: 24px; border-radius: 18px; background: #fff; border: 1px solid var(--line); }
-    .education-card h3 { color: var(--navy); font-size: 1.02rem; margin-bottom: 5px; }
-    .education-card p { color: var(--muted); font-size: .86rem; margin-bottom: 0; }
-    .contact-panel { padding: clamp(28px, 5vw, 52px); display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; border-radius: 27px; color: #fff; background: radial-gradient(circle at 90% 0, #2b5a96 0, transparent 38%), linear-gradient(120deg, #0f2142, #1b3762); box-shadow: 0 24px 60px #142a4b25; }
-    .contact-panel h2 { color: #fff; margin-bottom: 12px; }
-    .contact-panel p { color: #d1dbee; margin-bottom: 0; max-width: 650px; }
-    .contact-links { display: flex; flex-direction: column; gap: 10px; min-width: 220px; }
-    .contact-links a { color: #fff; background: #ffffff12; border: 1px solid #ffffff2c; border-radius: 11px; padding: 12px 15px; font-weight: 750; font-size: .88rem; }
-    .contact-links a:hover { background: #ffffff20; }
-    .footer { padding: 30px 0; background: #0b1528; color: #bac6d9; }
-    .footer-inner { display: flex; justify-content: space-between; gap: 20px; align-items: center; font-size: .8rem; }
-    .footer strong { color: #fff; }
-    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
-    .footer a:hover { color: #fff; }
-    .reveal { opacity: 0; transform: translateY(15px); transition: opacity .55s ease, transform .55s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .no-js .reveal { opacity: 1; transform: none; }
-    :focus-visible { outline: 3px solid #80a7ff; outline-offset: 3px; }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
-      .reveal { opacity: 1; transform: none; }
-    }
-    @media (max-width: 980px) {
-      .nav-links { gap: 13px; font-size: .82rem; }
-      .hero-grid { gap: 35px; }
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
-      .skills-grid { grid-template-columns: repeat(2, 1fr); }
-      .dash-kpis { grid-template-columns: repeat(2, 1fr); }
-      .floating-note { left: -18px; }
-    }
-    @media (max-width: 760px) {
-      .container { width: min(var(--max), calc(100% - 30px)); }
-      .nav { min-height: 68px; }
-      .menu-toggle { display: inline-flex; }
-      .nav-cta { display: none; }
-      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--line); padding: 14px 20px 20px; flex-direction: column; align-items: stretch; box-shadow: 0 18px 25px #152b4c0d; }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 8px 4px; }
-      .hero { padding: 58px 0 45px; }
-      .hero-grid, .about-grid, .dash-lower { grid-template-columns: 1fr; }
-      .hero-grid { gap: 35px; }
-      .portrait-wrap { width: min(78%, 310px); }
-      .floating-note { left: -25px; bottom: 30px; }
-      .stats-strip { grid-template-columns: repeat(2, 1fr); margin-top: 38px; }
-      section { padding: 65px 0; }
-      .team-toolbar { align-items: stretch; flex-direction: column; }
-      .search-box { width: 100%; }
-      .team-grid, .framework-grid, .roadmap, .education-grid { grid-template-columns: 1fr; }
-      .team-card { min-height: auto; }
-      .timeline::before { left: 7px; }
-      .timeline-item { grid-template-columns: 1fr; gap: 9px; padding-left: 29px; }
-      .timeline-item::before { left: 0; }
-      .timeline-date { text-align: left; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .contact-panel { grid-template-columns: 1fr; }
-      .contact-links { min-width: 0; }
-      .footer-inner { align-items: flex-start; flex-direction: column; }
-    }
-    @media (max-width: 430px) {
-      h1 { font-size: 2.45rem; }
-      .stats-strip, .dash-kpis, .skills-grid { grid-template-columns: 1fr 1fr; }
-      .stat-card { padding: 15px; }
-      .stat-value { font-size: 1.45rem; }
-      .team-grid { grid-template-columns: 1fr; }
-      .hero-actions .btn { width: 100%; }
-      .portrait-wrap { width: min(85%, 290px); }
-      .dash-kpi { padding: 12px; }
-    }
-    /* ---------- Added: profile photo ---------- */
-    .profile-photo { display: block; width: 100%; height: auto; aspect-ratio: 4 / 4.8; object-fit: cover; object-position: center 12%; border-radius: 22px; background: #e8eef8; }
-
-    /* ---------- Added: metrics library ---------- */
-    .metric-filters { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 24px; }
-    .chip { border: 1px solid #d7e0ef; background: #fff; color: #44536a; border-radius: 999px; padding: 8px 14px; font-size: .8rem; font-weight: 750; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
-    .chip:hover { border-color: var(--blue); color: var(--blue); }
-    .chip[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
-    .metric-count { color: var(--muted); font-size: .85rem; margin: 0 0 16px; }
-    .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-    .metric-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 10px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
-    .metric-card:hover { transform: translateY(-3px); border-color: #c3d4f7; box-shadow: 0 14px 30px #1b315710; }
-    .metric-card[hidden] { display: none; }
-    .metric-cat { font-size: .66rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }
-    .metric-card h3 { font-size: 1rem; margin: 0; color: var(--navy); line-height: 1.3; letter-spacing: -.02em; }
-    .formula { display: block; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .74rem; line-height: 1.5; background: #f4f7fb; border: 1px solid #e6ecf5; border-radius: 9px; padding: 9px 10px; color: #27407a; overflow-wrap: anywhere; }
-    .metric-card p { margin: 0; font-size: .82rem; color: var(--muted); }
-    .metric-card p b { color: var(--navy); }
-
-    .method-strip { margin-top: 44px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-    .method-step { position: relative; padding: 16px; border-radius: 15px; background: var(--soft-blue); border: 1px solid #dbe6ff; }
-    .method-step b { display: block; color: var(--navy); font-size: .88rem; margin-bottom: 4px; }
-    .method-step span { color: var(--muted); font-size: .78rem; }
-    .method-step small { display: block; color: var(--blue); font-weight: 850; font-size: .66rem; letter-spacing: .1em; margin-bottom: 6px; }
-
-    .gap-wrap { margin-top: 30px; background: var(--navy); color: #fff; border-radius: 24px; padding: clamp(22px, 4vw, 38px); position: relative; overflow: hidden; }
-    .gap-wrap h3 { color: #fff; font-size: 1.35rem; letter-spacing: -.03em; margin-bottom: 6px; }
-    .gap-wrap > p { color: #bdc9dd; font-size: .9rem; margin-bottom: 20px; max-width: 700px; }
-    .gap-scroll { overflow-x: auto; }
-    .gap-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: .85rem; }
-    .gap-table th { text-align: left; color: #9bb8dc; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; padding: 10px 14px 10px 0; border-bottom: 1px solid #ffffff2e; }
-    .gap-table td { padding: 14px 14px 14px 0; vertical-align: top; border-bottom: 1px solid #ffffff17; color: #d6dfef; }
-    .gap-table td:first-child { color: #fff; font-weight: 700; }
-    .gap-table tr:last-child td { border-bottom: 0; }
-
-    /* ---------- Added: calculator ---------- */
-    .calc-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 22px; align-items: start; }
-    .calc-panel { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px; box-shadow: var(--shadow); }
-    .calc-panel h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: 4px; }
-    .calc-panel .calc-sub { color: var(--muted); font-size: .8rem; margin-bottom: 18px; }
-    .calc-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
-    .field label { display: block; font-size: .74rem; font-weight: 750; color: #51627a; margin-bottom: 5px; }
-    .field input { width: 100%; padding: 10px 12px; border: 1px solid #dce4ef; border-radius: 10px; background: #fff; color: var(--ink); outline: none; }
-    .field input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px #1f4e8c1a; }
-    .calc-actions { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
-    .calc-actions .btn { padding: 9px 14px; font-size: .82rem; }
-    .calc-results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .result { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
-    .result span { display: block; color: var(--muted); font-size: .74rem; }
-    .result strong { display: block; color: var(--navy); font-size: 1.5rem; letter-spacing: -.04em; margin: 4px 0 2px; line-height: 1.15; }
-    .result small { color: #4f6a78; font-size: .68rem; font-weight: 700; }
-    .calc-note { grid-column: 1 / -1; font-size: .74rem; color: #78869a; margin: 4px 2px 0; }
-
-    /* ---------- Added: projects ---------- */
-    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
-    .project-card { background: #fff; border: 1px solid var(--line); border-radius: 19px; overflow: hidden; display: flex; flex-direction: column; transition: transform .22s ease, box-shadow .22s ease; }
-    .project-card:hover { transform: translateY(-4px); box-shadow: 0 18px 38px #1b315713; }
-    .project-thumb { aspect-ratio: 16 / 9; background: linear-gradient(145deg, #e8eef8, #f7f9fd 48%, #dce8fa); display: grid; place-items: center; color: #6c83a8; font-weight: 850; font-size: 1.3rem; overflow: hidden; }
-    .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .project-body { padding: 20px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
-    .project-body h3 { color: var(--navy); font-size: 1.05rem; margin: 0; letter-spacing: -.02em; }
-    .project-body p { color: var(--muted); font-size: .85rem; margin: 0; }
-    .project-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
-    .project-link { color: var(--blue); font-weight: 800; font-size: .84rem; margin-top: 4px; }
-    .project-card.is-placeholder { border-style: dashed; border-color: #b8c8df; background: rgba(255,255,255,.65); }
-    .project-card.is-placeholder:hover { transform: none; box-shadow: none; }
-    .project-card.is-placeholder .project-thumb { background: repeating-linear-gradient(45deg, #f3f6fb, #f3f6fb 10px, #eef2f9 10px, #eef2f9 20px); }
-
-    /* ---------- Added: social links ---------- */
-    .social-block { margin-top: 36px; }
-    .social-title { font-size: 1.05rem; color: var(--navy); font-weight: 800; letter-spacing: -.02em; margin-bottom: 4px; }
-    .social-sub { color: var(--muted); font-size: .86rem; margin-bottom: 18px; }
-    .social-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 11px; }
-    .social-link { display: flex; align-items: center; gap: 11px; padding: 12px 14px; background: #fff; border: 1px solid var(--line); border-radius: 14px; font-weight: 750; font-size: .86rem; color: var(--navy); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
-    .social-link:hover { transform: translateY(-2px); border-color: #c3d4f7; box-shadow: 0 12px 26px #1b315712; }
-    .social-link small { display: block; color: var(--muted); font-weight: 600; font-size: .7rem; }
-    .social-ico { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; color: #fff; font-weight: 850; font-size: .76rem; flex: none; }
-    .s-linkedin { background: #0a66c2; } .s-facebook { background: #1877f2; } .s-instagram { background: linear-gradient(45deg, #f58529, #dd2a7b 55%, #8134af); }
-    .s-x, .s-tiktok, .s-threads, .s-medium { background: #111; } .s-github { background: #24292f; } .s-youtube { background: #e00; }
-    .s-telegram { background: #229ed9; } .s-behance { background: #1769ff; }
-    .footer-social { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px; font-size: .76rem; }
-
-    @media (max-width: 980px) {
-      .metric-grid, .project-grid { grid-template-columns: repeat(2, 1fr); }
-      .method-strip { grid-template-columns: repeat(2, 1fr); }
-      .calc-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 760px) {
-      .metric-grid, .project-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 430px) {
-      .method-strip, .calc-fields { grid-template-columns: 1fr; }
-      .calc-results { grid-template-columns: 1fr 1fr; }
-      .result strong { font-size: 1.25rem; }
-    }
-
-    /* ---------- Added v3: project details, whatsapp ---------- */
-    .project-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-    .project-thumb { font-size: 2.4rem; aspect-ratio: 21 / 8; }
-    .floating-note { bottom: 74px; }
-    .project-body ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .82rem; }
-    .project-body li { margin: 4px 0; }
-    .project-body p b { color: var(--navy); }
-    .s-whatsapp { background: #25d366; }
-
-    /* ---------- Added v4: header profile icon + clickable project previews ---------- */
-    .brand-mark { position: relative; overflow: hidden; flex: none; }
-    .brand-mark .bm-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 14%; border-radius: inherit; opacity: 0; transition: opacity .25s ease; }
-    .brand-mark.has-photo .bm-img { opacity: 1; }
-    .brand-mark.has-photo .bm-text { visibility: hidden; }
-    .brand-mark.has-photo { box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #1f4e8c4d, 0 8px 22px #1f4e8c33; }
-
-    .project-thumb.has-preview { position: relative; display: block; padding: 0; aspect-ratio: 16 / 9; overflow: hidden; border: 0; width: 100%; cursor: pointer; background: #e8eef8; text-align: left; }
-    .project-thumb.has-preview .pv-frame { position: absolute; top: 0; left: 0; width: 1280px; height: 720px; border: 0; transform-origin: 0 0; pointer-events: none; background: #fff; }
-    .project-thumb.has-preview::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(15,33,66,.28)); transition: background .25s ease; }
-    .project-thumb.has-preview:hover::after, .project-thumb.has-preview:focus-visible::after { background: linear-gradient(180deg, rgba(15,33,66,.18), rgba(15,33,66,.55)); }
-    .pv-chip { position: absolute; z-index: 2; left: 14px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 13px; border-radius: 999px; background: #fff; color: var(--navy); font-size: .8rem; font-weight: 800; box-shadow: 0 8px 22px rgba(15,33,66,.28); transition: transform .2s ease, background .2s ease, color .2s ease; }
-    .pv-chip i { font-style: normal; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--blue); color: #fff; font-size: .62rem; padding-left: 1px; }
-    .project-thumb.has-preview:hover .pv-chip, .project-thumb.has-preview:focus-visible .pv-chip { transform: translateY(-2px); background: var(--blue); color: #fff; }
-    .project-thumb.has-preview:hover .pv-chip i, .project-thumb.has-preview:focus-visible .pv-chip i { background: #fff; color: var(--blue); }
-    .project-thumb.has-preview:focus-visible { outline: 3px solid var(--blue-2); outline-offset: -3px; }
-    .project-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
-    .project-actions .btn { padding: 9px 14px; font-size: .82rem; border-radius: 10px; }
-
-    .pv-modal { position: fixed; inset: 0; z-index: 2000; display: none; flex-direction: column; background: rgba(9,16,30,.78); backdrop-filter: blur(6px); padding: 18px; }
-    .pv-modal.open { display: flex; }
-    .pv-dialog { display: flex; flex-direction: column; flex: 1; min-height: 0; width: min(1280px, 100%); margin: 0 auto; background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 30px 90px rgba(0,0,0,.45); }
-    .pv-bar { display: flex; align-items: center; gap: 12px; padding: 11px 14px; background: var(--navy); color: #fff; flex-wrap: wrap; }
-    .pv-bar h3 { margin: 0; font-size: .95rem; letter-spacing: -.01em; color: #fff; flex: 1; min-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .pv-bar small { display: block; font-size: .68rem; font-weight: 600; color: #9fb2d3; }
-    .pv-tools { display: flex; align-items: center; gap: 8px; }
-    .pv-seg { display: inline-flex; padding: 3px; border-radius: 10px; background: #ffffff1a; }
-    .pv-seg button { border: 0; background: transparent; color: #cbd8f0; font-weight: 750; font-size: .76rem; padding: 6px 11px; border-radius: 8px; cursor: pointer; }
-    .pv-seg button[aria-pressed="true"] { background: #fff; color: var(--navy); }
-    .pv-btn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #ffffff33; background: #ffffff14; color: #fff; font-weight: 750; font-size: .76rem; padding: 7px 12px; border-radius: 10px; cursor: pointer; }
-    .pv-btn:hover { background: #ffffff26; }
-    .pv-close { width: 34px; height: 34px; justify-content: center; padding: 0; font-size: 1.05rem; line-height: 1; }
-    .pv-stage { flex: 1; min-height: 0; background: #dfe6f2; display: flex; justify-content: center; align-items: stretch; overflow: auto; position: relative; }
-    .pv-stage iframe { border: 0; background: #fff; width: 100%; height: 100%; transition: width .25s ease; }
-    .pv-stage.mobile iframe { width: 390px; max-width: 100%; margin: 14px 0; height: calc(100% - 28px); border-radius: 18px; box-shadow: 0 10px 40px rgba(15,33,66,.3); }
-    .pv-note { padding: 8px 14px; font-size: .74rem; color: #5a6b86; background: #f4f7fb; border-top: 1px solid var(--line); }
-    body.pv-lock { overflow: hidden; }
-    @media (max-width: 640px) {
-      .pv-modal { padding: 0; }
-      .pv-dialog { border-radius: 0; width: 100%; }
-      .pv-seg, .pv-newtab span { display: none; }
-    }
-  
-    /* Services section */
-    .marketplace-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; max-width: 820px; }
-    .marketplace-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 3.5vw, 34px); box-shadow: var(--shadow); min-width: 0; }
-    .marketplace-card h3 { margin: 0 0 10px; font-size: 1.3rem; color: var(--navy); letter-spacing: -.02em; }
-    .marketplace-card p { color: var(--muted); margin-bottom: 0; }
-    .marketplace-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; }
-    .marketplace-tag { font-size: .82rem; font-weight: 650; color: #2c4466; border: 1px solid #d5deea; border-radius: 999px; padding: 6px 13px; background: var(--soft); }
-    .marketplace-status { font-size: .92rem; color: #3c4b62; border-left: 3px solid var(--blue); padding: 12px 16px; background: var(--soft-blue); border-radius: 0 10px 10px 0; margin-top: 22px; }
-    /* Team KPI detail */
-    .team-kpis { margin: 10px 0 0; font-size: .86rem; }
-    .team-kpis dt { font-weight: 800; color: var(--navy); margin-top: 8px; }
-    .team-kpis dd { margin: 2px 0 0; color: var(--muted); }
-    /* Project overview */
-    .proj-overview { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 26px; }
-    .proj-overview > div { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 14px; padding: 15px 17px; }
-    .proj-overview strong { display: block; color: var(--navy); font-size: 1.02rem; letter-spacing: -.01em; }
-    .proj-overview span { display: block; color: var(--muted); font-size: .8rem; margin-top: 3px; }
-    .project-thumb.has-preview { cursor: pointer; border: 0; width: 100%; }
-    .pv-icon { font-size: 2.2rem; line-height: 1; }
-    .proj-note { font-size: .82rem; color: #6b7a90; margin: 20px 2px 0; }
-    /* Growth + FAQ */
-    .growth-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .growth-card { padding: 22px; border-radius: 18px; background: #fff; border: 1px solid var(--line); }
-    .growth-card h3 { font-size: 1rem; color: var(--navy); margin-bottom: 8px; }
-    .growth-card p { font-size: .88rem; color: var(--muted); margin-bottom: 12px; }
-    .growth-card small { display: block; font-size: .78rem; color: var(--blue); font-weight: 650; border-top: 1px solid var(--line); padding-top: 10px; }
-    .faq-list { display: grid; gap: 12px; max-width: 820px; }
-    .faq-item { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; }
-    .faq-item summary { cursor: pointer; font-weight: 750; color: var(--navy); }
-    .faq-item summary:hover { color: var(--blue); }
-    .faq-item p { margin: 10px 0 0; color: var(--muted); font-size: .95rem; }
-    /* Language toggle */
-    .lang-toggle { display: inline-flex; border: 1px solid #d5deea; border-radius: 999px; overflow: hidden; }
-    .lang-toggle button { border: 0; background: #fff; color: #44536a; padding: 5px 12px; font-weight: 750; font-size: .78rem; cursor: pointer; }
-    .lang-toggle button[aria-pressed="true"] { background: var(--navy); color: #fff; }
-    .lang-note { text-align: center; font-size: .82rem; color: var(--muted); margin: 0; padding: 14px 20px; background: var(--soft); }
-    [lang="bn"] body { line-height: 1.85; }
-    @media (max-width: 980px) { .proj-overview { grid-template-columns: repeat(2, 1fr); } .growth-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px) { .proj-overview, .growth-grid { grid-template-columns: 1fr; } }
-    /* Project cards: two-column layout, centered icon thumbs */
-    .project-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); }
-    .project-thumb { flex: none; }
-    .project-thumb.has-preview { display: grid; place-items: center; aspect-ratio: 21 / 8; background: linear-gradient(145deg, #e8eef8, #f7f9fd 48%, #dce8fa); }
-    .project-thumb.has-preview::after { background: none; }
-    .project-thumb.has-preview .pv-chip { left: auto; right: 14px; bottom: 12px; }
-  </style>
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Md Shahin Alam",
-    "jobTitle": "Supply Chain & Operations Professional",
-    "email": "mailto:shahin4l.bd@gmail.com",
-    "url": "https://www.linkedin.com/in/shahin4l",
-    "sameAs": ["https://www.linkedin.com/in/shahin4l", "https://www.facebook.com/shahin4l", "https://www.instagram.com/shahin4l", "https://x.com/shahin4l", "https://github.com/shahin4l", "https://www.youtube.com/@shahin4l", "https://www.tiktok.com/@shahin4l", "https://t.me/shahin4l", "https://www.threads.net/@shahin4l", "https://www.behance.net/shahin4l", "https://medium.com/@shahin4l"],
-    "knowsAbout": [
-      "Supply Chain Management", "Courier Operations", "Logistics",
-      "Team Leadership", "Inventory Management", "Lean Six Sigma",
-      "Operational Performance Monitoring", "Process Optimization"
-    ]
-  }
-  </script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shahin Creative Studio creates playful coloring books, printable activities and original digital designs for children and families.">
+  <meta name="theme-color" content="#f7f4ec">
+  <title>Shahin Creative Studio | Creative Portfolio</title>
   <style>
-    body,h1,h2,h3,.brand{font-family:"Plus Jakarta Sans",Inter,ui-sans-serif,system-ui,sans-serif}
-    .hero{background:radial-gradient(ellipse at 88% 8%,#cfe0f7 0,transparent 38%),radial-gradient(ellipse at 6% 92%,#d4efe9 0,transparent 33%),linear-gradient(180deg,#f6f9ff,#fff)}
-    .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#1f4e8c0d 1px,transparent 1px),linear-gradient(90deg,#1f4e8c0d 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(180deg,#000,transparent 70%)}
-    h1 .accent-text{background:linear-gradient(90deg,#1f4e8c,#2f7a80);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .stat-card{border-top:3px solid var(--teal)}
-    .res-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative}
-    .res-card{padding:26px 22px;border-radius:20px;background:linear-gradient(160deg,#ffffff14,#ffffff06);border:1px solid #ffffff22}
-    .res-num{display:flex;align-items:baseline;gap:4px;font-size:clamp(3rem,5.4vw,4.4rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff}
-    .res-num .cnt{font-size:inherit;color:inherit}
-    .res-num .unit{font-size:.4em;font-weight:700;color:#8fd3cf;letter-spacing:0}
-    .res-card b{display:block;margin:10px 0 6px;color:#8fd3cf}.res-card>span{color:#bdc9dd;font-size:.85rem}
-   @media(max-width:900px){.res-wrap{grid-template-columns:1fr}}
-    @media(max-width:520px){.res-wrap{grid-template-columns:1fr}}
-    
-    /* Hero buttons: 3ta pasapasi */
-    .hero-grid{grid-template-columns:minmax(0,1.3fr) minmax(300px,.7fr)}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
-    .hero-actions .btn{flex:0 0 auto;padding:11px 15px;font-size:.86rem;white-space:nowrap}
-    @media(max-width:760px){.hero-grid{grid-template-columns:1fr}}
-    @media(max-width:430px){.hero-actions .btn{width:100%}}
+    :root{--paper:#f7f4ec;--ink:#20231f;--muted:#666b62;--green:#c9e36b;--line:#deded3;--white:#fffefa}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+    a{color:inherit} .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{padding:22px 0;border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:900;letter-spacing:-.7px;font-size:19px;text-decoration:none}
+    .brand span{display:block;font-size:10px;letter-spacing:2.5px;color:var(--muted);font-weight:700}
+    nav{display:flex;gap:25px;flex-wrap:wrap}nav a{text-decoration:none;font-size:13px;font-weight:700}
+    .hero{padding:88px 0 76px;display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center}
+    .eyebrow{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:800;color:#667044}
+    h1{font-size:clamp(46px,7vw,82px);line-height:.98;letter-spacing:-5px;margin:18px 0 22px;max-width:700px}
+    .hero p{font-size:18px;color:var(--muted);max-width:530px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-block;padding:14px 21px;border-radius:999px;text-decoration:none;font-weight:800;font-size:13px;border:1px solid var(--ink)}
+    .primary{background:var(--ink);color:white}.secondary{background:transparent}
+    .art{background:var(--green);border-radius:48% 52% 44% 56%/48% 43% 57% 52%;min-height:340px;display:grid;place-items:center;position:relative;overflow:hidden}
+    .art small{position:absolute;bottom:25px;right:30px;font-size:10px;letter-spacing:2px;font-weight:800}
+    .section{padding:72px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:30px}
+    h2{font-size:clamp(32px,4vw,48px);letter-spacing:-2px;line-height:1.05;margin:8px 0}
+    .section-head p{color:var(--muted);max-width:430px;margin:0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+    .about-grid p{color:var(--muted);font-size:16px}
+    .values{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .value{background:var(--white);padding:22px;border:1px solid var(--line);border-radius:16px}
+    .value b{display:block;margin-bottom:6px}.value span{font-size:13px;color:var(--muted)}
+    .product{display:grid;grid-template-columns:.9fr 1.1fr;gap:45px;align-items:center;background:var(--white);padding:26px;border:1px solid var(--line);border-radius:24px}
+    .cover{min-height:340px;border-radius:18px;background:#e8e4d7;display:grid;place-items:center;padding:24px;overflow:hidden}
+    .cover-inner{background:#fffefa;border:3px solid #20231f;border-radius:8px;width:min(250px,100%);height:290px;padding:20px;text-align:center;display:flex;flex-direction:column;justify-content:space-between;box-shadow:8px 8px 0 #c9e36b}
+    .cover-inner strong{font-size:27px;line-height:1.05;letter-spacing:-1px}
+    .cover-inner small{font-weight:800;letter-spacing:2px;font-size:9px}
+    .product-copy p{color:var(--muted)}
+    .features{padding-left:18px;color:var(--muted);font-size:14px}
+    .previews{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .preview{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+    .preview img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;background:#e9e6dc}
+    .placeholder{aspect-ratio:3/4;display:grid;place-items:center;text-align:center;padding:20px;color:#73766b;background:linear-gradient(145deg,#eeeadd,#dfe5cb);font-size:13px;font-weight:700}
+    .preview figcaption{padding:12px;font-size:12px;font-weight:700}
+    .note{font-size:12px;color:var(--muted);margin-top:14px}
+    .contact{background:var(--ink);color:white;border-radius:24px;padding:45px;display:flex;justify-content:space-between;align-items:center;gap:30px}
+    .contact p{color:#c9cec1;max-width:480px}.contact .btn{background:var(--green);border-color:var(--green);color:var(--ink)}
+    footer{padding:28px 0;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:760px){.hero,.about-grid,.product{grid-template-columns:1fr}.hero{padding:60px 0}.art{min-height:270px}h1{letter-spacing:-3px}.section-head{display:block}.values{grid-template-columns:1fr}.previews{grid-template-columns:repeat(2,1fr)}.contact{display:block;padding:30px}.nav{align-items:flex-start;flex-direction:column}nav{gap:16px}}
   </style>
 </head>
-<body class="no-js">
-<a class="skip-link" href="#main">Skip to main content</a>
-<header class="site-header">
-<div class="container nav">
-<a aria-label="Md Shahin Alam home" class="brand" href="#home">
-<span aria-hidden="true" class="brand-mark" id="brandMark"><b class="bm-text">SA</b><img alt="" class="bm-img" height="42" id="brandPhoto" width="42"/></span>
-<span>Md Shahin Alam<small>Supply Chain &amp; Operations</small></span>
-</a>
-<button aria-controls="navLinks" aria-expanded="false" class="menu-toggle" id="menuToggle">Menu</button>
-<nav aria-label="Main navigation" class="nav-links" id="navLinks">
-<a href="#results">Results</a>
-<a href="#about" data-i="n_about">About</a>
-<a href="#teams" data-i="n_teams">11 Teams</a>
-<a href="#metrics" data-i="n_metrics">Metrics</a>
-<a href="#projects" data-i="n_projects">Projects</a>
-<a href="#experience" data-i="n_exp">Experience</a>
-<a href="#skills" data-i="n_skills">Expertise</a><a href="#services" data-i="n_services">Services</a>
-<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-lg="en" aria-pressed="true" lang="en">EN</button><button type="button" data-lg="bn" aria-pressed="false" lang="bn">বাংলা</button></div></nav>
-<a class="nav-cta" href="#contact">Let's Connect ↗</a>
-</div>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">SHAHIN CREATIVE STUDIO<span>DESIGN • DRAW • IMAGINE</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a><a href="#work">Featured Work</a><a href="#previews">Previews</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
-<main id="main">
-<section class="hero" id="home">
-<div class="container">
-<div class="hero-grid">
-<div class="reveal">
-<span class="eyebrow"><span class="dot"></span> Operations Leadership · Logistics · Improvement</span>
-<h1>Operational excellence starts with <span class="accent-text">stronger teams.</span></h1>
-<p class="hero-copy">I'm <strong>Md Shahin Alam</strong>, a Supply Chain &amp; Operations Professional focused on improving courier operations through people leadership, clear processes, performance monitoring, and continuous improvement.</p>
-<div class="hero-actions">
-<a class="btn btn-primary" href="#teams"><span data-i="cta1">Explore 11 Core Teams</span> <span aria-hidden="true">↗</span></a>
-<a class="btn btn-secondary" href="#experience" data-i="cta2">Review My Experience</a>
-<a class="btn btn-secondary" href="Shahin_Alam_CV_Bangladesh.pdf" download="Shahin_Alam_CV_Bangladesh.pdf"><span aria-hidden="true">⬇</span> <span data-i="cta3">Download Resume</span></a>
-</div>
-<div class="trust-line"><span aria-hidden="true" class="trust-icon">✓</span> High-volume operations · Cross-functional leadership · KPI-driven improvement</div>
-</div>
-<div class="portrait-wrap reveal">
-<div class="portrait-frame">
-<img alt="Portrait of Md Shahin Alam, Supply Chain &amp; Operations Professional" class="profile-photo" fetchpriority="high" height="900" src="profile_flipped.jpg" width="900"/>
-<div class="portrait-caption"><span>Professional Portfolio</span><span>Dhaka, Bangladesh · Global outlook</span></div>
-</div>
-<div class="floating-note"><strong>People · Process · Performance</strong><span>A practical approach to operational excellence</span></div>
-</div>
-</div>
-<div aria-label="Professional experience highlights" class="stats-strip reveal">
-<article class="stat-card"><div class="stat-value">8+ Years</div><div class="stat-label" data-i="s1">Professional experience</div><div class="stat-context">Courier · Logistics · Operations</div></article>
-<article class="stat-card"><div class="stat-value">190+</div><div class="stat-label" data-i="s2">Team members in leadership scope</div><div class="stat-context">Current role, per resume</div></article>
-<article class="stat-card"><div class="stat-value">50,000+</div><div class="stat-label" data-i="s3">Parcels handled daily</div><div class="stat-context">Current operational scale, per resume</div></article>
-<article class="stat-card"><div class="stat-value">220,000+</div><div class="stat-label" data-i="s4">Parcels processed daily</div><div class="stat-context">Previous experience at Pathao</div></article>
-</div>
-<p style="font-size:.72rem;color:#78869a;margin:13px 2px 0">Experience figures are based on the supplied resume; they are not live operational metrics.</p>
-</div>
-</section>
-<section class="section-dark" id="results"><div class="container"><div class="section-head"><div class="section-kicker" style="color:#8fd3cf">Results at Carrybee Express</div><h2>Faster, more accurate, cheaper to run.</h2><p class="section-intro">Process redesign, semi-automation and tighter item control across 11 operational functions and 190+ staff.</p></div>
-<div class="res-wrap"><div class="res-card"><div class="res-num"><span class="cnt" data-to="40">40</span><span class="unit">%</span></div><b>Lower turnaround time</b><span>PTN process, 2-click gate pass, auto-assigned return validation</span></div>
-<div class="res-card"><div class="res-num"><span class="cnt" data-to="98">98</span><span class="unit">%</span></div><b>Fewer errors</b><span>CCTV-verified baskets, floor taping, name plates, handling guidelines</span></div>
-<div class="res-card"><div class="res-num"><span class="cnt" data-to="15">15</span><span class="unit">%</span></div><b>Lower operating cost</b><span>Manpower optimisation and an Order Management System app</span></div>
-</div></div></section>
-<script>(function(){var e=document.querySelectorAll('.cnt');if(!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var o=new IntersectionObserver(function(l){l.forEach(function(x){if(!x.isIntersecting)return;var n=x.target,t=+n.dataset.to,i=0;o.unobserve(n);var h=setInterval(function(){i+=Math.max(1,Math.ceil(t/24));if(i>=t){i=t;clearInterval(h)}n.textContent=i},35)})},{threshold:.5});e.forEach(function(n){o.observe(n)})})();</script>
-<section id="about">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Professional profile</div>
-<h2 data-i="h_about">Engineering thinking. Operations leadership. Continuous improvement.</h2>
-<p class="section-intro">A career shaped by hands-on logistics experience, technical problem-solving, team development, and a focus on making complex workflows more reliable.</p>
-</div>
-<div class="about-grid">
-<div class="about-copy reveal">
-<p>With 8+ years of experience across courier operations, e-commerce logistics, last-mile delivery, and industrial engineering, I work across the people, process, and performance dimensions of operations.</p>
-<p>My experience includes leading cross-functional teams, supporting high-volume parcel movement, strengthening SOP compliance, monitoring operational gaps, and applying Lean principles to process improvement.</p>
-<p>My approach is practical: establish clear ownership, understand the data, identify root causes, develop team capability, and review results consistently. The goal is sustainable operational performance—not just attractive numbers on a dashboard.</p>
-<div class="pill-row">
-<span class="pill">Team Leadership</span><span class="pill">Courier Operations</span><span class="pill">Lean methodologies</span><span class="pill">KPI Monitoring</span><span class="pill">Inventory Control</span><span class="pill">SLA/SOP Compliance</span>
-</div>
-</div>
-<aside class="value-panel reveal">
-<h3>How I create operational value</h3>
-<div class="value-item"><span class="value-icon">01</span><div><strong>Build capable teams</strong><span>Role clarity, coaching, training, performance reviews, and accountability.</span></div></div>
-<div class="value-item"><span class="value-icon">02</span><div><strong>Make work visible</strong><span>Relevant KPIs, accurate reporting, workload visibility, and exception tracking.</span></div></div>
-<div class="value-item"><span class="value-icon">03</span><div><strong>Improve the process</strong><span>Root cause analysis, SOP refinement, bottleneck removal, and structured follow-up.</span></div></div>
-<div class="value-item"><span class="value-icon">04</span><div><strong>Sustain better results</strong><span>Baseline measurement, review routines, and continuous improvement cycles.</span></div></div>
-</aside>
-</div>
-</div>
-</section>
-<section class="section-soft" id="teams">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Operational coverage</div>
-<h2 data-i="h_teams">11 core teams. One unified operational vision.</h2>
-<p class="section-intro">A proposed team-monitoring and improvement framework for clearer ownership, measurable KPIs, stronger coordination, and better day-to-day operational control. KPIs shown are recommended indicators based on typical responsibilities, not verified measurements from any employer.</p>
-</div>
-<div class="team-toolbar reveal">
-<div class="team-count"><strong id="teamCount">11 teams</strong> · Search by team or operational focus</div>
-<label class="search-box"><span aria-hidden="true" class="search-symbol">⌕</span><input aria-label="Search operational teams" id="teamSearch" placeholder="Search teams..." type="search"/></label>
-</div>
-<div class="team-grid" id="teamGrid">
-<article class="team-card reveal" data-search="sort operation sorting accuracy throughput missort dispatch">
-<div class="team-top"><span class="team-icon">SO</span><span class="team-number">TEAM 01</span></div><h3>Sort Operation</h3><p>Monitor parcel sorting, destination accuracy, throughput, and dispatch readiness.</p><div class="team-meta"><span class="mini-tag">Sorting accuracy</span><span class="mini-tag">Throughput</span><span class="mini-tag">Missort rate</span></div><details><summary>KPIs, bottleneck &amp; outcome</summary><p>Track parcels sorted per hour, pending parcels, missort rate, and dispatch readiness. Standardize sorting procedures and review recurring errors to improve speed and accuracy.</p><dl class="team-kpis"><dt>Recommended KPIs</dt><dd>Parcels sorted/hour · Sorting accuracy · Missort rate · Pending parcels · Dispatch readiness</dd><dt>Common bottleneck</dt><dd>Missorts and peak-hour pile-ups</dd><dt>Expected outcome</dt><dd>More accurate, faster, predictable dispatch</dd></dl></details>
-</article>
-<article class="team-card reveal" data-search="central inbound operation receiving scan processing">
-<div class="team-top"><span class="team-icon">CI</span><span class="team-number">TEAM 02</span></div><h3>Central Inbound Operation</h3><p>Strengthen receiving, scanning, verification, and inbound processing control.</p><div class="team-meta"><span class="mini-tag">Inbound TAT</span><span class="mini-tag">Scan compliance</span><span class="mini-tag">Pending volume</span></div><details><summary>KPIs, bottleneck &amp; outcome</summary><p>Review inbound processing time, receiving accuracy, scan compliance, and pending volume. Improve handovers and clarify exception ownership.</p><dl class="team-kpis"><dt>Recommended KPIs</dt><dd>Inbound processing time · Scan compliance · Receiving accuracy · Pending inbound</dd><dt>Common bottleneck</dt><dd>Scan gaps and receiving discrepancies</dd><dt>Expected outcome</dt><dd>Faster inbound and better scan visibility</dd></dl></details>
-</article>
-<article class="team-card reveal" data-search="central investigation reconciliation discrepancy tracing">
-<div class="team-top"><span class="team-icon">IR</span><span class="team-number">TEAM 03</span></div><h3>Central Investigation &amp; Reconciliation</h3><p>Improve discrepancy investigation, parcel tracing, and reconciliation accuracy.</p><div class="team-meta"><span class="mini-tag">Case aging</span><span class="mini-tag">Closure rate</span><span class="mini-tag">Accuracy</span></div><details><summary>KPIs, bottleneck &amp; outcome</summary><p>Track open cases, case age, closure rate, average resolution time, and reconciliation accuracy. Use root-cause categories to reduce repeat discrepancies.</p><dl class="team-kpis"><dt>Recommended KPIs</dt><dd>Investigation backlog · Reconciliation accuracy · Case closure rate · Aging cases</dd><dt>Common bottleneck</dt><dd>Aging cases and unclear ownership</dd><dt>Expected outcome</dt><dd>Faster investigations, better traceability</dd></dl></details>
-</article>
-<article class="team-card reveal" data-search="data entry operation records accuracy data quality">
-<div class="team-top"><span class="team-icon">DE</span><span class="team-number">TEAM 04</span></div><h3>Data Entry Operation</h3><p>Maintain accurate shipment records, system updates, and operational documentation.</p><div class="team-meta"><span class="mini-tag">Data accuracy</span><span class="mini-tag">First-pass rate</span><span class="mini-tag">Corrections</span></div><details><summary>KPIs, bottleneck &amp; outcome</summary><p>Monitor records processed, correction rate, pending entries, and first-pass accuracy. Use validation rules and clear work instructions to reduce avoidable errors.</p><dl class="team-kpis"><dt>Recommended KPIs</dt><dd>Entry accuracy · Records/hour · Correction rate · First-pass accuracy</dd><dt>Common bottleneck</dt><dd>Manual keying errors</dd><dt>Expected outcome</dt><dd>Better data quality and visibility</dd></dl></details>
-</article>
-<article class="team-card reveal" data-search="issue resolution exceptions root cause escalation">
-<div class="team-top"><span class="team-icon">IR</span><span class="team-number">TEAM 05</span></div><h3>Issue Resolution</h3><p>Resolve operational exceptions through clear ownership, escalation, and root-cause analysis.</p><div class="team-meta"><span class="mini-tag">Resolution time</span><span class="mini-tag">SLA</span><span class="mini-tag">Reopened cases</span></div><details><summary>KPIs, bottleneck &amp; outcome</summary><p>Track open issues, SLA compliance, average resolution time, reopened cases, and recurring causes. Establish escalation paths and corrective-action reviews.</p><dl class="team-kpis"><dt>Recommended KPIs</dt><dd>Resolution time · Open issues · SLA compliance · Reopened cases · Recurring issues</dd><dt>Common bottleneck</dt><dd>Escalation delays and repeat issues</dd><dt>Expected outcome</dt><dd>Faster closure and fewer recurring issues</dd></dl></details>
-</article>
-<article class="team-card reveal" data-search="reprocessing resolution recovery repeat work">
-<div class="team-top"><span class="team-icon">RR</span><span class="team-number">TEAM 06</span></div><h3>Reprocessing &amp; Resolution</h3><p>Control exception recovery, workflow correction, and reintegration into normal processing.</p><div class="team-meta"><span class="mini-tag">Recovery rate</span><span class="mini-tag">Rework</span><span class="mini-tag">Turnaround</span></div><details><summary>KPIs, bottleneck &amp; outcome</summary><p>Measure reprocessing turnaround time, successful recovery, repeat processing, and pending volume. Identify why parcels need repeat work and prevent recurring causes.</p><dl class="team-kpis"><dt>Recommended KPIs</dt><dd>Reprocessing turnaround · Recovery rate · Repeat-processing rate · Pending reprocessing</dd><dt>Common bottleneck</dt><dd>Repeat work and error recurrence</dd><dt>Expected outcome</dt><dd>Less rework and waste</dd></dl></details>
-</article>
-<article class="team-card reveal" data-search="central return reverse logistics return parcels">
-<div class="team-top"><span class="team-icon">CR</span><span class="team-number">TEAM 07</span></div><h3>Central Return</h3><p>Improve return parcel processing, status visibility, and reverse-logistics handovers.</p><div class="team-meta"><span class="mini-tag">Return TAT</span><span class="mini-tag">Return backlog</span><span class="mini-tag">Scan compliance</span></div><details><summary>KPIs, bottleneck &amp; outcome</summary><p>Review return processing time, pending returns, status accuracy, and scan compliance. Standardize return handovers and monitor aging shipments.</p><dl class="team-kpis"><dt>Recommended KPIs</dt><dd>Return processing time · Return backlog · Return scan compliance · Pending returns</dd><dt>Common bottleneck</dt><dd>Delayed returns and status gaps</dd><dt>Expected outcome</dt><dd>Efficient reverse logistics</dd></dl></details>
-</article>
-<article class="team-card reveal" data-search="return parcel validation parcel verification condition">
-<div class="team-top"><span class="team-icon">RV</span><span class="team-number">TEAM 08</span></div><h3>Return Parcel Validation</h3><p>Verify return parcel identity, status, condition, and supporting records.</p><div class="team-meta"><span class="mini-tag">Validation accuracy</span><span class="mini-tag">Pending checks</span><span class="mini-tag">Exceptions</span></div><details><summary>KPIs, bottleneck &amp; outcome</summary><p>Track validation accuracy, validation turnaround time, exception rate, and documentation completeness. Use consistent validation checkpoints and exception escalation.</p><dl class="team-kpis"><dt>Recommended KPIs</dt><dd>Validation accuracy · Turnaround time · Exception rate · Documentation completeness</dd><dt>Common bottleneck</dt><dd>Incomplete records and exceptions</dd><dt>Expected outcome</dt><dd>Stronger return accountability</dd></dl></details>
-</article>
-<article class="team-card reveal" data-search="central pickup collection rider coordination on time">
-<div class="team-top"><span class="team-icon">CP</span><span class="team-number">TEAM 09</span></div><h3>Central Pickup</h3><p>Coordinate pickup execution, collection status, and timely operational handovers.</p><div class="team-meta"><span class="mini-tag">On-time pickup</span><span class="mini-tag">Failed pickups</span><span class="mini-tag">Pending</span></div><details><summary>KPIs, bottleneck &amp; outcome</summary><p>Monitor pickup completion, on-time pickup rate, failed pickups, pending jobs, and scan compliance. Improve coordination and exception follow-up.</p><dl class="team-kpis"><dt>Recommended KPIs</dt><dd>Pickup completion · On-time pickup · Failed pickups · Pickup scan compliance</dd><dt>Common bottleneck</dt><dd>Failed pickups and handover delays</dd><dt>Expected outcome</dt><dd>Reliable pickups and fewer delays</dd></dl></details>
-</article>
-<article class="team-card reveal" data-search="inventory management stock reconciliation discrepancy">
-<div class="team-top"><span class="team-icon">IM</span><span class="team-number">TEAM 10</span></div><h3>Inventory Management</h3><p>Strengthen parcel visibility, inventory reconciliation, and discrepancy control.</p><div class="team-meta"><span class="mini-tag">Inventory accuracy</span><span class="mini-tag">Discrepancies</span><span class="mini-tag">Aging</span></div><details><summary>KPIs, bottleneck &amp; outcome</summary><p>Track inventory accuracy, reconciliation completion, unlocated parcels, discrepancy rate, and aging. Align physical checks with system records and investigate variances.</p><dl class="team-kpis"><dt>Recommended KPIs</dt><dd>Inventory accuracy · Reconciliation completion · Discrepancy rate · Unlocated parcels · Aging</dd><dt>Common bottleneck</dt><dd>Missing-parcel discrepancies</dd><dt>Expected outcome</dt><dd>Better control and visibility</dd></dl></details>
-</article>
-<article class="team-card reveal" data-search="sub sort secondary sorting destination transfer">
-<div class="team-top"><span class="team-icon">SS</span><span class="team-number">TEAM 11</span></div><h3>Sub Sort</h3><p>Improve secondary sorting, destination segregation, and transfer readiness.</p><div class="team-meta"><span class="mini-tag">Sub-sort accuracy</span><span class="mini-tag">Transfer readiness</span><span class="mini-tag">Missort rate</span></div><details><summary>KPIs, bottleneck &amp; outcome</summary><p>Measure sub-sort accuracy, throughput, transfer readiness, pending transfers, and missort rate. Standardize destination logic and handover checks.</p><dl class="team-kpis"><dt>Recommended KPIs</dt><dd>Sub-sort accuracy · Throughput · Transfer readiness · Missort rate · Pending transfers</dd><dt>Common bottleneck</dt><dd>Segregation errors at handover</dd><dt>Expected outcome</dt><dd>Smoother downstream processing</dd></dl></details>
-</article>
-</div>
-<p style="font-size:.76rem;color:#78869a;margin-top:18px">These are proposed team descriptions and KPIs based on typical operational responsibilities. Confirm them against your actual internal workflows before publication.</p>
-</div>
-</section>
-<section class="section-dark" id="monitoring">
-<div class="container" style="position:relative">
-<div class="section-head reveal">
-<div class="section-kicker" style="color:#9bb8dc">Performance visibility</div>
-<h2 data-i="h_mon">Turn daily operations into clear, actionable insight.</h2>
-<p class="section-intro">A centralized monitoring concept to help leaders understand throughput, workload, service levels, exceptions, and improvement priorities across teams.</p>
-</div>
-<div class="dashboard-shell reveal">
-<div class="dash-top"><h3>Operations Performance Overview</h3><span class="demo-badge">ILLUSTRATIVE DEMO</span></div>
-<div class="dash-kpis">
-<div class="dash-kpi"><span>Teams in framework</span><strong>11</strong><small>Core operational teams</small></div>
-<div class="dash-kpi"><span>Review cadence</span><strong>Daily</strong><small>Suggested routine</small></div>
-<div class="dash-kpi"><span>Performance focus</span><strong>5 areas</strong><small>Quality · Speed · SLA · Backlog · Accuracy</small></div>
-<div class="dash-kpi"><span>Improvement cycle</span><strong>30/60/90</strong><small>Proposed roadmap</small></div>
-</div>
-<div class="dash-lower">
-<div class="chart-card">
-<h4>Illustrative team review coverage</h4>
-<div aria-label="Illustrative bars showing review coverage across six sample categories, not actual company data" class="bars" role="img">
-<div class="bar-col"><div class="bar" style="height:82%"></div><span>Sort</span></div>
-<div class="bar-col"><div class="bar" style="height:68%"></div><span>Inbound</span></div>
-<div class="bar-col"><div class="bar" style="height:74%"></div><span>Returns</span></div>
-<div class="bar-col"><div class="bar" style="height:56%"></div><span>Issues</span></div>
-<div class="bar-col"><div class="bar" style="height:88%"></div><span>Data</span></div>
-<div class="bar-col"><div class="bar" style="height:63%"></div><span>Stock</span></div>
-</div>
-</div>
-<div class="chart-card">
-<h4>Suggested monitoring dimensions</h4>
-<div class="progress-row"><div class="progress-label"><span>Productivity</span><span>Track</span></div><div class="progress-track"><div class="progress-fill" style="width:88%"></div></div></div>
-<div class="progress-row"><div class="progress-label"><span>Quality &amp; accuracy</span><span>Track</span></div><div class="progress-track"><div class="progress-fill" style="width:92%"></div></div></div>
-<div class="progress-row"><div class="progress-label"><span>SLA &amp; turnaround</span><span>Track</span></div><div class="progress-track"><div class="progress-fill" style="width:78%"></div></div></div>
-<div class="progress-row"><div class="progress-label"><span>Backlog &amp; exceptions</span><span>Track</span></div><div class="progress-track"><div class="progress-fill" style="width:84%"></div></div></div>
-</div>
-</div>
-</div>
-<p class="dashboard-note">Concept UI only. Decorative bars are not measured performance values. Connect authorized operational data before using this as a live dashboard.</p>
-</div>
-</section>
-<section id="metrics">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Metrics library</div>
-<h2 data-i="h_metrics">The metrics that expose operational gaps.</h2>
-<p class="section-intro">Productivity, accuracy, speed, cost, workforce, and forecasting metrics with standard formulas, plus what each one reveals when it moves in the wrong direction.</p>
-</div>
-<div aria-label="Filter metrics by category" class="metric-filters reveal" id="metricFilters" role="group">
-<button aria-pressed="true" class="chip" data-filter="all" type="button">All metrics</button>
-<button aria-pressed="false" class="chip" data-filter="productivity" type="button">Productivity</button>
-<button aria-pressed="false" class="chip" data-filter="quality" type="button">Quality &amp; Accuracy</button>
-<button aria-pressed="false" class="chip" data-filter="speed" type="button">Speed &amp; SLA</button>
-<button aria-pressed="false" class="chip" data-filter="cost" type="button">Cost Analysis</button>
-<button aria-pressed="false" class="chip" data-filter="workforce" type="button">Workforce &amp; Turnover</button>
-<button aria-pressed="false" class="chip" data-filter="forecast" type="button">Forecasting</button>
-</div>
-<p aria-live="polite" class="metric-count" id="metricCount">31 metrics</p>
-<div class="metric-grid" id="metricGrid">
-<!-- PRODUCTIVITY -->
-<article class="metric-card" data-cat="productivity"><span class="metric-cat">Productivity</span><h3>Parcels per labor hour</h3><code class="formula">Parcels processed ÷ Total labor hours</code><p><b>Reveals:</b> shifts or teams with low throughput, and staffing that does not match workload.</p></article>
-<article class="metric-card" data-cat="productivity"><span class="metric-cat">Productivity</span><h3>Output per head per shift</h3><code class="formula">Parcels processed ÷ (Headcount × Shifts)</code><p><b>Reveals:</b> performance spread between people and teams, and where coaching is needed.</p></article>
-<article class="metric-card" data-cat="productivity"><span class="metric-cat">Productivity</span><h3>Capacity utilization</h3><code class="formula">(Actual volume ÷ Rated capacity) × 100</code><p><b>Reveals:</b> idle capacity, overload, and bottleneck stations in the flow.</p></article>
-<article class="metric-card" data-cat="productivity"><span class="metric-cat">Productivity</span><h3>Overtime ratio</h3><code class="formula">(Overtime hours ÷ Regular hours) × 100</code><p><b>Reveals:</b> chronic under-staffing, weak rostering, and hidden labor cost.</p></article>
-<article class="metric-card" data-cat="productivity"><span class="metric-cat">Productivity</span><h3>Backlog per labor hour</h3><code class="formula">Pending parcels ÷ Available labor hours</code><p><b>Reveals:</b> how many hours of work are queued up and whether the team can clear it.</p></article>
-<!-- QUALITY -->
-<article class="metric-card" data-cat="quality"><span class="metric-cat">Quality &amp; Accuracy</span><h3>Sorting accuracy</h3><code class="formula">(Correctly sorted ÷ Total sorted) × 100</code><p><b>Reveals:</b> how reliable sorting is by shift, lane, or operator.</p></article>
-<article class="metric-card" data-cat="quality"><span class="metric-cat">Quality &amp; Accuracy</span><h3>Missort / error rate</h3><code class="formula">(Missorted parcels ÷ Total parcels) × 100</code><p><b>Reveals:</b> unclear destination logic, SOP gaps, training gaps, or layout problems.</p></article>
-<article class="metric-card" data-cat="quality"><span class="metric-cat">Quality &amp; Accuracy</span><h3>First-pass data accuracy</h3><code class="formula">(Records with no correction ÷ Total records) × 100</code><p><b>Reveals:</b> data-entry quality and where validation rules are missing.</p></article>
-<article class="metric-card" data-cat="quality"><span class="metric-cat">Quality &amp; Accuracy</span><h3>Inventory accuracy</h3><code class="formula">(Matched parcels ÷ Audited parcels) × 100</code><p><b>Reveals:</b> gaps between physical stock and system records, and weak scan discipline.</p></article>
-<article class="metric-card" data-cat="quality"><span class="metric-cat">Quality &amp; Accuracy</span><h3>Rework rate</h3><code class="formula">(Reprocessed parcels ÷ Total parcels) × 100</code><p><b>Reveals:</b> how much capacity is lost to repeating work, and which causes repeat most.</p></article>
-<article class="metric-card" data-cat="quality"><span class="metric-cat">Quality &amp; Accuracy</span><h3>DPMO (Six Sigma)</h3><code class="formula">(Defects ÷ (Units × Opportunities)) × 1,000,000</code><p><b>Reveals:</b> true process capability, comparable across teams of different size.</p></article>
-<!-- SPEED -->
-<article class="metric-card" data-cat="speed"><span class="metric-cat">Speed &amp; SLA</span><h3>SLA compliance</h3><code class="formula">(On-time parcels ÷ Total parcels) × 100</code><p><b>Reveals:</b> which stage of the flow is causing late parcels.</p></article>
-<article class="metric-card" data-cat="speed"><span class="metric-cat">Speed &amp; SLA</span><h3>Turnaround time (TAT)</h3><code class="formula">Average (Completion time − Start time)</code><p><b>Reveals:</b> slow handovers, queueing, and stage-wise delays.</p></article>
-<article class="metric-card" data-cat="speed"><span class="metric-cat">Speed &amp; SLA</span><h3>Backlog aging</h3><code class="formula">Pending parcels grouped by age: &gt;24h, &gt;48h, &gt;72h</code><p><b>Reveals:</b> stuck parcels and exceptions with no clear owner.</p></article>
-<article class="metric-card" data-cat="speed"><span class="metric-cat">Speed &amp; SLA</span><h3>Parcel dwell time</h3><code class="formula">Average hours a parcel stays in the hub</code><p><b>Reveals:</b> slow dispatch, poor load planning, and storage congestion.</p></article>
-<article class="metric-card" data-cat="speed"><span class="metric-cat">Speed &amp; SLA</span><h3>Case resolution time</h3><code class="formula">Average (Case closed − Case opened)</code><p><b>Reveals:</b> investigation and escalation bottlenecks, and repeat root causes.</p></article>
-<!-- COST -->
-<article class="metric-card" data-cat="cost"><span class="metric-cat">Cost Analysis</span><h3>Cost per parcel</h3><code class="formula">Total operating cost ÷ Parcels processed</code><p><b>Reveals:</b> overall efficiency, and the effect of volume swings on unit cost.</p></article>
-<article class="metric-card" data-cat="cost"><span class="metric-cat">Cost Analysis</span><h3>Labor cost per parcel</h3><code class="formula">Total labor cost ÷ Parcels processed</code><p><b>Reveals:</b> whether manpower is over- or under-sized for the volume handled.</p></article>
-<article class="metric-card" data-cat="cost"><span class="metric-cat">Cost Analysis</span><h3>Cost of poor quality (COPQ)</h3><code class="formula">Rework cost + Loss/damage + Claims + Re-delivery cost</code><p><b>Reveals:</b> the true price of errors, which helps prioritize quality projects.</p></article>
-<article class="metric-card" data-cat="cost"><span class="metric-cat">Cost Analysis</span><h3>Overtime cost share</h3><code class="formula">(Overtime cost ÷ Total labor cost) × 100</code><p><b>Reveals:</b> how much spend comes from avoidable overtime.</p></article>
-<article class="metric-card" data-cat="cost"><span class="metric-cat">Cost Analysis</span><h3>Budget variance</h3><code class="formula">Actual cost − Budgeted cost</code><p><b>Reveals:</b> cost lines drifting from plan, so action can start early.</p></article>
-<!-- WORKFORCE -->
-<article class="metric-card" data-cat="workforce"><span class="metric-cat">Workforce &amp; Turnover</span><h3>Employee turnover rate</h3><code class="formula">(Separations ÷ Average headcount) × 100</code><p><b>Reveals:</b> retention problems by team, shift, or supervisor, and the cost of replacing people.</p></article>
-<article class="metric-card" data-cat="workforce"><span class="metric-cat">Workforce &amp; Turnover</span><h3>Early attrition (first 90 days)</h3><code class="formula">(Leavers within 90 days ÷ New hires) × 100</code><p><b>Reveals:</b> weak hiring fit or onboarding gaps.</p></article>
-<article class="metric-card" data-cat="workforce"><span class="metric-cat">Workforce &amp; Turnover</span><h3>Absenteeism rate</h3><code class="formula">(Absent days ÷ Scheduled work days) × 100</code><p><b>Reveals:</b> engagement issues, shift fatigue, and unplanned capacity loss.</p></article>
-<article class="metric-card" data-cat="workforce"><span class="metric-cat">Workforce &amp; Turnover</span><h3>Span of control</h3><code class="formula">Staff count ÷ Number of supervisors</code><p><b>Reveals:</b> supervision overload or under-use, which affects coaching and quality.</p></article>
-<article class="metric-card" data-cat="workforce"><span class="metric-cat">Workforce &amp; Turnover</span><h3>Time to proficiency</h3><code class="formula">Average days from joining to target productivity</code><p><b>Reveals:</b> training effectiveness and the real cost of high turnover.</p></article>
-<!-- FORECAST -->
-<article class="metric-card" data-cat="forecast"><span class="metric-cat">Forecasting</span><h3>Forecast accuracy</h3><code class="formula">100 − MAPE, where MAPE = Avg(|Actual − Forecast| ÷ Actual) × 100</code><p><b>Reveals:</b> how reliable volume planning is, and which days or clients cause misses.</p></article>
-<article class="metric-card" data-cat="forecast"><span class="metric-cat">Forecasting</span><h3>Forecast bias</h3><code class="formula">((Forecast − Actual) ÷ Actual) × 100</code><p><b>Reveals:</b> whether planning consistently over- or under-estimates volume.</p></article>
-<article class="metric-card" data-cat="forecast"><span class="metric-cat">Forecasting</span><h3>Required headcount</h3><code class="formula">Forecast parcels ÷ (Parcels per labor hour × Productive hours per shift) × (1 + Absence buffer)</code><p><b>Reveals:</b> manpower needed per shift before volume arrives.</p></article>
-<article class="metric-card" data-cat="forecast"><span class="metric-cat">Forecasting</span><h3>Peak-load index</h3><code class="formula">Peak-day volume ÷ Average-day volume</code><p><b>Reveals:</b> how much surge capacity or flexible manpower the operation needs.</p></article>
-<article class="metric-card" data-cat="forecast"><span class="metric-cat">Forecasting</span><h3>Capacity gap</h3><code class="formula">Forecast volume − Rated capacity</code><p><b>Reveals:</b> expected shortfall or surplus, so decisions can be made ahead of time.</p></article>
-</div>
-<div aria-label="Gap analysis method" class="method-strip reveal">
-<div class="method-step"><small>STEP 1</small><b>Measure</b><span>Use one clear formula per metric and one data source.</span></div>
-<div class="method-step"><small>STEP 2</small><b>Baseline</b><span>Record at least 2–4 weeks of normal performance.</span></div>
-<div class="method-step"><small>STEP 3</small><b>Find the variance</b><span>Compare against target, by team, shift, and day.</span></div>
-<div class="method-step"><small>STEP 4</small><b>Root cause</b><span>Pareto, 5-Why, and fishbone to separate symptoms from causes.</span></div>
-<div class="method-step"><small>STEP 5</small><b>Act &amp; recheck</b><span>Fix, retrain, or redesign, then confirm the metric moved.</span></div>
-</div>
-<div class="gap-wrap reveal">
-<h3>Reading metrics together to find the gap</h3>
-<p>A single number rarely explains the problem. These combinations point to the most likely gap and a sensible first action.</p>
-<div class="gap-scroll">
-<table class="gap-table">
-<thead><tr><th>Signal pattern</th><th>Likely gap</th><th>First action</th></tr></thead>
-<tbody>
-<tr><td>Low parcels per labor hour + high overtime ratio</td><td>Rostering mismatch or a bottleneck at one station</td><td>Time-and-motion check; rebalance shifts and stations</td></tr>
-<tr><td>High missort rate + low training completion</td><td>Skill or SOP knowledge gap</td><td>Targeted retraining; checklist at the sorting point</td></tr>
-<tr><td>High turnover + rising rework</td><td>Loss of experience and weak onboarding</td><td>Structured onboarding, buddy system, exit-reason analysis</td></tr>
-<tr><td>High cost per parcel + low capacity utilization</td><td>Excess fixed capacity or idle hours</td><td>Rebalance volume; adjust headcount and shift pattern</td></tr>
-<tr><td>Large forecast error + backlog spikes</td><td>Planning gap</td><td>Improve forecasting method; keep a flexible manpower pool</td></tr>
-<tr><td>SLA dip + growing backlog aging</td><td>Handover or escalation failure</td><td>Clear ownership, aging alerts, daily review meeting</td></tr>
-<tr><td>Low inventory accuracy + many unlocated parcels</td><td>Scan discipline gap</td><td>Scan-compliance audits and regular cycle counts</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-<p style="font-size:.76rem;color:#78869a;margin-top:16px">Formulas are standard operational definitions. Targets and thresholds should be set from your own verified baseline data.</p>
-</div>
-</section>
-<section class="section-soft" id="calculator">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Try it</div>
-<h2 data-i="h_calc">Metrics calculator.</h2>
-<p class="section-intro">Enter your own period data and see the key metrics calculated instantly. Everything runs in your browser; nothing is stored or sent anywhere.</p>
-</div>
-<div class="calc-grid reveal">
-<div class="calc-panel">
-<h3>Period inputs</h3>
-<p class="calc-sub">Pre-filled values are sample numbers only. Replace them with real data.</p>
-<div class="calc-fields">
-<div class="field"><label for="c_parcels">Parcels processed</label><input id="c_parcels" inputmode="decimal" min="0" step="any" type="number" value="10000"/></div>
-<div class="field"><label for="c_hours">Total labor hours</label><input id="c_hours" inputmode="decimal" min="0" step="any" type="number" value="1250"/></div>
-<div class="field"><label for="c_cost">Total operating cost</label><input id="c_cost" inputmode="decimal" min="0" step="any" type="number" value="150000"/></div>
-<div class="field"><label for="c_labor">Total labor cost</label><input id="c_labor" inputmode="decimal" min="0" step="any" type="number" value="95000"/></div>
-<div class="field"><label for="c_errors">Error / missort parcels</label><input id="c_errors" inputmode="decimal" min="0" step="any" type="number" value="120"/></div>
-<div class="field"><label for="c_ontime">On-time parcels</label><input id="c_ontime" inputmode="decimal" min="0" step="any" type="number" value="9500"/></div>
-<div class="field"><label for="c_headcount">Average headcount</label><input id="c_headcount" inputmode="decimal" min="0" step="any" type="number" value="60"/></div>
-<div class="field"><label for="c_sep">Separations (leavers)</label><input id="c_sep" inputmode="decimal" min="0" step="any" type="number" value="4"/></div>
-<div class="field"><label for="c_absent">Absent days</label><input id="c_absent" inputmode="decimal" min="0" step="any" type="number" value="45"/></div>
-<div class="field"><label for="c_sched">Scheduled work days</label><input id="c_sched" inputmode="decimal" min="0" step="any" type="number" value="1560"/></div>
-<div class="field"><label for="c_ot">Overtime hours</label><input id="c_ot" inputmode="decimal" min="0" step="any" type="number" value="150"/></div>
-<div class="field"><label for="c_forecast">Forecast parcels</label><input id="c_forecast" inputmode="decimal" min="0" step="any" type="number" value="10800"/></div>
-</div>
-<div class="calc-actions"><button class="btn btn-secondary" id="calcClear" type="button">Clear all</button><button class="btn btn-secondary" id="calcSample" type="button">Reset sample</button></div>
-</div>
-<div aria-live="polite" class="calc-results" id="calcResults">
-<div class="result"><span>Parcels per labor hour</span><strong id="r_pph">—</strong><small>Productivity</small></div>
-<div class="result"><span>Cost per parcel</span><strong id="r_cpp">—</strong><small>Cost analysis</small></div>
-<div class="result"><span>Labor cost per parcel</span><strong id="r_lcpp">—</strong><small>Cost analysis</small></div>
-<div class="result"><span>Accuracy</span><strong id="r_acc">—</strong><small>Quality</small></div>
-<div class="result"><span>Error rate</span><strong id="r_err">—</strong><small>Quality</small></div>
-<div class="result"><span>SLA compliance</span><strong id="r_sla">—</strong><small>Speed</small></div>
-<div class="result"><span>Employee turnover</span><strong id="r_turn">—</strong><small>Workforce</small></div>
-<div class="result"><span>Absenteeism</span><strong id="r_abs">—</strong><small>Workforce</small></div>
-<div class="result"><span>Overtime ratio</span><strong id="r_ot">—</strong><small>Productivity</small></div>
-<div class="result"><span>Forecast accuracy</span><strong id="r_fc">—</strong><small>Forecasting (single period)</small></div>
-<p class="calc-note">Turnover is for the period you enter (for example one month). Annualize by multiplying by 12 if the period is monthly. Forecast accuracy here is calculated for a single period against actual parcels processed. Overtime ratio assumes total labor hours include overtime hours.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="improvement">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">People · Process · Performance</div>
-<h2 data-i="h_appr">Build capability. Remove friction. Sustain improvement.</h2>
-<p class="section-intro">A repeatable approach to develop teams and improve operations without relying on guesswork or unsupported claims.</p>
-</div>
-<div class="framework-grid">
-<article class="framework-card reveal"><span class="framework-index">01</span><h3>Assess the operation</h3><p>Map workflows, clarify responsibilities, establish KPI definitions, and understand the baseline.</p></article>
-<article class="framework-card reveal"><span class="framework-index">02</span><h3>Identify root causes</h3><p>Use exception data, process observation, and team feedback to find bottlenecks and recurring errors.</p></article>
-<article class="framework-card reveal"><span class="framework-index">03</span><h3>Build team capability</h3><p>Strengthen role clarity, SOP knowledge, training, coaching, and cross-team collaboration.</p></article>
-<article class="framework-card reveal"><span class="framework-index">04</span><h3>Standardize the process</h3><p>Improve handovers, checklists, escalation paths, data quality, and operational consistency.</p></article>
-<article class="framework-card reveal"><span class="framework-index">05</span><h3>Monitor the right KPIs</h3><p>Review productivity, accuracy, turnaround time, backlog, and service-level performance on a defined cadence.</p></article>
-<article class="framework-card reveal"><span class="framework-index">06</span><h3>Review and sustain</h3><p>Compare results with a verified baseline, document learning, and standardize changes that work.</p></article>
-</div>
-</div>
-</section>
-<section class="section-soft" id="roadmap">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Proposed roadmap</div>
-<h2 data-i="h_road">A practical 30/60/90-day improvement plan.</h2>
-<p class="section-intro">A structured starting point for aligning teams, improving visibility, and measuring operational progress. This is a proposed framework, not a claim of completed work.</p>
-</div>
-<div class="roadmap">
-<article class="roadmap-card reveal"><span class="roadmap-period">Days 01–30</span><h3>Assess &amp; establish baselines</h3><ul><li>Map team workflows and handovers.</li><li>Define KPI formulas and owners.</li><li>Identify bottlenecks and data gaps.</li><li>Set reporting cadence.</li></ul></article>
-<article class="roadmap-card reveal"><span class="roadmap-period">Days 31–60</span><h3>Implement &amp; improve</h3><ul><li>Prioritize high-impact issues.</li><li>Refine SOPs and checklists.</li><li>Coach teams on key gaps.</li><li>Review early trends consistently.</li></ul></article>
-<article class="roadmap-card reveal"><span class="roadmap-period">Days 61–90</span><h3>Evaluate &amp; standardize</h3><ul><li>Compare outcomes with baseline.</li><li>Document proven improvements.</li><li>Adjust targets using evidence.</li><li>Embed continuous review routines.</li></ul></article>
-</div>
-</div>
-</section>
-<section id="experience">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Career journey</div>
-<h2 data-i="h_exp">Experience built across high-volume operations and technical problem-solving.</h2>
-<p class="section-intro">A concise view of my professional progression, operational responsibilities, and relevant experience.</p>
-</div>
-<div class="timeline">
-<article class="timeline-item reveal"><div class="timeline-date">Jan 2026 – Present</div><div class="timeline-content"><h3>Carrybee Express Ltd.</h3><div class="role">Assistant Manager · Operations</div><ul><li>Lead 190+ staff through team leads across 11 operational functions: Sort, Central Inbound, Central Pickup, Central Return, Return Parcel Validation, Investigation &amp; Reconciliation, Issue Resolution, Reprocessing &amp; Resolution, Data Entry, Inventory Management and Sub-Sort. Manage 50,000+ parcels daily with end-to-end operational control, SLA/SOP compliance and corporate performance targets.</li><li>Oversee Sub-Sort at five regional locations: Bhanga, Sirajganj, Cumilla, Bhairab and Chattogram.</li><li>Reduced turnaround time (TAT) by 40% with semi-automation: put-to-number (PTN) process, 2-click gate-pass printing, automated return validation with auto task assignment, AI-assisted data entry and timely branch entry so merchants are notified on time.</li><li>Reduced sorting and handling errors by 98% (CCTV-verified basket process, floor taping, name plates with reflective stickers, handling guidelines for liquid and fragile items, and protective boxes for TVs) and operating cost by 15% (manpower optimisation, Order Management System app).</li><li>Trained 7 executives and senior associates.</li><li>Direct investigation, reconciliation, issue resolution, reprocessing, and parcel validation.</li><li>Focus on operational control, performance, service quality, and SOP compliance.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Nov 2024 – Dec 2025</div><div class="timeline-content"><h3>Carrybee Express Ltd.</h3><div class="role">Senior Executive</div><ul><li>Supported operations planning, analysis, and execution.</li><li>Identified bottlenecks and implemented data-driven solutions.</li><li>Coordinated projects, resource sourcing, hiring, and cross-functional priorities.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Jun 2023 – Oct 2024</div><div class="timeline-content"><h3>Pathao Ltd. · Courier Operations</h3><div class="role">Senior Operations Associate</div><ul><li>Supervised 180+ employees and zonal hub operations processing 220,000+ parcels daily, at 97%+ SLA and SOP compliance.</li><li>Led hub operations, rider coordination, sorting, returns, and inventory control.</li><li>Supported SLA/SOP compliance, error reduction, and turnaround-time improvement.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Sep 2019 – May 2023</div><div class="timeline-content"><h3>Pathao Ltd. · Courier Operations</h3><div class="role">Operations Associate</div><ul><li>Managed inbound operations, dispatch coordination, and operational documentation.</li><li>Supported accurate shipment processing and coordination with sorting and inventory teams.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Mar 2019 – Aug 2019</div><div class="timeline-content"><h3>Self-employed</h3><div class="role">E-commerce Business</div><ul><li>Ran an independent e-commerce business.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Oct 2018 – Feb 2019</div><div class="timeline-content"><h3>International Human Rights (ASHOK) Foundation</h3><div class="role">Office Assistant</div><ul><li>Prepared legal documents and press correspondence, managed the Facebook portal and produced design and photo edits in Adobe Photoshop.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Aug 2017 – Apr 2018</div><div class="timeline-content"><h3>Concrete Technology</h3><div class="role">Service Engineer</div><ul><li>Worked on machinery installation, maintenance, PLC systems, diagnostics, and technical compliance support.</li></ul></div></article>
-</div>
-</div>
-</section>
-<section class="section-soft" id="projects">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Projects</div>
-<h2 data-i="h_proj">Operations &amp; improvement projects.</h2>
-<p class="section-intro">Web tools I designed and built to make operations measurable: complaint handling, hiring, productivity tracking, and workforce planning.</p>
-</div>
-<!--
-          HOW TO ADD A PROJECT LATER
-          Scroll to the script at the bottom of this file and find:  const PROJECTS = [ ... ];
-          Add one object per project. Example:
-          {
-            title: "Hub Sorting Accuracy Improvement",
-            category: "Process Improvement",
-            summary: "Short description of the problem, what you did, and the result.",
-            role: "Project lead",
-            tools: ["Excel", "Lean Six Sigma"],
-            impact: "Add a verified result here, for example: Missort rate reduced after SOP changes",
-            link: "https://example.com/case-study",   // optional
-            image: "assets/project-1.jpg"              // optional
-          }
-          While the list is empty, placeholder cards are shown.
-        -->
-<div class="proj-overview reveal" aria-label="Project overview">
-<div><strong>4</strong><span>Internal web tools</span></div>
-<div><strong>End to end</strong><span>Designed and built by me</span></div>
-<div><strong>Apps Script + Sheets</strong><span>Shared platform, Chart.js dashboards</span></div>
-<div><strong>Role-based access</strong><span>Sign-in, permissions and dashboards</span></div>
-</div>
-<div class="project-grid" id="projectGrid"><article class="project-card"><button type="button" class="project-thumb has-preview" data-preview="0" aria-label="Open live preview of Career &amp; Service Portal"><span class="pv-icon" aria-hidden="true">📋</span><span class="pv-chip"><i>▶</i> Live preview</span></button><div class="project-body"><span class="metric-cat">Web App · Internal Portal</span><h3>Career &amp; Service Portal</h3><p>A bilingual (বাংলা / English), mobile-friendly employee portal that brings complaint handling, job circulars, notices, a contact directory and the organogram into one place.</p><ul><li>Complaint form with photo/file evidence, an anonymous option, and tracking by complaint ID</li><li>Team-wise email alerts with a one-click status-update link for responsible managers</li><li>Role-based dashboard with team access control, filters, and status updates with remarks</li><li>Job circulars with online application and CV upload (PDF, DOC, DOCX up to 10 MB)</li><li>Notice board, contact directory (call / WhatsApp), and organogram views</li></ul><p><b>Role:</b> Designed and built</p><p><b>Impact:</b> Centralizes complaint handling, recruitment, and internal information in one portal.</p><div class="project-meta"><span class="mini-tag">Google Apps Script</span><span class="mini-tag">Google Sheets</span><span class="mini-tag">JavaScript</span><span class="mini-tag">Tailwind CSS</span><span class="mini-tag">Gmail (MailApp)</span></div><div class="project-actions"><button type="button" class="btn btn-primary" data-preview="0">▶ View live preview</button></div></div></article><article class="project-card"><button type="button" class="project-thumb has-preview" data-preview="1" aria-label="Open live preview of Central Sort Productivity Monitor"><span class="pv-icon" aria-hidden="true">📦</span><span class="pv-chip"><i>▶</i> Live preview</span></button><div class="project-body"><span class="metric-cat">Productivity Analytics · Web App</span><h3>Central Sort Productivity Monitor</h3><p>A mobile-first observation tool for sort-hub productivity. Observers time an employee&#x27;s work with a stopwatch, record units completed, and the system calculates units per hour against process targets.</p><ul><li>Start / pause / resume stopwatch that counts active time only</li><li>Process-wise targets (per minute and per hour) with achievement % calculation</li><li>Email OTP sign-in with role-based access for observers, managers, and admins</li><li>Dashboard: daily trend, department and process reports, top 10, and leaderboard</li><li>Period-vs-period and employee-vs-employee comparison</li><li>Auto-generated insights: top performers, coaching needs, outliers, consistency, and trends</li></ul><p><b>Role:</b> Designed and built</p><p><b>Impact:</b> Turns on-floor time observations into comparable productivity data (units per hour and % of target).</p><div class="project-meta"><span class="mini-tag">Google Apps Script</span><span class="mini-tag">Google Sheets</span><span class="mini-tag">Chart.js</span><span class="mini-tag">JavaScript</span><span class="mini-tag">CSS</span></div><div class="project-actions"><button type="button" class="btn btn-primary" data-preview="1">▶ View live preview</button></div></div></article><article class="project-card"><div class="project-thumb">👥</div><div class="project-body"><span class="metric-cat">Workforce Analytics · Web App</span><h3>Central Sort Ops Resource Tracker</h3><p>A secure workforce-planning workspace for central sort operations that brings headcount, capacity, turnover, attendance, order volume and cost data into one dashboard.</p><ul><li>Workforce dashboard with department and designation summaries</li><li>Team-wise capacity overview for PTN, BULK and process lines</li><li>Turnover analytics with monthly joining, resignation and team-wise breakdown</li><li>Scenario-based order and manpower forecast for planning</li><li>Resource list with search and a complete employee profile view</li><li>Attendance sync from a live spreadsheet, plus order, cost and salary analytics</li><li>Email verification-code sign-in with role-based permissions and activity logging</li></ul><p><b>Role:</b> Designed and built</p><p><b>Impact:</b> Gives operations leaders one place to plan manpower against capacity, turnover and order cost.</p><div class="project-meta"><span class="mini-tag">Google Apps Script</span><span class="mini-tag">Google Sheets</span><span class="mini-tag">Chart.js</span><span class="mini-tag">JavaScript</span><span class="mini-tag">CSS</span></div></div></article><article class="project-card"><button type="button" class="project-thumb has-preview" data-preview="3" aria-label="Open live preview of Attendance &amp; Leave Management System"><span class="pv-icon" aria-hidden="true">🕒</span><span class="pv-chip"><i>▶</i> Live preview</span></button><div class="project-body"><span class="metric-cat">Workforce Operations · Web App</span><h3>Attendance &amp; Leave Management System</h3><p>A mobile-first attendance system for operations staff with GPS-aware check-in and check-out, leave requests with multi-level approval, absence follow-up, salary calculation and management controls.</p><ul><li>Employee check-in / check-out with location capture and a minimum-hours rule</li><li>Overnight-shift logic: a shift counts on its start date, with department-wise reporting time and automatic check-out</li><li>Leave requests with optional attachment (saved to Google Drive) and Floor Lead → Line Lead → Manager approval</li><li>Absence follow-up: remarks with call outcome and emergency flag</li><li>Management view: department attendance, active sessions, force check-out with reason and audit history</li><li>Salary calculation by attendance period (21st to 20th) using day-off and holiday data</li><li>Employee ID sign-in for staff; email verification code for management, with persistent sessions</li></ul><p><b>Role:</b> Designed and built</p><p><b>Impact:</b> Gives staff and managers one place for attendance, leave and salary visibility, with an audit trail for manual corrections.</p><div class="project-meta"><span class="mini-tag">Google Apps Script</span><span class="mini-tag">Google Sheets</span><span class="mini-tag">Google Drive</span><span class="mini-tag">JavaScript</span><span class="mini-tag">CSS</span></div><div class="project-actions"><button type="button" class="btn btn-primary" data-preview="3">▶ View live preview</button></div></div></article></div>
-<p class="proj-note">Live previews show the interface only; sign-in and data are not connected. The working systems run on Google Apps Script and require authorized sign-in.</p>
-</div>
-</section>
-<section id="skills">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Skills &amp; expertise</div>
-<h2 data-i="h_skills">A multidisciplinary toolkit for operational performance.</h2>
-<p class="section-intro">Combining supply chain operations, team leadership, analysis, technical knowledge, and visual communication.</p>
-</div>
-<div class="skills-grid">
-<article class="skill-card reveal"><h3>Operations &amp; Supply Chain</h3><p>SLA/SOP compliance, Lean methodologies, inventory management, process optimization, team leadership, reporting, data analysis, and problem-solving.</p></article>
-<article class="skill-card reveal"><h3>Software &amp; Productivity</h3><p>Microsoft Word, Excel, PowerPoint, barcode and QR code generation, and AI tools for reporting, analysis, and documentation.</p></article>
-<article class="skill-card reveal"><h3>Technical &amp; Engineering</h3><p>PLC systems, industrial automation, technical diagnostics, and AutoCAD 2D/3D electrical design.</p></article>
-<article class="skill-card reveal"><h3>Design &amp; Communication</h3><p>Figma UI/UX, Canva, Adobe Photoshop, Adobe Illustrator, documentation, and visual communication.</p></article>
-</div>
-</div>
-</section>
-<section class="section-soft" id="education">
-<div class="container">
-<div class="section-head reveal"><div class="section-kicker">Education &amp; development</div><h2 data-i="h_edu">Education that supports operational and technical thinking.</h2></div>
-<div class="education-grid">
-<article class="education-card reveal"><h3>PGD in Logistics &amp; Supply Chain Management</h3><p>Academy of Business Professionals (ABP), Dhaka · Passed 2023<br>Modules: Operations Management, Demand &amp; Inventory Planning, Procurement, Supply Networks, Green Logistics</p></article>
-<article class="education-card reveal"><h3>BSc in Electrical &amp; Electronic Engineering</h3><p>European University of Bangladesh, Dhaka · CGPA 3.33/4.00 · 2021</p></article>
-<article class="education-card reveal"><h3>Diploma in Engineering — Electrical Technology</h3><p>Government Barisal Polytechnic Institute, Barisal · Passed 2016 · GPA 3.40/4.00</p></article>
-<article class="education-card reveal"><h3>SSC, Business Studies</h3><p>Hazi Abdus Sobhan Sikder Model Academy, Barisal · Passed 2012 · GPA 3.94/5.00</p></article>
-<article class="education-card reveal" style="grid-column:1/-1"><h3>Certifications &amp; Training</h3><p>Industrial Automation and House Wiring — New Engineering Training Centre, Dhaka (2016)<br>PLC &amp; HMI Programming (Analog/Digital I/O, Temperature Module) — New Engineering Training Centre, Dhaka (2016)</p></article>
-</div>
-</div>
-</section>
-<section id="profile-details" class="section-soft">
-<div class="container">
-<div class="section-head reveal"><div class="section-kicker">Profile details</div><h2>Additional qualifications &amp; professional details.</h2><p class="section-intro">Further information from my CV, including languages and earlier technical experience.</p></div>
-<div class="education-grid">
-<article class="education-card reveal"><h3>Languages</h3><p><strong>Bengali:</strong> Native<br><strong>English:</strong> Professional Working Proficiency (Reading &amp; Writing: Upper-Intermediate; Listening &amp; Speaking: Intermediate)<br><strong>Hindi:</strong> Professional Communicative Proficiency (spoken and understood)</p></article>
-<article class="education-card reveal"><h3>Earlier Technical Experience</h3><p><strong>Service Engineer – Concrete Technology</strong> · Dhaka · Aug 2017 – Apr 2018<br>Installed and maintained batching plant machinery, diagnosed faults, and developed, deployed and integrated PLC systems and networks to automate plant processes.</p></article>
-<article class="education-card reveal"><h3>Additional Experience</h3><p><strong>Office Assistant</strong> · International Human Rights (ASHOK) Foundation · Oct 2018 – Feb 2019<br>Prepared legal documents and press correspondence, organized news content for print, managed the Facebook portal, and edited designs/photos in Adobe Photoshop.<br><strong>Self-employed E-commerce Business</strong> · Mar 2019 – Aug 2019</p></article>
-<article class="education-card reveal"><h3>Professional Contact</h3><p>Dhaka-1212, Bangladesh<br>Phone: <a href="tel:+8801772222668">+880 1772-222668</a><br>Email: <a href="mailto:shahin4l.bd@gmail.com">shahin4l.bd@gmail.com</a><br>LinkedIn: <a href="https://www.linkedin.com/in/shahin4l" target="_blank" rel="noopener noreferrer">linkedin.com/in/shahin4l</a></p></article>
-<article class="education-card reveal" style="grid-column:1/-1"><h3>Professional References</h3><p><strong>Md. Ali Azam Al Azad</strong> · Deputy Secretary, Director (PMF), PPP Authority, Prime Minister’s Office<br>Phone: <a href="tel:+8801760095475">+880 1760-095475</a> · Email: <a href="mailto:azad@ppp.gov.bd">azad@ppp.gov.bd</a><br><br><strong>Mehedi Hasan Asif</strong> · Manager, Carrybee Express Ltd. (a concern of US-Bangla Airlines)<br>Phone: <a href="tel:+8801710914934">+880 1710-914934</a> · Email: <a href="mailto:mehedi.asif@carrybee.com">mehedi.asif@carrybee.com</a></p></article>
-</div>
-</div>
-</section>
-<section id="growth">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Growth</div>
-<h2 id="growth-title" data-i="h_growth">Next: expanding into strategic supply chain.</h2>
-<p class="section-intro">Areas I am developing beyond day-to-day operations. These are learning and career goals, not claimed experience.</p>
-</div>
-<div class="growth-grid"><article class="growth-card reveal"><h3>Procurement &amp; Sourcing</h3><p>Strategic sourcing, RFQ and tender processes, supplier selection.</p><small>Builds on: Resource sourcing at Carrybee</small></article><article class="growth-card reveal"><h3>Negotiation &amp; Contracting</h3><p>Commercial terms, vendor agreements and SLA-linked contracts.</p><small>Builds on: SLA/SOP compliance work</small></article><article class="growth-card reveal"><h3>Vendor &amp; Supplier Management</h3><p>Supplier onboarding, performance scorecards and reviews.</p><small>Builds on: Rider and partner coordination</small></article><article class="growth-card reveal"><h3>Demand Planning &amp; Forecasting</h3><p>Volume forecasting, capacity and manpower planning.</p><small>Builds on: Operational planning and reporting</small></article><article class="growth-card reveal"><h3>Warehouse &amp; Inventory Optimization</h3><p>Stock accuracy, layout, slotting and replenishment logic.</p><small>Builds on: Inventory control and parcel validation</small></article><article class="growth-card reveal"><h3>Transportation &amp; Network Design</h3><p>Route, line-haul and hub network optimization.</p><small>Builds on: Hub and last-mile operations</small></article><article class="growth-card reveal"><h3>Cost &amp; Total-Cost Analysis</h3><p>Cost-per-parcel, make-vs-buy and savings opportunities.</p><small>Builds on: Lean methodologies process optimization</small></article><article class="growth-card reveal"><h3>Supply Chain Risk &amp; Resilience</h3><p>Risk mapping, contingency planning and continuity.</p><small>Builds on: Root cause analysis</small></article><article class="growth-card reveal"><h3>Supply Chain Analytics</h3><p>KPI analytics, dashboards and data-led decisions.</p><small>Builds on: Reporting and data analysis</small></article></div>
-</div>
-</section>
-<section class="section-soft" id="faq">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">FAQ</div>
-<h2 id="faq-title" data-i="h_faq">Common questions.</h2>
-</div>
-<div class="faq-list">
-<details class="faq-item reveal"><summary>What does Md Shahin Alam do?</summary><p>He is an Assistant Manager at Carrybee Express Ltd., leading courier and supply chain operations teams.</p></details>
-<details class="faq-item reveal"><summary>Are the numbers on this site real?</summary><p>Experience figures (8+ years, 190+ and 180+ staff, 50,000+ and 220,000+ parcels per day, 40% TAT, 98% error and 15% cost reductions) come from the owner's resume and are not live operational metrics. Team KPIs, targets, and roadmaps are proposed frameworks, not measured results. Real figures are published only when measured, approved for sharing, and labelled with their source.</p></details>
-<details class="faq-item reveal"><summary>How can I get in touch?</summary><p>Use the email, LinkedIn, or WhatsApp buttons in the Contact section.</p></details>
-</div>
-</div>
-</section>
-<section id="services" aria-labelledby="services-title">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Professional services</div>
-<h2 id="services-title" data-i="h_services">Services &amp; professional collaboration.</h2>
-<p class="section-intro">A space to explore professional expertise, connect around operations and process improvement, and discuss suitable service requirements.</p>
-</div>
-<div class="marketplace-grid">
-<article class="marketplace-card reveal">
-<h3>Professional Services</h3>
-<p>Supply chain and logistics operations, KPI and dashboard design, process improvement, workforce planning, reporting automation, and internal workflow tools.</p>
-<div class="marketplace-tags"><span class="marketplace-tag">Operations &amp; logistics</span><span class="marketplace-tag">Process improvement</span><span class="marketplace-tag">Reporting &amp; automation</span></div>
-<div class="marketplace-status"><strong>Availability:</strong> Get in touch to discuss scope, requirements, and fit.</div>
-</article>
-</div>
-</div>
-</section>
-<section id="contact">
-<div class="container">
-<div class="contact-panel reveal">
-<div><div class="section-kicker" style="color:#9bbaff">Professional connection</div><h2 data-i="h_contact">Let's connect to improve operational performance.</h2><p>For professional opportunities, supply chain and operations discussions, or collaboration around team performance and process improvement, feel free to connect.</p></div>
-<div class="contact-links"><a href="mailto:shahin4l.bd@gmail.com">✉ Email Md Shahin Alam</a><a href="https://www.linkedin.com/in/shahin4l" rel="noopener noreferrer" target="_blank">↗ Connect on LinkedIn</a><a href="https://wa.me/8801772222668" rel="noopener noreferrer" target="_blank">💬 WhatsApp Message</a></div>
-</div>
-<div class="social-block reveal">
-<div class="social-title">Find me online · @shahin4l</div>
-<p class="social-sub">Follow or connect on any of these platforms. Some profiles may be under construction.</p>
-<div class="social-grid">
-<a class="social-link" href="https://www.linkedin.com/in/shahin4l" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-linkedin">in</span><span>LinkedIn<small>/in/shahin4l</small></span></a>
-<a class="social-link" href="https://www.facebook.com/shahin4l" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-facebook">f</span><span>Facebook<small>/shahin4l</small></span></a>
-<a class="social-link" href="https://www.instagram.com/shahin4l" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-instagram">ig</span><span>Instagram<small>@shahin4l</small></span></a>
-<a class="social-link" href="https://x.com/shahin4l" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-x">X</span><span>X (Twitter)<small>@shahin4l</small></span></a>
-<a class="social-link" href="https://github.com/shahin4l" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-github">GH</span><span>GitHub<small>/shahin4l</small></span></a>
-<a class="social-link" href="https://www.youtube.com/@shahin4l" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-youtube">YT</span><span>YouTube<small>@shahin4l</small></span></a>
-<a class="social-link" href="https://www.tiktok.com/@shahin4l" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-tiktok">TT</span><span>TikTok<small>@shahin4l</small></span></a>
-<a class="social-link" href="https://t.me/shahin4l" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-telegram">TG</span><span>Telegram<small>@shahin4l</small></span></a>
-<a class="social-link" href="https://wa.me/8801772222668" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-whatsapp">WA</span><span>WhatsApp<small>+880 1772-222668</small></span></a>
-<a class="social-link" href="https://www.threads.net/@shahin4l" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-threads">@</span><span>Threads<small>@shahin4l</small></span></a>
-<a class="social-link" href="https://www.behance.net/shahin4l" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-behance">Be</span><span>Behance<small>/shahin4l</small></span></a>
-<a class="social-link" href="https://medium.com/@shahin4l" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="social-ico s-medium">M</span><span>Medium<small>@shahin4l</small></span></a>
-</div>
-</div>
-</div>
-</section>
+<main id="top">
+  <section class="wrap hero">
+    <div>
+      <div class="eyebrow">A little creativity goes a long way</div>
+      <h1>Big ideas for little imaginations.</h1>
+      <p>Welcome to Shahin Creative Studio — a home for playful coloring books, printable activities and thoughtful digital designs made to inspire creativity.</p>
+      <div class="actions">
+        <a class="btn primary" href="#work">Explore my work</a>
+        <a class="btn secondary" href="mailto:shahin4l.bd@gmail.com">Get in touch</a>
+      </div>
+    </div>
+    <div class="art" aria-label="Original illustrated truck artwork">
+      <svg viewBox="0 0 440 300" width="88%" role="img" aria-label="Simple playful truck illustration">
+        <g stroke="#20231f" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M48 92h210v120H48z" fill="#fffefa"/>
+          <path d="M258 132h77l55 55v25H258z" fill="#f4a66a"/>
+          <path d="M294 143h34l39 43h-73z" fill="#d9edf0"/>
+          <path d="M48 92h210v22H48z" fill="#c9e36b"/>
+          <circle cx="112" cy="220" r="29" fill="#fffefa"/><circle cx="112" cy="220" r="11" fill="#20231f"/>
+          <circle cx="324" cy="220" r="29" fill="#fffefa"/><circle cx="324" cy="220" r="11" fill="#20231f"/>
+          <path d="M30 212h20m347 0h16" fill="none"/>
+        </g>
+        <text x="153" y="166" text-anchor="middle" font-size="25" font-weight="900" fill="#20231f">GO!</text>
+        <path d="M74 70l15-18 15 18m74-2l15-23 15 23" fill="none" stroke="#20231f" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <small>MADE TO SPARK JOY</small>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">The studio</div><h2>Creative work with purpose.</h2></div><p>Simple, engaging designs that make it easy for children and families to learn, play and create.</p></div>
+      <div class="about-grid">
+        <p>Shahin Creative Studio is an independent digital design brand focused on original creative products. I enjoy turning ideas into approachable artwork and useful printables, with special attention to clarity, usability and a joyful experience.</p>
+        <div class="values">
+          <div class="value"><b>Original ideas</b><span>Thoughtful concepts and artwork developed for each project.</span></div>
+          <div class="value"><b>Made for creativity</b><span>Products that invite kids and families to imagine and make.</span></div>
+          <div class="value"><b>Digital-first</b><span>Convenient printable resources for creative moments at home.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">Featured product</div><h2>My First Truck Coloring Book</h2></div><p>A fun printable coloring experience for young vehicle fans.</p></div>
+      <div class="product">
+        <div class="cover">
+          <div class="cover-inner">
+            <small>SHAHIN CREATIVE STUDIO</small>
+            <strong>MY FIRST<br>TRUCK<br>COLORING BOOK</strong>
+            <svg viewBox="0 0 220 100" width="100%" aria-hidden="true">
+              <g stroke="#20231f" stroke-width="5" stroke-linejoin="round"><path d="M14 26h112v53H14z" fill="#c9e36b"/><path d="M126 44h43l34 35h-77z" fill="#f4a66a"/><circle cx="54" cy="82" r="13" fill="#fffefa"/><circle cx="163" cy="82" r="13" fill="#fffefa"/></g>
+            </svg>
+            <small>PRINT • COLOR • ENJOY</small>
+          </div>
+        </div>
+        <div class="product-copy">
+          <div class="eyebrow">Printable PDF</div>
+          <h2>Little trucks. Big adventures.</h2>
+          <p>Introduce little artists to a world of trucks and imagination with this printable coloring book. Download the PDF and enjoy a creative activity at home or on the go.</p>
+          <ul class="features"><li>Printable digital PDF</li><li>Designed for fun, screen-free creativity</li><li>Instant access through the product page</li></ul>
+          <div class="actions"><a class="btn primary" href="https://shahin4l.gumroad.com/l/my-first-truck-coloring-book" target="_blank" rel="noopener">Get the coloring book</a></div>
+          <p class="note">The purchase button opens the product page on Gumroad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="previews">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">A closer look</div><h2>Inside the coloring book.</h2></div><p>Selected sample pages from the product. Preview images will appear here once added to this folder.</p></div>
+      <div class="previews">
+        <figure class="preview"><div class="placeholder">Preview page 01<br><small>Add preview-01.jpg</small></div><figcaption>Sample page 01</figcaption></figure>
+        <figure class="preview"><div class="placeholder">Preview page 02<br><small>Add preview-02.jpg</small></div><figcaption>Sample page 02</figcaption></figure>
+        <figure class="preview"><div class="placeholder">Preview page 03<br><small>Add preview-03.jpg</small></div><figcaption>Sample page 03</figcaption></figure>
+        <figure class="preview"><div class="placeholder">Preview page 04<br><small>Add preview-04.jpg</small></div><figcaption>Sample page 04</figcaption></figure>
+      </div>
+      <p class="note">Only sample pages should be displayed here. Keep the complete paid PDF on your Gumroad product page, not in this public portfolio folder.</p>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap contact">
+      <div><div class="eyebrow">Let's create</div><h2>Have a project in mind?</h2><p>For questions, collaborations or design enquiries, feel free to get in touch.</p></div>
+      <a class="btn" href="mailto:shahin4l.bd@gmail.com">Email Shahin Creative Studio</a>
+    </div>
+  </section>
 </main>
-<p class="lang-note" id="langNote" hidden>বাংলা অনুবাদ শুধু নেভিগেশন ও শিরোনামে সীমিত (খসড়া, পর্যালোচনা প্রয়োজন); বাকি বিষয়বস্তু ইংরেজিতে।</p>
-<footer class="footer">
-<div class="container footer-inner">
-<div><strong>Md Shahin Alam</strong><br/>Supply Chain &amp; Operations Professional</div>
-<div class="footer-links"><a href="#about">About</a><a href="#teams">11 Teams</a><a href="#metrics">Metrics</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
-<div>© <span id="year"></span> Md Shahin Alam<div class="footer-social"><a href="https://www.linkedin.com/in/shahin4l" rel="noopener noreferrer" target="_blank">LinkedIn</a><a href="https://www.facebook.com/shahin4l" rel="noopener noreferrer" target="_blank">Facebook</a><a href="https://www.instagram.com/shahin4l" rel="noopener noreferrer" target="_blank">Instagram</a><a href="https://x.com/shahin4l" rel="noopener noreferrer" target="_blank">X</a><a href="https://github.com/shahin4l" rel="noopener noreferrer" target="_blank">GitHub</a></div></div>
-</div>
-</footer>
-<div aria-hidden="true" aria-labelledby="pvTitle" aria-modal="true" class="pv-modal" id="pvModal" role="dialog">
-<div class="pv-dialog">
-<div class="pv-bar">
-<h3 id="pvTitle">Project preview<small id="pvSub">Interface preview</small></h3>
-<div class="pv-tools">
-<div aria-label="Preview size" class="pv-seg" role="group">
-<button aria-pressed="true" id="pvDesktop" type="button">Desktop</button>
-<button aria-pressed="false" id="pvMobile" type="button">Mobile</button>
-</div>
-<a class="pv-btn pv-newtab" href="#" id="pvNewTab" rel="noopener noreferrer" target="_blank">↗ <span>Open in new tab</span></a>
-<button aria-label="Close preview" class="pv-btn pv-close" id="pvClose" type="button">✕</button>
-</div>
-</div>
-<div class="pv-stage" id="pvStage"><iframe id="pvIframe" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" title="Project preview"></iframe></div>
-<div class="pv-note">Interface preview only. The live system runs on Google Apps Script and requires authorized sign-in, so data is not connected here.</div>
-</div>
-</div>
-<script>
-    document.body.classList.remove('no-js');
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    menuToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(open));
-    });
-    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }));
-
-    const teamSearch = document.getElementById('teamSearch');
-    const teamCards = [...document.querySelectorAll('.team-card')];
-    const teamCount = document.getElementById('teamCount');
-    teamSearch.addEventListener('input', () => {
-      const query = teamSearch.value.trim().toLowerCase();
-      let visible = 0;
-      teamCards.forEach(card => {
-        const matches = (card.dataset.search + ' ' + card.innerText).toLowerCase().includes(query);
-        card.hidden = !matches;
-        if (matches) visible++;
-      });
-      teamCount.textContent = `${visible} ${visible === 1 ? 'team' : 'teams'}`;
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const observer = ('IntersectionObserver' in window) ? new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08 }) : null;
-    document.querySelectorAll('.reveal').forEach(el => {
-      if (observer) observer.observe(el);
-      else el.classList.add('visible');
-    });
-  </script>
-<script>
-    /* ===== Metrics filter ===== */
-    (function () {
-      const filters = document.querySelectorAll('#metricFilters .chip');
-      const cards = [...document.querySelectorAll('#metricGrid .metric-card')];
-      const count = document.getElementById('metricCount');
-      function apply(cat) {
-        let n = 0;
-        cards.forEach(c => { const show = cat === 'all' || c.dataset.cat === cat; c.hidden = !show; if (show) n++; });
-        count.textContent = n + (n === 1 ? ' metric' : ' metrics');
-      }
-      filters.forEach(btn => btn.addEventListener('click', () => {
-        filters.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
-        apply(btn.dataset.filter);
-      }));
-      apply('all');
-    })();
-
-    /* ===== Metrics calculator ===== */
-    (function () {
-      const ids = ['parcels','hours','cost','labor','errors','ontime','headcount','sep','absent','sched','ot','forecast'];
-      const el = id => document.getElementById('c_' + id);
-      const samples = {}; ids.forEach(i => samples[i] = el(i).value);
-      const num = id => { const v = parseFloat(el(id).value); return Number.isFinite(v) ? v : NaN; };
-      const fmt = (v, d = 2) => Number.isFinite(v) ? v.toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: 0 }) : '—';
-      const pct = v => Number.isFinite(v) ? fmt(v, 1) + '%' : '—';
-      const div = (a, b) => (Number.isFinite(a) && Number.isFinite(b) && b > 0) ? a / b : NaN;
-      const set = (id, text) => { document.getElementById(id).textContent = text; };
-      function calc() {
-        const parcels = num('parcels'), hours = num('hours'), cost = num('cost'), labor = num('labor');
-        const errors = num('errors'), ontime = num('ontime'), head = num('headcount'), sep = num('sep');
-        const absent = num('absent'), sched = num('sched'), ot = num('ot'), fc = num('forecast');
-        set('r_pph', fmt(div(parcels, hours), 2));
-        set('r_cpp', fmt(div(cost, parcels), 2));
-        set('r_lcpp', fmt(div(labor, parcels), 2));
-        const errRate = div(errors, parcels) * 100;
-        set('r_err', pct(errRate));
-        set('r_acc', pct(Number.isFinite(errRate) ? 100 - errRate : NaN));
-        set('r_sla', pct(div(ontime, parcels) * 100));
-        set('r_turn', pct(div(sep, head) * 100));
-        set('r_abs', pct(div(absent, sched) * 100));
-        set('r_ot', pct(div(ot, hours - ot) * 100));
-        const fcErr = (Number.isFinite(fc) && Number.isFinite(parcels) && parcels > 0) ? Math.abs(parcels - fc) / parcels * 100 : NaN;
-        set('r_fc', pct(Number.isFinite(fcErr) ? Math.max(0, 100 - fcErr) : NaN));
-      }
-      ids.forEach(i => el(i).addEventListener('input', calc));
-      document.getElementById('calcClear').addEventListener('click', () => { ids.forEach(i => el(i).value = ''); calc(); });
-      document.getElementById('calcSample').addEventListener('click', () => { ids.forEach(i => el(i).value = samples[i]); calc(); });
-      calc();
-    })();
-
-    /* ===== Projects (edit this list to add your projects) =====
-      /* ===== Projects Array (GitHub ফাইল পাথ অনুযায়ী সঠিক লিংক) ===== */
-    const PROJECTS = [
-  {
-    "title": "Career & Service Portal",
-    "icon": "📋",
-    "category": "Web App · Internal Portal",
-    "summary": "A bilingual (বাংলা / English), mobile-friendly employee portal that brings complaint handling, job circulars, notices, a contact directory and the organogram into one place.",
-    "features": [
-      "Complaint form with photo/file evidence, an anonymous option, and tracking by complaint ID",
-      "Team-wise email alerts with a one-click status-update link for responsible managers",
-      "Role-based dashboard with team access control, filters, and status updates with remarks",
-      "Job circulars with online application and CV upload (PDF, DOC, DOCX up to 10 MB)",
-      "Notice board, contact directory (call / WhatsApp), and organogram views"
-    ],
-    "role": "Designed and built",
-    "tools": [
-      "Google Apps Script",
-      "Google Sheets",
-      "JavaScript",
-      "Tailwind CSS",
-      "Gmail (MailApp)"
-    ],
-    "impact": "Centralizes complaint handling, recruitment, and internal information in one portal.",
-    "preview": "project-1-career-portal.html"
-  },
-  {
-    "title": "Central Sort Productivity Monitor",
-    "icon": "📦",
-    "category": "Productivity Analytics · Web App",
-    "summary": "A mobile-first observation tool for sort-hub productivity. Observers time an employee's work with a stopwatch, record units completed, and the system calculates units per hour against process targets.",
-    "features": [
-      "Start / pause / resume stopwatch that counts active time only",
-      "Process-wise targets (per minute and per hour) with achievement % calculation",
-      "Email OTP sign-in with role-based access for observers, managers, and admins",
-      "Dashboard: daily trend, department and process reports, top 10, and leaderboard",
-      "Period-vs-period and employee-vs-employee comparison",
-      "Auto-generated insights: top performers, coaching needs, outliers, consistency, and trends"
-    ],
-    "role": "Designed and built",
-    "tools": [
-      "Google Apps Script",
-      "Google Sheets",
-      "Chart.js",
-      "JavaScript",
-      "CSS"
-    ],
-    "impact": "Turns on-floor time observations into comparable productivity data (units per hour and % of target).",
-    "preview": "project-2-productivity-monitor.html"
-  },
-  {
-    "title": "Central Sort Ops Resource Tracker",
-    "icon": "👥",
-    "category": "Workforce Analytics · Web App",
-    "summary": "A secure workforce-planning workspace for central sort operations that brings headcount, capacity, turnover, attendance, order volume and cost data into one dashboard.",
-    "features": [
-      "Workforce dashboard with department and designation summaries",
-      "Team-wise capacity overview for PTN, BULK and process lines",
-      "Turnover analytics with monthly joining, resignation and team-wise breakdown",
-      "Scenario-based order and manpower forecast for planning",
-      "Resource list with search and a complete employee profile view",
-      "Attendance sync from a live spreadsheet, plus order, cost and salary analytics",
-      "Email verification-code sign-in with role-based permissions and activity logging"
-    ],
-    "role": "Designed and built",
-    "tools": [
-      "Google Apps Script",
-      "Google Sheets",
-      "Chart.js",
-      "JavaScript",
-      "CSS"
-    ],
-    "impact": "Gives operations leaders one place to plan manpower against capacity, turnover and order cost.",
-    "preview": "project3-preview.html"
-  },
-  {
-    "title": "Attendance & Leave Management System",
-    "icon": "🕒",
-    "category": "Workforce Operations · Web App",
-    "summary": "A mobile-first attendance system for operations staff with GPS-aware check-in and check-out, leave requests with multi-level approval, absence follow-up, salary calculation and management controls.",
-    "features": [
-      "Employee check-in / check-out with location capture and a minimum-hours rule",
-      "Overnight-shift logic: a shift counts on its start date, with department-wise reporting time and automatic check-out",
-      "Leave requests with optional attachment (saved to Google Drive) and Floor Lead → Line Lead → Manager approval",
-      "Absence follow-up: remarks with call outcome and emergency flag",
-      "Management view: department attendance, active sessions, force check-out with reason and audit history",
-      "Salary calculation by attendance period (21st to 20th) using day-off and holiday data",
-      "Employee ID sign-in for staff; email verification code for management, with persistent sessions"
-    ],
-    "role": "Designed and built",
-    "tools": [
-      "Google Apps Script",
-      "Google Sheets",
-      "Google Drive",
-      "JavaScript",
-      "CSS"
-    ],
-    "impact": "Gives staff and managers one place for attendance, leave and salary visibility, with an audit trail for manual corrections.",
-    "preview": "project-4-attendance-system-previews.html"
-  }
-];
-    (function () {
-      const grid = document.getElementById('projectGrid');
-      const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-      const safeUrl = u => /^(https?:\/\/|assets\/|\.\/|\/|[\w.-]+\.html$)/i.test(u || '') ? esc(u) : '';
-      if (!PROJECTS.length) {
-        const slots = [
-          ['Project slot 01', 'Operations improvement project'],
-          ['Project slot 02', 'Process, analysis, or automation project'],
-          ['Project slot 03', 'Technical or engineering project']
-        ];
-        grid.innerHTML = slots.map(s => `
-          <article class="project-card is-placeholder">
-            <div class="project-thumb" aria-hidden="true">+</div>
-            <div class="project-body"><span class="metric-cat">Coming soon</span><h3>${s[0]}</h3><p>${s[1]} will appear here. Add details to the PROJECTS list in the page script.</p></div>
-          </article>`).join('');
-        return;
-      }
-      grid.innerHTML = PROJECTS.map((p, i) => {
-        const img = safeUrl(p.image);
-        const link = safeUrl(p.link);
-        const prev = safeUrl(p.preview);
-        const tools = (p.tools || []).map(t => `<span class="mini-tag">${esc(t)}</span>`).join('');
-        const thumb = prev
-          ? `<button type="button" class="project-thumb has-preview" data-preview="${i}" aria-label="Open live preview of ${esc(p.title)}"><span class="pv-icon" aria-hidden="true">${esc(p.icon || '')}</span><span class="pv-chip"><i>▶</i> Live preview</span></button>`
-          : `<div class="project-thumb">${img ? `<img src="${img}" alt="${esc(p.title)}" loading="lazy">` : esc(p.icon || (p.title || 'P').trim().charAt(0).toUpperCase())}</div>`;
-        return `
-          <article class="project-card">
-            ${thumb}
-            <div class="project-body">
-              <span class="metric-cat">${esc(p.category || 'Project')}</span>
-              <h3>${esc(p.title)}</h3>
-              <p>${esc(p.summary)}</p>
-              ${(p.features || []).length ? `<ul>${p.features.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
-              ${p.role ? `<p><b>Role:</b> ${esc(p.role)}</p>` : ''}
-              ${p.impact ? `<p><b>Impact:</b> ${esc(p.impact)}</p>` : ''}
-              ${tools ? `<div class="project-meta">${tools}</div>` : ''}
-              ${(prev || link) ? `<div class="project-actions">
-                ${prev ? `<button type="button" class="btn btn-primary" data-preview="${i}">▶ View live preview</button>` : ''}
-                ${link ? `<a class="btn btn-secondary" href="${link}" target="_blank" rel="noopener noreferrer">View project ↗</a>` : ''}
-              </div>` : ''}
-            </div>
-          </article>`;
-      }).join('');
-
-      /* scale the miniature live thumbnails to the card width */
-      const thumbs = [...grid.querySelectorAll('.project-thumb.has-preview')];
-      const fit = () => thumbs.forEach(t => {
-        const f = t.querySelector('.pv-frame'); if (!f) return;
-        const s = t.clientWidth / 1280;
-        if (s > 0) f.style.transform = 'scale(' + s + ')';
-      });
-      fit();
-      if ('ResizeObserver' in window) { const ro = new ResizeObserver(fit); thumbs.forEach(t => ro.observe(t)); }
-      else window.addEventListener('resize', fit);
-
-      /* ---- preview modal ---- */
-      const modal = document.getElementById('pvModal');
-      const frame = document.getElementById('pvIframe');
-      const stage = document.getElementById('pvStage');
-      const title = document.getElementById('pvTitle');
-      const newTab = document.getElementById('pvNewTab');
-      const bDesk = document.getElementById('pvDesktop');
-      const bMob = document.getElementById('pvMobile');
-      let lastFocus = null;
-      const setMode = m => {
-        stage.classList.toggle('mobile', m === 'mobile');
-        bDesk.setAttribute('aria-pressed', m !== 'mobile');
-        bMob.setAttribute('aria-pressed', m === 'mobile');
-      };
-      const open = i => {
-        const p = PROJECTS[i]; if (!p || !p.preview) return;
-        lastFocus = document.activeElement;
-        title.firstChild.nodeValue = p.title;
-        frame.title = p.title + ' preview';
-        frame.src = p.preview;
-        newTab.href = p.preview;
-        setMode('desktop');
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('pv-lock');
-        document.getElementById('pvClose').focus();
-      };
-      const close = () => {
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('pv-lock');
-        frame.src = 'about:blank';
-        if (lastFocus && lastFocus.focus) lastFocus.focus();
-      };
-      grid.addEventListener('click', e => {
-        const t = e.target.closest('[data-preview]');
-        if (t) open(+t.getAttribute('data-preview'));
-      });
-      document.getElementById('pvClose').addEventListener('click', close);
-      modal.addEventListener('click', e => { if (e.target === modal) close(); });
-      bDesk.addEventListener('click', () => setMode('desktop'));
-      bMob.addEventListener('click', () => setMode('mobile'));
-      document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
-    })();
-
-    /* ===== Header profile icon: reuse the hero portrait ===== */
-    (function () {
-      const hero = document.querySelector('.profile-photo');
-      const mark = document.getElementById('brandMark');
-      const img = document.getElementById('brandPhoto');
-      if (!hero || !mark || !img) return;
-      const apply = () => {
-        img.src = hero.currentSrc || hero.src;
-        const done = () => mark.classList.add('has-photo');
-        if (img.complete && img.naturalWidth) done(); else img.addEventListener('load', done, { once: true });
-        /* small round favicon from the same photo */
-        try {
-          const c = document.createElement('canvas'); c.width = c.height = 64;
-          const g = c.getContext('2d');
-          const run = () => {
-            const w = img.naturalWidth, h = img.naturalHeight, s = Math.min(w, h);
-            g.beginPath(); g.arc(32, 32, 32, 0, Math.PI * 2); g.clip();
-            g.drawImage(img, (w - s) / 2, Math.max(0, (h - s) * 0.14), s, s, 0, 0, 64, 64);
-            let l = document.querySelector('link[rel="icon"]');
-            if (!l) { l = document.createElement('link'); l.rel = 'icon'; document.head.appendChild(l); }
-            l.type = 'image/png'; l.href = c.toDataURL('image/png');
-          };
-          if (img.complete && img.naturalWidth) run(); else img.addEventListener('load', run, { once: true });
-        } catch (e) { /* favicon is optional */ }
-      };
-      apply();
-    })();
-  </script>
-<script>
-(function () {
-  var BN = {
-    n_about:"পরিচিতি", n_teams:"১১টি টিম", n_metrics:"মেট্রিক্স", n_projects:"প্রজেক্ট", n_exp:"অভিজ্ঞতা", n_skills:"দক্ষতা", n_services:"সেবা",
-    cta1:"১১টি কোর টিম দেখুন", cta2:"আমার অভিজ্ঞতা দেখুন", cta3:"রিজিউম ডাউনলোড করুন",
-    s1:"বছরের পেশাগত অভিজ্ঞতা", s2:"নেতৃত্বের আওতায় টিম সদস্য", s3:"দৈনিক পার্সেল হ্যান্ডলিং", s4:"দৈনিক পার্সেল প্রসেসিং",
-    h_about:"ইঞ্জিনিয়ারিং ভাবনা, অপারেশন নেতৃত্ব ও ধারাবাহিক উন্নয়ন।",
-    h_teams:"১১টি কোর টিম, একটি অভিন্ন অপারেশনাল লক্ষ্য।",
-    h_mon:"দৈনন্দিন অপারেশনকে স্পষ্ট ও কার্যকর তথ্যে রূপ দিন।",
-    h_metrics:"যে মেট্রিক্স অপারেশনের ঘাটতি ধরিয়ে দেয়।",
-    h_calc:"মেট্রিক্স ক্যালকুলেটর।",
-    h_appr:"সক্ষমতা গড়ুন, বাধা সরান, উন্নতি ধরে রাখুন।",
-    h_road:"৩০/৬০/৯০ দিনের ব্যবহারিক উন্নয়ন পরিকল্পনা।",
-    h_exp:"উচ্চ-ভলিউম অপারেশন ও প্রযুক্তিগত সমস্যা সমাধানে গড়ে ওঠা অভিজ্ঞতা।",
-    h_proj:"অপারেশন ও উন্নয়ন প্রজেক্ট।",
-    h_skills:"অপারেশনাল পারফরম্যান্সের জন্য বহুমুখী দক্ষতা।",
-    h_edu:"অপারেশনাল ও প্রযুক্তিগত চিন্তাকে সহায়তা করে এমন শিক্ষা।",
-    h_growth:"পরবর্তী লক্ষ্য: কৌশলগত সাপ্লাই চেইন।",
-    h_faq:"সাধারণ প্রশ্ন।",
-    h_services:"সেবা ও পেশাগত সহযোগিতা।",
-    h_contact:"আসুন অপারেশনাল পারফরম্যান্স উন্নয়নে যুক্ত হই।"
-  };
-  var els = [].slice.call(document.querySelectorAll('[data-i]'));
-  els.forEach(function (e) { e.setAttribute('data-en', e.innerHTML); });
-  var btns = [].slice.call(document.querySelectorAll('[data-lg]'));
-  var note = document.getElementById('langNote');
-  function setLang(l) {
-    document.documentElement.lang = l;
-    els.forEach(function (e) { e.innerHTML = (l === 'bn' && BN[e.getAttribute('data-i')]) || e.getAttribute('data-en'); });
-    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lg') === l)); });
-    if (note) note.hidden = l !== 'bn';
-    try { localStorage.setItem('lang', l); } catch (x) {}
-  }
-  btns.forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lg')); }); });
-  try { if (localStorage.getItem('lang') === 'bn') setLang('bn'); } catch (x) {}
-})();
-</script>
+<footer class="wrap"><span>© 2026 Shahin Creative Studio. All rights reserved.</span><span>Original digital designs made with care.</span></footer>
 </body>
 </html>
