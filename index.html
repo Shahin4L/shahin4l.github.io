@@ -1,6 +1,4 @@
 <!doctype html>
-<!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -404,7 +402,7 @@
       .pv-dialog { border-radius: 0; width: 100%; }
       .pv-seg, .pv-newtab span { display: none; }
     }
-  
+
     /* Services section */
     .marketplace-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; max-width: 820px; }
     .marketplace-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 3.5vw, 34px); box-shadow: var(--shadow); min-width: 0; }
@@ -450,6 +448,37 @@
     .project-thumb.has-preview { display: grid; place-items: center; aspect-ratio: 21 / 8; background: linear-gradient(145deg, #e8eef8, #f7f9fd 48%, #dce8fa); }
     .project-thumb.has-preview::after { background: none; }
     .project-thumb.has-preview .pv-chip { left: auto; right: 14px; bottom: 12px; }
+
+    /* ---------- Added v5: toolkit intro (metrics part at the end) ---------- */
+    .toolkit-intro { padding: 70px 0 64px; }
+    .toolkit-steps { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .toolkit-steps a { display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px 10px 10px; background: #fff; border: 1px solid #d7e0ef; border-radius: 999px; font-size: .84rem; font-weight: 750; color: var(--navy); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    .toolkit-steps a:hover { transform: translateY(-2px); border-color: var(--blue); box-shadow: 0 10px 24px #1b315712; }
+    .toolkit-steps b { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--blue); color: #fff; font-size: .7rem; }
+  </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    body,h1,h2,h3,.brand{font-family:"Plus Jakarta Sans",Inter,ui-sans-serif,system-ui,sans-serif}
+    .hero{background:radial-gradient(ellipse at 88% 8%,#cfe0f7 0,transparent 38%),radial-gradient(ellipse at 6% 92%,#d4efe9 0,transparent 33%),linear-gradient(180deg,#f6f9ff,#fff)}
+    .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#1f4e8c0d 1px,transparent 1px),linear-gradient(90deg,#1f4e8c0d 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(180deg,#000,transparent 70%)}
+    h1 .accent-text{background:linear-gradient(90deg,#1f4e8c,#2f7a80);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .stat-card{border-top:3px solid var(--teal)}
+    .res-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative}
+    .res-card{padding:26px 22px;border-radius:20px;background:linear-gradient(160deg,#ffffff14,#ffffff06);border:1px solid #ffffff22}
+    .res-num{display:flex;align-items:baseline;gap:4px;font-size:clamp(3rem,5.4vw,4.4rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff}
+    .res-num .cnt{font-size:inherit;color:inherit}
+    .res-num .unit{font-size:.4em;font-weight:700;color:#8fd3cf;letter-spacing:0}
+    .res-card b{display:block;margin:10px 0 6px;color:#8fd3cf}.res-card>span{color:#bdc9dd;font-size:.85rem}
+   @media(max-width:900px){.res-wrap{grid-template-columns:1fr}}
+    @media(max-width:520px){.res-wrap{grid-template-columns:1fr}}
+
+    /* Hero buttons: 3ta pasapasi */
+    .hero-grid{grid-template-columns:minmax(0,1.3fr) minmax(300px,.7fr)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+    .hero-actions .btn{flex:0 0 auto;padding:11px 15px;font-size:.86rem;white-space:nowrap}
+    @media(max-width:760px){.hero-grid{grid-template-columns:1fr}}
+    @media(max-width:430px){.hero-actions .btn{width:100%}}
   </style>
 <script type="application/ld+json">
   {
@@ -467,30 +496,6 @@
     ]
   }
   </script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet"/>
-  <style>
-    body,h1,h2,h3,.brand{font-family:"Plus Jakarta Sans",Inter,ui-sans-serif,system-ui,sans-serif}
-    .hero{background:radial-gradient(ellipse at 88% 8%,#cfe0f7 0,transparent 38%),radial-gradient(ellipse at 6% 92%,#d4efe9 0,transparent 33%),linear-gradient(180deg,#f6f9ff,#fff)}
-    .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#1f4e8c0d 1px,transparent 1px),linear-gradient(90deg,#1f4e8c0d 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(180deg,#000,transparent 70%)}
-    h1 .accent-text{background:linear-gradient(90deg,#1f4e8c,#2f7a80);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .stat-card{border-top:3px solid var(--teal)}
-    .res-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative}
-    .res-card{padding:26px 22px;border-radius:20px;background:linear-gradient(160deg,#ffffff14,#ffffff06);border:1px solid #ffffff22}
-    .res-num{display:flex;align-items:baseline;gap:4px;font-size:clamp(3rem,5.4vw,4.4rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff}
-    .res-num .cnt{font-size:inherit;color:inherit}
-    .res-num .unit{font-size:.4em;font-weight:700;color:#8fd3cf;letter-spacing:0}
-    .res-card b{display:block;margin:10px 0 6px;color:#8fd3cf}.res-card>span{color:#bdc9dd;font-size:.85rem}
-   @media(max-width:900px){.res-wrap{grid-template-columns:1fr}}
-    @media(max-width:520px){.res-wrap{grid-template-columns:1fr}}
-    
-    /* Hero buttons: 3ta pasapasi */
-    .hero-grid{grid-template-columns:minmax(0,1.3fr) minmax(300px,.7fr)}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
-    .hero-actions .btn{flex:0 0 auto;padding:11px 15px;font-size:.86rem;white-space:nowrap}
-    @media(max-width:760px){.hero-grid{grid-template-columns:1fr}}
-    @media(max-width:430px){.hero-actions .btn{width:100%}}
-  </style>
 </head>
 <body class="no-js">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -504,16 +509,19 @@
 <nav aria-label="Main navigation" class="nav-links" id="navLinks">
 <a href="#results">Results</a>
 <a href="#about" data-i="n_about">About</a>
-<a href="#teams" data-i="n_teams">11 Teams</a>
-<a href="#metrics" data-i="n_metrics">Metrics</a>
-<a href="#projects" data-i="n_projects">Projects</a>
 <a href="#experience" data-i="n_exp">Experience</a>
-<a href="#skills" data-i="n_skills">Expertise</a><a href="#services" data-i="n_services">Services</a>
+<a href="#teams" data-i="n_teams">11 Teams</a>
+<a href="#projects" data-i="n_projects">Projects</a>
+<a href="#skills" data-i="n_skills">Expertise</a>
+<a href="#services" data-i="n_services">Services</a>
+<a href="#toolkit" data-i="n_metrics">Metrics</a>
 <div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-lg="en" aria-pressed="true" lang="en">EN</button><button type="button" data-lg="bn" aria-pressed="false" lang="bn">বাংলা</button></div></nav>
 <a class="nav-cta" href="#contact">Let's Connect ↗</a>
 </div>
 </header>
 <main id="main">
+
+<!-- ============ 1. HERO ============ -->
 <section class="hero" id="home">
 <div class="container">
 <div class="hero-grid">
@@ -545,12 +553,16 @@
 <p style="font-size:.72rem;color:#78869a;margin:13px 2px 0">Experience figures are based on the supplied resume; they are not live operational metrics.</p>
 </div>
 </section>
+
+<!-- ============ 2. RESULTS ============ -->
 <section class="section-dark" id="results"><div class="container"><div class="section-head"><div class="section-kicker" style="color:#8fd3cf">Results at Carrybee Express</div><h2>Faster, more accurate, cheaper to run.</h2><p class="section-intro">Process redesign, semi-automation and tighter item control across 11 operational functions and 190+ staff.</p></div>
 <div class="res-wrap"><div class="res-card"><div class="res-num"><span class="cnt" data-to="40">40</span><span class="unit">%</span></div><b>Lower turnaround time</b><span>PTN process, 2-click gate pass, auto-assigned return validation</span></div>
 <div class="res-card"><div class="res-num"><span class="cnt" data-to="98">98</span><span class="unit">%</span></div><b>Fewer errors</b><span>CCTV-verified baskets, floor taping, name plates, handling guidelines</span></div>
 <div class="res-card"><div class="res-num"><span class="cnt" data-to="15">15</span><span class="unit">%</span></div><b>Lower operating cost</b><span>Manpower optimisation and an Order Management System app</span></div>
 </div></div></section>
 <script>(function(){var e=document.querySelectorAll('.cnt');if(!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var o=new IntersectionObserver(function(l){l.forEach(function(x){if(!x.isIntersecting)return;var n=x.target,t=+n.dataset.to,i=0;o.unobserve(n);var h=setInterval(function(){i+=Math.max(1,Math.ceil(t/24));if(i>=t){i=t;clearInterval(h)}n.textContent=i},35)})},{threshold:.5});e.forEach(function(n){o.observe(n)})})();</script>
+
+<!-- ============ 3. ABOUT ============ -->
 <section id="about">
 <div class="container">
 <div class="section-head reveal">
@@ -577,7 +589,29 @@
 </div>
 </div>
 </section>
-<section class="section-soft" id="teams">
+
+<!-- ============ 4. EXPERIENCE ============ -->
+<section class="section-soft" id="experience">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">Career journey</div>
+<h2 data-i="h_exp">Experience built across high-volume operations and technical problem-solving.</h2>
+<p class="section-intro">A concise view of my professional progression, operational responsibilities, and relevant experience.</p>
+</div>
+<div class="timeline">
+<article class="timeline-item reveal"><div class="timeline-date">Jan 2026 – Present</div><div class="timeline-content"><h3>Carrybee Express Ltd.</h3><div class="role">Assistant Manager · Operations</div><ul><li>Lead 190+ staff through team leads across 11 operational functions: Sort, Central Inbound, Central Pickup, Central Return, Return Parcel Validation, Investigation &amp; Reconciliation, Issue Resolution, Reprocessing &amp; Resolution, Data Entry, Inventory Management and Sub-Sort. Manage 50,000+ parcels daily with end-to-end operational control, SLA/SOP compliance and corporate performance targets.</li><li>Oversee Sub-Sort at five regional locations: Bhanga, Sirajganj, Cumilla, Bhairab and Chattogram.</li><li>Reduced turnaround time (TAT) by 40% with semi-automation: put-to-number (PTN) process, 2-click gate-pass printing, automated return validation with auto task assignment, AI-assisted data entry and timely branch entry so merchants are notified on time.</li><li>Reduced sorting and handling errors by 98% (CCTV-verified basket process, floor taping, name plates with reflective stickers, handling guidelines for liquid and fragile items, and protective boxes for TVs) and operating cost by 15% (manpower optimisation, Order Management System app).</li><li>Trained 7 executives and senior associates.</li><li>Direct investigation, reconciliation, issue resolution, reprocessing, and parcel validation.</li><li>Focus on operational control, performance, service quality, and SOP compliance.</li></ul></div></article>
+<article class="timeline-item reveal"><div class="timeline-date">Nov 2024 – Dec 2025</div><div class="timeline-content"><h3>Carrybee Express Ltd.</h3><div class="role">Senior Executive</div><ul><li>Supported operations planning, analysis, and execution.</li><li>Identified bottlenecks and implemented data-driven solutions.</li><li>Coordinated projects, resource sourcing, hiring, and cross-functional priorities.</li></ul></div></article>
+<article class="timeline-item reveal"><div class="timeline-date">Jun 2023 – Oct 2024</div><div class="timeline-content"><h3>Pathao Ltd. · Courier Operations</h3><div class="role">Senior Operations Associate</div><ul><li>Supervised 180+ employees and zonal hub operations processing 220,000+ parcels daily, at 97%+ SLA and SOP compliance.</li><li>Led hub operations, rider coordination, sorting, returns, and inventory control.</li><li>Supported SLA/SOP compliance, error reduction, and turnaround-time improvement.</li></ul></div></article>
+<article class="timeline-item reveal"><div class="timeline-date">Sep 2019 – May 2023</div><div class="timeline-content"><h3>Pathao Ltd. · Courier Operations</h3><div class="role">Operations Associate</div><ul><li>Managed inbound operations, dispatch coordination, and operational documentation.</li><li>Supported accurate shipment processing and coordination with sorting and inventory teams.</li></ul></div></article>
+<article class="timeline-item reveal"><div class="timeline-date">Mar 2019 – Aug 2019</div><div class="timeline-content"><h3>Self-employed</h3><div class="role">E-commerce Business</div><ul><li>Ran an independent e-commerce business.</li></ul></div></article>
+<article class="timeline-item reveal"><div class="timeline-date">Oct 2018 – Feb 2019</div><div class="timeline-content"><h3>International Human Rights (ASHOK) Foundation</h3><div class="role">Office Assistant</div><ul><li>Prepared legal documents and press correspondence, managed the Facebook portal and produced design and photo edits in Adobe Photoshop.</li></ul></div></article>
+<article class="timeline-item reveal"><div class="timeline-date">Aug 2017 – Apr 2018</div><div class="timeline-content"><h3>Concrete Technology</h3><div class="role">Service Engineer</div><ul><li>Worked on machinery installation, maintenance, PLC systems, diagnostics, and technical compliance support.</li></ul></div></article>
+</div>
+</div>
+</section>
+
+<!-- ============ 5. 11 TEAMS ============ -->
+<section id="teams">
 <div class="container">
 <div class="section-head reveal">
 <div class="section-kicker">Operational coverage</div>
@@ -626,10 +660,163 @@
 <p style="font-size:.76rem;color:#78869a;margin-top:18px">These are proposed team descriptions and KPIs based on typical operational responsibilities. Confirm them against your actual internal workflows before publication.</p>
 </div>
 </section>
+
+<!-- ============ 6. PROJECTS ============ -->
+<section class="section-soft" id="projects">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">Projects</div>
+<h2 data-i="h_proj">Operations &amp; improvement projects.</h2>
+<p class="section-intro">Web tools I designed and built to make operations measurable: complaint handling, hiring, productivity tracking, and workforce planning.</p>
+</div>
+<!-- To add a project later: edit the PROJECTS list in the script at the bottom of this file. -->
+<div class="proj-overview reveal" aria-label="Project overview">
+<div><strong>4</strong><span>Internal web tools</span></div>
+<div><strong>End to end</strong><span>Designed and built by me</span></div>
+<div><strong>Apps Script + Sheets</strong><span>Shared platform, Chart.js dashboards</span></div>
+<div><strong>Role-based access</strong><span>Sign-in, permissions and dashboards</span></div>
+</div>
+<div class="project-grid" id="projectGrid"></div>
+<p class="proj-note">Live previews show the interface only; sign-in and data are not connected. The working systems run on Google Apps Script and require authorized sign-in.</p>
+</div>
+</section>
+
+<!-- ============ 7. SKILLS ============ -->
+<section id="skills">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">Skills &amp; expertise</div>
+<h2 data-i="h_skills">A multidisciplinary toolkit for operational performance.</h2>
+<p class="section-intro">Combining supply chain operations, team leadership, analysis, technical knowledge, and visual communication.</p>
+</div>
+<div class="skills-grid">
+<article class="skill-card reveal"><h3>Operations &amp; Supply Chain</h3><p>SLA/SOP compliance, Lean methodologies, inventory management, process optimization, team leadership, reporting, data analysis, and problem-solving.</p></article>
+<article class="skill-card reveal"><h3>Software &amp; Productivity</h3><p>Microsoft Word, Excel, PowerPoint, barcode and QR code generation, and AI tools for reporting, analysis, and documentation.</p></article>
+<article class="skill-card reveal"><h3>Technical &amp; Engineering</h3><p>PLC systems, industrial automation, technical diagnostics, and AutoCAD 2D/3D electrical design.</p></article>
+<article class="skill-card reveal"><h3>Design &amp; Communication</h3><p>Figma UI/UX, Canva, Adobe Photoshop, Adobe Illustrator, documentation, and visual communication.</p></article>
+</div>
+</div>
+</section>
+
+<!-- ============ 8. EDUCATION ============ -->
+<section class="section-soft" id="education">
+<div class="container">
+<div class="section-head reveal"><div class="section-kicker">Education &amp; development</div><h2 data-i="h_edu">Education that supports operational and technical thinking.</h2></div>
+<div class="education-grid">
+<article class="education-card reveal"><h3>PGD in Logistics &amp; Supply Chain Management</h3><p>Academy of Business Professionals (ABP), Dhaka · Passed 2023<br>Modules: Operations Management, Demand &amp; Inventory Planning, Procurement, Supply Networks, Green Logistics</p></article>
+<article class="education-card reveal"><h3>BSc in Electrical &amp; Electronic Engineering</h3><p>European University of Bangladesh, Dhaka · CGPA 3.33/4.00 · 2021</p></article>
+<article class="education-card reveal"><h3>Diploma in Engineering — Electrical Technology</h3><p>Government Barisal Polytechnic Institute, Barisal · Passed 2016 · GPA 3.40/4.00</p></article>
+<article class="education-card reveal"><h3>SSC, Business Studies</h3><p>Hazi Abdus Sobhan Sikder Model Academy, Barisal · Passed 2012 · GPA 3.94/5.00</p></article>
+<article class="education-card reveal" style="grid-column:1/-1"><h3>Certifications &amp; Training</h3><p>Industrial Automation and House Wiring — New Engineering Training Centre, Dhaka (2016)<br>PLC &amp; HMI Programming (Analog/Digital I/O, Temperature Module) — New Engineering Training Centre, Dhaka (2016)</p></article>
+</div>
+</div>
+</section>
+
+<!-- ============ 9. PROFILE DETAILS ============ -->
+<section id="profile-details">
+<div class="container">
+<div class="section-head reveal"><div class="section-kicker">Profile details</div><h2>Additional qualifications &amp; professional details.</h2><p class="section-intro">Further information from my CV, including languages and earlier technical experience.</p></div>
+<div class="education-grid">
+<article class="education-card reveal"><h3>Languages</h3><p><strong>Bengali:</strong> Native<br><strong>English:</strong> Professional Working Proficiency (Reading &amp; Writing: Upper-Intermediate; Listening &amp; Speaking: Intermediate)<br><strong>Hindi:</strong> Professional Communicative Proficiency (spoken and understood)</p></article>
+<article class="education-card reveal"><h3>Earlier Technical Experience</h3><p><strong>Service Engineer – Concrete Technology</strong> · Dhaka · Aug 2017 – Apr 2018<br>Installed and maintained batching plant machinery, diagnosed faults, and developed, deployed and integrated PLC systems and networks to automate plant processes.</p></article>
+<article class="education-card reveal"><h3>Additional Experience</h3><p><strong>Office Assistant</strong> · International Human Rights (ASHOK) Foundation · Oct 2018 – Feb 2019<br>Prepared legal documents and press correspondence, organized news content for print, managed the Facebook portal, and edited designs/photos in Adobe Photoshop.<br><strong>Self-employed E-commerce Business</strong> · Mar 2019 – Aug 2019</p></article>
+<article class="education-card reveal"><h3>Professional Contact</h3><p>Dhaka-1212, Bangladesh<br>Phone: <a href="tel:+8801772222668">+880 1772-222668</a><br>Email: <a href="mailto:shahin4l.bd@gmail.com">shahin4l.bd@gmail.com</a><br>LinkedIn: <a href="https://www.linkedin.com/in/shahin4l" target="_blank" rel="noopener noreferrer">linkedin.com/in/shahin4l</a></p></article>
+<article class="education-card reveal" style="grid-column:1/-1"><h3>Professional References</h3><p><strong>Md. Ali Azam Al Azad</strong> · Deputy Secretary, Director (PMF), PPP Authority, Prime Minister’s Office<br>Phone: <a href="tel:+8801760095475">+880 1760-095475</a> · Email: <a href="mailto:azad@ppp.gov.bd">azad@ppp.gov.bd</a><br><br><strong>Mehedi Hasan Asif</strong> · Manager, Carrybee Express Ltd. (a concern of US-Bangla Airlines)<br>Phone: <a href="tel:+8801710914934">+880 1710-914934</a> · Email: <a href="mailto:mehedi.asif@carrybee.com">mehedi.asif@carrybee.com</a></p></article>
+</div>
+</div>
+</section>
+
+<!-- ============ 10. GROWTH ============ -->
+<section class="section-soft" id="growth">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">Growth</div>
+<h2 id="growth-title" data-i="h_growth">Next: expanding into strategic supply chain.</h2>
+<p class="section-intro">Areas I am developing beyond day-to-day operations. These are learning and career goals, not claimed experience.</p>
+</div>
+<div class="growth-grid"><article class="growth-card reveal"><h3>Procurement &amp; Sourcing</h3><p>Strategic sourcing, RFQ and tender processes, supplier selection.</p><small>Builds on: Resource sourcing at Carrybee</small></article><article class="growth-card reveal"><h3>Negotiation &amp; Contracting</h3><p>Commercial terms, vendor agreements and SLA-linked contracts.</p><small>Builds on: SLA/SOP compliance work</small></article><article class="growth-card reveal"><h3>Vendor &amp; Supplier Management</h3><p>Supplier onboarding, performance scorecards and reviews.</p><small>Builds on: Rider and partner coordination</small></article><article class="growth-card reveal"><h3>Demand Planning &amp; Forecasting</h3><p>Volume forecasting, capacity and manpower planning.</p><small>Builds on: Operational planning and reporting</small></article><article class="growth-card reveal"><h3>Warehouse &amp; Inventory Optimization</h3><p>Stock accuracy, layout, slotting and replenishment logic.</p><small>Builds on: Inventory control and parcel validation</small></article><article class="growth-card reveal"><h3>Transportation &amp; Network Design</h3><p>Route, line-haul and hub network optimization.</p><small>Builds on: Hub and last-mile operations</small></article><article class="growth-card reveal"><h3>Cost &amp; Total-Cost Analysis</h3><p>Cost-per-parcel, make-vs-buy and savings opportunities.</p><small>Builds on: Lean methodologies process optimization</small></article><article class="growth-card reveal"><h3>Supply Chain Risk &amp; Resilience</h3><p>Risk mapping, contingency planning and continuity.</p><small>Builds on: Root cause analysis</small></article><article class="growth-card reveal"><h3>Supply Chain Analytics</h3><p>KPI analytics, dashboards and data-led decisions.</p><small>Builds on: Reporting and data analysis</small></article></div>
+</div>
+</section>
+
+<!-- ============ 11. SERVICES ============ -->
+<section id="services" aria-labelledby="services-title">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">Professional services</div>
+<h2 id="services-title" data-i="h_services">Services &amp; professional collaboration.</h2>
+<p class="section-intro">A space to explore professional expertise, connect around operations and process improvement, and discuss suitable service requirements.</p>
+</div>
+<div class="marketplace-grid">
+<article class="marketplace-card reveal">
+<h3>Professional Services</h3>
+<p>Supply chain and logistics operations, KPI and dashboard design, process improvement, workforce planning, reporting automation, and internal workflow tools.</p>
+<div class="marketplace-tags"><span class="marketplace-tag">Operations &amp; logistics</span><span class="marketplace-tag">Process improvement</span><span class="marketplace-tag">Reporting &amp; automation</span></div>
+<div class="marketplace-status"><strong>Availability:</strong> Get in touch to discuss scope, requirements, and fit.</div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- ============ PART 2: OPERATIONS TOOLKIT (metrics at the end) ============ -->
+
+<!-- 12. TOOLKIT INTRO -->
+<section class="section-soft toolkit-intro" id="toolkit">
+<div class="container">
+<div class="section-head reveal" style="margin-bottom:0">
+<div class="section-kicker">Operations toolkit</div>
+<h2>How I run, measure and improve operations.</h2>
+<p class="section-intro">The working framework behind my results: an approach, a plan, a monitoring view, a metrics library and a calculator. Follow it step by step.</p>
+<div class="toolkit-steps">
+<a href="#improvement"><b>1</b>Approach</a>
+<a href="#roadmap"><b>2</b>30/60/90 Roadmap</a>
+<a href="#monitoring"><b>3</b>Monitoring</a>
+<a href="#metrics"><b>4</b>Metrics library</a>
+<a href="#calculator"><b>5</b>Calculator</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 13. APPROACH -->
+<section id="improvement">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">Toolkit 01 · People · Process · Performance</div>
+<h2 data-i="h_appr">Build capability. Remove friction. Sustain improvement.</h2>
+<p class="section-intro">A repeatable approach to develop teams and improve operations without relying on guesswork or unsupported claims.</p>
+</div>
+<div class="framework-grid">
+<article class="framework-card reveal"><span class="framework-index">01</span><h3>Assess the operation</h3><p>Map workflows, clarify responsibilities, establish KPI definitions, and understand the baseline.</p></article>
+<article class="framework-card reveal"><span class="framework-index">02</span><h3>Identify root causes</h3><p>Use exception data, process observation, and team feedback to find bottlenecks and recurring errors.</p></article>
+<article class="framework-card reveal"><span class="framework-index">03</span><h3>Build team capability</h3><p>Strengthen role clarity, SOP knowledge, training, coaching, and cross-team collaboration.</p></article>
+<article class="framework-card reveal"><span class="framework-index">04</span><h3>Standardize the process</h3><p>Improve handovers, checklists, escalation paths, data quality, and operational consistency.</p></article>
+<article class="framework-card reveal"><span class="framework-index">05</span><h3>Monitor the right KPIs</h3><p>Review productivity, accuracy, turnaround time, backlog, and service-level performance on a defined cadence.</p></article>
+<article class="framework-card reveal"><span class="framework-index">06</span><h3>Review and sustain</h3><p>Compare results with a verified baseline, document learning, and standardize changes that work.</p></article>
+</div>
+</div>
+</section>
+
+<!-- 14. ROADMAP -->
+<section class="section-soft" id="roadmap">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">Toolkit 02 · Proposed roadmap</div>
+<h2 data-i="h_road">A practical 30/60/90-day improvement plan.</h2>
+<p class="section-intro">A structured starting point for aligning teams, improving visibility, and measuring operational progress. This is a proposed framework, not a claim of completed work.</p>
+</div>
+<div class="roadmap">
+<article class="roadmap-card reveal"><span class="roadmap-period">Days 01–30</span><h3>Assess &amp; establish baselines</h3><ul><li>Map team workflows and handovers.</li><li>Define KPI formulas and owners.</li><li>Identify bottlenecks and data gaps.</li><li>Set reporting cadence.</li></ul></article>
+<article class="roadmap-card reveal"><span class="roadmap-period">Days 31–60</span><h3>Implement &amp; improve</h3><ul><li>Prioritize high-impact issues.</li><li>Refine SOPs and checklists.</li><li>Coach teams on key gaps.</li><li>Review early trends consistently.</li></ul></article>
+<article class="roadmap-card reveal"><span class="roadmap-period">Days 61–90</span><h3>Evaluate &amp; standardize</h3><ul><li>Compare outcomes with baseline.</li><li>Document proven improvements.</li><li>Adjust targets using evidence.</li><li>Embed continuous review routines.</li></ul></article>
+</div>
+</div>
+</section>
+
+<!-- 15. MONITORING -->
 <section class="section-dark" id="monitoring">
 <div class="container" style="position:relative">
 <div class="section-head reveal">
-<div class="section-kicker" style="color:#9bb8dc">Performance visibility</div>
+<div class="section-kicker" style="color:#9bb8dc">Toolkit 03 · Performance visibility</div>
 <h2 data-i="h_mon">Turn daily operations into clear, actionable insight.</h2>
 <p class="section-intro">A centralized monitoring concept to help leaders understand throughput, workload, service levels, exceptions, and improvement priorities across teams.</p>
 </div>
@@ -665,10 +852,12 @@
 <p class="dashboard-note">Concept UI only. Decorative bars are not measured performance values. Connect authorized operational data before using this as a live dashboard.</p>
 </div>
 </section>
+
+<!-- 16. METRICS LIBRARY -->
 <section id="metrics">
 <div class="container">
 <div class="section-head reveal">
-<div class="section-kicker">Metrics library</div>
+<div class="section-kicker">Toolkit 04 · Metrics library</div>
 <h2 data-i="h_metrics">The metrics that expose operational gaps.</h2>
 <p class="section-intro">Productivity, accuracy, speed, cost, workforce, and forecasting metrics with standard formulas, plus what each one reveals when it moves in the wrong direction.</p>
 </div>
@@ -749,10 +938,12 @@
 <p style="font-size:.76rem;color:#78869a;margin-top:16px">Formulas are standard operational definitions. Targets and thresholds should be set from your own verified baseline data.</p>
 </div>
 </section>
+
+<!-- 17. CALCULATOR -->
 <section class="section-soft" id="calculator">
 <div class="container">
 <div class="section-head reveal">
-<div class="section-kicker">Try it</div>
+<div class="section-kicker">Toolkit 05 · Try it</div>
 <h2 data-i="h_calc">Metrics calculator.</h2>
 <p class="section-intro">Enter your own period data and see the key metrics calculated instantly. Everything runs in your browser; nothing is stored or sent anywhere.</p>
 </div>
@@ -792,138 +983,9 @@
 </div>
 </div>
 </section>
-<section id="improvement">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">People · Process · Performance</div>
-<h2 data-i="h_appr">Build capability. Remove friction. Sustain improvement.</h2>
-<p class="section-intro">A repeatable approach to develop teams and improve operations without relying on guesswork or unsupported claims.</p>
-</div>
-<div class="framework-grid">
-<article class="framework-card reveal"><span class="framework-index">01</span><h3>Assess the operation</h3><p>Map workflows, clarify responsibilities, establish KPI definitions, and understand the baseline.</p></article>
-<article class="framework-card reveal"><span class="framework-index">02</span><h3>Identify root causes</h3><p>Use exception data, process observation, and team feedback to find bottlenecks and recurring errors.</p></article>
-<article class="framework-card reveal"><span class="framework-index">03</span><h3>Build team capability</h3><p>Strengthen role clarity, SOP knowledge, training, coaching, and cross-team collaboration.</p></article>
-<article class="framework-card reveal"><span class="framework-index">04</span><h3>Standardize the process</h3><p>Improve handovers, checklists, escalation paths, data quality, and operational consistency.</p></article>
-<article class="framework-card reveal"><span class="framework-index">05</span><h3>Monitor the right KPIs</h3><p>Review productivity, accuracy, turnaround time, backlog, and service-level performance on a defined cadence.</p></article>
-<article class="framework-card reveal"><span class="framework-index">06</span><h3>Review and sustain</h3><p>Compare results with a verified baseline, document learning, and standardize changes that work.</p></article>
-</div>
-</div>
-</section>
-<section class="section-soft" id="roadmap">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Proposed roadmap</div>
-<h2 data-i="h_road">A practical 30/60/90-day improvement plan.</h2>
-<p class="section-intro">A structured starting point for aligning teams, improving visibility, and measuring operational progress. This is a proposed framework, not a claim of completed work.</p>
-</div>
-<div class="roadmap">
-<article class="roadmap-card reveal"><span class="roadmap-period">Days 01–30</span><h3>Assess &amp; establish baselines</h3><ul><li>Map team workflows and handovers.</li><li>Define KPI formulas and owners.</li><li>Identify bottlenecks and data gaps.</li><li>Set reporting cadence.</li></ul></article>
-<article class="roadmap-card reveal"><span class="roadmap-period">Days 31–60</span><h3>Implement &amp; improve</h3><ul><li>Prioritize high-impact issues.</li><li>Refine SOPs and checklists.</li><li>Coach teams on key gaps.</li><li>Review early trends consistently.</li></ul></article>
-<article class="roadmap-card reveal"><span class="roadmap-period">Days 61–90</span><h3>Evaluate &amp; standardize</h3><ul><li>Compare outcomes with baseline.</li><li>Document proven improvements.</li><li>Adjust targets using evidence.</li><li>Embed continuous review routines.</li></ul></article>
-</div>
-</div>
-</section>
-<section id="experience">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Career journey</div>
-<h2 data-i="h_exp">Experience built across high-volume operations and technical problem-solving.</h2>
-<p class="section-intro">A concise view of my professional progression, operational responsibilities, and relevant experience.</p>
-</div>
-<div class="timeline">
-<article class="timeline-item reveal"><div class="timeline-date">Jan 2026 – Present</div><div class="timeline-content"><h3>Carrybee Express Ltd.</h3><div class="role">Assistant Manager · Operations</div><ul><li>Lead 190+ staff through team leads across 11 operational functions: Sort, Central Inbound, Central Pickup, Central Return, Return Parcel Validation, Investigation &amp; Reconciliation, Issue Resolution, Reprocessing &amp; Resolution, Data Entry, Inventory Management and Sub-Sort. Manage 50,000+ parcels daily with end-to-end operational control, SLA/SOP compliance and corporate performance targets.</li><li>Oversee Sub-Sort at five regional locations: Bhanga, Sirajganj, Cumilla, Bhairab and Chattogram.</li><li>Reduced turnaround time (TAT) by 40% with semi-automation: put-to-number (PTN) process, 2-click gate-pass printing, automated return validation with auto task assignment, AI-assisted data entry and timely branch entry so merchants are notified on time.</li><li>Reduced sorting and handling errors by 98% (CCTV-verified basket process, floor taping, name plates with reflective stickers, handling guidelines for liquid and fragile items, and protective boxes for TVs) and operating cost by 15% (manpower optimisation, Order Management System app).</li><li>Trained 7 executives and senior associates.</li><li>Direct investigation, reconciliation, issue resolution, reprocessing, and parcel validation.</li><li>Focus on operational control, performance, service quality, and SOP compliance.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Nov 2024 – Dec 2025</div><div class="timeline-content"><h3>Carrybee Express Ltd.</h3><div class="role">Senior Executive</div><ul><li>Supported operations planning, analysis, and execution.</li><li>Identified bottlenecks and implemented data-driven solutions.</li><li>Coordinated projects, resource sourcing, hiring, and cross-functional priorities.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Jun 2023 – Oct 2024</div><div class="timeline-content"><h3>Pathao Ltd. · Courier Operations</h3><div class="role">Senior Operations Associate</div><ul><li>Supervised 180+ employees and zonal hub operations processing 220,000+ parcels daily, at 97%+ SLA and SOP compliance.</li><li>Led hub operations, rider coordination, sorting, returns, and inventory control.</li><li>Supported SLA/SOP compliance, error reduction, and turnaround-time improvement.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Sep 2019 – May 2023</div><div class="timeline-content"><h3>Pathao Ltd. · Courier Operations</h3><div class="role">Operations Associate</div><ul><li>Managed inbound operations, dispatch coordination, and operational documentation.</li><li>Supported accurate shipment processing and coordination with sorting and inventory teams.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Mar 2019 – Aug 2019</div><div class="timeline-content"><h3>Self-employed</h3><div class="role">E-commerce Business</div><ul><li>Ran an independent e-commerce business.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Oct 2018 – Feb 2019</div><div class="timeline-content"><h3>International Human Rights (ASHOK) Foundation</h3><div class="role">Office Assistant</div><ul><li>Prepared legal documents and press correspondence, managed the Facebook portal and produced design and photo edits in Adobe Photoshop.</li></ul></div></article>
-<article class="timeline-item reveal"><div class="timeline-date">Aug 2017 – Apr 2018</div><div class="timeline-content"><h3>Concrete Technology</h3><div class="role">Service Engineer</div><ul><li>Worked on machinery installation, maintenance, PLC systems, diagnostics, and technical compliance support.</li></ul></div></article>
-</div>
-</div>
-</section>
-<section class="section-soft" id="projects">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Projects</div>
-<h2 data-i="h_proj">Operations &amp; improvement projects.</h2>
-<p class="section-intro">Web tools I designed and built to make operations measurable: complaint handling, hiring, productivity tracking, and workforce planning.</p>
-</div>
-<!--
-          HOW TO ADD A PROJECT LATER
-          Scroll to the script at the bottom of this file and find:  const PROJECTS = [ ... ];
-          Add one object per project. Example:
-          {
-            title: "Hub Sorting Accuracy Improvement",
-            category: "Process Improvement",
-            summary: "Short description of the problem, what you did, and the result.",
-            role: "Project lead",
-            tools: ["Excel", "Lean Six Sigma"],
-            impact: "Add a verified result here, for example: Missort rate reduced after SOP changes",
-            link: "https://example.com/case-study",   // optional
-            image: "assets/project-1.jpg"              // optional
-          }
-          While the list is empty, placeholder cards are shown.
-        -->
-<div class="proj-overview reveal" aria-label="Project overview">
-<div><strong>4</strong><span>Internal web tools</span></div>
-<div><strong>End to end</strong><span>Designed and built by me</span></div>
-<div><strong>Apps Script + Sheets</strong><span>Shared platform, Chart.js dashboards</span></div>
-<div><strong>Role-based access</strong><span>Sign-in, permissions and dashboards</span></div>
-</div>
-<div class="project-grid" id="projectGrid"><article class="project-card"><button type="button" class="project-thumb has-preview" data-preview="0" aria-label="Open live preview of Career &amp; Service Portal"><span class="pv-icon" aria-hidden="true">📋</span><span class="pv-chip"><i>▶</i> Live preview</span></button><div class="project-body"><span class="metric-cat">Web App · Internal Portal</span><h3>Career &amp; Service Portal</h3><p>A bilingual (বাংলা / English), mobile-friendly employee portal that brings complaint handling, job circulars, notices, a contact directory and the organogram into one place.</p><ul><li>Complaint form with photo/file evidence, an anonymous option, and tracking by complaint ID</li><li>Team-wise email alerts with a one-click status-update link for responsible managers</li><li>Role-based dashboard with team access control, filters, and status updates with remarks</li><li>Job circulars with online application and CV upload (PDF, DOC, DOCX up to 10 MB)</li><li>Notice board, contact directory (call / WhatsApp), and organogram views</li></ul><p><b>Role:</b> Designed and built</p><p><b>Impact:</b> Centralizes complaint handling, recruitment, and internal information in one portal.</p><div class="project-meta"><span class="mini-tag">Google Apps Script</span><span class="mini-tag">Google Sheets</span><span class="mini-tag">JavaScript</span><span class="mini-tag">Tailwind CSS</span><span class="mini-tag">Gmail (MailApp)</span></div><div class="project-actions"><button type="button" class="btn btn-primary" data-preview="0">▶ View live preview</button></div></div></article><article class="project-card"><button type="button" class="project-thumb has-preview" data-preview="1" aria-label="Open live preview of Central Sort Productivity Monitor"><span class="pv-icon" aria-hidden="true">📦</span><span class="pv-chip"><i>▶</i> Live preview</span></button><div class="project-body"><span class="metric-cat">Productivity Analytics · Web App</span><h3>Central Sort Productivity Monitor</h3><p>A mobile-first observation tool for sort-hub productivity. Observers time an employee&#x27;s work with a stopwatch, record units completed, and the system calculates units per hour against process targets.</p><ul><li>Start / pause / resume stopwatch that counts active time only</li><li>Process-wise targets (per minute and per hour) with achievement % calculation</li><li>Email OTP sign-in with role-based access for observers, managers, and admins</li><li>Dashboard: daily trend, department and process reports, top 10, and leaderboard</li><li>Period-vs-period and employee-vs-employee comparison</li><li>Auto-generated insights: top performers, coaching needs, outliers, consistency, and trends</li></ul><p><b>Role:</b> Designed and built</p><p><b>Impact:</b> Turns on-floor time observations into comparable productivity data (units per hour and % of target).</p><div class="project-meta"><span class="mini-tag">Google Apps Script</span><span class="mini-tag">Google Sheets</span><span class="mini-tag">Chart.js</span><span class="mini-tag">JavaScript</span><span class="mini-tag">CSS</span></div><div class="project-actions"><button type="button" class="btn btn-primary" data-preview="1">▶ View live preview</button></div></div></article><article class="project-card"><div class="project-thumb">👥</div><div class="project-body"><span class="metric-cat">Workforce Analytics · Web App</span><h3>Central Sort Ops Resource Tracker</h3><p>A secure workforce-planning workspace for central sort operations that brings headcount, capacity, turnover, attendance, order volume and cost data into one dashboard.</p><ul><li>Workforce dashboard with department and designation summaries</li><li>Team-wise capacity overview for PTN, BULK and process lines</li><li>Turnover analytics with monthly joining, resignation and team-wise breakdown</li><li>Scenario-based order and manpower forecast for planning</li><li>Resource list with search and a complete employee profile view</li><li>Attendance sync from a live spreadsheet, plus order, cost and salary analytics</li><li>Email verification-code sign-in with role-based permissions and activity logging</li></ul><p><b>Role:</b> Designed and built</p><p><b>Impact:</b> Gives operations leaders one place to plan manpower against capacity, turnover and order cost.</p><div class="project-meta"><span class="mini-tag">Google Apps Script</span><span class="mini-tag">Google Sheets</span><span class="mini-tag">Chart.js</span><span class="mini-tag">JavaScript</span><span class="mini-tag">CSS</span></div></div></article><article class="project-card"><button type="button" class="project-thumb has-preview" data-preview="3" aria-label="Open live preview of Attendance &amp; Leave Management System"><span class="pv-icon" aria-hidden="true">🕒</span><span class="pv-chip"><i>▶</i> Live preview</span></button><div class="project-body"><span class="metric-cat">Workforce Operations · Web App</span><h3>Attendance &amp; Leave Management System</h3><p>A mobile-first attendance system for operations staff with GPS-aware check-in and check-out, leave requests with multi-level approval, absence follow-up, salary calculation and management controls.</p><ul><li>Employee check-in / check-out with location capture and a minimum-hours rule</li><li>Overnight-shift logic: a shift counts on its start date, with department-wise reporting time and automatic check-out</li><li>Leave requests with optional attachment (saved to Google Drive) and Floor Lead → Line Lead → Manager approval</li><li>Absence follow-up: remarks with call outcome and emergency flag</li><li>Management view: department attendance, active sessions, force check-out with reason and audit history</li><li>Salary calculation by attendance period (21st to 20th) using day-off and holiday data</li><li>Employee ID sign-in for staff; email verification code for management, with persistent sessions</li></ul><p><b>Role:</b> Designed and built</p><p><b>Impact:</b> Gives staff and managers one place for attendance, leave and salary visibility, with an audit trail for manual corrections.</p><div class="project-meta"><span class="mini-tag">Google Apps Script</span><span class="mini-tag">Google Sheets</span><span class="mini-tag">Google Drive</span><span class="mini-tag">JavaScript</span><span class="mini-tag">CSS</span></div><div class="project-actions"><button type="button" class="btn btn-primary" data-preview="3">▶ View live preview</button></div></div></article></div>
-<p class="proj-note">Live previews show the interface only; sign-in and data are not connected. The working systems run on Google Apps Script and require authorized sign-in.</p>
-</div>
-</section>
-<section id="skills">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Skills &amp; expertise</div>
-<h2 data-i="h_skills">A multidisciplinary toolkit for operational performance.</h2>
-<p class="section-intro">Combining supply chain operations, team leadership, analysis, technical knowledge, and visual communication.</p>
-</div>
-<div class="skills-grid">
-<article class="skill-card reveal"><h3>Operations &amp; Supply Chain</h3><p>SLA/SOP compliance, Lean methodologies, inventory management, process optimization, team leadership, reporting, data analysis, and problem-solving.</p></article>
-<article class="skill-card reveal"><h3>Software &amp; Productivity</h3><p>Microsoft Word, Excel, PowerPoint, barcode and QR code generation, and AI tools for reporting, analysis, and documentation.</p></article>
-<article class="skill-card reveal"><h3>Technical &amp; Engineering</h3><p>PLC systems, industrial automation, technical diagnostics, and AutoCAD 2D/3D electrical design.</p></article>
-<article class="skill-card reveal"><h3>Design &amp; Communication</h3><p>Figma UI/UX, Canva, Adobe Photoshop, Adobe Illustrator, documentation, and visual communication.</p></article>
-</div>
-</div>
-</section>
-<section class="section-soft" id="education">
-<div class="container">
-<div class="section-head reveal"><div class="section-kicker">Education &amp; development</div><h2 data-i="h_edu">Education that supports operational and technical thinking.</h2></div>
-<div class="education-grid">
-<article class="education-card reveal"><h3>PGD in Logistics &amp; Supply Chain Management</h3><p>Academy of Business Professionals (ABP), Dhaka · Passed 2023<br>Modules: Operations Management, Demand &amp; Inventory Planning, Procurement, Supply Networks, Green Logistics</p></article>
-<article class="education-card reveal"><h3>BSc in Electrical &amp; Electronic Engineering</h3><p>European University of Bangladesh, Dhaka · CGPA 3.33/4.00 · 2021</p></article>
-<article class="education-card reveal"><h3>Diploma in Engineering — Electrical Technology</h3><p>Government Barisal Polytechnic Institute, Barisal · Passed 2016 · GPA 3.40/4.00</p></article>
-<article class="education-card reveal"><h3>SSC, Business Studies</h3><p>Hazi Abdus Sobhan Sikder Model Academy, Barisal · Passed 2012 · GPA 3.94/5.00</p></article>
-<article class="education-card reveal" style="grid-column:1/-1"><h3>Certifications &amp; Training</h3><p>Industrial Automation and House Wiring — New Engineering Training Centre, Dhaka (2016)<br>PLC &amp; HMI Programming (Analog/Digital I/O, Temperature Module) — New Engineering Training Centre, Dhaka (2016)</p></article>
-</div>
-</div>
-</section>
-<section id="profile-details" class="section-soft">
-<div class="container">
-<div class="section-head reveal"><div class="section-kicker">Profile details</div><h2>Additional qualifications &amp; professional details.</h2><p class="section-intro">Further information from my CV, including languages and earlier technical experience.</p></div>
-<div class="education-grid">
-<article class="education-card reveal"><h3>Languages</h3><p><strong>Bengali:</strong> Native<br><strong>English:</strong> Professional Working Proficiency (Reading &amp; Writing: Upper-Intermediate; Listening &amp; Speaking: Intermediate)<br><strong>Hindi:</strong> Professional Communicative Proficiency (spoken and understood)</p></article>
-<article class="education-card reveal"><h3>Earlier Technical Experience</h3><p><strong>Service Engineer – Concrete Technology</strong> · Dhaka · Aug 2017 – Apr 2018<br>Installed and maintained batching plant machinery, diagnosed faults, and developed, deployed and integrated PLC systems and networks to automate plant processes.</p></article>
-<article class="education-card reveal"><h3>Additional Experience</h3><p><strong>Office Assistant</strong> · International Human Rights (ASHOK) Foundation · Oct 2018 – Feb 2019<br>Prepared legal documents and press correspondence, organized news content for print, managed the Facebook portal, and edited designs/photos in Adobe Photoshop.<br><strong>Self-employed E-commerce Business</strong> · Mar 2019 – Aug 2019</p></article>
-<article class="education-card reveal"><h3>Professional Contact</h3><p>Dhaka-1212, Bangladesh<br>Phone: <a href="tel:+8801772222668">+880 1772-222668</a><br>Email: <a href="mailto:shahin4l.bd@gmail.com">shahin4l.bd@gmail.com</a><br>LinkedIn: <a href="https://www.linkedin.com/in/shahin4l" target="_blank" rel="noopener noreferrer">linkedin.com/in/shahin4l</a></p></article>
-<article class="education-card reveal" style="grid-column:1/-1"><h3>Professional References</h3><p><strong>Md. Ali Azam Al Azad</strong> · Deputy Secretary, Director (PMF), PPP Authority, Prime Minister’s Office<br>Phone: <a href="tel:+8801760095475">+880 1760-095475</a> · Email: <a href="mailto:azad@ppp.gov.bd">azad@ppp.gov.bd</a><br><br><strong>Mehedi Hasan Asif</strong> · Manager, Carrybee Express Ltd. (a concern of US-Bangla Airlines)<br>Phone: <a href="tel:+8801710914934">+880 1710-914934</a> · Email: <a href="mailto:mehedi.asif@carrybee.com">mehedi.asif@carrybee.com</a></p></article>
-</div>
-</div>
-</section>
-<section id="growth">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Growth</div>
-<h2 id="growth-title" data-i="h_growth">Next: expanding into strategic supply chain.</h2>
-<p class="section-intro">Areas I am developing beyond day-to-day operations. These are learning and career goals, not claimed experience.</p>
-</div>
-<div class="growth-grid"><article class="growth-card reveal"><h3>Procurement &amp; Sourcing</h3><p>Strategic sourcing, RFQ and tender processes, supplier selection.</p><small>Builds on: Resource sourcing at Carrybee</small></article><article class="growth-card reveal"><h3>Negotiation &amp; Contracting</h3><p>Commercial terms, vendor agreements and SLA-linked contracts.</p><small>Builds on: SLA/SOP compliance work</small></article><article class="growth-card reveal"><h3>Vendor &amp; Supplier Management</h3><p>Supplier onboarding, performance scorecards and reviews.</p><small>Builds on: Rider and partner coordination</small></article><article class="growth-card reveal"><h3>Demand Planning &amp; Forecasting</h3><p>Volume forecasting, capacity and manpower planning.</p><small>Builds on: Operational planning and reporting</small></article><article class="growth-card reveal"><h3>Warehouse &amp; Inventory Optimization</h3><p>Stock accuracy, layout, slotting and replenishment logic.</p><small>Builds on: Inventory control and parcel validation</small></article><article class="growth-card reveal"><h3>Transportation &amp; Network Design</h3><p>Route, line-haul and hub network optimization.</p><small>Builds on: Hub and last-mile operations</small></article><article class="growth-card reveal"><h3>Cost &amp; Total-Cost Analysis</h3><p>Cost-per-parcel, make-vs-buy and savings opportunities.</p><small>Builds on: Lean methodologies process optimization</small></article><article class="growth-card reveal"><h3>Supply Chain Risk &amp; Resilience</h3><p>Risk mapping, contingency planning and continuity.</p><small>Builds on: Root cause analysis</small></article><article class="growth-card reveal"><h3>Supply Chain Analytics</h3><p>KPI analytics, dashboards and data-led decisions.</p><small>Builds on: Reporting and data analysis</small></article></div>
-</div>
-</section>
-<section class="section-soft" id="faq">
+
+<!-- ============ 18. FAQ ============ -->
+<section id="faq">
 <div class="container">
 <div class="section-head reveal">
 <div class="section-kicker">FAQ</div>
@@ -936,24 +998,9 @@
 </div>
 </div>
 </section>
-<section id="services" aria-labelledby="services-title">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">Professional services</div>
-<h2 id="services-title" data-i="h_services">Services &amp; professional collaboration.</h2>
-<p class="section-intro">A space to explore professional expertise, connect around operations and process improvement, and discuss suitable service requirements.</p>
-</div>
-<div class="marketplace-grid">
-<article class="marketplace-card reveal">
-<h3>Professional Services</h3>
-<p>Supply chain and logistics operations, KPI and dashboard design, process improvement, workforce planning, reporting automation, and internal workflow tools.</p>
-<div class="marketplace-tags"><span class="marketplace-tag">Operations &amp; logistics</span><span class="marketplace-tag">Process improvement</span><span class="marketplace-tag">Reporting &amp; automation</span></div>
-<div class="marketplace-status"><strong>Availability:</strong> Get in touch to discuss scope, requirements, and fit.</div>
-</article>
-</div>
-</div>
-</section>
-<section id="contact">
+
+<!-- ============ 19. CONTACT ============ -->
+<section class="section-soft" id="contact">
 <div class="container">
 <div class="contact-panel reveal">
 <div><div class="section-kicker" style="color:#9bbaff">Professional connection</div><h2 data-i="h_contact">Let's connect to improve operational performance.</h2><p>For professional opportunities, supply chain and operations discussions, or collaboration around team performance and process improvement, feel free to connect.</p></div>
@@ -984,7 +1031,7 @@
 <footer class="footer">
 <div class="container footer-inner">
 <div><strong>Md Shahin Alam</strong><br/>Supply Chain &amp; Operations Professional</div>
-<div class="footer-links"><a href="#about">About</a><a href="#teams">11 Teams</a><a href="#metrics">Metrics</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+<div class="footer-links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#teams">11 Teams</a><a href="#projects">Projects</a><a href="#toolkit">Metrics</a><a href="#contact">Contact</a></div>
 <div>© <span id="year"></span> Md Shahin Alam<div class="footer-social"><a href="https://www.linkedin.com/in/shahin4l" rel="noopener noreferrer" target="_blank">LinkedIn</a><a href="https://www.facebook.com/shahin4l" rel="noopener noreferrer" target="_blank">Facebook</a><a href="https://www.instagram.com/shahin4l" rel="noopener noreferrer" target="_blank">Instagram</a><a href="https://x.com/shahin4l" rel="noopener noreferrer" target="_blank">X</a><a href="https://github.com/shahin4l" rel="noopener noreferrer" target="_blank">GitHub</a></div></div>
 </div>
 </footer>
@@ -1097,8 +1144,7 @@
       calc();
     })();
 
-    /* ===== Projects (edit this list to add your projects) =====
-      /* ===== Projects Array (GitHub ফাইল পাথ অনুযায়ী সঠিক লিংক) ===== */
+    /* ===== Projects (edit this list to add or change projects) ===== */
     const PROJECTS = [
   {
     "title": "Career & Service Portal",
