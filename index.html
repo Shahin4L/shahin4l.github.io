@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#0f2142" name="theme-color"/>
-<meta content="Md Shahin Alam — Supply Chain &amp; Operations Professional. Explore 8+ years of supply chain and operations experience, courier and e-commerce logistics, team leadership, process improvement, industry-neutral KPI definitions, an interactive metrics calculator, projects and professional qualifications." name="description"/>
+<meta content="Md Shahin Alam — Supply Chain &amp; Operations Professional. Explore 8+ years of supply chain and operations experience, courier and e-commerce logistics, team leadership, process improvement, industry-neutral KPI definitions, an interactive metrics calculator, projects, professional articles and qualifications." name="description"/>
 <meta content="Md Shahin Alam, Supply Chain Professional, Operations Management, Courier Operations, Logistics, Team Performance Monitoring, Lean Six Sigma, Inventory Management, Productivity, Cost Analysis, Forecasting, Employee Turnover, KPI Metrics" name="keywords"/>
 <meta content="Md Shahin Alam | Supply Chain &amp; Operations Professional" property="og:title"/>
 <meta content="Operational excellence through stronger teams, smarter processes, and measurable results." property="og:description"/>
@@ -469,6 +469,34 @@
     .field select { width: 100%; padding: 10px 12px; border: 1px solid #dce4ef; border-radius: 10px; background: #fff; color: var(--ink); }
     .lang-note { line-height: 1.6; }
 
+
+    /* ---------- LinkedIn professional articles ---------- */
+    .articles-section { background: linear-gradient(180deg,#f7f9fd 0%,#fff 100%); }
+    .articles-feature { display:flex; align-items:center; gap:20px; padding:24px; margin:4px 0 22px; border:1px solid #d8e5f4; border-radius:22px; background:linear-gradient(115deg,#edf5ff,#fff 68%); box-shadow:0 14px 34px rgba(24,55,95,.06); }
+    .articles-feature-mark { flex:none; display:grid; place-items:center; width:58px; height:58px; border-radius:17px; background:#0a66c2; color:#fff; font-size:2rem; font-weight:850; letter-spacing:-.09em; box-shadow:0 9px 22px #0a66c233; }
+    .articles-feature-copy { flex:1; min-width:0; }
+    .articles-overline { display:block; color:#0a66c2; font-size:.68rem; font-weight:850; letter-spacing:.11em; margin-bottom:5px; }
+    .articles-feature h3 { color:var(--navy); font-size:1.12rem; margin:0 0 4px; }
+    .articles-feature p { color:var(--muted); font-size:.84rem; margin:0; }
+    .articles-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px; }
+    .article-card { position:relative; display:flex; flex-direction:column; min-height:390px; padding:0; border:1px solid var(--line); border-radius:19px; background:#fff; box-shadow:0 9px 26px rgba(24,43,72,.045); transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease; overflow:hidden; }
+    .article-card:hover { transform:translateY(-5px); border-color:#bfd5ee; box-shadow:0 18px 38px rgba(24,43,72,.11); }
+    .article-cover-wrap { position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:linear-gradient(135deg,#e8f1fc,#dbe7f5); }
+    .article-cover { display:block; width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
+    .article-card:hover .article-cover { transform:scale(1.035); }
+    .article-content { display:flex; flex:1; flex-direction:column; padding:18px 20px 20px; }
+    .article-top { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:0 0 15px; }
+    .article-platform { display:inline-flex; align-items:center; gap:7px; color:#0a66c2; font-size:.72rem; font-weight:850; }
+    .article-platform b { display:grid; place-items:center; width:22px; height:22px; border-radius:6px; background:#0a66c2; color:#fff; font-size:.82rem; }
+    .article-type { padding:5px 9px; border-radius:999px; color:#53647b; background:#f1f5fa; font-size:.67rem; font-weight:750; }
+    .article-card h3 { color:var(--navy); font-size:1.06rem; line-height:1.4; letter-spacing:-.025em; margin:0 0 10px; }
+    .article-card p { color:var(--muted); font-size:.83rem; line-height:1.65; margin:0 0 18px; }
+    .article-read { display:inline-flex; align-items:center; gap:8px; margin-top:auto; color:#0a66c2; font-size:.84rem; font-weight:850; }
+    .article-read:hover { color:#084b91; text-decoration:underline; text-underline-offset:3px; }
+    .articles-note { color:#78869a; font-size:.76rem; margin:18px 2px 0; }
+    @media(max-width:900px) { .articles-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:650px) { .articles-feature { align-items:flex-start; flex-wrap:wrap; padding:19px; } .articles-feature-copy { flex-basis:calc(100% - 80px); } .articles-all { width:100%; } .articles-grid { grid-template-columns:1fr; } .article-card { min-height:0; } .article-content { padding:16px; } }
+
   </style>
 
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet"/>
@@ -526,6 +554,7 @@
 <a href="#experience" data-i="n_exp">Experience</a>
 <a href="#teams" data-i="n_teams">11 Teams</a>
 <a href="#projects" data-i="n_projects">Projects</a>
+<a href="#articles" data-i="n_articles">Articles</a>
 <a href="#skills" data-i="n_skills">Expertise</a>
 <a href="#services" data-i="n_services">Services</a>
 <a href="#toolkit" data-i="n_metrics">Metrics</a>
@@ -694,7 +723,29 @@
 </div>
 </section>
 
-<!-- ============ 7. SKILLS ============ -->
+<!-- ============ 7. LINKEDIN ARTICLES ============ -->
+<section id="articles" class="articles-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-kicker" data-i="articles_kicker">Insights &amp; Publications</div>
+      <h2 data-i="articles_heading">Ideas from the field. Lessons worth sharing.</h2>
+      <p class="section-intro" data-i="articles_intro">A selection of articles on logistics, courier operations, cost analysis, leadership and practical improvement.</p>
+    </div>
+    <div class="articles-feature reveal">
+      <div class="articles-feature-mark" aria-hidden="true">in</div>
+      <div class="articles-feature-copy">
+        <span class="articles-overline" data-i="articles_feature_label">LINKEDIN ARTICLES &amp; PROFESSIONAL WRITING</span>
+        <h3 data-i="articles_feature_title">Practical thinking shaped by real operational challenges.</h3>
+        <p data-i="articles_feature_desc">Explore the full collection of professional articles and perspectives on LinkedIn.</p>
+      </div>
+      <a class="btn btn-primary articles-all" href="https://www.linkedin.com/in/shahin4l" target="_blank" rel="noopener noreferrer" data-i="articles_view_all">View LinkedIn profile ↗</a>
+    </div>
+    <div class="articles-grid" id="linkedinArticles" aria-live="polite"></div>
+    <p class="articles-note" data-i="articles_note">Select any article to read the full publication on LinkedIn. More articles can be added to the LINKEDIN_ARTICLES list in this HTML file.</p>
+  </div>
+</section>
+
+<!-- ============ 8. SKILLS ============ -->
 <section id="skills">
 <div class="container">
 <div class="section-head reveal">
@@ -1056,7 +1107,7 @@
 <footer class="footer">
 <div class="container footer-inner">
 <div><strong>Md Shahin Alam</strong><br/>Supply Chain &amp; Operations Professional</div>
-<div class="footer-links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#teams">11 Teams</a><a href="#projects">Projects</a><a href="#toolkit">Metrics</a><a href="#contact">Contact</a></div>
+<div class="footer-links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#teams">11 Teams</a><a href="#projects">Projects</a><a href="#articles">Articles</a><a href="#toolkit">Metrics</a><a href="#contact">Contact</a></div>
 <div>© <span id="year"></span> Md Shahin Alam<div class="footer-social"><a href="https://www.linkedin.com/in/shahin4l" rel="noopener noreferrer" target="_blank">LinkedIn</a><a href="https://www.facebook.com/shahin4l" rel="noopener noreferrer" target="_blank">Facebook</a><a href="https://www.instagram.com/shahin4l" rel="noopener noreferrer" target="_blank">Instagram</a><a href="https://x.com/shahin4l" rel="noopener noreferrer" target="_blank">X</a><a href="https://github.com/shahin4l" rel="noopener noreferrer" target="_blank">GitHub</a></div></div>
 </div>
 </footer>
@@ -1453,6 +1504,27 @@
 <script>
 (function () {
   const BN = {
+    "Articles":"প্রবন্ধ",
+    "Insights & Publications":"ভাবনা ও প্রকাশনা",
+    "Ideas from the field. Lessons worth sharing.":"কাজের অভিজ্ঞতা থেকে পাওয়া ভাবনা, যা ভাগ করে নেওয়ার মতো।",
+    "A selection of articles on logistics, courier operations, cost analysis, leadership and practical improvement.":"লজিস্টিকস, কুরিয়ার অপারেশনস, খরচ বিশ্লেষণ, নেতৃত্ব ও বাস্তবভিত্তিক উন্নয়ন নিয়ে নির্বাচিত প্রবন্ধ।",
+    "LINKEDIN ARTICLES & PROFESSIONAL WRITING":"LINKEDIN প্রবন্ধ ও পেশাগত লেখা",
+    "Practical thinking shaped by real operational challenges.":"বাস্তব অপারেশনাল চ্যালেঞ্জ থেকে তৈরি বাস্তবধর্মী চিন্তা।",
+    "Explore the full collection of professional articles and perspectives on LinkedIn.":"LinkedIn-এ আমার পেশাগত প্রবন্ধ ও মতামতের সম্পূর্ণ সংগ্রহ দেখুন।",
+    "View LinkedIn profile ↗":"LinkedIn প্রোফাইল দেখুন ↗",
+    "Select any article to read the full publication on LinkedIn. More articles can be added to the LINKEDIN_ARTICLES list in this HTML file.":"সম্পূর্ণ লেখা পড়তে যেকোনো প্রবন্ধ নির্বাচন করুন। এই HTML ফাইলের LINKEDIN_ARTICLES তালিকায় নতুন প্রবন্ধ যোগ করা যাবে।",
+    "Read article on LinkedIn ↗":"LinkedIn-এ প্রবন্ধ পড়ুন ↗",
+    "Logistics & Operations":"লজিস্টিকস ও অপারেশনস",
+    "Sustainability & Experimentation":"টেকসই উদ্যোগ ও পরীক্ষা",
+    "Cost Analysis":"খরচ বিশ্লেষণ",
+    "Leadership & People":"নেতৃত্ব ও জনবল",
+    "Management & Leadership":"ম্যানেজমেন্ট ও নেতৃত্ব",
+    "A personal perspective on designing and engineering logistics operations, beyond simply running day-to-day activities.":"দৈনন্দিন কাজ পরিচালনার বাইরে লজিস্টিকস অপারেশনকে পরিকল্পনা ও প্রকৌশলভিত্তিকভাবে গড়ে তোলার ব্যক্তিগত দৃষ্টিভঙ্গি।",
+    "An experiment exploring the use of brick dust in a logistics-company context.":"লজিস্টিকস কোম্পানির প্রেক্ষাপটে brick dust ব্যবহারের একটি পরীক্ষামূলক উদ্যোগ।",
+    "An educational guide to understanding and analysing cost in courier operations.":"কুরিয়ার অপারেশনে খরচ বোঝা ও বিশ্লেষণের একটি শিক্ষামূলক নির্দেশিকা।",
+    "A Bengali article reflecting on leadership, workforce and fairness in corporate life.":"কর্পোরেট জীবনে নেতৃত্ব, জনবল ও ন্যায্যতা নিয়ে একটি বাংলা প্রবন্ধ।",
+    "A practical look at managerial styles, their impact and a roadmap for managerial excellence.":"ম্যানেজারিয়াল স্টাইল, তার প্রভাব এবং উৎকর্ষ অর্জনের রোডম্যাপ নিয়ে বাস্তবভিত্তিক আলোচনা।",
+
     "Skip to main content":"মূল কনটেন্টে যান",
     "Supply Chain & Operations":"সাপ্লাই চেইন ও অপারেশনস",
     "Operations Leadership · Logistics · Improvement":"অপারেশনস নেতৃত্ব · লজিস্টিকস · উন্নয়ন",
@@ -1827,6 +1899,36 @@
   let saved = "en";
   try { saved = localStorage.getItem("portfolio-language") || "en"; } catch (_) {}
   setLang(saved === "bn" ? "bn" : "en");
+})();
+</script>
+
+<script>
+/* ===== LinkedIn Articles: add future publications to this list ===== */
+(function () {
+  const LINKEDIN_ARTICLES = [
+    { title: "I Didn’t Run a Logistics Operation. I Engineered One.", category: "Logistics & Operations", description: "From inbound operations to leading 11 core functions: a story of engineering, process improvement and building leaders.", image: "https://media.licdn.com/dms/image/v2/D5612AQEXM4HoQoIxbg/article-cover_image-shrink_720_1280/B56aFfQzcpG0AQ-/0/1792599605711?e=2147483647&t=Y85kwr7Dw2FpGI25qlQmwU74M1Oop2fMUAYkQN7g1Ak&v=beta", url: "https://www.linkedin.com/pulse/i-didnt-run-logistics-operation-engineered-one-md-shahin-alam-dlmwc" },
+    { title: "The First Test of a Logistics Company, Using Brick Dust", category: "Sustainability & Experimentation", description: "Day one: no warehouse, no SOPs, no blueprint. Two years later: a technology-driven operation, and the lessons behind the journey.", image: "https://media.licdn.com/dms/image/v2/D5612AQEfZXY-o3bE2g/article-cover_image-shrink_720_1280/B56aHU8iofKAAQ-/0/1794574003497?e=2147483647&t=Eoq26XTtHR20E_6eXUlSj2SRQF0d7yyAv1E4rl_uy6s&v=beta", url: "https://www.linkedin.com/pulse/first-test-logistics-company-using-brick-dust-md-shahin-alam-gesqc" },
+    { title: "Cost Analysis in Courier Operations: An Educational Guide", category: "Cost Analysis", description: "A practical educational guide to fixed and variable costs, revenue, profit, break-even analysis and cost per shipment.", image: "https://media.licdn.com/dms/image/v2/D4D12AQFENQ-a2dKvUw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1734175964921?e=2147483647&t=4qClW30qw7b6ph-gZt_RaUD_9ootM2ixBvAi2OGozDY&v=beta", url: "https://www.linkedin.com/pulse/cost-analysis-courier-operations-educational-guide-md-shahin-alam-32hrf" },
+    { title: "নেতৃত্বের গুণাবলি ও ন্যায্যতার মূল্য: কর্পোরেট জীবনের বাস্তব অভিজ্ঞতা", category: "Leadership & People", description: "কর্পোরেট জীবনের বাস্তব অভিজ্ঞতা, নেতৃত্ব, কর্মপরিবেশ, ন্যায্যতা এবং প্রতিকূলতা পেরিয়ে এগিয়ে যাওয়ার গল্প।", image: "https://media.licdn.com/dms/image/v2/D5612AQGsYRtobbf62A/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1733251030790?e=2147483647&t=2rXt85mdPkw719szV6xMQ40k3w7DFC2gRkRQi1-F7Lc&v=beta", url: "https://www.linkedin.com/pulse/%E0%A6%A8%E0%A6%A4%E0%A6%A4%E0%A6%AC%E0%A6%B0-%E0%A6%97%E0%A6%A3%E0%A6%AC%E0%A6%B2-%E0%A6%93-%E0%A6%A8%E0%A6%AF%E0%A6%AF%E0%A6%AF%E0%A6%A4%E0%A6%B0-%E0%A6%AE%E0%A6%B2%E0%A6%AF-%E0%A6%95%E0%A6%B0%E0%A6%AA%E0%A6%B0%E0%A6%9F-%E0%A6%9C%E0%A6%AC%E0%A6%A8%E0%A6%B0-%E0%A6%AC%E0%A6%B8%E0%A6%A4%E0%A6%AC-%E0%A6%85%E0%A6%AD%E0%A6%9C%E0%A6%9E%E0%A6%A4-md-shahin-alam-emdxc" },
+    { title: "Mastering Managerial Excellence: Styles, Impacts, and Roadmap for Success", category: "Management & Leadership", description: "A practical look at managerial styles, their impact on team morale and productivity, and a roadmap for becoming an effective leader.", image: "https://media.licdn.com/dms/image/v2/D5612AQG1UXxUcBX31g/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1733140178386?e=2147483647&t=yT7CsHCoL5V6Vi5-PbngIO1Jr_Wtaw_g6_us_1hPNEg&v=beta", url: "https://www.linkedin.com/pulse/mastering-managerial-excellence-styles-impacts-roadmap-md-shahin-alam-zmmvc" }
+  ];  const root = document.getElementById('linkedinArticles');
+  if (!root) return;
+  const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const validLinkedIn = value => { try { const u = new URL(value); return u.protocol === 'https:' && u.hostname === 'www.linkedin.com' && u.pathname.startsWith('/pulse/'); } catch (_) { return false; } };
+  root.innerHTML = LINKEDIN_ARTICLES.filter(a => validLinkedIn(a.url)).map(a => `
+    <article class="article-card reveal">
+      <div class="article-cover-wrap"><img class="article-cover" src="${esc(a.image)}" alt="Cover image for ${esc(a.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'" /></div>
+      <div class="article-content">
+        <div class="article-top"><span class="article-platform"><b>in</b> LinkedIn</span><span class="article-type">${esc(a.category)}</span></div>
+        <h3>${esc(a.title)}</h3><p>${esc(a.description)}</p>
+        <a class="article-read" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">Read article on LinkedIn ↗</a>
+      </div>
+    </article>`).join('');
+  /* Re-run the site's reveal observer for cards inserted after initial page load. */
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); } }), {threshold:.08});
+    root.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else root.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
 })();
 </script>
 </body>
