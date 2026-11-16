@@ -1,0 +1,23 @@
+/* One preference for the portfolio, publishing tools and preserved previews. */
+.theme-toggle{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid #a9bcc7;border-radius:999px;background:#f8fafb;color:#183441;font:600 12px/1.5 'DM Sans','Hind Siliguri',sans-serif;cursor:pointer;white-space:nowrap}.theme-toggle:hover{background:#e4eef1}.theme-toggle:focus-visible{outline:3px solid #5b9ab4;outline-offset:4px}.site-theme-toggle{position:fixed;right:20px;bottom:20px;z-index:9999;box-shadow:0 5px 24px #07172326;width:auto;min-height:40px}.site-theme-toggle span{pointer-events:none}
+html[data-theme=dark]{color-scheme:dark;--ink:#e5edf3;--muted:#b3c2cf;--paper:#101922;--line:#344956;--accent:#8bd4c5;--white:#192631;--navy:#e5edf3;--navy-2:#c0d9d2;--blue:#8bd4c5;--teal:#8bd4c5;--soft:#14212b;--soft-blue:#243c46;--bg:#101922;--card:#192a35;--bd:#344956;--tx:#e5edf3;--mu:#b3c2cf;--border:#344956;--text:#e5edf3;--text-muted:#b3c2cf;--surface:#192a35;--shadow:none}
+html[data-theme=dark] body{background:#101922!important;color:#e5edf3!important}
+html[data-theme=dark] :is(.site-header,.header,.hero,.section-alt,.section-soft,.reading-section,section[style*="background"],.modal-overlay){background:#14212b!important;border-color:#344956}
+html[data-theme=dark] :is(.stat-card,.team-card,.timeline-content,.project-card,.article-card,.value-panel,.metric-card,.roadmap-card,.story-card,.card,.panel,.kpi,.modal,.modal-content,.login-card,.auth-card,.admin-panel,.notice,.empty,.floating-note,.portrait-frame,.profile-card,.contact-card,.skill-card,.education-card,.certificate-card,.filters,.editor,.preview-banner){background:#1a2b36!important;color:#e5edf3;border-color:#344956!important;box-shadow:none}
+html[data-theme=dark] :is(h1,h2,h3,h4,h5,h6,label,legend,th,summary){color:#e5edf3}
+html[data-theme=dark] :is(p,small,.meta,.hero-copy,.trust-line,.section-description,.nav-links,.muted,.subtitle,.sub,.desc){color:#b3c2cf}
+html[data-theme=dark] :is(input,textarea,select){background:#10212c!important;color:#e5edf3!important;border-color:#526b79!important}
+html[data-theme=dark] :is(.btn-secondary,.menu-toggle,.secondary,.theme-toggle){background:#203541!important;color:#e5edf3!important;border-color:#526b79!important}
+html[data-theme=dark] :is(.btn-primary,.nav-cta,.button,button:not(.secondary):not(.theme-toggle):not([data-lang]):not(.topic-chip)){background:#316f61;color:#fff;border-color:#458d7c}
+html[data-theme=dark] :is(.eyebrow,.announcement,.team-icon,.tag,.badge,.chip,.cover-placeholder){background:#27443e;color:#b1e5d6;border-color:#45635b}
+html[data-theme=dark] :is(.site-footer,footer){background:#0b141c!important;color:#dbe5ed;border-color:#344956}
+html[data-theme=dark] :is(.nav-links.open,.site-header .nav-links a.is-current){background:#243c46!important;color:#b1e5d6}
+html[data-theme=dark] .hero h1 .accent-text{color:#8bd4c5}html[data-theme=dark] :is(table,td,th,tr){border-color:#344956!important}html[data-theme=dark] thead,html[data-theme=dark] th{background:#233945!important}html[data-theme=dark] :is(.prose code,.prose pre){background:#203541;color:#e2f3ef}html[data-theme=dark] .prose blockquote{color:#b1e5d6;background:#203541}
+/* Legacy interface previews retain their layout and functional controls. */
+html[data-theme=dark] :is([class~="bg-white"],[class~="bg-gray-50"],[class~="bg-gray-100"],[class~="bg-slate-50"],[class~="bg-slate-100"]){background:#1a2b36!important}
+html[data-theme=dark] :is([class*="text-gray-"],[class*="text-slate-"],[class*="text-cb-navy"]){color:#d0dce5!important}html[data-theme=dark] :is([class*="border-gray-"],[class*="border-slate-"]){border-color:#344956!important}
+@media(max-width:600px){.site-theme-toggle{right:12px;bottom:12px;font-size:11px;padding:8px 12px}}
+html[data-theme=dark] :is(.section-dark,.brand-mark,.framework-index,.top,.topbar,.sidebar,.bottom-nav){background:#172f3c!important;color:#e5edf3}
+html[data-theme=dark] :is(.dashboard-shell,.dash-kpi,.chart-card,.framework-card,.calc-panel,.result,.social-link,.pv-chip,.auth,.stats>div,.tabs,.panel-section){background:#1a2b36!important;color:#e5edf3;border-color:#344956!important}
+html[data-theme=dark] :is(.stat-context,.dash-kpi span,.dash-kpi small,.progress-label,.bar-col span,.nav-links .insights-nav-link){color:#a6d3c9}
+html[data-theme=dark] .languages button:not([aria-pressed=true]){color:#e5edf3}html[data-theme=dark] .languages button[aria-pressed=true]{background:#d7e7ee;color:#10212c}

@@ -20,6 +20,12 @@
   }
   apply(preference || (system.matches ? 'dark' : 'light'));
   document.addEventListener('DOMContentLoaded', () => {
+    if (!document.getElementById('theme-toggle')) {
+      const button = document.createElement('button');
+      button.type = 'button'; button.id = 'theme-toggle'; button.className = 'theme-toggle site-theme-toggle';
+      button.innerHTML = '<span aria-hidden="true">◐</span> <span id="theme-label"></span>';
+      document.body.append(button);
+    }
     update();
     document.getElementById('theme-toggle')?.addEventListener('click', () => {
       preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
@@ -28,5 +34,7 @@
     });
   });
   document.addEventListener('language', update);
+  document.addEventListener('portfolio-language-change', update);
+  window.addEventListener('storage', event => { if (event.key === key) { preference = ['dark','light'].includes(event.newValue) ? event.newValue : null; apply(preference || (system.matches ? 'dark' : 'light')); } });
   system.addEventListener('change', event => { if (!preference) apply(event.matches ? 'dark' : 'light'); });
 })();
