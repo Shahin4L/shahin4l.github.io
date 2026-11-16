@@ -12,3 +12,13 @@ This file supersedes preparation-time blockers in older audit/guide snapshots.
 - Administrator membership count remains zero. The owner must create their own Auth user and add its UID/email to admin_users without sending a password to the agent. See ADMIN_GUIDE_BN.md, section 'নিজের Admin account'. Do not rerun platform.sql: it is already applied.
 
 Still pending: owner account/bootstrap, owner auth URL/signup configuration, real browser login/CRUD/moderation/image-upload tests, desktop/mobile/tablet visual QA, Pages Actions source selection and final publication. Do not merge the draft PR before these remaining checks are resolved. Previous 11 local automated tests passed, but they do not replace browser acceptance tests.
+
+
+## Owner setup and browser verification update
+
+- Owner admin membership is present (one configured admin). The owner signed in successfully through the secure browser authentication flow; no password/token was exposed to the agent.
+- Actual browser tests passed: draft creation, editing, publication, future publication hiding, restoring due publication, bilingual article rendering, Markdown/code safety, category/tag/search, image upload, comment approve/reject visibility, backup download, dashboard language switching and logout with UI data cleared. Guest submission and repeated reactions were exercised against the real Edge endpoint, and email privacy was checked through anonymous reads.
+- Desktop, 390px mobile and 768px tablet previews were inspected. Tablet navigation overflow was fixed and rechecked (scroll width equals viewport width). The old calculator duplicate input was corrected; numerical outputs were checked at 10,000 and 20,000 units. Four project modals open; attendance preview received the same backend-disconnected stub as the other previews to prevent its google-is-undefined error.
+- Supabase organization plan was directly verified as free.
+- A test portrait was uploaded successfully to the image bucket and remains available as an owner asset. Temporary test article/comment/reaction fixtures were deleted; the verification article count is zero.
+- Remaining: production Pages deployment verification; auth recovery URL/signup settings still require owner Dashboard review because the connected tools do not expose auth settings. Password recovery mail delivery and field Core Web Vitals have not been measured.

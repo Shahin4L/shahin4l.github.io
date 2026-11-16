@@ -1064,7 +1064,7 @@
 <p class="calc-sub">Pre-filled values are sample numbers only. Replace them with real data.</p>
 <div class="calc-fields">
 <div class="field"><label for="c_currency">Cost currency</label><select id="c_currency"><option value="BDT" selected>BDT · Bangladeshi Taka</option><option value="EUR">EUR · Euro</option><option value="USD">USD · US Dollar</option><option value="GBP">GBP · Pound Sterling</option><option value="INR">INR · Indian Rupee</option><option value="AED">AED · UAE Dirham</option></select></div>
-<div class="field"><label for="c_parcels">Units / transactions completed</label><input id="c_parcels"Units / transactions completed</label><input id="c_parcels" inputmode="decimal" min="0" step="any" type="number" value="10000"/></div>
+<div class="field"><label for="c_parcels">Units / transactions completed</label><input id="c_parcels" inputmode="decimal" min="0" step="any" type="number" value="10000"/></div>
 <div class="field"><label for="c_hours">Total labor hours (including overtime)</label><input id="c_hours" inputmode="decimal" min="0" step="any" type="number" value="1250"/></div>
 <div class="field"><label for="c_cost">Total operating cost</label><input id="c_cost" inputmode="decimal" min="0" step="any" type="number" value="150000"/></div>
 <div class="field"><label for="c_labor">Total labor cost</label><input id="c_labor" inputmode="decimal" min="0" step="any" type="number" value="95000"/></div>
@@ -1431,7 +1431,7 @@
         const prev = safeUrl(p.preview);
         const tools = (p.tools || []).map(t => `<span class="mini-tag">${esc(t)}</span>`).join('');
         const thumb = prev
-          ? `<button type="button" class="project-thumb has-preview" data-preview="${i}" aria-label="Open live preview of ${esc(p.title)}"><span class="pv-icon" aria-hidden="true">${esc(p.icon || '')}</span><span class="pv-chip"><i>▶</i> Live preview</span></button>`
+          ? `<button type="button" class="project-thumb has-preview" data-preview="${i}" aria-label="Open interface preview of ${esc(p.title)}"><span class="pv-icon" aria-hidden="true">${esc(p.icon || '')}</span><span class="pv-chip"><i>▶</i> Interface preview</span></button>`
           : `<div class="project-thumb">${img ? `<img src="${img}" alt="${esc(p.title)}" loading="lazy">` : esc(p.icon || (p.title || 'P').trim().charAt(0).toUpperCase())}</div>`;
         return `
           <article class="project-card">
@@ -1445,7 +1445,7 @@
               ${p.impact ? `<p><b>Impact:</b> ${esc(p.impact)}</p>` : ''}
               ${tools ? `<div class="project-meta">${tools}</div>` : ''}
               ${(prev || link) ? `<div class="project-actions">
-                ${prev ? `<button type="button" class="btn btn-primary" data-preview="${i}">▶ View live preview</button>` : ''}
+                ${prev ? `<button type="button" class="btn btn-primary" data-preview="${i}">▶ View interface preview</button>` : ''}
                 ${link ? `<a class="btn btn-secondary" href="${link}" target="_blank" rel="noopener noreferrer">View project ↗</a>` : ''}
               </div>` : ''}
             </div>
@@ -1539,6 +1539,12 @@
 <script>
 (function () {
   const BN = {
+    "I'm":"আমি",
+    ", a Supply Chain & Operations Professional focused on improving courier operations through people leadership, clear processes, performance monitoring, and continuous improvement.":"। জনবল নেতৃত্ব, স্পষ্ট প্রক্রিয়া, কর্মদক্ষতা পর্যবেক্ষণ ও ধারাবাহিক উন্নয়নের মাধ্যমে কুরিয়ার অপারেশনস উন্নত করতে কাজ করি।",
+    "Download Resume":"জীবনবৃত্তান্ত ডাউনলোড",
+    "Interface preview":"ইন্টারফেস প্রিভিউ",
+    "▶ View interface preview":"▶ ইন্টারফেস প্রিভিউ দেখুন",
+
     "Journal":"জার্নাল",
     "Articles":"প্রবন্ধ",
     "Insights & Publications":"ভাবনা ও প্রকাশনা",
@@ -1871,9 +1877,9 @@
     "Mobile":"মোবাইল",
     "↗ Open in new tab":"↗ নতুন ট্যাবে খুলুন",
     "Open live preview":"লাইভ প্রিভিউ খুলুন",
-    "▶ View live preview":"▶ লাইভ প্রিভিউ দেখুন",
+    "▶ View interface preview":"▶ ইন্টারফেস প্রিভিউ দেখুন",
     "View project ↗":"প্রকল্প দেখুন ↗",
-    "Live preview":"লাইভ প্রিভিউ",
+    "Interface preview":"ইন্টারফেস প্রিভিউ",
     "Interface preview only. The live system runs on Google Apps Script and requires authorized sign-in, so data is not connected here.":"এখানে শুধু ইন্টারফেসের প্রিভিউ দেখানো হয়। প্রকৃত সিস্টেম Google Apps Script-এ চলে এবং অনুমোদিত সাইন-ইন প্রয়োজন; তাই এই প্রিভিউতে লাইভ ডেটা সংযুক্ত নেই।",
     "Close preview":"প্রিভিউ বন্ধ করুন",
     "All rights reserved.":"সর্বস্বত্ব সংরক্ষিত।"

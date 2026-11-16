@@ -11,6 +11,8 @@ Upgrade of the existing static portfolio, preserving existing projects, previews
 - [Test report and remaining work](docs/TEST_REPORT.md)
 - [Proposed first-install SQL](database/platform.sql)
 
+Latest deployment and browser verification: [DEPLOYMENT_STATUS.md](docs/DEPLOYMENT_STATUS.md).
+
 ## Local checks
 
 Use Node.js 24 and Python 3. No npm dependencies are required.

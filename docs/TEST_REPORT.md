@@ -4,6 +4,8 @@
 
 **Result: local source and isolated tests pass; live acceptance testing remains blocked.**
 
+For the latest real browser/backend results, see [DEPLOYMENT_STATUS.md](DEPLOYMENT_STATUS.md). Preparation-time failures below are retained as history. The current local suite has 10 Node tests plus 2 Python tests.
+
 ## Executed
 
 | Check | Outcome / evidence |
