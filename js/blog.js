@@ -1,5 +1,5 @@
 import {$,esc,t,lang,shell,rows,api,card,notify,setCategories} from './core.js';
-import {initInsights} from './insights.js?v=photos-2';
+import {initInsights} from './insights.js?v=photos-3';
 shell();initInsights();let posts=[],featured=[],categories=[],tags=[],page=0,hasMore=false,serial=0,timer;
 const fields='id,title,title_bn,slug,excerpt,excerpt_bn,cover_url,category,tags,featured,published_at,reading_minutes,reading_minutes_bn,has_bangla,appreciation';
 function render(){$('#stories').setAttribute('aria-busy','false');$('#stories').innerHTML=posts.map(card).join('')||`<p class="empty">${t('No articles here yet. Explore the reading room above for selected references.','এখানে এখনো লেখা নেই। উপরের পড়ার সংগ্রহে নির্বাচিত রেফারেন্স দেখুন।')}</p>`;$('#more').hidden=!hasMore;$('#count').textContent=posts.length+' '+t(posts.length===1?'story shown':'stories shown','টি লেখা দেখানো হচ্ছে');$('#featured-section').hidden=!!($('#search').value||$('#category').value||$('#tag').value)||!featured.length;$('#featured').innerHTML=featured.map(card).join('');}
