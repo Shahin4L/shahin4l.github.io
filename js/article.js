@@ -1,4 +1,4 @@
-import {$,esc,safeURL,t,lang,shell,rows,api,localized,reading,markdown,card,notify,setCategories,categoryName} from './core.js';
+import {$,esc,safeURL,t,lang,shell,rows,api,localized,reading,markdown,card,notify,setCategories,categoryName} from './core.js?v=flow-4';
 import {config} from './config.js';
 shell();let post,comments=[],stats={},related=[];let visitor=localStorage.getItem('journal-visitor');if(!visitor){visitor=crypto.randomUUID();localStorage.setItem('journal-visitor',visitor)}let started=Date.now();
 const slug=new URLSearchParams(location.search).get('slug')||decodeURIComponent(location.pathname.split('/').filter(Boolean)[1]||'');

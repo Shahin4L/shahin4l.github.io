@@ -1,4 +1,4 @@
-import {$, esc, lang, t} from './core.js';
+import {$, esc, lang, t} from './core.js?v=flow-4';
 
 // Editorial links point to original publishers; their articles are not republished.
 export const readingResources = [
