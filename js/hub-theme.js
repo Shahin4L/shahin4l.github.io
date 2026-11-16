@@ -8,6 +8,7 @@
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
     update();
+    document.dispatchEvent(new CustomEvent('site-theme-change', {detail:{theme}}));
   }
   function update() {
     const button = document.getElementById('theme-toggle');

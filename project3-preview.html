@@ -563,9 +563,9 @@ function exportCsv(id){const t=$(id).querySelector('table');if(!t)return toast('
  a.href=URL.createObjectURL(blob);a.download=id+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();a.remove()}
 function applyTheme(t){document.documentElement.dataset.theme=t;$('thBtn')&&($('thBtn').textContent=t==='dark'?'☀️':'🌙');
  Chart.defaults.color=t==='dark'?'#94a3b8':'#64748b';Chart.defaults.borderColor=t==='dark'?'#1f2b45':'#e5e9f0'}
-function toggleTheme(){const t=document.documentElement.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('CB_THEME',t)}catch(e){}
- applyTheme(t);if(S.boot&&!$('app').classList.contains('hidden'))refreshDash()}
-try{applyTheme(localStorage.getItem('CB_THEME')||'light')}catch(e){applyTheme('light')}
+function toggleTheme(){document.getElementById('theme-toggle')?.click()}
+applyTheme(document.documentElement.dataset.theme||'light');
+document.addEventListener('site-theme-change',e=>{applyTheme(e.detail.theme);if(S.boot&&!$('app').classList.contains('hidden'))refreshDash()});
 
 /* ATTENDANCE */
 let ATTM=null;
