@@ -12,3 +12,6 @@ jobs:
           node-version: 24
       - run: npm run check && npm test
       - run: python3 tests/engagement_http.py
+
+      - run: python3 tests/build_blog_test.py
+      - run: python3 scripts/package_pages.py

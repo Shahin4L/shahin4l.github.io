@@ -33,3 +33,13 @@ test('comments are never automatically retried; validation failures do not retry
 let n=0;await assert.rejects(submitEngagement({kind:'comment'},{fetchImpl:async()=>{n++;throw new TypeError('Failed to fetch')}}),e=>e.code==='network'&&!!e.message_bn);assert.equal(n,1);
 n=0;await assert.rejects(submitEngagement({kind:'useful'},{fetchImpl:async()=>{n++;return new Response(JSON.stringify({error:'Invalid input'}),{status:400})}}),/Invalid input/);assert.equal(n,1);
 });
+
+import {readFileSync,existsSync} from 'node:fs';
+test('published Formula Lab has all recipes, required controls, local modules and bilingual metadata',()=>{
+const html=readFileSync(new URL('../formula-lab/index.html',import.meta.url),'utf8');
+for(const id of ['formula-results','formula-search','formula-category','formula-platform','formula-status','formula-more','formula-controls','manual-copy','practice-hub','practice-status','practice-rows','practice-quantity','practice-amount','practice-formula','copy-practice','copy-sample'])assert(html.includes('id="'+id+'"'),id);
+for(const r of recipes)assert(html.includes('id="'+r.id+'"'));
+for(const match of html.matchAll(/(?:src|href)="(\/(?:js|css|assets|formula-lab)\/[^"#?]+)(?:\?[^"]*)?"/g)){const path=match[1];if(path.endsWith('/'))continue;assert(existsSync(new URL('..'+path,import.meta.url)),path)}
+assert(html.includes('data-bn='));
+assert(html.includes('https://shahin4l.github.io/formula-lab/'));
+});
