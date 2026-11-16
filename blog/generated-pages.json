@@ -1,1 +1,22 @@
-[]
+[
+  "reverse-logistics-traceability",
+  "dispatch-cutoff-readiness",
+  "demand-forecasting-baseline",
+  "supplier-scorecard",
+  "inbound-handover-control",
+  "root-cause-analysis-evidence",
+  "shift-capacity-planning",
+  "inventory-cycle-counting",
+  "linehaul-control-tower",
+  "sop-that-people-can-use",
+  "backlog-aging-action-plan",
+  "daily-operations-dashboard",
+  "cost-per-parcel-metric",
+  "procurement-total-value",
+  "secure-operations-automation",
+  "sorting-accuracy-quality-loop",
+  "shift-handover-team-leadership",
+  "preventive-maintenance-register",
+  "last-mile-exception-management",
+  "warehouse-5s-visual-workplace"
+]
