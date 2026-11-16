@@ -584,7 +584,7 @@
 </a>
 <button aria-controls="navLinks" aria-expanded="false" class="menu-toggle" id="menuToggle">Menu</button>
 <nav aria-label="Main navigation" class="nav-links" id="navLinks">
-<a href="/blog/">Journal</a>
+<a href="/blog/" class="insights-nav-link">Insights Hub</a>
 <a href="#results" data-i="n_results">Results</a>
 <a href="#about" data-i="n_about">About</a>
 <a href="#experience" data-i="n_exp">Experience</a>
@@ -595,7 +595,7 @@
 <a href="#services" data-i="n_services">Services</a>
 <a href="#toolkit" data-i="n_metrics">Metrics</a>
 <div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-lg="en" aria-pressed="true" lang="en">EN</button><button type="button" data-lg="bn" aria-pressed="false" lang="bn">বাংলা</button></div></nav>
-<a class="nav-cta" href="#contact">Let's Connect ↗</a>
+<a class="nav-cta nav-admin" href="/admin/">Admin Login</a>
 </div>
 </header>
 <main id="main">
@@ -1539,6 +1539,8 @@
 <script>
 (function () {
   const BN = {
+    "Insights Hub":"ইনসাইটস হাব",
+    "Admin Login":"অ্যাডমিন লগইন",
     "I'm":"আমি",
     ", a Supply Chain & Operations Professional focused on improving courier operations through people leadership, clear processes, performance monitoring, and continuous improvement.":"। জনবল নেতৃত্ব, স্পষ্ট প্রক্রিয়া, কর্মদক্ষতা পর্যবেক্ষণ ও ধারাবাহিক উন্নয়নের মাধ্যমে কুরিয়ার অপারেশনস উন্নত করতে কাজ করি।",
     "Download Resume":"জীবনবৃত্তান্ত ডাউনলোড",
@@ -1971,5 +1973,5 @@
   } else root.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
 })();
 </script>
-<script type="module" src="/js/portfolio.js"></script></body>
+<script type="module" src="/js/portfolio.js"></script><script defer src="/js/home-nav.js"></script></body>
 </html>
