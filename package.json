@@ -1,0 +1,1 @@
+{"name":"shahin-portfolio-journal","private":true,"type":"module","scripts":{"check":"node --check js/core.js && node --check js/admin.js && node --check js/article.js && node --check js/blog.js && node --check js/portfolio.js","test":"node --test tests/*.test.mjs"}}
