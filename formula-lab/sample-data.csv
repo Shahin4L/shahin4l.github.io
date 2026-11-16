@@ -1,0 +1,7 @@
+Order ID,Hub,Status,Date,Qty,Amount,Agent,Hours
+SO-101,Dhaka,Delivered,2026-11-01,10,1000,Asha,8
+SO-102,Dhaka,Pending,2026-11-02,5,600,Rahim,6
+SO-103,CTG,Delivered,2026-11-02,8,900,Asha,7.5
+SO-104,Dhaka,Returned,2026-11-03,4,450,Mehedi,8
+SO-105,CTG,Delivered,2026-11-03,12,1500,Rahim,9
+SO-105,CTG,Delivered,2026-11-03,12,1500,Rahim,9
