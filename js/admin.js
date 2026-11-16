@@ -32,4 +32,5 @@ function restoreFailure(e){
  $('#auth-state').textContent=t('Could not reconnect. Your session is kept; try again.','সংযোগ করা যায়নি। সেশন রাখা আছে; আবার চেষ্টা করুন।');$('#retry-session').hidden=false;
 }
 $('#retry-session').onclick=()=>{$('#retry-session').hidden=true;load().catch(restoreFailure)};
-document.addEventListener('visibilitychange',()=>{if(!document.hidden&&session()&&!$('#dashboard').hidden)authorize().catch(restoreFailure)});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)return;if(!session()&&!$('#dashboard').hidden)lock();else if(session()&&!$('#dashboard').hidden)authorize().catch(restoreFailure)});
+window.addEventListener('pageshow',e=>{if(!e.persisted)return;if(!session()){lock();return}$('#dashboard').hidden=true;$('#login').hidden=true;$('#auth-check').hidden=false;load().catch(restoreFailure)});
