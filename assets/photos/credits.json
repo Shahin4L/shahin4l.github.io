@@ -1,0 +1,82 @@
+{
+  "warehouse": {
+    "key": "warehouse",
+    "page": "https://unsplash.com/photos/a-warehouse-filled-with-lots-of-boxes-and-pallets-28b8xlTT5t4",
+    "image": "https://images.unsplash.com/photo-1721937127582-ed331de95a04?auto=format&fit=crop&w=1200&h=675&q=75",
+    "status": 200,
+    "bytes": 141660,
+    "photographer": "Ashley",
+    "license": "https://unsplash.com/license",
+    "local": "/assets/photos/warehouse.webp"
+  },
+  "analytics": {
+    "key": "analytics",
+    "page": "https://unsplash.com/photos/turned-on-monitoring-screen-qwtCeJ5cLYs",
+    "image": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1200&h=675&q=75",
+    "status": 200,
+    "bytes": 119872,
+    "photographer": "Stephen Dawson",
+    "license": "https://unsplash.com/license",
+    "local": "/assets/photos/analytics.webp"
+  },
+  "engineering": {
+    "key": "engineering",
+    "page": "https://unsplash.com/photos/a-man-working-on-a-machine-in-a-factory--TZcFPh253w",
+    "image": "https://images.unsplash.com/photo-1700727448550-c1af9cf9acc7?auto=format&fit=crop&w=1200&h=675&q=75",
+    "status": 200,
+    "bytes": 62319,
+    "photographer": "TruckRun",
+    "license": "https://unsplash.com/license",
+    "local": "/assets/photos/engineering.webp"
+  },
+  "transport": {
+    "key": "transport",
+    "page": "https://unsplash.com/photos/a-red-semi-truck-driving-down-a-country-road-H2UzCyX32p4",
+    "image": "https://images.unsplash.com/photo-1720811559395-3ed8d1b16649?auto=format&fit=crop&w=1200&h=675&q=75",
+    "status": 200,
+    "bytes": 121148,
+    "photographer": "Tom Jackson",
+    "license": "https://unsplash.com/license",
+    "local": "/assets/photos/transport.webp"
+  },
+  "team": {
+    "key": "team",
+    "page": "https://unsplash.com/photos/a-group-of-people-sitting-around-a-conference-table-TcvZEb8cSJI",
+    "image": "https://images.unsplash.com/photo-1716703435453-a7733d600d68?auto=format&fit=crop&w=1200&h=675&q=75",
+    "status": 200,
+    "bytes": 165587,
+    "photographer": "Musemind UX Agency",
+    "license": "https://unsplash.com/license",
+    "local": "/assets/photos/team.webp"
+  },
+  "packages": {
+    "key": "packages",
+    "page": "https://unsplash.com/photos/brown-cardboard-boxes-on-black-plastic-crate-q8kR_ie6WnI",
+    "image": "https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=1200&h=675&q=75",
+    "status": 200,
+    "bytes": 154084,
+    "photographer": "Claudio Schwarz",
+    "license": "https://unsplash.com/license",
+    "local": "/assets/photos/packages.webp"
+  },
+  "planning": {
+    "key": "planning",
+    "page": "https://unsplash.com/photos/team-collaborating-with-sticky-notes-on-glass-wall-TSyD0nGc0Bs",
+    "image": "https://images.unsplash.com/photo-1758691736872-61a1f75fe2d5?auto=format&fit=crop&w=1200&h=675&q=75",
+    "status": 200,
+    "bytes": 121346,
+    "photographer": "Vitaly Gariev",
+    "license": "https://unsplash.com/license",
+    "local": "/assets/photos/planning.webp"
+  },
+  "automation": {
+    "key": "automation",
+    "page": "https://unsplash.com/photos/person-working-on-a-laptop-coding-and-analyzing-data-Su1XYFlftXA",
+    "image": "https://images.unsplash.com/photo-1753613648242-6b6c5b88e4d1?auto=format&fit=crop&w=1200&h=675&q=75",
+    "status": 200,
+    "bytes": 93185,
+    "photographer": "Hasnain Ayaz",
+    "license": "https://unsplash.com/license",
+    "local": "/assets/photos/automation.webp"
+  }
+}
