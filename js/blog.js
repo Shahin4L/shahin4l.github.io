@@ -1,6 +1,7 @@
 import {$,esc,t,lang,shell,rows,api,card,notify,setCategories} from './core.js?v=flow-4';
 import {initInsights} from './insights.js?v=flow-4';
-shell();initInsights();let posts=[],featured=[],categories=[],tags=[],page=0,hasMore=false,serial=0,timer;
+import {initRadar} from './industry-radar.js?v=1';
+shell();initInsights();initRadar();let posts=[],featured=[],categories=[],tags=[],page=0,hasMore=false,serial=0,timer;
 const fields='id,title,title_bn,slug,excerpt,excerpt_bn,cover_url,category,tags,featured,published_at,reading_minutes,reading_minutes_bn,has_bangla,appreciation';
 function render(){$('#stories').setAttribute('aria-busy','false');$('#stories').innerHTML=posts.map(card).join('')||`<p class="empty">${t('No articles here yet. Explore the reading room above for selected references.','এখানে এখনো লেখা নেই। উপরের পড়ার সংগ্রহে নির্বাচিত রেফারেন্স দেখুন।')}</p>`;$('#more').hidden=!hasMore;$('#count').textContent=posts.length+' '+t(posts.length===1?'story shown':'stories shown','টি লেখা দেখানো হচ্ছে');$('#featured-section').hidden=!!($('#search').value||$('#category').value||$('#tag').value)||!featured.length;$('#featured').innerHTML=featured.map(card).join('');}
 function options(){const c=$('#category').value,g=$('#tag').value;$('#category').innerHTML=`<option value="">${t('All categories','সব বিভাগ')}</option>`+categories.map(v=>`<option value="${esc(v.id)}">${esc(lang==='bn'?v.name_bn:v.id)}</option>`).join('');$('#tag').innerHTML=`<option value="">${t('All tags','সব ট্যাগ')}</option>`+tags.map(v=>`<option>${esc(v.tag)}</option>`).join('');$('#category').value=c;$('#tag').value=g;}

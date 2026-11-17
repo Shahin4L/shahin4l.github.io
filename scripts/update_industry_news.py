@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Collect public publisher RSS/Atom metadata. Never copy article bodies or bypass paywalls."""
-import argparse,concurrent.futures,datetime as dt,email.utils,html,json,re,urllib.request,urllib.error,urllib.parse,xml.etree.ElementTree as ET
+import argparse,os,concurrent.futures,datetime as dt,email.utils,html,json,re,urllib.request,urllib.error,urllib.parse,xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -65,7 +65,7 @@ def parse_feed(raw,source,now):
   if not title or not url or not published or published>now+dt.timedelta(hours=1) or now-published>MAX_AGE:continue
   article={'title':title,'url':url,'published_at':stamp(published),'date_kind':kind,'source_id':source['id'],'source':source['name'],'topic':topic_for(title,source)}
   articles.setdefault(url,article)
- return sorted(articles.values(),key=lambda a:a['published_at'],reverse=True)[:8]
+ return sorted(articles.values(),key=lambda a:parse_date(a['published_at']),reverse=True)[:8]
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
  def __init__(self,source):super().__init__();self.source=source
  def redirect_request(self,req,fp,code,msg,headers,newurl):
@@ -81,7 +81,9 @@ def should_check(previous,now,force=False):
  last=parse_date(previous.get('checked_at'))
  if not last:return True
  local_now=now.astimezone(ZoneInfo('Asia/Dhaka'))
- if last.astimezone(ZoneInfo('Asia/Dhaka')).date()!=local_now.date():return local_now.hour>=9
+ last_local=last.astimezone(ZoneInfo('Asia/Dhaka'))
+ if last_local.date()!=local_now.date():return local_now.hour>=9
+ if last_local.hour<9<=local_now.hour:return True
  return previous.get('status')!='complete' and now-last>=dt.timedelta(hours=6)
 def aggregate(previous,results,now,sources=SOURCES):
  at=stamp(now);old_articles=previous.get('articles',[])
@@ -101,9 +103,9 @@ def aggregate(previous,results,now,sources=SOURCES):
   for a in combined.values():
    date=parse_date(a.get('published_at'))
    if date and dt.timedelta(hours=-1)<=now-date<=MAX_AGE:recent.append(a)
-  recent.sort(key=lambda a:a['published_at'],reverse=True)
+  recent.sort(key=lambda a:parse_date(a['published_at']),reverse=True)
   state['article_count']=len(recent[:8]);articles.extend(recent[:8]);states.append(state)
- articles=sorted({a['url']:a for a in articles}.values(),key=lambda a:a['published_at'],reverse=True)[:40]
+ articles=sorted({a['url']:a for a in articles}.values(),key=lambda a:parse_date(a['published_at']),reverse=True)[:40]
  new_count=sum(a['url'] not in old_by_url for a in articles)
  return {'version':1,'checked_at':at,'last_success_at':at if ok else previous.get('last_success_at'),'last_changed_at':at if new_count else previous.get('last_changed_at'),'status':'complete' if ok==len(sources) else 'partial' if ok else 'failed','new_count':new_count,'articles':articles,'sources':states}
 def collect(previous,now,fetcher=fetch_source):
@@ -120,7 +122,7 @@ def main():
  parser=argparse.ArgumentParser();parser.add_argument('--force',action='store_true');parser.add_argument('--output',default=str(Path(__file__).resolve().parents[1]/'blog/industry-news.json'));args=parser.parse_args()
  path=Path(args.output);previous=json.loads(path.read_text()) if path.exists() else {}
  now=dt.datetime.now(UTC)
- if not should_check(previous,now,args.force):print('Industry radar: daily check already completed, or before 09:00 Asia/Dhaka.');return
+ if not should_check(previous,now,args.force or os.environ.get('GITHUB_EVENT_NAME')=='workflow_dispatch'):print('Industry radar: daily check already completed, or before 09:00 Asia/Dhaka.');return
  result=collect(previous,now)
  path.parent.mkdir(parents=True,exist_ok=True);temporary=path.with_suffix('.tmp');temporary.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');temporary.replace(path)
  print('Industry radar:',result['status'],'articles:',len(result['articles']),'new:',result['new_count'])

@@ -28,6 +28,9 @@ jobs:
           npm run check
           npm test
           python3 tests/build_blog_test.py
+          python3 tests/industry_news_test.py
+      - name: Collect daily industry news metadata
+        run: python3 scripts/update_industry_news.py
       - name: Export published content only
         run: python3 scripts/build_blog.py
       - name: Commit generated article pages
