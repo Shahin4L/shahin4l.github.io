@@ -1,11 +1,21 @@
 {
   "version": 1,
-  "checked_at": "2026-11-17T00:51:12.567998Z",
-  "last_success_at": "2026-11-17T00:51:12.567998Z",
-  "last_changed_at": "2026-11-17T00:42:24.709474Z",
+  "checked_at": "2026-11-17T08:01:15.213036Z",
+  "last_success_at": "2026-11-17T08:01:15.213036Z",
+  "last_changed_at": "2026-11-17T08:01:15.213036Z",
   "status": "complete",
-  "new_count": 0,
+  "new_count": 1,
   "articles": [
+    {
+      "title": "Yes, Lean Thinkers Are Luddites. The Original Kind.",
+      "url": "https://lean.org/the-lean-post/articles/yes-lean-thinkers-are-luddites-the-original-kind/",
+      "published_at": "2026-11-17T02:53:47Z",
+      "date_kind": "published",
+      "source_id": "lean-enterprise",
+      "source": "Lean Enterprise Institute",
+      "topic": "operations",
+      "first_seen_at": "2026-11-17T08:01:15.213036Z"
+    },
     {
       "title": "AI-backed tools power Reformation’s inventory management",
       "url": "https://supplychaindive.com/news/ai-backed-tools-power-reformations-inventory-management/874645/",
@@ -223,9 +233,9 @@
       "name": "Supply Chain Dive",
       "url": "https://www.supplychaindive.com/",
       "feed": "https://www.supplychaindive.com/feeds/news/",
-      "checked_at": "2026-11-17T00:51:12.567998Z",
+      "checked_at": "2026-11-17T08:01:15.213036Z",
       "status": "success",
-      "last_success_at": "2026-11-17T00:51:12.567998Z",
+      "last_success_at": "2026-11-17T08:01:15.213036Z",
       "error": null,
       "article_count": 8
     },
@@ -234,9 +244,9 @@
       "name": "IEEE Spectrum",
       "url": "https://spectrum.ieee.org/",
       "feed": "https://spectrum.ieee.org/feeds/feed.rss",
-      "checked_at": "2026-11-17T00:51:12.567998Z",
+      "checked_at": "2026-11-17T08:01:15.213036Z",
       "status": "success",
-      "last_success_at": "2026-11-17T00:51:12.567998Z",
+      "last_success_at": "2026-11-17T08:01:15.213036Z",
       "error": null,
       "article_count": 8
     },
@@ -245,20 +255,20 @@
       "name": "Lean Enterprise Institute",
       "url": "https://www.lean.org/the-lean-post/",
       "feed": "https://www.lean.org/feed/",
-      "checked_at": "2026-11-17T00:51:12.567998Z",
+      "checked_at": "2026-11-17T08:01:15.213036Z",
       "status": "success",
-      "last_success_at": "2026-11-17T00:51:12.567998Z",
+      "last_success_at": "2026-11-17T08:01:15.213036Z",
       "error": null,
-      "article_count": 5
+      "article_count": 6
     },
     {
       "id": "mit-ctl",
       "name": "MIT Center for Transportation & Logistics",
       "url": "https://ctl.mit.edu/news",
       "feed": "https://ctl.mit.edu/rss.xml",
-      "checked_at": "2026-11-17T00:51:12.567998Z",
+      "checked_at": "2026-11-17T08:01:15.213036Z",
       "status": "success",
-      "last_success_at": "2026-11-17T00:51:12.567998Z",
+      "last_success_at": "2026-11-17T08:01:15.213036Z",
       "error": null,
       "article_count": 0
     }
