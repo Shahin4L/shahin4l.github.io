@@ -1,5 +1,6 @@
 import {esc,t,lang} from './core.js?v=flow-4';
 import {normalizeRadar,radarHealth,filterNews,radarTopics,dateValue,httpsURL} from './radar-model.js?v=1';
+import {renderHeadline} from './radar-view.js?v=1';
 const $=s=>document.querySelector(s);
 let snapshot=null,limit=12;
 function when(value,withTime=false){
@@ -21,10 +22,7 @@ export function initRadar(){
  $('#radar-source-health').innerHTML=snapshot.sources.map(s=>`<li><a href="${esc(httpsURL(s.url))}" target="_blank" rel="noopener noreferrer">${esc(s.name)}</a><span>${s.status==='success'?t('Feed checked','ফিড পরীক্ষা হয়েছে'):t('Feed unavailable · saved items retained','ফিড পাওয়া যায়নি · সংরক্ষিত খবর রাখা হয়েছে')}</span><small>${t('Last success: ','সর্বশেষ সফল: ')}${esc(when(s.last_success_at,true))}</small></li>`).join('');
  const list=filterNews(snapshot.articles,{query:$('#radar-search').value,topic:$('#radar-topic').value,source:$('#radar-source').value,period:$('#radar-period').value});
  $('#radar-count').textContent=t('Showing ','দেখানো হচ্ছে ')+Math.min(limit,list.length)+' / '+list.length+t(' headlines · newest first','টি সংবাদ · নতুন আগে');
- $('#radar-grid').innerHTML=list.slice(0,limit).map(a=>{
- const topic=radarTopics.find(x=>x[0]===a.topic),source=snapshot.sources.find(s=>s.id===a.source_id);
- return `<article class="radar-story"><div class="radar-story-top"><span class="radar-story-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M7 8h10M7 12h4M7 16h4M15 12h2M15 16h2"/></svg></span><span class="eyebrow">${esc(t(topic[1],topic[2]))}</span></div><p class="radar-publisher">${esc(source.name)}</p><h3><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${esc(a.title)}</a></h3><div class="radar-story-dates"><p>${a.date_kind==='updated'?t('Source updated: ','উৎসে হালনাগাদ: '):t('Published: ','প্রকাশিত: ')}<time datetime="${esc(a.published_at)}">${esc(when(a.published_at))}</time></p><p>${t('Added to radar: ','রাডারে যোগ: ')}${esc(when(a.first_seen_at))}</p></div>${source.status!=='success'?`<p class="meta">${t('Source refresh delayed','এই উৎসের সংগ্রহ বিলম্বিত')}</p>`:''}<a class="radar-original" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${t('Read at source ↗','মূল সাইটে পড়ুন ↗')}</a></article>`;
- }).join('')||`<p class="empty">${t('No dated headlines match these filters in the last 30 days. Try another topic, period or publisher.','গত ৩০ দিনের মধ্যে এই ফিল্টারে মিলে যায় এমন খবর নেই। বিষয়, সময় বা প্রকাশক বদলে দেখুন।')}</p>`;
+ $('#radar-grid').innerHTML=list.slice(0,limit).map(a=>renderHeadline(a,snapshot.sources.find(s=>s.id===a.source_id),lang)).join('')||`<p class="empty">${t('No dated headlines match these filters in the last 30 days. Try another topic, period or publisher.','গত ৩০ দিনের মধ্যে এই ফিল্টারে মিলে যায় এমন খবর নেই। বিষয়, সময় বা প্রকাশক বদলে দেখুন।')}</p>`;
  $('#radar-more').hidden=list.length<=limit;$('#radar-grid').setAttribute('aria-busy','false');
  }
  form.onsubmit=e=>e.preventDefault();

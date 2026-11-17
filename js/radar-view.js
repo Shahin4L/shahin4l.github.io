@@ -1,0 +1,9 @@
+import {radarTopics,dateValue,httpsURL} from './radar-model.js?v=1';
+const escapeHTML=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export function renderHeadline(article,source,locale='en'){
+ const url=httpsURL(article.url);if(!url||!source||dateValue(article.published_at)===null)return '';
+ const T=(en,bn)=>locale==='bn'?bn:en,E=escapeHTML;
+ const when=value=>dateValue(value)===null?T('Not yet available','এখনও পাওয়া যায়নি'):new Intl.DateTimeFormat(locale==='bn'?'bn-BD':'en-GB',{timeZone:'Asia/Dhaka',year:'numeric',month:'short',day:'numeric'}).format(new Date(value));
+ const topic=radarTopics.find(x=>x[0]===article.topic)||radarTopics[1];
+ return `<article class="radar-story"><div class="radar-story-top"><span class="radar-story-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M7 8h10M7 12h4M7 16h4M15 12h2M15 16h2"/></svg></span><span class="eyebrow">${E(T(topic[1],topic[2]))}</span></div><p class="radar-publisher">${E(source.name)}</p><h3><a href="${E(url)}" target="_blank" rel="noopener noreferrer">${E(article.title)}</a></h3><div class="radar-story-dates"><p>${article.date_kind==='updated'?T('Source updated: ','উৎসে হালনাগাদ: '):T('Published: ','প্রকাশিত: ')}<time datetime="${E(article.published_at)}">${E(when(article.published_at))}</time></p><p>${T('Added to radar: ','রাডারে যোগ: ')}${E(when(article.first_seen_at))}</p></div>${source.status!=='success'?`<p class="meta">${T('Source refresh delayed','এই উৎসের সংগ্রহ বিলম্বিত')}</p>`:''}<a class="radar-original" href="${E(url)}" target="_blank" rel="noopener noreferrer">${T('Read at source ↗','মূল সাইটে পড়ুন ↗')}</a></article>`;
+}
