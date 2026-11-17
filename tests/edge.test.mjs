@@ -12,9 +12,21 @@ test('Preflight covers guest headers and successful reactions return authoritati
  assert.equal(pre.status,204);assert.equal(pre.headers.get('Access-Control-Allow-Origin'),'https://shahin4l.github.io');
  assert(pre.headers.get('Access-Control-Allow-Headers').includes('apikey'));
  const old=globalThis.fetch;
- globalThis.fetch=async url=>new Response(JSON.stringify(String(url).includes('/article_stats')?[{likes:7,useful:3}]:{ok:true,status:'saved'}));
+ globalThis.fetch=async url=>new Response(JSON.stringify({ok:true,status:'saved',stats:{likes:7,useful:3}}));
  try{
   const response=await handler(request({post_id:base.post_id,kind:'like',visitor:'22222222-2222-4222-8222-222222222222'}));
   assert.equal(response.status,200);assert.deepEqual((await response.json()).stats,{likes:7,useful:3});
+ }finally{globalThis.fetch=old}
+});
+
+test('plain-text JSON guest requests need no browser preflight and retain counts and origin checks',async()=>{
+ const old=globalThis.fetch;let calls=0;
+ globalThis.fetch=async()=>{calls++;return new Response(JSON.stringify({ok:true,status:'saved',stats:{likes:1,useful:1}}))};
+ try{
+ const input={post_id:base.post_id,kind:'useful',visitor:'22222222-2222-4222-8222-222222222222'};
+ const response=await handler(request(input,{'content-type':'text/plain;charset=UTF-8'}));
+ assert.equal(response.status,200);assert.deepEqual((await response.json()).stats,{likes:1,useful:1});assert.equal(calls,1);
+ assert.equal(response.headers.get('Access-Control-Allow-Origin'),'https://shahin4l.github.io');
+ assert.equal((await handler(request(input,{'content-type':'text/plain',origin:'https://attacker.test'}))).status,403);
  }finally{globalThis.fetch=old}
 });

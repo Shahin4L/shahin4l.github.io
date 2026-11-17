@@ -3,7 +3,7 @@
 const allowed = new Set(['https://shahin4l.github.io']);
 Deno.serve(async req => {
  const origin=req.headers.get('origin')||'';
- const headers={'Content-Type':'application/json','Access-Control-Allow-Origin':allowed.has(origin)?origin:'https://shahin4l.github.io','Vary':'Origin','Access-Control-Allow-Headers':'authorization,apikey,content-type,x-client-info','Access-Control-Max-Age':'3600','Cache-Control':'no-store','Access-Control-Allow-Methods':'POST,OPTIONS'};
+ const headers={'Content-Type':'application/json','Access-Control-Allow-Origin':allowed.has(origin)?origin:'https://shahin4l.github.io','Vary':'Origin','Access-Control-Allow-Headers':'authorization,apikey,content-type,x-client-info,cache-control,pragma','Access-Control-Max-Age':'3600','Cache-Control':'no-store','Access-Control-Allow-Methods':'POST,OPTIONS'};
  const reply=(body:unknown,status=200)=>new Response(JSON.stringify(body),{status,headers});
  if(req.method==='OPTIONS')return new Response(null,{status:204,headers});
  if(req.method!=='POST')return reply({error:'Method not allowed'},405);
@@ -28,10 +28,6 @@ Deno.serve(async req => {
   const r=await fetch(Deno.env.get('SUPABASE_URL')+'/rest/v1/rpc/submit_engagement',{method:'POST',headers:{apikey:secret,Authorization:'Bearer '+secret,'Content-Type':'application/json'},body:JSON.stringify({payload:p,identity_hash:hash})});
   if(!r.ok){const e=await r.json();return reply({error:e.message?.includes('Too many')?'Too many requests. Try again in ten minutes.':'Unable to save. Please check the article and try later.'},400)}
   const result=await r.json();
-  if(p.kind!=='comment'){try{
-   const counts=await fetch(Deno.env.get('SUPABASE_URL')+'/rest/v1/article_stats?select=likes,useful&post_id=eq.'+encodeURIComponent(p.post_id),{headers:{apikey:secret,Authorization:'Bearer '+secret}});
-   if(counts.ok){const list=await counts.json();return reply({...result,stats:{likes:Number(list[0]?.likes||0),useful:Number(list[0]?.useful||0)}})}
-  }catch{/* A saved reaction remains saved even if the count read fails. */}}
   return reply(result);
  }catch{return reply({error:'Invalid request or service temporarily unavailable.'},400)}
 });

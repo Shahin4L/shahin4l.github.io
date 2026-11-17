@@ -33,9 +33,10 @@ def render(p,bn=False):
  content=p.get('content_bn') if bn and p.get('content_bn') else p['content']
  language='bn' if bn and p.get('content_bn') else 'en'
  canonical=SITE+'/blog/'+p['slug']+('/bn/' if bn else '/')
- schema={'@context':'https://schema.org','@type':'BlogPosting','headline':title,'description':excerpt,'datePublished':p['published_at'],'dateModified':p['updated_at'],'inLanguage':language,'author':{'@type':'Person','name':'Md Shahin Alam','url':SITE},'mainEntityOfPage':canonical}
+ schema={'@context':'https://schema.org','@type':'BlogPosting','headline':title,'description':excerpt,'datePublished':p['published_at'],'dateModified':p['updated_at'],'inLanguage':language,'author':{'@type':'Person','name':'Md Shahin Alam','url':SITE},'mainEntityOfPage':canonical,'image':p.get('cover_url') or SITE+'/profile.jpg'}
  # Escape </script> and arbitrary HTML in JSON-LD and fallback copy.
  metadata=f'<link rel="canonical" href="{e(canonical)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(excerpt)}"><meta property="og:url" content="{e(canonical)}"><meta property="og:type" content="article"><meta property="og:image" content="{e(p.get("cover_url") or SITE+"/profile.jpg")}"><script type="application/ld+json" id="article-schema">{json.dumps(schema,ensure_ascii=False).replace("<",chr(92)+"u003c")}</script>'
+ metadata+=f'<meta property="og:site_name" content="Md Shahin Alam — Insights Hub"><meta property="og:locale" content="{ "bn_BD" if language=="bn" else "en_US" }"><meta property="og:image:alt" content="{e(title)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(excerpt)}"><meta name="twitter:image" content="{e(p.get("cover_url") or SITE+"/profile.jpg")}">'
  if p.get('content_bn'):
   metadata+=f'<link rel="alternate" hreflang="en" href="{SITE}/blog/{p["slug"]}/"><link rel="alternate" hreflang="bn" href="{SITE}/blog/{p["slug"]}/bn/">'
  page=template.replace('<html lang="en">','<html lang="'+language+'">').replace('<title>Article | Md Shahin Alam</title>','<title>'+e(seo_title)+' | Md Shahin Alam</title>').replace('content="Operations and leadership journal by Md Shahin Alam."','content="'+e(seo_description)+'"').replace('</head>',metadata+'</head>')
