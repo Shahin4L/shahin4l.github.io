@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "checked_at": "2026-11-17T00:42:24.709474Z",
+  "last_success_at": "2026-11-17T00:42:24.709474Z",
+  "last_changed_at": "2026-11-17T00:42:24.709474Z",
+  "status": "complete",
+  "new_count": 21,
+  "articles": [
+    {
+      "title": "AI-backed tools power Reformation’s inventory management",
+      "url": "https://supplychaindive.com/news/ai-backed-tools-power-reformations-inventory-management/874645/",
+      "published_at": "2026-11-16T15:40:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "UniUni to tap carriers like Gofo for some peak season deliveries",
+      "url": "https://supplychaindive.com/news/uniuni-to-tap-carriers-like-gofo-for-some-peak-season-deliveries/874556/",
+      "published_at": "2026-11-16T15:17:36Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "Can Robots Bring Stroke Surgery to Remote Hospitals?",
+      "url": "https://spectrum.ieee.org/telesurgery-stroke",
+      "published_at": "2026-11-16T14:00:02Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "FedEx launches China-US air capacity ahead of peak season",
+      "url": "https://supplychaindive.com/news/fedex-launches-china-us-air-capacity-ahead-of-peak-season/874590/",
+      "published_at": "2026-11-16T12:25:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "28 Zero-Day Findings in Under Two Days. Is Robotics Security Keeping Pace?",
+      "url": "https://spectrum.ieee.org/zero-day-robotics-vulnerabilities-vicone-security",
+      "published_at": "2026-11-16T10:00:01Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "From cost center to growth engine: The supply chain value shift",
+      "url": "https://supplychaindive.com/spons/from-cost-center-to-growth-engine-the-supply-chain-value-shift/874220/",
+      "published_at": "2026-11-16T10:00:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "Business continuity starts before supply chain disruption",
+      "url": "https://supplychaindive.com/spons/business-continuity-starts-before-supply-chain-disruption/874344/",
+      "published_at": "2026-11-16T10:00:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "How Microcredentials Can Help Engineers Build Trustworthy AI",
+      "url": "https://spectrum.ieee.org/microcredentials-trustworthy-ai",
+      "published_at": "2026-11-13T19:00:03Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "Port of Los Angeles grapples with elevated rail dwell times",
+      "url": "https://supplychaindive.com/news/port-of-los-angeles-grapples-with-elevated-rail-dwell-times/874553/",
+      "published_at": "2026-11-13T16:04:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "logistics",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "JD Sports leverages tech for faster replenishment",
+      "url": "https://supplychaindive.com/news/jd-sports-leverages-tech-for-faster-replenishment/874427/",
+      "published_at": "2026-11-13T15:55:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "logistics",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "Walmart more than doubles planned drone delivery sites",
+      "url": "https://supplychaindive.com/news/walmart-more-than-doubles-planned-drone-delivery-sites/874580/",
+      "published_at": "2026-11-13T14:37:21Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "logistics",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "The Dynamo-Electric Principle: 160 Years of Powering Industry",
+      "url": "https://spectrum.ieee.org/innomotics-electric-motors-drive-systems",
+      "published_at": "2026-11-11T11:00:02Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "Speech Processing Pioneer Bishnu Saroop Atal Dies at 93",
+      "url": "https://spectrum.ieee.org/speech-processing-pioneer-in-memoriam",
+      "published_at": "2026-11-10T19:00:02Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "AI Agents Are Testing the Limits of Zero-Trust Security",
+      "url": "https://spectrum.ieee.org/zero-trust-agentic-ai-architecture",
+      "published_at": "2026-11-09T16:25:06Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "Revisiting the Toyota Production System in the Age of AI Coding Agents",
+      "url": "https://lean.org/the-lean-post/articles/revisiting-the-toyota-production-system-in-the-age-of-ai-coding-agents/",
+      "published_at": "2026-11-09T10:06:00Z",
+      "date_kind": "published",
+      "source_id": "lean-enterprise",
+      "source": "Lean Enterprise Institute",
+      "topic": "operations",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "How Do You Land on a Moon With Almost No Gravity?",
+      "url": "https://spectrum.ieee.org/mmx-mission-to-phobos",
+      "published_at": "2026-11-06T15:00:02Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "IEEE Program Schools Preuniversity Educators On Tech Topics",
+      "url": "https://spectrum.ieee.org/ieee-preuniversity",
+      "published_at": "2026-11-05T19:00:02Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "Raising the Floor and the Ceiling: How Toyota Turned Practical Wisdom into Curriculum",
+      "url": "https://lean.org/the-lean-post/articles/raising-the-floor-and-the-ceiling-how-toyota-turned-practical-wisdom-into-curriculum/",
+      "published_at": "2026-11-03T14:47:38Z",
+      "date_kind": "published",
+      "source_id": "lean-enterprise",
+      "source": "Lean Enterprise Institute",
+      "topic": "operations",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "Back at Appliance Park, Ten Years Later",
+      "url": "https://lean.org/the-lean-post/articles/back-at-appliance-park-ten-years-later/",
+      "published_at": "2026-11-02T13:48:22Z",
+      "date_kind": "published",
+      "source_id": "lean-enterprise",
+      "source": "Lean Enterprise Institute",
+      "topic": "operations",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "How an NGO developed a management system that looks a lot like Lean",
+      "url": "https://lean.org/the-lean-post/articles/how-an-ngo-developed-a-management-system-that-looks-a-lot-like-lean/",
+      "published_at": "2026-10-26T13:01:47Z",
+      "date_kind": "published",
+      "source_id": "lean-enterprise",
+      "source": "Lean Enterprise Institute",
+      "topic": "operations",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    },
+    {
+      "title": "Lean Was Always an Experiment",
+      "url": "https://lean.org/the-lean-post/articles/lean-was-always-an-experiment/",
+      "published_at": "2026-10-19T12:46:53Z",
+      "date_kind": "published",
+      "source_id": "lean-enterprise",
+      "source": "Lean Enterprise Institute",
+      "topic": "operations",
+      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+    }
+  ],
+  "sources": [
+    {
+      "id": "supply-chain-dive",
+      "name": "Supply Chain Dive",
+      "url": "https://www.supplychaindive.com/",
+      "feed": "https://www.supplychaindive.com/feeds/news/",
+      "checked_at": "2026-11-17T00:42:24.709474Z",
+      "status": "success",
+      "last_success_at": "2026-11-17T00:42:24.709474Z",
+      "error": null,
+      "article_count": 8
+    },
+    {
+      "id": "ieee-spectrum",
+      "name": "IEEE Spectrum",
+      "url": "https://spectrum.ieee.org/",
+      "feed": "https://spectrum.ieee.org/feeds/feed.rss",
+      "checked_at": "2026-11-17T00:42:24.709474Z",
+      "status": "success",
+      "last_success_at": "2026-11-17T00:42:24.709474Z",
+      "error": null,
+      "article_count": 8
+    },
+    {
+      "id": "lean-enterprise",
+      "name": "Lean Enterprise Institute",
+      "url": "https://www.lean.org/the-lean-post/",
+      "feed": "https://www.lean.org/feed/",
+      "checked_at": "2026-11-17T00:42:24.709474Z",
+      "status": "success",
+      "last_success_at": "2026-11-17T00:42:24.709474Z",
+      "error": null,
+      "article_count": 5
+    },
+    {
+      "id": "mit-ctl",
+      "name": "MIT Center for Transportation & Logistics",
+      "url": "https://ctl.mit.edu/news",
+      "feed": "https://ctl.mit.edu/rss.xml",
+      "checked_at": "2026-11-17T00:42:24.709474Z",
+      "status": "success",
+      "last_success_at": "2026-11-17T00:42:24.709474Z",
+      "error": null,
+      "article_count": 0
+    }
+  ]
+}
