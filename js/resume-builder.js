@@ -1,13 +1,13 @@
 import {shell,t,lang} from './core.js?v=flow-4';
 import {blank,normalize,regions,templates,repeatFields,escapeHTML as E,audit,keywords,renderCV,plainText,monthAfter} from './resume-model.js';
-import {createResumeClient} from './resume-auth.js';
+import {createResumeClient,savedWorkspace} from './resume-auth.js';
 shell();
 const $=s=>document.querySelector(s),client=createResumeClient(),draftKey='resume-builder-draft-v1';
 let r=blank(),step=0,user=null,cloud=null,dirty=false,proposal=null;
 const steps=[['Target & region','লক্ষ্য ও অঞ্চল'],['Contact','যোগাযোগ'],['Summary','পরিচিতি'],['Experience','অভিজ্ঞতা'],['Education','শিক্ষা'],['Skills & projects','দক্ষতা ও প্রকল্প'],['Review & export','যাচাই ও ডাউনলোড']];
-try{const saved=localStorage.getItem(draftKey);if(saved){r=normalize(JSON.parse(saved));$('#device-save').checked=true}}catch{}
+try{const saved=localStorage.getItem(draftKey);if(saved){const entry=JSON.parse(saved);if(entry.saved_at&&Date.now()-Date.parse(entry.saved_at)<90*86400000){r=normalize(entry.data);$('#device-save').checked=true}else localStorage.removeItem(draftKey)}}catch{}
 const notice=s=>$('#resume-notice').textContent=s;
-function persist(){dirty=true;if($('#device-save').checked){try{localStorage.setItem(draftKey,JSON.stringify(r))}catch{notice(t('Device storage unavailable. Download a backup.','ডিভাইসে সংরক্ষণ করা যায়নি। ব্যাকআপ নামান।'))}}}
+function persist(){dirty=true;if($('#device-save').checked){try{localStorage.setItem(draftKey,JSON.stringify({saved_at:new Date().toISOString(),data:r}))}catch{notice(t('Device storage unavailable. Download a backup.','ডিভাইসে সংরক্ষণ করা যায়নি। ব্যাকআপ নামান।'))}}}
 function preview(){$('#cv-preview').innerHTML=renderCV(r);$('#resume-checks').innerHTML=audit(r).map(([en,bn])=>'<li>'+E(t(en,bn))+'</li>').join('')}
 function input(path,en,bn,value,type='text'){return '<label>'+E(t(en,bn))+'<input data-value="'+E(path)+'" type="'+type+'" maxlength="600" value="'+E(value)+'"></label>'}
 function text(path,en,bn,value){return '<label>'+E(t(en,bn))+'<textarea data-value="'+E(path)+'" rows="5" maxlength="'+(path==='job'?10000:6000)+'">'+E(value)+'</textarea></label>'}
@@ -45,7 +45,7 @@ $('#cv-backup').onclick=()=>file(JSON.stringify(normalize(r),null,2),'resume-bac
 $('#cv-text').onclick=()=>file(plainText(r),'resume.txt','text/plain;charset=utf-8');
 $('#cv-import').onchange=async e=>{const f=e.target.files[0];try{if(!f)return;if(f.size>150000)throw Error('Choose a Resume Builder JSON backup under 150 KB.');const next=normalize(JSON.parse(await f.text()));if(dirty&&!confirm(t('Replace the open draft with this backup?','এই ব্যাকআপ দিয়ে খোলা খসড়া বদলাবেন?')))return;r=next;persist();render();notice(t('Backup imported.','ব্যাকআপ আনা হয়েছে।'))}catch(err){notice(err.message)}finally{e.target.value=''}};
 $('#cv-new').onclick=()=>{if(!confirm(t('Clear the open draft? Download a backup first. Saved cloud data will remain.','খোলা খসড়া মুছবেন? আগে ব্যাকআপ নামান। ক্লাউডের সেভ করা তথ্য থাকবে।')))return;r=blank();persist();step=0;render()};
-$('#cv-print').onclick=()=>{if(!r.name.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r.email)){notice(t('Add your full name and a valid contact email before export.','ডাউনলোডের আগে পূর্ণ নাম ও সঠিক ইমেইল লিখুন।'));step=1;render();return}document.getElementById('cv-print-size').textContent='@page{size:'+regions.find(x=>x[0]===r.region)[3]+';margin:16mm}';document.title=r.name+' — Resume';window.print()};
+$('#cv-print').onclick=async()=>{if(!r.name.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r.email)){notice(t('Add your full name and a valid contact email before export.','ডাউনলোডের আগে পূর্ণ নাম ও সঠিক ইমেইল লিখুন।'));step=1;render();return}document.getElementById('cv-print-size').textContent='@page{size:'+regions.find(x=>x[0]===r.region)[3]+';margin:16mm}';document.title=r.name+' — Resume';if(document.fonts?.ready)await document.fonts.ready;window.print()};
 function account(){
  $('#cv-user-label').textContent=user?user.email||t('Signed in','লগইন করা আছে'):t('Device editing · not signed in','ডিভাইসে সম্পাদনা · লগইন করা নেই');
  $('#cv-login').hidden=!!user;$('#cv-cloud').hidden=!user;
@@ -63,8 +63,7 @@ $('#cv-logout').onclick=async()=>{if(dirty&&!confirm(t('Sign out and clear the d
 $('#cv-save').onclick=async()=>{try{await loadCloud();const data=normalize(r);if(new TextEncoder().encode(JSON.stringify(data)).length>145000)throw Error('Shorten this CV to fit the 150 KB cloud limit.');
  if(cloud&&cloud.data?.module&&cloud.data.module!=='resume-builder')throw Error('This workspace contains data from another CV module. Export that backup first.');
  const saved=await client.request('/rest/v1/cv_workspaces'+(cloud?'?user_id=eq.'+user.id:''),{method:cloud?'PATCH':'POST',body:cloud?{data}:{user_id:user.id,data},headers:{Prefer:'return=representation'}});
- if(!Array.isArray(saved)||saved.length!==1)throw Error('Nothing was saved. Your editing period may have expired.');
- cloud=saved[0];dirty=false;account();notice(t('Private cloud CV saved.','ব্যক্তিগত ক্লাউড CV সংরক্ষিত হয়েছে।'));
+ cloud=savedWorkspace(saved,user.id);dirty=false;account();notice(t('Private cloud CV saved.','ব্যক্তিগত ক্লাউড CV সংরক্ষিত হয়েছে।'));
  }catch(err){notice(err.message)}};
 $('#cv-load').onclick=async()=>{try{await loadCloud();if(!cloud)throw Error(t('No cloud draft yet.','ক্লাউডে খসড়া নেই।'));if(dirty&&!confirm(t('Replace your open draft with the saved cloud draft?','ক্লাউডের খসড়া দিয়ে খোলা খসড়া বদলাবেন?')))return;r=normalize(cloud.data);persist();render();notice(t('Cloud draft restored.','ক্লাউড খসড়া আনা হয়েছে।'))}catch(err){notice(err.message)}};
 $('#cv-delete').onclick=async()=>{if(!confirm(t('Permanently delete your cloud CV? Download a backup first. Your login account remains.','ক্লাউড CV স্থায়ীভাবে মুছবেন? আগে ব্যাকআপ নামান। লগইন অ্যাকাউন্ট থাকবে।')))return;try{await loadCloud();await client.request('/rest/v1/cv_workspaces?user_id=eq.'+user.id,{method:'DELETE'});cloud=null;account();notice(t('Cloud CV deleted.','ক্লাউড CV মুছে গেছে।'))}catch(err){notice(err.message)}};
@@ -75,10 +74,11 @@ async function askAI(path){try{
  $('#cv-ai-result').hidden=false;$('#cv-ai-status').textContent=t('Requesting a suggestion…','পরামর্শ চাওয়া হচ্ছে…');$('#cv-ai-text').value='';proposal=null;
  const result=await client.request('/functions/v1/resume-assistant',{method:'POST',body:{text:original,targetRole:r.target,section:path==='summary'?'summary':'bullets',language:r.language,consent:true}});
  if(typeof result.text!=='string')throw Error('AI did not return a usable suggestion.');proposal={path,original};$('#cv-ai-text').value=result.text;$('#cv-ai-status').textContent=t('Check every fact before applying. Your original remains unchanged.','প্রয়োগের আগে প্রতিটি তথ্য মিলিয়ে নিন। মূল লেখা অপরিবর্তিত আছে।');
- }catch(err){notice(err.message);$('#cv-ai-status').textContent=err.message}}
+ }catch(err){const message=err.status===404?t('AI setup is pending. Manual editing and PDF are available.','AI সেটআপ বাকি আছে। সাধারণ সম্পাদনা ও PDF ব্যবহার করতে পারেন।'):err.message;notice(message);$('#cv-ai-status').textContent=message}}
 $('#cv-ai-apply').onclick=()=>{if(!proposal)return;if(get(proposal.path)!==proposal.original){notice(t('The original changed. Request a new suggestion.','মূল লেখা বদলেছে। নতুন পরামর্শ নিন।'));return}set(proposal.path,$('#cv-ai-text').value);proposal=null;$('#cv-ai-result').hidden=true;render()};
 $('#cv-ai-discard').onclick=()=>{proposal=null;$('#cv-ai-result').hidden=true};
 $('#cv-password-form').onsubmit=async e=>{e.preventDefault();try{await client.request('/auth/v1/user',{method:'PUT',body:{password:$('#cv-new-password').value}});$('#cv-recovery-panel').hidden=true;$('#cv-new-password').value='';await loadCloud();notice(t('Password updated.','পাসওয়ার্ড পরিবর্তিত হয়েছে।'))}catch(err){notice(err.message)}};
+$('#cv-mode').onchange=()=>{$('#cv-login-password').minLength=$('#cv-mode').value==='signup'?12:1};
 const hash=new URLSearchParams(location.hash.slice(1));if(hash.get('access_token')&&hash.get('refresh_token')){client.keep({access_token:hash.get('access_token'),refresh_token:hash.get('refresh_token'),expires_in:Number(hash.get('expires_in')||3600)});history.replaceState({},'',location.pathname);$('#cv-recovery-panel').hidden=hash.get('type')!=='recovery'}
 if(client.read())loadCloud().catch(err=>{notice(err.message);if([400,401,403].includes(err.status)){client.clear();user=null;cloud=null;account()}});
 window.addEventListener('beforeunload',e=>{if(dirty&&!$('#device-save').checked){e.preventDefault();e.returnValue=''}});

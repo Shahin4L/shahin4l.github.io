@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node --check js/core.js && node --check js/admin.js && node --check js/article.js && node --check js/blog.js && node --check js/portfolio.js && node --check js/insights.js && node --check js/home-nav.js && node --check js/hub-theme.js && node --check js/editor-session.js && node --check js/auth-nav.js && node --check js/practice-studio.js && node --check js/practice-model.js && node --check js/engagement.js && node --check js/article-sharing.js && node --check js/industry-radar.js && node --check js/radar-model.js && node --check js/radar-view.js",
+    "check": "node --check js/core.js && node --check js/admin.js && node --check js/article.js && node --check js/blog.js && node --check js/portfolio.js && node --check js/insights.js && node --check js/home-nav.js && node --check js/hub-theme.js && node --check js/editor-session.js && node --check js/auth-nav.js && node --check js/practice-studio.js && node --check js/practice-model.js && node --check js/engagement.js && node --check js/article-sharing.js && node --check js/industry-radar.js && node --check js/radar-model.js && node --check js/radar-view.js && node --check js/resume-model.js && node --check js/resume-auth.js && node --check js/resume-builder.js",
     "test": "node --test tests/*.test.mjs"
   }
 }

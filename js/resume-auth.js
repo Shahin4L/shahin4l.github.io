@@ -20,3 +20,7 @@ export function createResumeClient({storage,fetchImpl=fetch}={}){
  async logout(){try{await request('/auth/v1/logout?scope=local',{method:'POST'})}finally{clear()}}
  };
 }
+
+export function savedWorkspace(rows,userId){
+ if(!Array.isArray(rows)||rows.length!==1||rows[0]?.user_id!==userId)throw Error('Nothing was saved. Your editing period may have expired.');return rows[0];
+}

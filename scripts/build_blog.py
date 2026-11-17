@@ -57,7 +57,7 @@ for slug in old:
   target=ROOT/'blog'/slug
   if (target/'index.html').exists(): shutil.rmtree(target)
 old_file.write_text(json.dumps(current,indent=2))
-urls=[SITE+'/',SITE+'/blog/',SITE+'/blog/privacy.html',SITE+'/formula-lab/',SITE+'/formula-lab/practice/']
+urls=[SITE+'/',SITE+'/blog/',SITE+'/blog/privacy.html',SITE+'/formula-lab/',SITE+'/formula-lab/practice/',SITE+'/resume-builder/']
 for p in posts:
  urls.append(SITE+'/blog/'+p['slug']+'/')
  if p.get('content_bn'): urls.append(SITE+'/blog/'+p['slug']+'/bn/')
