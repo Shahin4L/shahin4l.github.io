@@ -1,6 +1,7 @@
 import {shell,t,lang} from './core.js?v=flow-4';
 import {blank,normalize,regions,templates,repeatFields,escapeHTML as E,audit,keywords,renderCV,plainText,monthAfter} from './resume-model.js';
 import {createResumeClient,savedWorkspace} from './resume-auth.js';
+import {resumeSetup} from './resume-settings.js';
 shell();
 const $=s=>document.querySelector(s),client=createResumeClient(),draftKey='resume-builder-draft-v1';
 let r=blank(),step=0,user=null,cloud=null,dirty=false,proposal=null;
@@ -54,7 +55,7 @@ function account(){
 async function loadCloud(){user=await client.request('/auth/v1/user');const rows=await client.request('/rest/v1/cv_workspaces?select=user_id,created_at,updated_at,data&user_id=eq.'+user.id);cloud=rows[0]||null;account();return cloud}
 $('#cv-login-form').onsubmit=async e=>{e.preventDefault();const button=e.target.querySelector('button[type=submit]');button.disabled=true;try{
  const email=$('#cv-login-email').value.trim(),password=$('#cv-login-password').value;
- if($('#cv-mode').value==='signup'){if(!$('#cv-policy-consent').checked)throw Error(t('Accept the retention policy before signing up.','অ্যাকাউন্ট খোলার আগে ডেটার মেয়াদের নিয়মে সম্মতি দিন।'));const result=await client.signup(email,password);if(result.access_token){client.keep(result);await loadCloud()}else notice(t('Check your email for confirmation. If email delivery is not configured, the site owner must activate it. Device editing and PDF still work.','নিশ্চিতকরণ লিংকের জন্য ইমেইল দেখুন। ইমেইল পাঠানো চালু না থাকলে মালিককে সেটি চালু করতে হবে। ডিভাইসে সম্পাদনা ও PDF চলবে।'))}
+ if($('#cv-mode').value==='signup'){if(!resumeSetup.registrationReady)throw Error(t('New cloud registration is awaiting owner setup. Build and export on this device in the meantime.','নতুন ক্লাউড অ্যাকাউন্টের সেটআপ বাকি। আপাতত এই ডিভাইসে CV বানিয়ে ডাউনলোড করুন।'));if(!$('#cv-policy-consent').checked)throw Error(t('Accept the retention policy before signing up.','অ্যাকাউন্ট খোলার আগে ডেটার মেয়াদের নিয়মে সম্মতি দিন।'));const result=await client.signup(email,password);if(result.access_token){client.keep(result);await loadCloud()}else notice(t('Check your email for confirmation. If email delivery is not configured, the site owner must activate it. Device editing and PDF still work.','নিশ্চিতকরণ লিংকের জন্য ইমেইল দেখুন। ইমেইল পাঠানো চালু না থাকলে মালিককে সেটি চালু করতে হবে। ডিভাইসে সম্পাদনা ও PDF চলবে।'))}
  else{await client.login(email,password);await loadCloud();notice(t('Signed in. Choose Load cloud draft to restore a saved CV.','লগইন হয়েছে। সেভ করা CV আনতে ক্লাউড খসড়া লোড চাপুন।'))}
  $('#cv-login-password').value='';
  }catch(err){notice(err.message)}finally{button.disabled=false;account()}};
@@ -68,6 +69,7 @@ $('#cv-save').onclick=async()=>{try{await loadCloud();const data=normalize(r);if
 $('#cv-load').onclick=async()=>{try{await loadCloud();if(!cloud)throw Error(t('No cloud draft yet.','ক্লাউডে খসড়া নেই।'));if(dirty&&!confirm(t('Replace your open draft with the saved cloud draft?','ক্লাউডের খসড়া দিয়ে খোলা খসড়া বদলাবেন?')))return;r=normalize(cloud.data);persist();render();notice(t('Cloud draft restored.','ক্লাউড খসড়া আনা হয়েছে।'))}catch(err){notice(err.message)}};
 $('#cv-delete').onclick=async()=>{if(!confirm(t('Permanently delete your cloud CV? Download a backup first. Your login account remains.','ক্লাউড CV স্থায়ীভাবে মুছবেন? আগে ব্যাকআপ নামান। লগইন অ্যাকাউন্ট থাকবে।')))return;try{await loadCloud();await client.request('/rest/v1/cv_workspaces?user_id=eq.'+user.id,{method:'DELETE'});cloud=null;account();notice(t('Cloud CV deleted.','ক্লাউড CV মুছে গেছে।'))}catch(err){notice(err.message)}};
 async function askAI(path){try{
+ if(!resumeSetup.aiReady)throw Error(t('AI activation is pending. You can edit manually and export PDF.','AI চালু করা বাকি। নিজে সম্পাদনা ও PDF করতে পারেন।'));
  if(!user||!cloud)throw Error(t('Sign in and save your cloud CV first.','আগে লগইন করে ক্লাউড CV সেভ করুন।'));
  if(!$('#cv-ai-consent').checked)throw Error(t('Accept the AI processing notice first.','আগে AI-তে তথ্য পাঠানোর বিজ্ঞপ্তিতে সম্মতি দিন।'));
  const original=get(path);if(!original?.trim())throw Error(t('Write a factual draft first.','আগে সত্য তথ্য দিয়ে খসড়া লিখুন।'));
@@ -78,6 +80,7 @@ async function askAI(path){try{
 $('#cv-ai-apply').onclick=()=>{if(!proposal)return;if(get(proposal.path)!==proposal.original){notice(t('The original changed. Request a new suggestion.','মূল লেখা বদলেছে। নতুন পরামর্শ নিন।'));return}set(proposal.path,$('#cv-ai-text').value);proposal=null;$('#cv-ai-result').hidden=true;render()};
 $('#cv-ai-discard').onclick=()=>{proposal=null;$('#cv-ai-result').hidden=true};
 $('#cv-password-form').onsubmit=async e=>{e.preventDefault();try{await client.request('/auth/v1/user',{method:'PUT',body:{password:$('#cv-new-password').value}});$('#cv-recovery-panel').hidden=true;$('#cv-new-password').value='';await loadCloud();notice(t('Password updated.','পাসওয়ার্ড পরিবর্তিত হয়েছে।'))}catch(err){notice(err.message)}};
+$('#cv-mode').querySelector('option[value="signup"]').disabled=!resumeSetup.registrationReady;
 $('#cv-mode').onchange=()=>{$('#cv-login-password').minLength=$('#cv-mode').value==='signup'?12:1};
 const hash=new URLSearchParams(location.hash.slice(1));if(hash.get('access_token')&&hash.get('refresh_token')){client.keep({access_token:hash.get('access_token'),refresh_token:hash.get('refresh_token'),expires_in:Number(hash.get('expires_in')||3600)});history.replaceState({},'',location.pathname);$('#cv-recovery-panel').hidden=hash.get('type')!=='recovery'}
 if(client.read())loadCloud().catch(err=>{notice(err.message);if([400,401,403].includes(err.status)){client.clear();user=null;cloud=null;account()}});

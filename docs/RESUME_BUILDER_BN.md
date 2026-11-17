@@ -31,6 +31,8 @@ Cloud Save স্পষ্টভাবে চাপলে public.cv_workspaces-�
 
 ## সাধারণ ব্যবহারকারীর ইমেইল login/confirmation চালু করা
 
+নতুন public signup বর্তমানে বন্ধ রাখা হয়েছে, কারণ owner email delivery এবং সম্পূর্ণ account-retention policy যাচাই বাকি। js/resume-settings.js-এ registrationReady=false আছে। বিদ্যমান account login আলাদা session দিয়ে ব্যবহার করা যায়। সেটআপ ও যাচাই শেষে আমি এই flag চালু করব।
+
 ১. https://supabase.com/dashboard/project/gckaucdwkyhmctfnimbb/auth/users খুলুন।
 ২. Authentication → Sign In / Providers → Email-এ email signup চালু আছে কি না দেখুন। email confirmation বন্ধ করে নিরাপত্তা কমাবেন না।
 ৩. Authentication → URL Configuration → Redirect URLs-এ https://shahin4l.github.io/resume-builder/ যোগ করুন। বিদ্যমান homepage/admin URL মুছবেন না।
@@ -43,6 +45,8 @@ Cloud Save স্পষ্টভাবে চাপলে public.cv_workspaces-�
 - https://support.google.com/accounts/answer/185833
 
 ## বাস্তব AI enhancement চালু করা
+
+বর্তমানে js/resume-settings.js-এ aiReady=false; তাই কোনো AI request পাঠানো হয় না। key ও endpoint deployment পরীক্ষা শেষ হলে আমি এটি সক্রিয় করব।
 
 **এই release-এ provider key দেওয়া হয়নি; AI প্রস্তুত/সফল বলে দাবি করা হয়নি।** Backend source আছে supabase/functions/resume-assistant/index.ts-এ। Endpoint deploy ও provider setup বাকি থাকলে UI পরিষ্কারভাবে setup pending দেখাবে।
 
