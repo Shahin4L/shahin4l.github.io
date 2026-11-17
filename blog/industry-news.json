@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "checked_at": "2026-11-17T00:42:24.709474Z",
-  "last_success_at": "2026-11-17T00:42:24.709474Z",
+  "checked_at": "2026-11-17T00:48:51.374110Z",
+  "last_success_at": "2026-11-17T00:48:51.374110Z",
   "last_changed_at": "2026-11-17T00:42:24.709474Z",
   "status": "complete",
-  "new_count": 21,
+  "new_count": 0,
   "articles": [
     {
       "title": "AI-backed tools power Reformation’s inventory management",
@@ -223,9 +223,9 @@
       "name": "Supply Chain Dive",
       "url": "https://www.supplychaindive.com/",
       "feed": "https://www.supplychaindive.com/feeds/news/",
-      "checked_at": "2026-11-17T00:42:24.709474Z",
+      "checked_at": "2026-11-17T00:48:51.374110Z",
       "status": "success",
-      "last_success_at": "2026-11-17T00:42:24.709474Z",
+      "last_success_at": "2026-11-17T00:48:51.374110Z",
       "error": null,
       "article_count": 8
     },
@@ -234,9 +234,9 @@
       "name": "IEEE Spectrum",
       "url": "https://spectrum.ieee.org/",
       "feed": "https://spectrum.ieee.org/feeds/feed.rss",
-      "checked_at": "2026-11-17T00:42:24.709474Z",
+      "checked_at": "2026-11-17T00:48:51.374110Z",
       "status": "success",
-      "last_success_at": "2026-11-17T00:42:24.709474Z",
+      "last_success_at": "2026-11-17T00:48:51.374110Z",
       "error": null,
       "article_count": 8
     },
@@ -245,9 +245,9 @@
       "name": "Lean Enterprise Institute",
       "url": "https://www.lean.org/the-lean-post/",
       "feed": "https://www.lean.org/feed/",
-      "checked_at": "2026-11-17T00:42:24.709474Z",
+      "checked_at": "2026-11-17T00:48:51.374110Z",
       "status": "success",
-      "last_success_at": "2026-11-17T00:42:24.709474Z",
+      "last_success_at": "2026-11-17T00:48:51.374110Z",
       "error": null,
       "article_count": 5
     },
@@ -256,9 +256,9 @@
       "name": "MIT Center for Transportation & Logistics",
       "url": "https://ctl.mit.edu/news",
       "feed": "https://ctl.mit.edu/rss.xml",
-      "checked_at": "2026-11-17T00:42:24.709474Z",
+      "checked_at": "2026-11-17T00:48:51.374110Z",
       "status": "success",
-      "last_success_at": "2026-11-17T00:42:24.709474Z",
+      "last_success_at": "2026-11-17T00:48:51.374110Z",
       "error": null,
       "article_count": 0
     }
