@@ -1,0 +1,28 @@
+name: Verify daily industry radar
+on:
+  push:
+    branches: ['feature/daily-industry-radar']
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: python3 -m py_compile scripts/update_industry_news.py
+      - run: python3 scripts/update_industry_news.py --force
+      - name: Save first real publisher snapshot on the feature branch
+        run: |
+          git config user.name 'journal-publisher[bot]'
+          git config user.email 'journal-publisher[bot]@users.noreply.github.com'
+          git add blog/industry-news.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Capture verified publisher feed metadata'
+            git push
+          fi
+      - run: npm run check
+      - run: npm test
+      - run: python3 tests/build_blog_test.py
