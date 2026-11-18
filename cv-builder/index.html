@@ -24,8 +24,10 @@
 <form method="dialog"><button id="closeLogin">Close</button></form>
 <h2 id="accountTitle">Sign in to CV Studio</h2><p id="accountHelp"></p>
 <form id="auth">
+<label id="nameLabel" hidden>Full name<input id="signupName" autocomplete="name" maxlength="120"></label>
 <label id="emailLabel">Email address<input id="email" type="email" required autocomplete="email"></label>
 <label id="passwordLabel">Password<input id="password" type="password" required autocomplete="current-password"></label>
+<label id="otpLabel" hidden>Email verification code<input id="otp" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6,10}" maxlength="10"></label>
 <div class="actions"><button class="primary" id="authSubmit" type="submit">Sign in</button></div></form>
 <output id="message" role="status"></output><div class="actions" id="authLinks"></div>
 </dialog>
@@ -301,14 +303,15 @@ pdfMake.createPdf({pageSize:d.region===regions[1]?'LETTER':'A4',pageMargins:edit
 function say(s){$('status').textContent=s}
 $('back').onclick=()=>{if(step)step--;say('');render()};$('next').onclick=()=>{say('');if(step===7)return pdf();step++;visited=Math.max(visited,step);render()};
 async function workspace(save){let {data,error}=await db.rpc('cv_workspace',save?{save_draft:d}:{});if(error)throw error;return data}
-async function enter(u){if(!u)return;let result=await workspace(false);user=u;$('account').textContent='Sign out';if(Object.keys(result.draft).length){if(!lines().length||confirm('Load your saved CV and replace the current draft?'))d={...initial(),...result.draft}}render();say('Workspace access through '+new Date(result.expires).toLocaleDateString())}
+async function enter(u){if(!u)return;let result=await workspace(false);user=u;$('account').textContent='Sign out';if(!d.name&&!Object.keys(result.draft).length)d.name=u.user_metadata?.full_name||'';if(Object.keys(result.draft).length){if(!lines().length||confirm('Load your saved CV and replace the current draft?'))d={...initial(),...result.draft}}render();say('Workspace access through '+new Date(result.expires).toLocaleDateString())}
 const login=$('login'), authForm=$('auth'), authSubmit=$('authSubmit');
 const callbackUrl=location.origin+location.pathname;
 let mode='in';
 const modes={
  in:['Sign in to CV Studio','Use your email and password to open your saved CV.','Sign in','Signing in…'],
  up:['Create your CV Studio account','Use an email address you can access. Your CV workspace opens after verification.','Create account','Creating account…'],
- verify:['Confirm your email','Open the verification link from CV Studio. Check Spam or Junk if needed.','Resend confirmation email','Requesting confirmation email…'],
+ verify:['Verify your email','Enter the code from your email, or open the verification link if the email contains a link. Check Spam or Junk if needed.','Verify and sign in','Verifying code…'],
+ resend:['Resend verification','Enter the email address you used to sign up.','Send verification email','Requesting email…'],
  forgot:['Reset your password','Enter your account email to request a password reset link.','Send reset link','Requesting reset link…'],
  reset:['Set a new password','Choose a new password with at least eight characters.','Update password','Updating password…']
 };
@@ -320,13 +323,15 @@ function showMode(next){
  const [title,help,label]=modes[mode];
  $('accountTitle').textContent=title;$('accountHelp').textContent=help;authSubmit.textContent=label;
  const needsPassword=['in','up','reset'].includes(mode), needsEmail=mode!=='reset';
- const email=$('email'),password=$('password');
+ const email=$('email'),password=$('password'),name=$('signupName'),otp=$('otp');
+ $('nameLabel').hidden=mode!=='up';name.required=mode==='up';name.disabled=mode!=='up';
+ $('otpLabel').hidden=mode!=='verify';otp.required=mode==='verify';otp.disabled=mode!=='verify';otp.value='';
  $('emailLabel').hidden=!needsEmail;email.required=needsEmail;email.disabled=!needsEmail;
  $('passwordLabel').hidden=!needsPassword;password.required=needsPassword;password.disabled=!needsPassword;
  password.minLength=mode==='in'?0:8;password.autocomplete=mode==='in'?'current-password':'new-password';password.value='';
  const links=$('authLinks');links.replaceChildren();
- for(const [value,label] of [['in','Back to sign in'],['up','Create an account'],['forgot','Forgot password?'],['verify','Resend verification link']]){
-   if(value===mode||mode==='reset'||(mode!=='in'&&value!=='in'))continue;
+ for(const [value,label] of [['in','Back to sign in'],['up','Create an account'],['forgot','Forgot password?'],['resend','Resend verification email']]){
+   if(value===mode||mode==='reset'||(mode!=='in'&&value!=='in'&&!(mode==='verify'&&value==='resend')))continue;
    button(links,label,()=>{showMode(value);authMessage('');(value==='in'&&email.value?password:email).focus()});
  }
 }
@@ -339,7 +344,7 @@ function authError(error){
  case 'invalid_credentials':return 'That email and password did not match. Check both fields or reset your password.';
  case 'email_address_not_authorized':return 'The site’s email service cannot send to this address. Contact the site owner to enable public account emails.';
  case 'over_email_send_rate_limit':return 'The email service is rate-limited. Wait before requesting another link.';
- case 'otp_expired':return 'This link has expired. Request a fresh confirmation or reset link.';
+ case 'otp_expired':return 'This code or link is invalid or expired. Request a new email and use the latest code or link.';
  default:return error.message||'The account request failed. Please try again.';
  }
 }
@@ -364,15 +369,17 @@ authForm.onsubmit=async e=>{
  authSubmit.textContent=modes[submittedMode][3];authMessage(authSubmit.textContent);
  try{
    if(!db)throw Error('The account service did not load. Refresh and try again.');
+   if(submittedMode==='up'&&!$('signupName').value.trim())throw Error('Enter your full name.');
    let result;
-   if(submittedMode==='up')result=await db.auth.signUp({email,password,options:{emailRedirectTo:callbackUrl}});
+   if(submittedMode==='up')result=await db.auth.signUp({email,password,options:{emailRedirectTo:callbackUrl,data:{full_name:$('signupName').value.trim()}}});
    if(submittedMode==='in')result=await db.auth.signInWithPassword({email,password});
-   if(submittedMode==='verify')result=await db.auth.resend({type:'signup',email,options:{emailRedirectTo:callbackUrl}});
+   if(submittedMode==='verify')result=await db.auth.verifyOtp({email,token:$('otp').value.trim(),type:'email'});
+   if(submittedMode==='resend')result=await db.auth.resend({type:'signup',email,options:{emailRedirectTo:callbackUrl}});
    if(submittedMode==='forgot')result=await db.auth.resetPasswordForEmail(email,{redirectTo:callbackUrl});
    if(submittedMode==='reset')result=await db.auth.updateUser({password});
    if(result.error)throw result.error;
-   if(submittedMode==='up'&&!result.data.session){showMode('verify');authMessage('If verification is required for this address, look for the email before signing in.');return}
-   if(submittedMode==='verify'){authMessage('If this account is awaiting verification, check your inbox for a new link.');return}
+   if(submittedMode==='up'&&!result.data.session){showMode('verify');authMessage('If verification is required for this address, check your email to finish signing up.');return}
+   if(submittedMode==='resend'){showMode('verify');authMessage('Check your inbox and Spam or Junk for the latest verification email.');$('otp').focus();return}
    if(submittedMode==='forgot'){authMessage('If an account exists for this address, check your inbox for the reset link.');return}
    authMessage(submittedMode==='reset'?'Password updated. Opening your workspace…':'Opening your CV workspace…');
    await enter(result.data.user);
