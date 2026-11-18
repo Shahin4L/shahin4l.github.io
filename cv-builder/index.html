@@ -310,6 +310,7 @@ let mode='in';
 const modes={
  in:['Sign in to CV Studio','Use your email and password to open your saved CV.','Sign in','Signing in…'],
  up:['Create your CV Studio account','Use an email address you can access. Your CV workspace opens after verification.','Create account','Creating account…'],
+ pending:['Check your email','Open the latest signup email and select Confirm email address. Then return here and sign in. If you already have an account, sign in or reset your password.','Continue to sign in','Opening sign in…'],
  verify:['Verify your email','Enter the code from your email, or open the verification link if the email contains a link. Check Spam or Junk if needed.','Verify and sign in','Verifying code…'],
  resend:['Resend verification','Enter the email address you used to sign up.','Send verification email','Requesting email…'],
  forgot:['Reset your password','Enter your account email to request a password reset link.','Send reset link','Requesting reset link…'],
@@ -330,7 +331,9 @@ function showMode(next){
  $('passwordLabel').hidden=!needsPassword;password.required=needsPassword;password.disabled=!needsPassword;
  password.minLength=mode==='in'?0:8;password.autocomplete=mode==='in'?'current-password':'new-password';password.value='';
  const links=$('authLinks');links.replaceChildren();
- for(const [value,label] of [['in','Back to sign in'],['up','Create an account'],['forgot','Forgot password?'],['resend','Resend verification email']]){
+ for(const [value,label] of [['in','Back to sign in'],['up','Create an account'],['forgot','Forgot password?'],['resend','Resend verification email'],['verify','Enter an email verification code']]){
+   if(mode==='pending'&&['resend','forgot','verify'].includes(value)){button(links,label,()=>{showMode(value);authMessage('')});continue}
+   if(value==='verify'&&mode!=='pending')continue;
    if(value===mode||mode==='reset'||(mode!=='in'&&value!=='in'&&!(mode==='verify'&&value==='resend')))continue;
    button(links,label,()=>{showMode(value);authMessage('');(value==='in'&&email.value?password:email).focus()});
  }
@@ -340,7 +343,7 @@ function openAccount(next='in'){
 }
 function authError(error){
  switch(error.code){
- case 'email_not_confirmed':showMode('verify');return 'Confirm your email before signing in. You can request another link below.';
+ case 'email_not_confirmed':showMode('pending');return 'Confirm your email before signing in. You can request another link below.';
  case 'invalid_credentials':return 'That email and password did not match. Check both fields or reset your password.';
  case 'email_address_not_authorized':return 'The site’s email service cannot send to this address. Contact the site owner to enable public account emails.';
  case 'over_email_send_rate_limit':return 'The email service is rate-limited. Wait before requesting another link.';
@@ -364,6 +367,7 @@ $('account').onclick=async()=>{
 login.addEventListener('cancel',e=>{if(busy)e.preventDefault()});
 authForm.onsubmit=async e=>{
  e.preventDefault();if(busy)return;
+ if(mode==='pending'){showMode('in');authMessage('Enter your password to continue.');$('password').focus();return}
  const submittedMode=mode, email=$('email').value.trim(),password=$('password').value;
  busy=true;authForm.setAttribute('aria-busy','true');authSubmit.disabled=true;$('closeLogin').disabled=true;$('authLinks').inert=true;
  authSubmit.textContent=modes[submittedMode][3];authMessage(authSubmit.textContent);
@@ -377,9 +381,20 @@ authForm.onsubmit=async e=>{
    if(submittedMode==='resend')result=await db.auth.resend({type:'signup',email,options:{emailRedirectTo:callbackUrl}});
    if(submittedMode==='forgot')result=await db.auth.resetPasswordForEmail(email,{redirectTo:callbackUrl});
    if(submittedMode==='reset')result=await db.auth.updateUser({password});
+   if(submittedMode==='up'&&['user_already_exists','email_exists'].includes(result.error?.code)){
+     result=await db.auth.signInWithPassword({email,password});
+     if(result.error?.code==='invalid_credentials'){showMode('in');authMessage('Sign in with the password for this address, or choose Forgot password.',true);return}
+   }
    if(result.error)throw result.error;
-   if(submittedMode==='up'&&!result.data.session){showMode('verify');authMessage('If verification is required for this address, check your email to finish signing up.');return}
-   if(submittedMode==='resend'){showMode('verify');authMessage('Check your inbox and Spam or Junk for the latest verification email.');$('otp').focus();return}
+   if(submittedMode==='up'&&!result.data.session){
+     // Signup can return the same response for an existing account. Only a real
+     // password session may open the workspace.
+     const attempt=await db.auth.signInWithPassword({email,password});
+     if(attempt.data?.session){result=attempt}
+     else if(!['email_not_confirmed','invalid_credentials'].includes(attempt.error?.code)){throw attempt.error||Error('Could not sign in. Please try again.')}
+     else {showMode('pending');authMessage('Check the inbox and spam folder for '+email+'.');return}
+   }
+   if(submittedMode==='resend'){showMode('pending');authMessage('Check your inbox and Spam or Junk for the latest verification email.');authSubmit.focus();return}
    if(submittedMode==='forgot'){authMessage('If an account exists for this address, check your inbox for the reset link.');return}
    authMessage(submittedMode==='reset'?'Password updated. Opening your workspace…':'Opening your CV workspace…');
    await enter(result.data.user);
