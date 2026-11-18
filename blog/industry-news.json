@@ -1,11 +1,91 @@
 {
   "version": 1,
-  "checked_at": "2026-11-17T08:01:15.213036Z",
-  "last_success_at": "2026-11-17T08:01:15.213036Z",
-  "last_changed_at": "2026-11-17T08:01:15.213036Z",
+  "checked_at": "2026-11-18T03:04:56.659961Z",
+  "last_success_at": "2026-11-18T03:04:56.659961Z",
+  "last_changed_at": "2026-11-18T03:04:56.659961Z",
   "status": "complete",
-  "new_count": 1,
+  "new_count": 9,
   "articles": [
+    {
+      "title": "US Foods to test inventory-scanning robots at 6 more warehouses",
+      "url": "https://supplychaindive.com/news/us-foods-to-test-inventory-scanning-robots-at-6-more-warehouses/874829/",
+      "published_at": "2026-11-17T19:18:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "logistics",
+      "first_seen_at": "2026-11-18T03:04:56.659961Z"
+    },
+    {
+      "title": "IEEE Celebrates 10 Years of Incorporating Ethics Into AI Systems",
+      "url": "https://spectrum.ieee.org/ieee-ethics-ai-systems",
+      "published_at": "2026-11-17T19:00:03Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-18T03:04:56.659961Z"
+    },
+    {
+      "title": "How to prepare for the most severe El Niño on record",
+      "url": "https://supplychaindive.com/news/how-to-prepare-for-the-most-severe-el-nino-on-record/874732/",
+      "published_at": "2026-11-17T15:57:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-18T03:04:56.659961Z"
+    },
+    {
+      "title": "Fashion brand nixes dedicated fulfillment model to boost transit times",
+      "url": "https://supplychaindive.com/news/fashion-brand-nixes-dedicated-fulfillment-model-to-boost-transit-times/874630/",
+      "published_at": "2026-11-17T15:23:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-18T03:04:56.659961Z"
+    },
+    {
+      "title": "Wrangler parent company plans to beef up inventory spending",
+      "url": "https://supplychaindive.com/news/wrangler-parent-company-plans-to-beef-up-inventory-spending/874783/",
+      "published_at": "2026-11-17T15:08:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-18T03:04:56.659961Z"
+    },
+    {
+      "title": "Amazon to expand fuel and logistics surcharge to more services",
+      "url": "https://supplychaindive.com/news/amazon-to-expand-fuel-and-logistics-surcharge-to-more-services/874693/",
+      "published_at": "2026-11-17T14:36:17Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "logistics",
+      "first_seen_at": "2026-11-18T03:04:56.659961Z"
+    },
+    {
+      "title": "AI Is Giving Optical Computing Another Shot",
+      "url": "https://spectrum.ieee.org/optical-computing-ai",
+      "published_at": "2026-11-17T14:00:03Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-18T03:04:56.659961Z"
+    },
+    {
+      "title": "Growing Fast? Your Management System Needs to Keep Up",
+      "url": "https://lean.org/the-lean-post/articles/growing-fast-your-management-system-needs-to-keep-up/",
+      "published_at": "2026-11-17T10:00:00Z",
+      "date_kind": "published",
+      "source_id": "lean-enterprise",
+      "source": "Lean Enterprise Institute",
+      "topic": "operations",
+      "first_seen_at": "2026-11-18T03:04:56.659961Z"
+    },
     {
       "title": "Yes, Lean Thinkers Are Luddites. The Original Kind.",
       "url": "https://lean.org/the-lean-post/articles/yes-lean-thinkers-are-luddites-the-original-kind/",
@@ -47,14 +127,14 @@
       "first_seen_at": "2026-11-17T00:42:24.709474Z"
     },
     {
-      "title": "FedEx launches China-US air capacity ahead of peak season",
-      "url": "https://supplychaindive.com/news/fedex-launches-china-us-air-capacity-ahead-of-peak-season/874590/",
-      "published_at": "2026-11-16T12:25:00Z",
+      "title": "Conagra Brands to close Missouri ingredients plant",
+      "url": "https://supplychaindive.com/news/conagra-brands-to-close-missouri-ingredients-plant/874617/",
+      "published_at": "2026-11-16T13:02:00Z",
       "date_kind": "published",
       "source_id": "supply-chain-dive",
       "source": "Supply Chain Dive",
       "topic": "supply-chain",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
+      "first_seen_at": "2026-11-18T03:04:56.659961Z"
     },
     {
       "title": "28 Zero-Day Findings in Under Two Days. Is Robotics Security Keeping Pace?",
@@ -67,26 +147,6 @@
       "first_seen_at": "2026-11-17T00:42:24.709474Z"
     },
     {
-      "title": "From cost center to growth engine: The supply chain value shift",
-      "url": "https://supplychaindive.com/spons/from-cost-center-to-growth-engine-the-supply-chain-value-shift/874220/",
-      "published_at": "2026-11-16T10:00:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "Business continuity starts before supply chain disruption",
-      "url": "https://supplychaindive.com/spons/business-continuity-starts-before-supply-chain-disruption/874344/",
-      "published_at": "2026-11-16T10:00:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
       "title": "How Microcredentials Can Help Engineers Build Trustworthy AI",
       "url": "https://spectrum.ieee.org/microcredentials-trustworthy-ai",
       "published_at": "2026-11-13T19:00:03Z",
@@ -94,36 +154,6 @@
       "source_id": "ieee-spectrum",
       "source": "IEEE Spectrum",
       "topic": "engineering",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "Port of Los Angeles grapples with elevated rail dwell times",
-      "url": "https://supplychaindive.com/news/port-of-los-angeles-grapples-with-elevated-rail-dwell-times/874553/",
-      "published_at": "2026-11-13T16:04:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "logistics",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "JD Sports leverages tech for faster replenishment",
-      "url": "https://supplychaindive.com/news/jd-sports-leverages-tech-for-faster-replenishment/874427/",
-      "published_at": "2026-11-13T15:55:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "logistics",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "Walmart more than doubles planned drone delivery sites",
-      "url": "https://supplychaindive.com/news/walmart-more-than-doubles-planned-drone-delivery-sites/874580/",
-      "published_at": "2026-11-13T14:37:21Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "logistics",
       "first_seen_at": "2026-11-17T00:42:24.709474Z"
     },
     {
@@ -164,26 +194,6 @@
       "source_id": "lean-enterprise",
       "source": "Lean Enterprise Institute",
       "topic": "operations",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "How Do You Land on a Moon With Almost No Gravity?",
-      "url": "https://spectrum.ieee.org/mmx-mission-to-phobos",
-      "published_at": "2026-11-06T15:00:02Z",
-      "date_kind": "published",
-      "source_id": "ieee-spectrum",
-      "source": "IEEE Spectrum",
-      "topic": "engineering",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "IEEE Program Schools Preuniversity Educators On Tech Topics",
-      "url": "https://spectrum.ieee.org/ieee-preuniversity",
-      "published_at": "2026-11-05T19:00:02Z",
-      "date_kind": "published",
-      "source_id": "ieee-spectrum",
-      "source": "IEEE Spectrum",
-      "topic": "engineering",
       "first_seen_at": "2026-11-17T00:42:24.709474Z"
     },
     {
@@ -233,9 +243,9 @@
       "name": "Supply Chain Dive",
       "url": "https://www.supplychaindive.com/",
       "feed": "https://www.supplychaindive.com/feeds/news/",
-      "checked_at": "2026-11-17T08:01:15.213036Z",
+      "checked_at": "2026-11-18T03:04:56.659961Z",
       "status": "success",
-      "last_success_at": "2026-11-17T08:01:15.213036Z",
+      "last_success_at": "2026-11-18T03:04:56.659961Z",
       "error": null,
       "article_count": 8
     },
@@ -244,9 +254,9 @@
       "name": "IEEE Spectrum",
       "url": "https://spectrum.ieee.org/",
       "feed": "https://spectrum.ieee.org/feeds/feed.rss",
-      "checked_at": "2026-11-17T08:01:15.213036Z",
+      "checked_at": "2026-11-18T03:04:56.659961Z",
       "status": "success",
-      "last_success_at": "2026-11-17T08:01:15.213036Z",
+      "last_success_at": "2026-11-18T03:04:56.659961Z",
       "error": null,
       "article_count": 8
     },
@@ -255,20 +265,20 @@
       "name": "Lean Enterprise Institute",
       "url": "https://www.lean.org/the-lean-post/",
       "feed": "https://www.lean.org/feed/",
-      "checked_at": "2026-11-17T08:01:15.213036Z",
+      "checked_at": "2026-11-18T03:04:56.659961Z",
       "status": "success",
-      "last_success_at": "2026-11-17T08:01:15.213036Z",
+      "last_success_at": "2026-11-18T03:04:56.659961Z",
       "error": null,
-      "article_count": 6
+      "article_count": 7
     },
     {
       "id": "mit-ctl",
       "name": "MIT Center for Transportation & Logistics",
       "url": "https://ctl.mit.edu/news",
       "feed": "https://ctl.mit.edu/rss.xml",
-      "checked_at": "2026-11-17T08:01:15.213036Z",
+      "checked_at": "2026-11-18T03:04:56.659961Z",
       "status": "success",
-      "last_success_at": "2026-11-17T08:01:15.213036Z",
+      "last_success_at": "2026-11-18T03:04:56.659961Z",
       "error": null,
       "article_count": 0
     }
