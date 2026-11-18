@@ -6,6 +6,8 @@
 :root{--navy:#102441;--blue:#235da6}body{background:#eef2f8;color:var(--navy);font-family:Inter,"Segoe UI",sans-serif}header{background:#fff;max-width:none;padding:16px max(20px,calc((100vw - 1210px)/2));border-color:#dbe4ef}header strong{font-size:21px}main{gap:24px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}section,aside{border-color:#dbe4ef;box-shadow:0 8px 30px #1024410a}h1{font:700 clamp(28px,4vw,43px)/1.12 Inter,"Segoe UI",sans-serif;letter-spacing:-.04em}button.primary{background:var(--blue);border-color:var(--blue)}button:hover{border-color:var(--blue)}:focus-visible{outline:3px solid #5894df;outline-offset:2px}progress{accent-color:var(--blue)}aside{position:sticky;top:18px;background:#e5ecf5}article{background:#fff;min-height:490px;padding:28px;margin-top:12px;border:1px solid #d1dceb;font-size:13px}article h2{margin:0;font-size:25px;letter-spacing:-.02em}article h4{margin:4px 0;color:#385578}article h3{border-color:#c5d0de;font-size:14px}article strong{display:block;margin-top:7px}.import-card{background:#f4f7fc;border:1px solid #d9e5f5;border-radius:10px;padding:16px;margin:16px 0}.import-card h2{font-size:17px;margin:0}.import-card p{font-size:14px;margin:6px 0}.steps{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.steps button{font-size:12px;padding:5px 8px}.steps [aria-current]{background:#e2edfc;border-color:#6f99ce}.review-list{padding-left:20px}.review-list li{margin:5px 0}@media(max-width:800px){main{grid-template-columns:1fr}aside{position:static}article{min-height:280px}}
 
 .header-tools{display:flex;gap:8px;flex-wrap:wrap}#atsDialog{max-width:720px;max-height:90vh;color:inherit}#atsDialog::backdrop{background:#0e224499}.ats-score{border:1px solid #ccd9ee;background:#f3f7fd;border-radius:8px;padding:12px;margin:12px 0}.ats-score strong{font-size:22px}.ats-results li{margin:8px 0}.cv-photo{float:right;width:76px;height:76px;object-fit:cover;border-radius:6px;margin:0 0 10px 12px}.Portrait h3{clear:both;color:#235da6}.template-help{margin:8px 0 12px}
+
+[hidden]{display:none!important}.ats-fixes{display:grid;gap:10px}.ats-fix{border:1px solid #e6d4a9;border-left:4px solid #9a640b;border-radius:8px;background:#fffbef;padding:12px}.ats-fix p{margin:5px 0}.ats-example{background:#fff;padding:8px;border-radius:4px}.ats-good{color:#285947}.ats-keywords{display:flex;flex-wrap:wrap;gap:6px}.ats-keywords span{background:#e6eefb;padding:3px 8px;border-radius:5px;font-size:14px}#authLinks button{font-size:14px}#message[data-error]{color:#9d2926}
 </style>
 <header><a href="/">← Portfolio</a><strong>CV Studio</strong><div class="header-tools"><button id="openAts">ATS CV Check</button><button id="account">Sign in</button></div></header>
 <main><section><small id="count"></small><progress id="progress" max="8"></progress><nav class="steps" id="steps" aria-label="CV sections"></nav><h1 id="heading"></h1><form id="form"></form><div class="actions"><button id="back">Back</button><button class="primary" id="next">Continue</button><button id="save">Save CV</button></div><output id="status" role="status"></output></section><aside><small>LIVE PREVIEW</small><article id="paper"></article></aside></main>
@@ -18,11 +20,21 @@
 <label>Job description (optional)<textarea id="atsPosting"></textarea></label>
 <div class="actions"><button id="runAts" class="primary">Check CV</button><button id="atsDraft">Use current draft</button></div>
 <output id="atsStatus" role="status"></output><div id="atsResults" aria-live="polite"></div>
-</dialog><dialog id="login"><h2>Your CV workspace</h2><p>Access lasts two calendar months from first use. Saved CV data is erased after three months.</p><form id="auth"><label>Email<input id="email" type="email" required autocomplete="email"></label><label>Password<input id="password" type="password" required minlength="6" autocomplete="current-password"></label><div class="actions"><button class="primary" value="in">Sign in</button><button value="up">Create account</button></div></form><output id="message"></output><button id="closeLogin">Close</button></dialog>
+</dialog><dialog id="login" aria-labelledby="accountTitle">
+<form method="dialog"><button id="closeLogin">Close</button></form>
+<h2 id="accountTitle">Sign in to CV Studio</h2><p id="accountHelp"></p>
+<form id="auth">
+<label id="emailLabel">Email address<input id="email" type="email" required autocomplete="email"></label>
+<label id="passwordLabel">Password<input id="password" type="password" required autocomplete="current-password"></label>
+<div class="actions"><button class="primary" id="authSubmit" type="submit">Sign in</button></div></form>
+<output id="message" role="status"></output><div class="actions" id="authLinks"></div>
+</dialog>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.2.12/build/pdfmake.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pdfmake@0.2.12/build/vfs_fonts.js"></script>
 <script type="module">
 const $=id=>document.getElementById(id);
+const authCallback=new URLSearchParams(location.hash.slice(1));
+const recoveryLink=authCallback.get('type')==='recovery';
 const db=window.supabase?.createClient('https://gckaucdwkyhmctfnimbb.supabase.co','sb_publishable_gm2VHpWs9jnyo5CSJ6P1WA_jpBLwoM0',{auth:{storageKey:'cv-studio-session',detectSessionInUrl:true}});
 const regions=['Bangladesh / South Asia','USA / Canada','Europe','UK','UAE / GCC'],templates=['Classic','Editorial','Executive','Portrait'];
 const titles=['Target role','Contact details','Professional summary','Work experience','Education and certifications','Skills','Projects and accomplishments','Review and download'];
@@ -215,22 +227,48 @@ $('atsFile').onchange=async()=>{
  catch(e){atsStatus.textContent=e.message}
  finally{$('runAts').disabled=$('atsDraft').disabled=$('atsFile').disabled=atsText.disabled=false;$('atsFile').value=''}
 };
-$('runAts').onclick=()=>{
+$('runAts').onclick=async()=>{
  atsResults.replaceChildren();atsStatus.textContent='';
  if(!atsText.value.trim()){atsStatus.textContent='Upload a CV or paste its text first.';return}
+ const run=$('runAts');
+ if(run.disabled)return;
+ run.disabled=true;run.textContent='Checking…';atsStatus.textContent='Checking CV text, structure and job terms…';
+ await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+ try{
  const result=atsAssessment(atsText.value.slice(0,60000),$('atsPosting').value.slice(0,30000));
  const card=elem('div');card.className='ats-score';
  card.append(elem('strong',result.score+'% estimated ATS readiness'),elem('p','This checklist measures text and content signals. Employer ATS settings and hiring decisions vary.'));
  if(result.keywords.length)card.append(elem('p',Math.round(100*(result.keywords.length-result.missing.length)/result.keywords.length)+'% job keyword match across '+result.keywords.length+' terms.'));
  atsResults.append(card);
  if(atsFromDraft&&d.template==='Portrait')atsResults.append(elem('p','For an ATS application, switch the CV template to Classic, Editorial or Executive to exclude the photo.'));
- const list=elem('ul');list.className='ats-results';
- for(const [points,pass,label,fix] of result.hits){
-   const li=elem('li');li.append(elem('strong',label+' · '+(pass?points:0)+'/'+points));
-   if(!pass)li.append(elem('div',fix));list.append(li);
+ const fixes=result.hits.filter(hit=>!hit[1]).sort((a,b)=>b[0]-a[0]);
+ const examples={
+   'Readable content':'Export the CV from your original document as a text-based PDF. Open it and try selecting and copying a sentence.',
+   'Contact details':'[Full name] · [City, country] · [Professional email]',
+   'Work experience':'[Job title] | [Employer] · [Dates]. Add a bullet explaining what you did, how you did it and the result.',
+   'Employment or education dates':'Mar 2022 – Present. Include the month when you know it.',
+   'Skills section':'For a logistics role, list skills you actually use, such as inventory reconciliation, dispatch planning or Excel reporting.',
+   'Education or certifications':'[Qualification] | [Institution or issuer] · [Year]',
+   'Evidence of impact':'Reduced [metric] from [baseline] to [result] by [action] over [period]. Use figures you can verify.'
+ };
+ const items=elem('div');items.className='ats-fixes';
+ atsResults.append(elem('h3',fixes.length?'Improvements to make first':'All checklist items met'),items);
+ for(const [points,,label,fix] of fixes){
+   const item=elem('div');item.className='ats-fix';
+   const example=elem('p',examples[label]);example.className='ats-example';
+   item.append(elem('strong',label+' · '+points+' points available'),elem('p',fix),example);items.append(item);
  }
- atsResults.append(list);
- if(result.missing.length)atsResults.append(elem('p','Review these job terms: '+result.missing.join(', ')+'. Add terms that accurately describe your experience.'));
+ const passed=result.hits.filter(hit=>hit[1]).map(hit=>hit[2]);
+ if(passed.length){const summary=elem('p','✓ Checks met: '+passed.join(' · '));summary.className='ats-good';atsResults.append(summary)}
+ if(result.missing.length){
+   const tags=elem('div');tags.className='ats-keywords';
+   result.missing.forEach(word=>tags.append(elem('span',word)));
+   atsResults.append(elem('h3','Job terms to review'),elem('p','If a term matches your experience, use it in the skills section or in a bullet that shows how you applied it.'),tags);
+ }
+ atsStatus.textContent='Check complete. '+fixes.length+' checklist improvement'+(fixes.length===1?'':'s')+' found.';
+ }catch{atsStatus.textContent='The CV check could not finish. Check the extracted text and try again.'}
+ finally{run.disabled=false;run.textContent='Check CV'}
+
 };
 function reviewPanel(){
  const list=elem('ul');list.className='review-list';
@@ -264,8 +302,92 @@ function say(s){$('status').textContent=s}
 $('back').onclick=()=>{if(step)step--;say('');render()};$('next').onclick=()=>{say('');if(step===7)return pdf();step++;visited=Math.max(visited,step);render()};
 async function workspace(save){let {data,error}=await db.rpc('cv_workspace',save?{save_draft:d}:{});if(error)throw error;return data}
 async function enter(u){if(!u)return;let result=await workspace(false);user=u;$('account').textContent='Sign out';if(Object.keys(result.draft).length){if(!lines().length||confirm('Load your saved CV and replace the current draft?'))d={...initial(),...result.draft}}render();say('Workspace access through '+new Date(result.expires).toLocaleDateString())}
-$('save').onclick=async()=>{if(!user)return $('login').showModal();try{await workspace(true);say('CV saved.')}catch(e){say(e.message)}};
-$('account').onclick=async()=>{if(!user)return $('login').showModal();if(!confirm('Sign out and clear the draft on this screen?'))return;const {error}=await db.auth.signOut({scope:'local'});if(error)return say(error.message);location.reload()};
-$('closeLogin').onclick=()=>$('login').close();$('auth').onsubmit=async e=>{e.preventDefault();if(busy)return;busy=true;try{if(!db)throw Error('Account service could not load.');let credentials={email:$('email').value,password:$('password').value};let {data,error}=e.submitter.value==='up'?await db.auth.signUp({...credentials,options:{emailRedirectTo:location.href.split('#')[0]}}):await db.auth.signInWithPassword(credentials);if(error)throw error;if(!data.session){$('message').textContent='Check your email to confirm, then sign in here.';return}await enter(data.user);$('password').value='';$('login').close()}catch(err){$('message').textContent=err.message}finally{busy=false}};
-render();if(db){try{let {data}=await db.auth.getSession();await enter(data.session?.user)}catch(e){say(e.message)}}
+const login=$('login'), authForm=$('auth'), authSubmit=$('authSubmit');
+const callbackUrl=location.origin+location.pathname;
+let mode='in';
+const modes={
+ in:['Sign in to CV Studio','Use your email and password to open your saved CV.','Sign in','Signing in…'],
+ up:['Create your CV Studio account','Use an email address you can access. Your CV workspace opens after verification.','Create account','Creating account…'],
+ verify:['Confirm your email','Open the verification link from CV Studio. Check Spam or Junk if needed.','Resend confirmation email','Requesting confirmation email…'],
+ forgot:['Reset your password','Enter your account email to request a password reset link.','Send reset link','Requesting reset link…'],
+ reset:['Set a new password','Choose a new password with at least eight characters.','Update password','Updating password…']
+};
+function authMessage(text,error=false){
+ $('message').textContent=text;$('message').toggleAttribute('data-error',error);
+}
+function showMode(next){
+ mode=next;
+ const [title,help,label]=modes[mode];
+ $('accountTitle').textContent=title;$('accountHelp').textContent=help;authSubmit.textContent=label;
+ const needsPassword=['in','up','reset'].includes(mode), needsEmail=mode!=='reset';
+ const email=$('email'),password=$('password');
+ $('emailLabel').hidden=!needsEmail;email.required=needsEmail;email.disabled=!needsEmail;
+ $('passwordLabel').hidden=!needsPassword;password.required=needsPassword;password.disabled=!needsPassword;
+ password.minLength=mode==='in'?0:8;password.autocomplete=mode==='in'?'current-password':'new-password';password.value='';
+ const links=$('authLinks');links.replaceChildren();
+ for(const [value,label] of [['in','Back to sign in'],['up','Create an account'],['forgot','Forgot password?'],['verify','Resend verification link']]){
+   if(value===mode||mode==='reset'||(mode!=='in'&&value!=='in'))continue;
+   button(links,label,()=>{showMode(value);authMessage('');(value==='in'&&email.value?password:email).focus()});
+ }
+}
+function openAccount(next='in'){
+ showMode(next);authMessage('');if(!login.open)login.showModal();
+}
+function authError(error){
+ switch(error.code){
+ case 'email_not_confirmed':showMode('verify');return 'Confirm your email before signing in. You can request another link below.';
+ case 'invalid_credentials':return 'That email and password did not match. Check both fields or reset your password.';
+ case 'email_address_not_authorized':return 'The site’s email service cannot send to this address. Contact the site owner to enable public account emails.';
+ case 'over_email_send_rate_limit':return 'The email service is rate-limited. Wait before requesting another link.';
+ case 'otp_expired':return 'This link has expired. Request a fresh confirmation or reset link.';
+ default:return error.message||'The account request failed. Please try again.';
+ }
+}
+$('save').onclick=async()=>{
+ if(!user)return openAccount();
+ const save=$('save');save.disabled=true;save.textContent='Saving…';
+ try{await workspace(true);say('CV saved.')}catch(e){say(e.message)}
+ finally{save.disabled=false;save.textContent='Save CV'}
+};
+$('account').onclick=async()=>{
+ if(!user)return openAccount();
+ if(!confirm('Sign out and clear the draft on this screen?'))return;
+ const account=$('account');account.disabled=true;account.textContent='Signing out…';
+ try{const {error}=await db.auth.signOut({scope:'local'});if(error)throw error;location.reload()}
+ catch(e){say(e.message);account.textContent='Sign out';account.disabled=false}
+};
+login.addEventListener('cancel',e=>{if(busy)e.preventDefault()});
+authForm.onsubmit=async e=>{
+ e.preventDefault();if(busy)return;
+ const submittedMode=mode, email=$('email').value.trim(),password=$('password').value;
+ busy=true;authForm.setAttribute('aria-busy','true');authSubmit.disabled=true;$('closeLogin').disabled=true;$('authLinks').inert=true;
+ authSubmit.textContent=modes[submittedMode][3];authMessage(authSubmit.textContent);
+ try{
+   if(!db)throw Error('The account service did not load. Refresh and try again.');
+   let result;
+   if(submittedMode==='up')result=await db.auth.signUp({email,password,options:{emailRedirectTo:callbackUrl}});
+   if(submittedMode==='in')result=await db.auth.signInWithPassword({email,password});
+   if(submittedMode==='verify')result=await db.auth.resend({type:'signup',email,options:{emailRedirectTo:callbackUrl}});
+   if(submittedMode==='forgot')result=await db.auth.resetPasswordForEmail(email,{redirectTo:callbackUrl});
+   if(submittedMode==='reset')result=await db.auth.updateUser({password});
+   if(result.error)throw result.error;
+   if(submittedMode==='up'&&!result.data.session){showMode('verify');authMessage('If verification is required for this address, look for the email before signing in.');return}
+   if(submittedMode==='verify'){authMessage('If this account is awaiting verification, check your inbox for a new link.');return}
+   if(submittedMode==='forgot'){authMessage('If an account exists for this address, check your inbox for the reset link.');return}
+   authMessage(submittedMode==='reset'?'Password updated. Opening your workspace…':'Opening your CV workspace…');
+   await enter(result.data.user);
+   $('password').value='';login.close();
+ }catch(err){authMessage(authError(err),true)}
+ finally{busy=false;authForm.removeAttribute('aria-busy');authSubmit.disabled=false;$('closeLogin').disabled=false;$('authLinks').inert=false;authSubmit.textContent=modes[mode][2]}
+};
+render();
+if(db){
+ try{
+   const {data,error}=await db.auth.getSession();
+   if(error)throw error;
+   if(recoveryLink&&data.session)openAccount('reset');
+   else if(authCallback.has('error')){openAccount(authCallback.get('error_code')==='otp_expired'?'verify':'in');authMessage('This email link could not be used. Request a new link and try again.',true);history.replaceState(null,'',callbackUrl)}
+   else await enter(data.session?.user);
+ }catch(e){say(e.message)}
+}
 </script></html>
