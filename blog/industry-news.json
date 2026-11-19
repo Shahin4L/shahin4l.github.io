@@ -1,11 +1,61 @@
 {
   "version": 1,
-  "checked_at": "2026-11-18T03:04:56.659961Z",
-  "last_success_at": "2026-11-18T03:04:56.659961Z",
-  "last_changed_at": "2026-11-18T03:04:56.659961Z",
+  "checked_at": "2026-11-19T08:51:41.763267Z",
+  "last_success_at": "2026-11-19T08:51:41.763267Z",
+  "last_changed_at": "2026-11-19T08:51:41.763267Z",
   "status": "complete",
-  "new_count": 9,
+  "new_count": 5,
   "articles": [
+    {
+      "title": "Amazon’s first Puerto Rico delivery station speeds up shipping",
+      "url": "https://supplychaindive.com/news/amazons-first-puerto-rico-delivery-station-speeds-up-shipping/874996/",
+      "published_at": "2026-11-18T17:35:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "logistics",
+      "first_seen_at": "2026-11-19T08:51:41.763267Z"
+    },
+    {
+      "title": "Build a Personal Brand to Help Employers Find You",
+      "url": "https://spectrum.ieee.org/personal-branding-for-engineers",
+      "published_at": "2026-11-18T17:33:26Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-19T08:51:41.763267Z"
+    },
+    {
+      "title": "Starbucks inventory availability at ‘all-time high’ with daily deliveries, CEO says",
+      "url": "https://supplychaindive.com/news/starbucks-inventory-availability-at-all-time-high-with-daily-deliveries/874923/",
+      "published_at": "2026-11-18T15:38:15Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-19T08:51:41.763267Z"
+    },
+    {
+      "title": "Jim Beam won’t resume production at flagship distillery next year",
+      "url": "https://supplychaindive.com/news/jim-beam-wont-resume-production-at-flagship-distillery-next-year/875019/",
+      "published_at": "2026-11-18T14:25:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-19T08:51:41.763267Z"
+    },
+    {
+      "title": "PepsiCo improves deforestation-free sourcing for key commodities",
+      "url": "https://supplychaindive.com/news/pepsico-improves-deforestation-free-sourcing-for-key-commodities/874963/",
+      "published_at": "2026-11-18T12:59:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "procurement",
+      "first_seen_at": "2026-11-19T08:51:41.763267Z"
+    },
     {
       "title": "US Foods to test inventory-scanning robots at 6 more warehouses",
       "url": "https://supplychaindive.com/news/us-foods-to-test-inventory-scanning-robots-at-6-more-warehouses/874829/",
@@ -57,16 +107,6 @@
       "first_seen_at": "2026-11-18T03:04:56.659961Z"
     },
     {
-      "title": "Amazon to expand fuel and logistics surcharge to more services",
-      "url": "https://supplychaindive.com/news/amazon-to-expand-fuel-and-logistics-surcharge-to-more-services/874693/",
-      "published_at": "2026-11-17T14:36:17Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "logistics",
-      "first_seen_at": "2026-11-18T03:04:56.659961Z"
-    },
-    {
       "title": "AI Is Giving Optical Computing Another Shot",
       "url": "https://spectrum.ieee.org/optical-computing-ai",
       "published_at": "2026-11-17T14:00:03Z",
@@ -97,26 +137,6 @@
       "first_seen_at": "2026-11-17T08:01:15.213036Z"
     },
     {
-      "title": "AI-backed tools power Reformation’s inventory management",
-      "url": "https://supplychaindive.com/news/ai-backed-tools-power-reformations-inventory-management/874645/",
-      "published_at": "2026-11-16T15:40:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "UniUni to tap carriers like Gofo for some peak season deliveries",
-      "url": "https://supplychaindive.com/news/uniuni-to-tap-carriers-like-gofo-for-some-peak-season-deliveries/874556/",
-      "published_at": "2026-11-16T15:17:36Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
       "title": "Can Robots Bring Stroke Surgery to Remote Hospitals?",
       "url": "https://spectrum.ieee.org/telesurgery-stroke",
       "published_at": "2026-11-16T14:00:02Z",
@@ -125,16 +145,6 @@
       "source": "IEEE Spectrum",
       "topic": "engineering",
       "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "Conagra Brands to close Missouri ingredients plant",
-      "url": "https://supplychaindive.com/news/conagra-brands-to-close-missouri-ingredients-plant/874617/",
-      "published_at": "2026-11-16T13:02:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-18T03:04:56.659961Z"
     },
     {
       "title": "28 Zero-Day Findings in Under Two Days. Is Robotics Security Keeping Pace?",
@@ -170,16 +180,6 @@
       "title": "Speech Processing Pioneer Bishnu Saroop Atal Dies at 93",
       "url": "https://spectrum.ieee.org/speech-processing-pioneer-in-memoriam",
       "published_at": "2026-11-10T19:00:02Z",
-      "date_kind": "published",
-      "source_id": "ieee-spectrum",
-      "source": "IEEE Spectrum",
-      "topic": "engineering",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "AI Agents Are Testing the Limits of Zero-Trust Security",
-      "url": "https://spectrum.ieee.org/zero-trust-agentic-ai-architecture",
-      "published_at": "2026-11-09T16:25:06Z",
       "date_kind": "published",
       "source_id": "ieee-spectrum",
       "source": "IEEE Spectrum",
@@ -225,16 +225,6 @@
       "source": "Lean Enterprise Institute",
       "topic": "operations",
       "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "Lean Was Always an Experiment",
-      "url": "https://lean.org/the-lean-post/articles/lean-was-always-an-experiment/",
-      "published_at": "2026-10-19T12:46:53Z",
-      "date_kind": "published",
-      "source_id": "lean-enterprise",
-      "source": "Lean Enterprise Institute",
-      "topic": "operations",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
     }
   ],
   "sources": [
@@ -243,9 +233,9 @@
       "name": "Supply Chain Dive",
       "url": "https://www.supplychaindive.com/",
       "feed": "https://www.supplychaindive.com/feeds/news/",
-      "checked_at": "2026-11-18T03:04:56.659961Z",
+      "checked_at": "2026-11-19T08:51:41.763267Z",
       "status": "success",
-      "last_success_at": "2026-11-18T03:04:56.659961Z",
+      "last_success_at": "2026-11-19T08:51:41.763267Z",
       "error": null,
       "article_count": 8
     },
@@ -254,9 +244,9 @@
       "name": "IEEE Spectrum",
       "url": "https://spectrum.ieee.org/",
       "feed": "https://spectrum.ieee.org/feeds/feed.rss",
-      "checked_at": "2026-11-18T03:04:56.659961Z",
+      "checked_at": "2026-11-19T08:51:41.763267Z",
       "status": "success",
-      "last_success_at": "2026-11-18T03:04:56.659961Z",
+      "last_success_at": "2026-11-19T08:51:41.763267Z",
       "error": null,
       "article_count": 8
     },
@@ -265,20 +255,20 @@
       "name": "Lean Enterprise Institute",
       "url": "https://www.lean.org/the-lean-post/",
       "feed": "https://www.lean.org/feed/",
-      "checked_at": "2026-11-18T03:04:56.659961Z",
+      "checked_at": "2026-11-19T08:51:41.763267Z",
       "status": "success",
-      "last_success_at": "2026-11-18T03:04:56.659961Z",
+      "last_success_at": "2026-11-19T08:51:41.763267Z",
       "error": null,
-      "article_count": 7
+      "article_count": 6
     },
     {
       "id": "mit-ctl",
       "name": "MIT Center for Transportation & Logistics",
       "url": "https://ctl.mit.edu/news",
       "feed": "https://ctl.mit.edu/rss.xml",
-      "checked_at": "2026-11-18T03:04:56.659961Z",
+      "checked_at": "2026-11-19T08:51:41.763267Z",
       "status": "success",
-      "last_success_at": "2026-11-18T03:04:56.659961Z",
+      "last_success_at": "2026-11-19T08:51:41.763267Z",
       "error": null,
       "article_count": 0
     }
