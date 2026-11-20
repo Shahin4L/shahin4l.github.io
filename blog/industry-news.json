@@ -1,11 +1,81 @@
 {
   "version": 1,
-  "checked_at": "2026-11-19T08:51:41.763267Z",
-  "last_success_at": "2026-11-19T08:51:41.763267Z",
-  "last_changed_at": "2026-11-19T08:51:41.763267Z",
+  "checked_at": "2026-11-20T04:43:07.091105Z",
+  "last_success_at": "2026-11-20T04:43:07.091105Z",
+  "last_changed_at": "2026-11-20T04:43:07.091105Z",
   "status": "complete",
-  "new_count": 5,
+  "new_count": 7,
   "articles": [
+    {
+      "title": "Community-Focused Academic Brings AI Tools to Colorado Farmers",
+      "url": "https://spectrum.ieee.org/ai-tools-for-rural-communities",
+      "published_at": "2026-11-19T19:00:02Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-20T04:43:07.091105Z"
+    },
+    {
+      "title": "Meta strikes deals to boost low-carbon materials production",
+      "url": "https://supplychaindive.com/news/meta-strikes-deals-to-boost-low-carbon-materials-production/875095/",
+      "published_at": "2026-11-19T17:30:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-20T04:43:07.091105Z"
+    },
+    {
+      "title": "Honda invests $462M in Alabama plant to boost production",
+      "url": "https://supplychaindive.com/news/honda-invests-462m-in-alabama-plant-to-boost-production/875189/",
+      "published_at": "2026-11-19T16:33:34Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-20T04:43:07.091105Z"
+    },
+    {
+      "title": "How Home Depot built the missing logistics piece for its Pro business",
+      "url": "https://supplychaindive.com/news/how-home-depot-built-the-missing-logistics-piece-for-its-pro-business/874331/",
+      "published_at": "2026-11-19T15:58:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "logistics",
+      "first_seen_at": "2026-11-20T04:43:07.091105Z"
+    },
+    {
+      "title": "How Brooks Running is using supplier data to address human rights risks",
+      "url": "https://supplychaindive.com/news/how-brooks-running-is-using-supplier-data-to-address-human-rights-risks/875090/",
+      "published_at": "2026-11-19T15:07:46Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "procurement",
+      "first_seen_at": "2026-11-20T04:43:07.091105Z"
+    },
+    {
+      "title": "The Answer to Organizational Complexity: Build in Lean Product and Process Capability",
+      "url": "https://lean.org/the-lean-post/articles/the-answer-to-organizational-complexity-build-in-lean-product-and-process-capability/",
+      "published_at": "2026-11-19T14:36:28Z",
+      "date_kind": "published",
+      "source_id": "lean-enterprise",
+      "source": "Lean Enterprise Institute",
+      "topic": "operations",
+      "first_seen_at": "2026-11-20T04:43:07.091105Z"
+    },
+    {
+      "title": "Why a Computer Scientist Thinks Superintelligence Won’t Happen",
+      "url": "https://spectrum.ieee.org/ai-superintelligence-debate",
+      "published_at": "2026-11-19T12:00:03Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-20T04:43:07.091105Z"
+    },
     {
       "title": "Amazon’s first Puerto Rico delivery station speeds up shipping",
       "url": "https://supplychaindive.com/news/amazons-first-puerto-rico-delivery-station-speeds-up-shipping/874996/",
@@ -57,16 +127,6 @@
       "first_seen_at": "2026-11-19T08:51:41.763267Z"
     },
     {
-      "title": "US Foods to test inventory-scanning robots at 6 more warehouses",
-      "url": "https://supplychaindive.com/news/us-foods-to-test-inventory-scanning-robots-at-6-more-warehouses/874829/",
-      "published_at": "2026-11-17T19:18:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "logistics",
-      "first_seen_at": "2026-11-18T03:04:56.659961Z"
-    },
-    {
       "title": "IEEE Celebrates 10 Years of Incorporating Ethics Into AI Systems",
       "url": "https://spectrum.ieee.org/ieee-ethics-ai-systems",
       "published_at": "2026-11-17T19:00:03Z",
@@ -74,36 +134,6 @@
       "source_id": "ieee-spectrum",
       "source": "IEEE Spectrum",
       "topic": "engineering",
-      "first_seen_at": "2026-11-18T03:04:56.659961Z"
-    },
-    {
-      "title": "How to prepare for the most severe El Niño on record",
-      "url": "https://supplychaindive.com/news/how-to-prepare-for-the-most-severe-el-nino-on-record/874732/",
-      "published_at": "2026-11-17T15:57:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-18T03:04:56.659961Z"
-    },
-    {
-      "title": "Fashion brand nixes dedicated fulfillment model to boost transit times",
-      "url": "https://supplychaindive.com/news/fashion-brand-nixes-dedicated-fulfillment-model-to-boost-transit-times/874630/",
-      "published_at": "2026-11-17T15:23:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-18T03:04:56.659961Z"
-    },
-    {
-      "title": "Wrangler parent company plans to beef up inventory spending",
-      "url": "https://supplychaindive.com/news/wrangler-parent-company-plans-to-beef-up-inventory-spending/874783/",
-      "published_at": "2026-11-17T15:08:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
       "first_seen_at": "2026-11-18T03:04:56.659961Z"
     },
     {
@@ -167,26 +197,6 @@
       "first_seen_at": "2026-11-17T00:42:24.709474Z"
     },
     {
-      "title": "The Dynamo-Electric Principle: 160 Years of Powering Industry",
-      "url": "https://spectrum.ieee.org/innomotics-electric-motors-drive-systems",
-      "published_at": "2026-11-11T11:00:02Z",
-      "date_kind": "published",
-      "source_id": "ieee-spectrum",
-      "source": "IEEE Spectrum",
-      "topic": "engineering",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "Speech Processing Pioneer Bishnu Saroop Atal Dies at 93",
-      "url": "https://spectrum.ieee.org/speech-processing-pioneer-in-memoriam",
-      "published_at": "2026-11-10T19:00:02Z",
-      "date_kind": "published",
-      "source_id": "ieee-spectrum",
-      "source": "IEEE Spectrum",
-      "topic": "engineering",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
       "title": "Revisiting the Toyota Production System in the Age of AI Coding Agents",
       "url": "https://lean.org/the-lean-post/articles/revisiting-the-toyota-production-system-in-the-age-of-ai-coding-agents/",
       "published_at": "2026-11-09T10:06:00Z",
@@ -233,9 +243,9 @@
       "name": "Supply Chain Dive",
       "url": "https://www.supplychaindive.com/",
       "feed": "https://www.supplychaindive.com/feeds/news/",
-      "checked_at": "2026-11-19T08:51:41.763267Z",
+      "checked_at": "2026-11-20T04:43:07.091105Z",
       "status": "success",
-      "last_success_at": "2026-11-19T08:51:41.763267Z",
+      "last_success_at": "2026-11-20T04:43:07.091105Z",
       "error": null,
       "article_count": 8
     },
@@ -244,9 +254,9 @@
       "name": "IEEE Spectrum",
       "url": "https://spectrum.ieee.org/",
       "feed": "https://spectrum.ieee.org/feeds/feed.rss",
-      "checked_at": "2026-11-19T08:51:41.763267Z",
+      "checked_at": "2026-11-20T04:43:07.091105Z",
       "status": "success",
-      "last_success_at": "2026-11-19T08:51:41.763267Z",
+      "last_success_at": "2026-11-20T04:43:07.091105Z",
       "error": null,
       "article_count": 8
     },
@@ -255,20 +265,20 @@
       "name": "Lean Enterprise Institute",
       "url": "https://www.lean.org/the-lean-post/",
       "feed": "https://www.lean.org/feed/",
-      "checked_at": "2026-11-19T08:51:41.763267Z",
+      "checked_at": "2026-11-20T04:43:07.091105Z",
       "status": "success",
-      "last_success_at": "2026-11-19T08:51:41.763267Z",
+      "last_success_at": "2026-11-20T04:43:07.091105Z",
       "error": null,
-      "article_count": 6
+      "article_count": 7
     },
     {
       "id": "mit-ctl",
       "name": "MIT Center for Transportation & Logistics",
       "url": "https://ctl.mit.edu/news",
       "feed": "https://ctl.mit.edu/rss.xml",
-      "checked_at": "2026-11-19T08:51:41.763267Z",
+      "checked_at": "2026-11-20T04:43:07.091105Z",
       "status": "success",
-      "last_success_at": "2026-11-19T08:51:41.763267Z",
+      "last_success_at": "2026-11-20T04:43:07.091105Z",
       "error": null,
       "article_count": 0
     }
