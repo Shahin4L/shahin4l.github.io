@@ -1,11 +1,61 @@
 {
   "version": 1,
-  "checked_at": "2026-11-20T04:43:07.091105Z",
-  "last_success_at": "2026-11-20T04:43:07.091105Z",
-  "last_changed_at": "2026-11-20T04:43:07.091105Z",
+  "checked_at": "2026-11-21T08:20:03.019803Z",
+  "last_success_at": "2026-11-21T08:20:03.019803Z",
+  "last_changed_at": "2026-11-21T08:20:03.019803Z",
   "status": "complete",
-  "new_count": 7,
+  "new_count": 5,
   "articles": [
+    {
+      "title": "Walmart’s sub-30-minute delivery volume surges in Q3",
+      "url": "https://supplychaindive.com/news/walmarts-sub-30-minute-delivery-volume-surges-in-q3/875339/",
+      "published_at": "2026-11-20T19:38:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "logistics",
+      "first_seen_at": "2026-11-21T08:20:03.019803Z"
+    },
+    {
+      "title": "Nvidia gets more supplier capacity to meet AI demand",
+      "url": "https://supplychaindive.com/news/nvidia-gets-more-supplier-capacity-to-meet-ai-demand/875238/",
+      "published_at": "2026-11-20T15:19:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "procurement",
+      "first_seen_at": "2026-11-21T08:20:03.019803Z"
+    },
+    {
+      "title": "Cal-Maine halts egg production at Florida plant after bird flu outbreak",
+      "url": "https://supplychaindive.com/news/cal-maine-halts-egg-production-at-florida-plant-after-bird-flu-outbreak/875316/",
+      "published_at": "2026-11-20T15:09:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-21T08:20:03.019803Z"
+    },
+    {
+      "title": "Target boosts on-shelf availability, aided by stronger tech",
+      "url": "https://supplychaindive.com/news/target-boosts-on-shelf-availability-aided-by-stronger-tech/875117/",
+      "published_at": "2026-11-20T14:38:53Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-21T08:20:03.019803Z"
+    },
+    {
+      "title": "I Don’t Trust Visual Recordings Anymore. But One Day I Will Again",
+      "url": "https://spectrum.ieee.org/fighting-back-against-deep-fakes",
+      "published_at": "2026-11-20T14:00:03Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-21T08:20:03.019803Z"
+    },
     {
       "title": "Community-Focused Academic Brings AI Tools to Colorado Farmers",
       "url": "https://spectrum.ieee.org/ai-tools-for-rural-communities",
@@ -77,16 +127,6 @@
       "first_seen_at": "2026-11-20T04:43:07.091105Z"
     },
     {
-      "title": "Amazon’s first Puerto Rico delivery station speeds up shipping",
-      "url": "https://supplychaindive.com/news/amazons-first-puerto-rico-delivery-station-speeds-up-shipping/874996/",
-      "published_at": "2026-11-18T17:35:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "logistics",
-      "first_seen_at": "2026-11-19T08:51:41.763267Z"
-    },
-    {
       "title": "Build a Personal Brand to Help Employers Find You",
       "url": "https://spectrum.ieee.org/personal-branding-for-engineers",
       "published_at": "2026-11-18T17:33:26Z",
@@ -94,36 +134,6 @@
       "source_id": "ieee-spectrum",
       "source": "IEEE Spectrum",
       "topic": "engineering",
-      "first_seen_at": "2026-11-19T08:51:41.763267Z"
-    },
-    {
-      "title": "Starbucks inventory availability at ‘all-time high’ with daily deliveries, CEO says",
-      "url": "https://supplychaindive.com/news/starbucks-inventory-availability-at-all-time-high-with-daily-deliveries/874923/",
-      "published_at": "2026-11-18T15:38:15Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-19T08:51:41.763267Z"
-    },
-    {
-      "title": "Jim Beam won’t resume production at flagship distillery next year",
-      "url": "https://supplychaindive.com/news/jim-beam-wont-resume-production-at-flagship-distillery-next-year/875019/",
-      "published_at": "2026-11-18T14:25:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-19T08:51:41.763267Z"
-    },
-    {
-      "title": "PepsiCo improves deforestation-free sourcing for key commodities",
-      "url": "https://supplychaindive.com/news/pepsico-improves-deforestation-free-sourcing-for-key-commodities/874963/",
-      "published_at": "2026-11-18T12:59:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "procurement",
       "first_seen_at": "2026-11-19T08:51:41.763267Z"
     },
     {
@@ -187,16 +197,6 @@
       "first_seen_at": "2026-11-17T00:42:24.709474Z"
     },
     {
-      "title": "How Microcredentials Can Help Engineers Build Trustworthy AI",
-      "url": "https://spectrum.ieee.org/microcredentials-trustworthy-ai",
-      "published_at": "2026-11-13T19:00:03Z",
-      "date_kind": "published",
-      "source_id": "ieee-spectrum",
-      "source": "IEEE Spectrum",
-      "topic": "engineering",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
       "title": "Revisiting the Toyota Production System in the Age of AI Coding Agents",
       "url": "https://lean.org/the-lean-post/articles/revisiting-the-toyota-production-system-in-the-age-of-ai-coding-agents/",
       "published_at": "2026-11-09T10:06:00Z",
@@ -243,9 +243,9 @@
       "name": "Supply Chain Dive",
       "url": "https://www.supplychaindive.com/",
       "feed": "https://www.supplychaindive.com/feeds/news/",
-      "checked_at": "2026-11-20T04:43:07.091105Z",
+      "checked_at": "2026-11-21T08:20:03.019803Z",
       "status": "success",
-      "last_success_at": "2026-11-20T04:43:07.091105Z",
+      "last_success_at": "2026-11-21T08:20:03.019803Z",
       "error": null,
       "article_count": 8
     },
@@ -254,9 +254,9 @@
       "name": "IEEE Spectrum",
       "url": "https://spectrum.ieee.org/",
       "feed": "https://spectrum.ieee.org/feeds/feed.rss",
-      "checked_at": "2026-11-20T04:43:07.091105Z",
+      "checked_at": "2026-11-21T08:20:03.019803Z",
       "status": "success",
-      "last_success_at": "2026-11-20T04:43:07.091105Z",
+      "last_success_at": "2026-11-21T08:20:03.019803Z",
       "error": null,
       "article_count": 8
     },
@@ -265,9 +265,9 @@
       "name": "Lean Enterprise Institute",
       "url": "https://www.lean.org/the-lean-post/",
       "feed": "https://www.lean.org/feed/",
-      "checked_at": "2026-11-20T04:43:07.091105Z",
+      "checked_at": "2026-11-21T08:20:03.019803Z",
       "status": "success",
-      "last_success_at": "2026-11-20T04:43:07.091105Z",
+      "last_success_at": "2026-11-21T08:20:03.019803Z",
       "error": null,
       "article_count": 7
     },
@@ -276,9 +276,9 @@
       "name": "MIT Center for Transportation & Logistics",
       "url": "https://ctl.mit.edu/news",
       "feed": "https://ctl.mit.edu/rss.xml",
-      "checked_at": "2026-11-20T04:43:07.091105Z",
+      "checked_at": "2026-11-21T08:20:03.019803Z",
       "status": "success",
-      "last_success_at": "2026-11-20T04:43:07.091105Z",
+      "last_success_at": "2026-11-21T08:20:03.019803Z",
       "error": null,
       "article_count": 0
     }
