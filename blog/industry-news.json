@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "checked_at": "2026-11-21T08:20:03.019803Z",
-  "last_success_at": "2026-11-21T08:20:03.019803Z",
+  "checked_at": "2026-11-22T11:34:23.846749Z",
+  "last_success_at": "2026-11-22T11:34:23.846749Z",
   "last_changed_at": "2026-11-21T08:20:03.019803Z",
   "status": "complete",
-  "new_count": 5,
+  "new_count": 0,
   "articles": [
     {
       "title": "Walmart’s sub-30-minute delivery volume surges in Q3",
@@ -243,9 +243,9 @@
       "name": "Supply Chain Dive",
       "url": "https://www.supplychaindive.com/",
       "feed": "https://www.supplychaindive.com/feeds/news/",
-      "checked_at": "2026-11-21T08:20:03.019803Z",
+      "checked_at": "2026-11-22T11:34:23.846749Z",
       "status": "success",
-      "last_success_at": "2026-11-21T08:20:03.019803Z",
+      "last_success_at": "2026-11-22T11:34:23.846749Z",
       "error": null,
       "article_count": 8
     },
@@ -254,9 +254,9 @@
       "name": "IEEE Spectrum",
       "url": "https://spectrum.ieee.org/",
       "feed": "https://spectrum.ieee.org/feeds/feed.rss",
-      "checked_at": "2026-11-21T08:20:03.019803Z",
+      "checked_at": "2026-11-22T11:34:23.846749Z",
       "status": "success",
-      "last_success_at": "2026-11-21T08:20:03.019803Z",
+      "last_success_at": "2026-11-22T11:34:23.846749Z",
       "error": null,
       "article_count": 8
     },
@@ -265,9 +265,9 @@
       "name": "Lean Enterprise Institute",
       "url": "https://www.lean.org/the-lean-post/",
       "feed": "https://www.lean.org/feed/",
-      "checked_at": "2026-11-21T08:20:03.019803Z",
+      "checked_at": "2026-11-22T11:34:23.846749Z",
       "status": "success",
-      "last_success_at": "2026-11-21T08:20:03.019803Z",
+      "last_success_at": "2026-11-22T11:34:23.846749Z",
       "error": null,
       "article_count": 7
     },
@@ -276,9 +276,9 @@
       "name": "MIT Center for Transportation & Logistics",
       "url": "https://ctl.mit.edu/news",
       "feed": "https://ctl.mit.edu/rss.xml",
-      "checked_at": "2026-11-21T08:20:03.019803Z",
+      "checked_at": "2026-11-22T11:34:23.846749Z",
       "status": "success",
-      "last_success_at": "2026-11-21T08:20:03.019803Z",
+      "last_success_at": "2026-11-22T11:34:23.846749Z",
       "error": null,
       "article_count": 0
     }
