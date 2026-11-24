@@ -66,6 +66,7 @@ export async function mountCollectionsPublic(){
  root.replaceChildren(...list.map(r=>r.preserved&&originals[id]?.[r.original]?originals[id][r.original]:buildCard(id,r,lang)));
  if(id==='teams')$('teamSearch')?.dispatchEvent(new Event('input'));
  }
+ document.dispatchEvent(new Event('portfolio-collections-change'));
  }
  render();document.addEventListener('portfolio-language-change',render);
  }catch(e){console.warn('Portfolio collections unavailable',e.message);}
