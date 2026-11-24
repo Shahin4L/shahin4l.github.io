@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en"><head><script>(function(){var m='Preview mode: backend not connected.';function mk(){var s=null,f=null,p=new Proxy(function(){},{get:function(t,k){if(k==='withSuccessHandler')return function(h){s=h;return p};if(k==='withFailureHandler')return function(h){f=h;return p};if(k==='withUserObject')return function(){return p};return function(){var h=f;s=f=null;setTimeout(function(){h&&h(new Error(m))},50);return p}}});return p}var sc={host:{close:function(){},setHeight:function(){}}};Object.defineProperty(sc,'run',{get:mk});window.google={script:sc};})();</script><base target="_top"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12304f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f2233;--mute:#5b6b7a;--bg:#e9eff4;--card:#fff;--line:#d9e2ea;--navy:#12304f;--go:#1b8a5a;--stop:#c8412b;--amber:#e39a0b;--soft:#f3f6f9;--sab:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{min-height:100vh;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.45;padding-bottom:calc(76px + var(--sab))}
+body.nonav{padding-bottom:24px}
+.top{background:var(--navy);color:#fff;padding:12px 16px;padding-top:calc(12px + env(safe-area-inset-top,0px));display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:5}
+.logo{width:34px;height:34px;border-radius:9px;background:var(--amber);display:grid;place-items:center;font-weight:800;color:var(--navy);flex:none}
+.top b{display:block;font-size:15px;line-height:1.2}.top span{font-size:12px;opacity:.75}.sp{flex:1}
+.top button{width:auto;min-height:36px;margin:0;padding:6px 14px;font-size:13px;background:rgba(255,255,255,.16)}
+main{max-width:520px;margin:0 auto;padding:14px 12px}main.wide{max-width:1000px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:12px}
+h1{font-size:24px;margin:0 0 4px;letter-spacing:-.3px}h2{font-size:16px;margin:0 0 12px}
+.sub{font-size:12px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.5px;margin:6px 0 10px}
+.mute{color:var(--mute);font-size:13px}
+label{display:block;font-weight:600;font-size:13px;margin:0 0 6px}
+input,textarea,select{width:100%;min-height:50px;padding:12px 14px;font:inherit;font-size:16px;border:1.5px solid var(--line);border-radius:12px;margin-bottom:12px;background:#fff;color:var(--ink)}
+input:focus,textarea:focus,select:focus,button:focus-visible,a:focus-visible{outline:3px solid #9fc2ee;outline-offset:1px;border-color:#4a86d6}
+button{width:100%;min-height:50px;padding:12px;font:inherit;font-weight:700;font-size:16px;border:0;border-radius:12px;cursor:pointer;color:#fff;background:var(--navy);position:relative;transition:transform .1s,background .2s}
+button:active:not(:disabled){transform:scale(.98)}
+button:disabled{background:#cfd8e0;color:#7b8a98;cursor:not-allowed}
+button.go{background:var(--go)}button.stop{background:var(--stop)}
+button.ghost{background:none;color:var(--mute);font-weight:500;font-size:14px;min-height:44px}
+/* loading state: spinner inside the button, label hidden, clicks blocked */
+button.loading{color:transparent!important;pointer-events:none}
+button.loading::after{content:"";position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border:3px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:rot .7s linear infinite}
+button.sec.loading::after,button.ghost.loading::after,.datebar button.loading::after{border-color:rgba(18,48,79,.2);border-top-color:var(--navy)}
+@keyframes rot{to{transform:rotate(360deg)}}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--navy);border-radius:50%;animation:rot .7s linear infinite;vertical-align:-2px;margin-right:8px}
+#pbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--amber);z-index:60;opacity:0;transition:width .3s,opacity .3s;pointer-events:none}
+#pbar.run{opacity:1;width:85%;transition:width 8s cubic-bezier(.1,.7,.2,1),opacity .2s}
+.sk{border-radius:12px;min-height:62px;background:linear-gradient(90deg,#e3eaf1 25%,#f3f6f9 50%,#e3eaf1 75%);background-size:200% 100%;animation:sh 1.1s linear infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--soft);border-radius:13px;padding:4px;margin-bottom:16px;gap:4px}
+.seg button{background:none;color:var(--mute);min-height:46px;font-size:14px;border-radius:10px}.seg button.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(15,34,51,.15)}
+.hello{display:flex;gap:12px;align-items:center;margin:2px 2px 14px}.hello b{font-size:17px;display:block}
+.av{width:46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;flex:none}
+.chip{display:inline-block;padding:3px 10px;border-radius:99px;background:var(--soft);font-size:12px;font-weight:600;color:var(--mute)}
+.stpill{display:inline-flex;align-items:center;gap:7px;padding:4px 12px;border-radius:99px;font-size:12.5px;font-weight:700;background:var(--soft);color:var(--mute)}
+.stpill i{width:8px;height:8px;border-radius:50%;background:#9aa8b6;display:block}
+.stpill.on{background:#fdf1d6;color:#8a5a00}.stpill.on i{background:var(--amber)}
+.stpill.rdy{background:#d6f1e3;color:#12683f}.stpill.rdy i{background:var(--go)}
+.stpill.done{background:#dde7f3;color:#35557a}.stpill.done i{background:#5f7fa3}
+.ringwrap{display:grid;place-items:center;margin:4px 0 14px;position:relative}
+.ring{transform:rotate(-90deg);width:min(62vw,230px);height:auto}.ring circle{fill:none;stroke-width:10}
+.ring .bg{stroke:var(--soft)}.ring .fg{stroke:var(--amber);stroke-linecap:round;transition:stroke-dashoffset .8s linear,stroke .3s}.ring.ready .fg{stroke:var(--go)}
+.mid{position:absolute;text-align:center}.mid .t{font-size:32px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.5px}.mid .s{font-size:12px;color:var(--mute);max-width:150px}
+.act{min-height:62px;font-size:18px;border-radius:16px}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.info div{background:var(--soft);border-radius:12px;padding:10px 4px;text-align:center}.info span{display:block;font-size:11px;color:var(--mute)}.info b{font-size:15px;font-variant-numeric:tabular-nums}
+.locbox{display:flex;gap:10px;align-items:flex-start;background:var(--soft);border-radius:12px;padding:10px 12px;margin-top:12px;font-size:13px;color:var(--mute);min-height:42px}
+.locbox svg{flex:none;width:18px;height:18px;margin-top:1px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.locbox.ok{background:#eaf7f0;color:#12683f}.locbox.err{background:#fbeae6;color:#9a2f1c}.locbox.wait{background:#fdf1d6;color:#8a5a00}
+.consent{font-size:11.5px;color:var(--mute);text-align:center;margin-top:10px;line-height:1.4}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0 12px}
+.sw{display:flex;gap:12px;align-items:center;min-height:48px;font-weight:600;cursor:pointer;margin:0 0 6px}.sw input{width:22px;height:22px;min-height:0;margin:0}
+.leave{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+.leave .steps{margin:8px 0}
+.leave button.sec{min-height:42px;font-size:14px;margin-top:8px}
+.tag{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:700;background:#fdf1d6;color:#8a5a00;white-space:nowrap}
+.tag.Approved{background:#d6f1e3;color:#12683f}.tag.Rejected{background:#f8dcd5;color:#9a2f1c}.tag.off{background:#dde7f3;color:#35557a}.tag.Cancelled{background:#e6e9ed;color:#5b6b7a}
+.nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding-bottom:var(--sab);z-index:6}
+.nav div{max-width:1000px;margin:0 auto;display:flex}
+.nav button{background:none;color:var(--mute);font-size:11.5px;font-weight:600;min-height:62px;border-radius:0;display:flex;flex-direction:column;gap:3px;align-items:center;justify-content:center;position:relative}
+.nav button.on{color:var(--navy)}.nav button.on::before{content:"";position:absolute;top:0;width:34px;height:3px;background:var(--navy);border-radius:0 0 3px 3px}
+.ic{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.badge{position:absolute;top:7px;margin-left:22px;background:var(--stop);color:#fff;border-radius:99px;min-width:18px;padding:0 5px;font-size:11px;line-height:18px}
+.filters{display:flex;gap:8px;margin-bottom:12px}.filters>*{margin:0;flex:1;min-width:0}
+.datebar{display:flex;gap:6px;align-items:center;margin-bottom:12px}.datebar button{width:50px;flex:none;background:#fff;color:var(--navy);border:1.5px solid var(--line);font-size:20px}.datebar input{margin:0;text-align:center;font-weight:600}
+.pills{display:flex;gap:8px;overflow-x:auto;margin-bottom:12px;padding-bottom:2px}.pills button{width:auto;flex:none;min-height:42px;padding:0 16px;font-size:14px;background:#fff;color:var(--mute);border:1.5px solid var(--line)}.pills button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.kpis.k4{grid-template-columns:repeat(2,1fr)}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}.stat b{font-size:25px;display:block;line-height:1.1;font-variant-numeric:tabular-nums}.stat span{font-size:12px;color:var(--mute)}
+.stat.pk{cursor:pointer}.stat.pk:active{transform:scale(.98)}
+.stat.ok b{color:var(--go)}.stat.off b{color:#5f7fa3}.stat.lv b{color:var(--amber)}.stat.bad b{color:var(--stop)}.stat.hot{background:var(--navy);color:#fff;border-color:var(--navy)}.stat.hot span{color:#b9c9da}
+.ins{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}.ins div{background:var(--navy);color:#fff;border-radius:14px;padding:12px}.ins span{display:block;font-size:11.5px;color:#b9c9da}.ins b{font-size:15px}
+.deps{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.dept{border:1px solid var(--line);border-radius:14px;padding:14px}.dh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;gap:8px}.rate{font-size:22px;font-weight:800}
+.bar{display:flex;height:10px;border-radius:99px;overflow:hidden;background:var(--soft)}.bar i{display:block;height:100%}
+.g{background:var(--go)}.o{background:#7b97b8}.l{background:var(--amber)}.r{background:var(--stop)}
+.leg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;margin-top:10px}.leg i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+.lnk{background:none;color:var(--navy);min-height:40px;width:auto;padding:0;font-size:13px;text-decoration:underline;margin-top:4px}
+.trend{display:flex;gap:8px}.tb{flex:1;display:flex;flex-direction:column;align-items:center;height:150px;font-size:12px}.tb b{margin-bottom:4px}.tb span{color:var(--mute);margin-top:6px}
+.col{flex:1;width:100%;display:flex;align-items:flex-end;justify-content:center}.col i{display:block;width:100%;max-width:42px;background:var(--navy);border-radius:6px 6px 0 0;min-height:2px}
+.emp,.req{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}
+.eh{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:8px}
+.rm{background:var(--soft);border-radius:10px;padding:10px 12px;font-size:13px;margin-bottom:10px}.rm b{font-size:13px}
+.sum{background:var(--soft);border-radius:10px;padding:10px 12px;font-size:12.5px;margin-bottom:10px}.sum .bar{margin:8px 0}.sum span{white-space:nowrap}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts>*{flex:1;min-width:110px}
+a.call{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:12px;background:var(--go);color:#fff;font-weight:700;text-decoration:none;font-size:15px;flex-direction:column;line-height:1.15;padding:6px}
+a.call small{font-weight:500;opacity:.9;font-size:12px}
+a.call.wa{background:#128c7e}a.call.sms{background:var(--navy)}
+button.sec{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.emg{background:#f8dcd5;color:#9a2f1c;font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;margin-left:6px}
+.steps{display:flex;gap:6px;margin:10px 0}.step{flex:1;text-align:center;font-size:11.5px;font-weight:600;padding:7px 2px;border-radius:9px;background:var(--soft);color:var(--mute)}
+.step.Approved{background:#d6f1e3;color:#12683f}.step.Rejected{background:#f8dcd5;color:#9a2f1c}.step.Cancelled{background:#e6e9ed;color:#5b6b7a}
+.step.Skipped{background:#eceff3;color:#8795a3;font-style:italic}
+.note{background:var(--soft);border-radius:9px;padding:9px 11px;font-size:13px;white-space:pre-line;color:var(--mute);margin-top:8px}
+.empty{text-align:center;padding:34px 10px;color:var(--mute)}
+.who{background:var(--soft);border:1.5px dashed var(--line);border-radius:12px;padding:12px 14px;font-weight:600;margin:0 0 12px;min-height:50px;display:flex;align-items:center;flex-wrap:wrap;gap:0 6px}
+.who.ok{border-style:solid;border-color:var(--go);background:#eaf7f0}
+.who.load{color:var(--mute);font-weight:500}
+.who.err{border-style:solid;border-color:var(--stop);background:#fbeae6;color:#9a2f1c}
+.auto{display:inline-block;font-size:10.5px;font-weight:700;background:#d6f1e3;color:#12683f;border-radius:99px;padding:1px 8px;margin-left:6px}
+.res{background:var(--navy);border-color:var(--navy);color:#fff}
+.res h2{color:#fff}
+.res .kpis{margin-bottom:8px}
+.res .stat{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14)}
+.res .stat span{color:#b9c9da}.res .stat b{color:#fff}
+.res .stat.ok b{color:#6fe0a8}.res .stat.lv b{color:#ffc65a}.res .stat.bad b{color:#ff9d8a}
+.res .mute{color:#9fb3c8;font-size:12px}
+.okcard{border-color:var(--go);background:#eaf7f0}
+.okcard h2{color:#12683f;display:flex;align-items:center;gap:8px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:13.5px;margin:0 0 12px}.kv span{color:var(--mute)}.kv b{word-break:break-all}
+.prog{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mute);margin:-4px 0 12px}
+.sheetbg{position:fixed;inset:0;background:rgba(15,34,51,.5);z-index:80;display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:#fff;width:100%;max-width:520px;max-height:92vh;overflow:auto;border-radius:20px 20px 0 0;padding:18px 16px calc(18px + var(--sab));animation:up .22s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
+@media(min-width:700px){.sheetbg{align-items:center}.sheet{border-radius:20px}}
+@media(min-width:760px){
+ main.wide{padding:20px 16px}
+ .kpis.k6{grid-template-columns:repeat(6,1fr)}.kpis.k4{grid-template-columns:repeat(4,1fr)}.kpis.k7{grid-template-columns:repeat(7,1fr)}
+ .card{padding:22px}
+}
+#toast{position:fixed;left:50%;bottom:calc(84px + var(--sab));transform:translate(-50%,30px);opacity:0;background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-weight:600;font-size:14px;max-width:92%;transition:.25s;pointer-events:none;z-index:90;text-align:center}
+#toast.show{opacity:1;transform:translate(-50%,0)}#toast.err{background:var(--stop)}#toast.ok{background:var(--go)}
+.loading #mg{opacity:.45;pointer-events:none;transition:opacity .15s}
+.hide{display:none!important}
+.lg{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.lg .row{display:flex;gap:10px;align-items:flex-start;margin-top:8px;font-size:13px}
+.lg .row i{font-style:normal;flex:none;width:34px;text-align:center;font-weight:700;font-size:11px;padding:2px 0;border-radius:6px;color:#fff}
+.lg .row i.in{background:var(--go)}.lg .row i.out{background:var(--stop)}
+.lg .row b{display:block;font-variant-numeric:tabular-nums}
+.lg .row a{color:var(--navy);text-decoration:underline;word-break:break-word}
+#cfM{white-space:pre-line;font-size:14px;margin:0 0 16px}
+
+/* ===== v9.3: optional leave attachment ===== */
+input[type=file]{padding:10px 12px;font-size:14px;margin-bottom:6px;min-height:50px}
+.fhint{font-size:12px;color:var(--mute);margin:0 0 12px}
+.fpick{display:flex;align-items:center;gap:8px;background:var(--soft);border-radius:10px;padding:8px 12px;font-size:13px;font-weight:600;margin:0 0 12px;word-break:break-all}
+.fpick button{width:auto;min-height:32px;margin:0 0 0 auto;padding:4px 12px;font-size:12.5px;flex:none}
+.alink{display:inline-block;color:var(--navy);font-weight:700;font-size:13px;text-decoration:underline;word-break:break-all}
+
+/* ===== v8: Management panel polish ===== */
+.lead{display:inline-block;margin-left:6px;padding:2px 9px;border-radius:99px;font-size:11.5px;font-weight:700;background:#dde7f3;color:#35557a;vertical-align:1px}
+.pagehead{margin:2px 2px 16px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.pagehead h1{font-size:22px;margin:0}
+.pagehead .mute{margin-top:2px}
+/* v10: global refresh button in the management header */
+#rfBtn{width:auto;flex:none;min-height:40px;padding:0 16px;font-size:14px}
+.stat{position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(15,34,51,.04)}
+.stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--line)}
+.stat.ok::before{background:var(--go)}.stat.off::before{background:#7b97b8}.stat.lv::before{background:var(--amber)}.stat.bad::before{background:var(--stop)}.stat.hot::before{background:var(--amber)}
+.res .stat::before{display:none}
+.stat.pk:hover{box-shadow:0 4px 14px rgba(15,34,51,.12);transform:translateY(-1px)}
+.card{box-shadow:0 1px 2px rgba(15,34,51,.04)}
+.emp,.req,.lg,.dept{transition:box-shadow .15s}
+.emp:hover,.req:hover,.lg:hover,.dept:hover{box-shadow:0 4px 14px rgba(15,34,51,.08)}
+.req .eh b,.emp .eh b{font-size:15px}
+#mg .pills{scrollbar-width:thin}
+@media(min-width:760px){
+ #plist,#alist,#lglist{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:12px;align-items:start}
+ #plist>.empty,#plist>.card,#alist>.empty,#alist>.card,#lglist>.empty{grid-column:1/-1}
+ .filters{max-width:420px}
+}
+@media(min-width:900px){
+ body.mg{padding-bottom:24px}
+ body.mg .nav{top:58px;right:auto;width:224px;border-top:0;border-right:1px solid var(--line);padding:14px 10px;overflow:auto}
+ body.mg .nav div{flex-direction:column;gap:4px;max-width:none;margin:0}
+ body.mg .nav button{flex-direction:row;justify-content:flex-start;gap:12px;min-height:48px;padding:0 14px;font-size:14px;border-radius:12px}
+ body.mg .nav button.on{background:var(--soft)}
+ body.mg .nav button.on::before{left:0;top:10px;bottom:10px;width:3px;height:auto;border-radius:0 3px 3px 0}
+ body.mg .badge{position:static;margin-left:auto}
+ body.mg main.wide{max-width:none;margin:0 0 0 224px;padding:24px 32px}
+ body.mg #mg{max-width:1180px}
+ body.mg #toast{left:calc(50% + 112px);bottom:24px}
+}
+/* ===== Force check-out (v9) ===== */
+.emp.stale{border-left:4px solid var(--stop)}
+.fchist .fr{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13px;margin-top:8px}.fchist .fr span{color:var(--mute)}
+#fcHint{margin:0 0 12px;min-height:44px;font-size:13px;font-weight:500}
+@media(min-width:760px){
+ #fList,#fHist,#fRes{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:12px;align-items:start}
+ #fList>.empty,#fHist>.empty,#fRes>.empty,#fRes>.mute,#fList>.mute{grid-column:1/-1}
+ #fList>.emp,#fHist>.emp,#fRes>.emp{margin-bottom:0}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.sheet{animation:none!important}}
+</style><script src="/js/hub-theme.js"></script><link rel="stylesheet" href="/css/global-theme.css"><script>
+(() => {
+  const employee = {id:'DEMO-001', name:'Demo Employee', dept:'Demo Operations'};
+  const day = () => new Date(Date.now()+21600000).toISOString().slice(0,10);
+  let checkIn = 0, last = null, leaves = [];
+  const state = () => ({emp:employee,token:'attendance-demo',now:Date.now(),today:day(),checkIn,last,
+    minMs:5000,doneToday:!!last,locReq:false,note:'ok',leaves,place:{inHas:true,outHas:true,inName:'Demo Hub',outName:'Demo Hub',tried:true},
+    policy:{types:['Casual Leave','Sick Leave'],maxDays:7,backDays:7}});
+  const duration = (from,to) => Math.max(1,Math.round((Date.parse(to)-Date.parse(from))/86400000)+1);
+  const manager = () => ({user:{name:'Demo Manager',role:'Manager',scope:'All'},canRemark:true,canApprove:true,
+    overview:{date:day(),today:day(),asOf:'Demo data',people:[],depts:[{dept:employee.dept,total:1,present:checkIn||last?1:0,absent:checkIn||last?0:1}]},
+    rows:leaves.map(r=>({...r,dept:employee.dept,name:employee.name,empId:employee.id,canAct:r.final==='Pending'}))});
+  const methods = {
+    warmup:()=>true, login:id=>{if(id.toUpperCase()!==employee.id)throw Error('Use DEMO-001.');return state();}, resume:state,
+    checkIn:()=>{if(!checkIn&&!last)checkIn=Date.now();return state();},
+    checkOut:()=>{if(checkIn&&Date.now()-checkIn>=5000){last={checkIn,checkOut:Date.now()};checkIn=0;}return state();},
+    fillPlace:()=>({inLocation:'Demo Hub',outLocation:'Demo Hub'}),
+    logoutMgmt:()=>true,logoutEmp:()=>true,
+    leavePreview:(_,from,to)=>({days:duration(from,to),skipped:0}),
+    requestLeave:(_,from,to,reason,emergency,type)=>{leaves.push({id:'DEMO-LV-'+(leaves.length+1),from,to,fi:from,ti:to,reason,type,emerg:emergency?'Yes':'No',duration:duration(from,to),at:day(),final:'Pending',st:['Pending','Pending','Pending'],canCancel:true});return state();},
+    cancelLeave:(_,id)=>{const r=leaves.find(x=>x.id===id);if(r){r.final='Cancelled';r.canCancel=false;}return state();},
+    mySummary:()=>({month:day().slice(0,7),days:checkIn||last?1:0,hours:last?( (last.checkOut-last.checkIn)/3600000).toFixed(2):0,rows:checkIn||last?[{d:day(),inT:new Date(checkIn||last.checkIn).toLocaleTimeString(),outT:last?new Date(last.checkOut).toLocaleTimeString():'',inLoc:'Demo Hub',outLoc:'Demo Hub'}]:[]}),
+    sendOtp:mail=>{if(mail.toLowerCase()!=='demo@example.invalid')throw Error('Use demo@example.invalid.');return true;},
+    verifyOtp:(mail,code)=>{methods.sendOtp(mail);if(code!=='123456')throw Error('Demo code is 123456.');return {token:'attendance-demo-manager',data:manager()};},
+    portalData:manager,
+    decide:(_,id,result,notes)=>{const r=leaves.find(x=>x.id===id);if(r){r.final=result;r.st=[result,result,result];r.remarks=notes;r.canCancel=false;}return manager();},
+    saveRemark:()=>manager()
+  };
+  function rpc(ok=()=>{},fail=()=>{}){
+    return new Proxy({}, {get(_,name){
+      if(name==='withSuccessHandler')return next=>rpc(next,fail);
+      if(name==='withFailureHandler')return next=>rpc(ok,next);
+      return (...args)=>setTimeout(()=>{try{if(!methods[name])throw Error('This action is unavailable in the public demo.');ok(methods[name](...args));}catch(e){fail(e);}},0);
+    }});
+  }
+  window.google={script:{get run(){return rpc();}}};
+})();
+
+</script><style>.demo-note{margin:12px auto;padding:10px 16px;max-width:920px;background:#eaf4fd;color:#142d49;border-radius:10px;font:600 14px/1.5 system-ui}</style></head><body class="nonav"><aside class="demo-note">Attendance demo · Employee ID <strong>DEMO-001</strong> · Manager <strong>demo@example.invalid</strong>, code <strong>123456</strong>. The demo shift unlocks check-out after 5 seconds. Location is simulated.</aside>
+<div id="pbar"></div>
+<div class="top"><div class="logo">C</div><div><b>Central Sort Ops Attendance</b><span>Attendance &amp; Leave Management</span></div><div class="sp"></div><button id="exit" class="hide" onclick="exitAll()">Sign out</button></div>
+
+<main id="main">
+<!-- Shown while a saved session is being checked, so a reload never flashes the login page -->
+<section id="v-boot" class="card" style="text-align:center">
+ <span class="spinner" id="bootSp" style="display:block;margin:6px auto 14px;width:28px;height:28px;border-width:3px"></span>
+ <h2 id="bootT">Restoring your session...</h2><p class="mute" id="bootM" style="margin:0">Please wait a moment.</p>
+ <div id="bootAct" class="hide" style="margin-top:16px"><button onclick="boot()">Try again</button><button class="ghost" onclick="localReset()">Sign in again</button></div>
+</section>
+
+<section id="v-login" class="card hide">
+ <h1>Sign in</h1><p class="mute" style="margin:0 0 16px;font-size:14px">Choose how you want to access the attendance system. You stay signed in on this device until you sign out.</p>
+ <div class="seg"><button id="m1" class="on" onclick="mode(1)">Employee</button><button id="m2" onclick="mode(2)">Management</button></div>
+ <div id="f1"><label for="empId">Employee ID</label><input id="empId" placeholder="DEMO-001" autocomplete="off" autocapitalize="characters" enterkeyhint="go">
+  <button id="bEmp" onclick="empLogin()">Continue</button></div>
+ <div id="f2" class="hide">
+  <div id="s1"><label for="mail">Official email address</label><input id="mail" type="email" inputmode="email" placeholder="name@carrybee.com" autocomplete="email" autocapitalize="none">
+   <button id="bOtp" onclick="sendCode()">Send verification code</button></div>
+  <div id="s2" class="hide"><p class="mute" style="margin-top:0;font-size:14px">We sent a 6-digit code to <b id="sentTo"></b>.</p>
+   <label for="otp">Verification code</label><input id="otp" inputmode="numeric" maxlength="6" placeholder="------" autocomplete="one-time-code" style="letter-spacing:6px;text-align:center;font-size:22px">
+   <button id="bVer" onclick="verify()">Sign in</button><button class="ghost" onclick="backMail()">Use a different email</button></div>
+ </div>
+</section>
+
+<section id="v-emp" class="hide">
+ <div class="hello"><div class="av" id="av"></div><div><b id="name"></b><span class="chip" id="dept"></span></div></div>
+
+ <!-- 1. Attendance (check-in / check-out) -->
+ <div id="p1" class="card">
+  <div style="text-align:center;margin-bottom:8px"><span class="stpill" id="stPill"><i></i><em id="stTxt" style="font-style:normal">Not checked in</em></span></div>
+  <div class="ringwrap"><svg class="ring" id="ring" viewBox="0 0 190 190"><circle class="bg" cx="95" cy="95" r="84"/><circle class="fg" id="fg" cx="95" cy="95" r="84" stroke-dasharray="527.8" stroke-dashoffset="527.8"/></svg>
+   <div class="mid"><div class="t" id="timer">--:--</div><div class="s" id="status"></div></div></div>
+  <button class="act go" id="bAct" onclick="mainAct()">Check in</button>
+  <div class="info"><div><span>Checked in</span><b id="iIn">--</b></div><div><span>Elapsed</span><b id="iEl">--</b></div><div><span>Check-out opens</span><b id="iOpen">--</b></div></div>
+  <div class="locbox" id="locBox"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span id="locTxt">Your location is recorded at check-in and check-out.</span></div>
+  <div class="consent">When you check in or out, this app collects the time, your GPS coordinates (latitude / longitude) and the nearest address, and stores them in the attendance record.</div>
+ </div>
+
+ <!-- 2. Leave request + history -->
+ <div id="p2" class="card hide">
+  <div id="lvOk" class="card okcard hide" style="padding:14px;margin-bottom:14px">
+   <h2><svg class="ic" viewBox="0 0 24 24" style="width:22px;height:22px"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg><span id="lvOkT">Request submitted</span></h2>
+   <div class="kv" id="lvOkKv"></div>
+   <button class="sec" onclick="$('lvOk').classList.add('hide')">Done</button>
+  </div>
+  <h2>New leave request</h2>
+  <label for="lty">Leave type</label><select id="lty" onchange="lvChange()"></select>
+  <div class="two"><div><label for="lf">From</label><input type="date" id="lf" onchange="lvChange()"></div><div><label for="lt">To</label><input type="date" id="lt" onchange="lvChange()"></div></div>
+  <div class="who" id="lvDuration">Duration: select start and end date</div>
+  <label for="lr">Reason</label><textarea id="lr" rows="3" maxlength="500" placeholder="Briefly describe the reason for leave" oninput="lvDraftSave()"></textarea>
+  <label for="lfile">Attachment (optional)</label>
+  <input type="file" id="lfile" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,image/*,application/pdf" onchange="attChange()">
+  <div class="fhint" id="lfHint">PDF, JPG, PNG, DOC or DOCX. Maximum 5 MB.</div>
+  <div class="fpick hide" id="lfPick"><span id="lfName"></span><button class="sec" type="button" onclick="attClear()">Remove</button></div>
+  <label class="sw"><input type="checkbox" id="le" onchange="lvDraftSave()"> This is an emergency</label>
+  <div class="prog hide" id="lvProg"><span class="spinner" style="margin:0"></span><span id="lvProgT">Submitting your request and saving it to the server...</span></div>
+  <button id="bLv" onclick="sendLeave()">Submit request</button>
+  <h2 style="margin-top:22px">My leave requests</h2><div id="mine"></div>
+ </div>
+
+ <!-- 3. Attendance summary -->
+ <div id="p3" class="hide">
+  <div class="card"><h2 id="sumT">This month</h2>
+   <div class="kpis" id="sumK"><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>
+   <div class="mute">Based on your check-in / check-out records.</div></div>
+  <div class="card"><h2>Recent attendance</h2><div id="sumL"></div></div>
+ </div>
+</section>
+
+<section id="v-mgmt" class="hide">
+ <div id="mg">
+ <div class="hello"><div class="av" id="mav"></div><div><b id="mname"></b><span class="chip" id="mrole"></span></div></div>
+ <div class="pagehead"><div><h1 id="pgT">Dashboard</h1><div class="mute" id="pgS"></div></div><button class="sec" id="rfBtn" onclick="refreshAll()" aria-label="Refresh this page">&#8635; Refresh</button></div>
+ <div id="dtools">
+ <div class="datebar"><button onclick="shiftDay(-1)" aria-label="Previous day">&#8249;</button><input type="date" id="dsel" onchange="setDate(this.value)"><button id="dnext" onclick="shiftDay(1)" aria-label="Next day">&#8250;</button></div>
+ <div class="filters"><select id="deptSel" onchange="DEPT=this.value;drawAll()"></select></div>
+ </div>
+
+ <div id="dash">
+  <div class="kpis k6" id="kpis"></div><div class="mute" style="margin:-4px 2px 12px">Tap Present, Day off, On leave or Absent to open that list.</div><div class="ins" id="ins"></div>
+  <div class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px"><h2 style="margin:0">Department attendance</h2>
+   <select id="sort" onchange="SORT=this.value;drawDash()" style="width:auto;min-height:40px;margin:0;font-size:14px"><option value="risk">Lowest rate</option><option value="abs">Most absent</option><option value="az">A-Z</option></select></div>
+   <div class="mute" style="margin-bottom:12px">Present rate = Present &divide; (Active &minus; Day off &minus; Leave)</div>
+   <div class="deps" id="depts"></div><div class="mute" id="srcnote" style="margin-top:8px"></div></div>
+  <div class="card"><h2>Check-in / Check-out locations</h2><div class="mute" style="margin-bottom:10px" id="lgSub"></div><input id="lgq" placeholder="Search name or ID" oninput="drawLogs()" style="margin-bottom:10px"><div id="lglist"></div></div>
+  <div class="card"><h2>Employees present, last 7 days</h2><div class="trend" id="trend"></div></div>
+  <div class="two"><button class="sec" onclick="copySummary()">Copy summary</button><button class="sec" onclick="refresh()">Refresh</button></div>
+ </div>
+
+ <div id="abs" class="hide">
+  <div class="pills" id="spills"></div>
+  <div class="pills" id="apills"></div>
+  <input id="aq" placeholder="Search name or ID" oninput="drawAbs()" style="margin-bottom:12px">
+  <div id="alist"></div>
+ </div>
+
+ <div id="appr" class="hide">
+  <div class="kpis k4" id="stats"></div>
+  <div class="pills" id="lpills"></div>
+  <input id="q" placeholder="Search name, ID or department" oninput="drawAppr()" style="margin-bottom:12px">
+  <div id="plist"></div>
+ </div>
+
+ <div id="sal" class="hide">
+  <div class="card">
+   <h2>Salary calculation</h2>
+   <div class="two"><div><label for="sId">Employee ID</label><input id="sId" placeholder="Employee ID" autocomplete="off" autocapitalize="characters" oninput="slType()"></div>
+    <div><label for="sMo">Month</label><input type="month" id="sMo" onchange="slLook()"></div></div>
+   <div class="who" id="sName">Enter an Employee ID to see the name.</div>
+   <div class="sub">Attendance report</div>
+   <div class="kpis k7" id="sSum"></div>
+   <div class="mute" id="sInfo"></div>
+   <button class="sec" id="bFind" style="margin-top:12px" onclick="slLook(true)">Reload from report</button>
+  </div>
+  <div class="card">
+   <div class="sub" style="margin-top:0">Pay details</div>
+   <div class="fg">
+    <div><label for="sBas">Basic salary</label><input id="sBas" type="number" step="any" inputmode="decimal" placeholder="Amount" oninput="slCalc()"></div>
+    <div><label for="sRec">Salary received</label><input id="sRec" type="number" step="any" inputmode="decimal" placeholder="Amount" oninput="slCalc()"></div>
+    <div><label for="sCo">Compensation amount</label><input id="sCo" type="number" step="any" inputmode="decimal" placeholder="0" oninput="slCalc()"></div>
+   </div>
+   <div class="sub">Days</div>
+   <div class="fg">
+    <div><label for="sWk">Working day<span id="aWk"></span></label><input id="sWk" type="number" step="any" inputmode="decimal" placeholder="0" oninput="slCalc()"></div>
+    <div><label for="sHd">Holiday (public) &times;3<span id="aHd"></span></label><input id="sHd" type="number" step="any" inputmode="decimal" placeholder="0" oninput="slCalc()"></div>
+    <div><label for="sDo">Day off work &times;2<span id="aDo"></span></label><input id="sDo" type="number" step="any" inputmode="decimal" placeholder="0" oninput="slCalc()"></div>
+    <div><label for="sOt">OT days &times;2<span id="aOt"></span></label><input id="sOt" type="number" step="any" inputmode="decimal" placeholder="0" oninput="slCalc()"></div>
+    <div><label for="sNt">Night allowance day<span id="aNt"></span></label><input id="sNt" type="number" step="any" inputmode="decimal" placeholder="0" oninput="slCalc()"></div>
+   </div>
+   <button class="ghost" onclick="slReset()">Reset days to attendance data</button>
+  </div>
+  <div class="card res"><h2>Result</h2><div class="kpis" id="sRes"></div><div class="mute" id="sFx"></div></div>
+ </div>
+ <div id="fco" class="hide">
+  <div class="kpis k4" id="fKpis"></div>
+  <div class="card"><h2>Find an employee</h2>
+   <input id="fq" placeholder="Employee ID, name or email" oninput="fSearchSoon()" autocomplete="off">
+   <div id="fRes"><div class="mute">Type at least 2 characters to see an employee's current attendance status.</div></div></div>
+  <div class="card"><div class="eh" style="align-items:center"><h2 style="margin:0">Active attendance sessions</h2><button class="sec" onclick="loadForce()" style="width:auto;min-height:40px;padding:0 16px;font-size:14px">Refresh</button></div>
+   <div class="mute" style="margin:6px 0 12px">Employees who checked in but have not checked out. Force check-out is available only for these sessions.</div>
+   <div class="pills" id="fPills"></div>
+   <input id="fAq" placeholder="Filter by name, ID or department" oninput="drawForce()">
+   <div id="fList"></div></div>
+  <div class="card"><h2>Force check-out history</h2><input id="fhq" placeholder="Search name, ID or action taken by" oninput="drawForce()"><div id="fHist"></div></div>
+ </div>
+ </div>
+</section>
+</main>
+
+<div class="nav hide" id="nav-emp"><div>
+ <button id="e1" class="on" onclick="etab(1)"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Attendance</button>
+ <button id="e2" onclick="etab(2)"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Leave</button>
+ <button id="e3" onclick="etab(3)"><svg class="ic" viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>Summary</button></div></div>
+<div class="nav hide" id="nav-mgmt"><div>
+ <button id="n1" class="on" onclick="mtab(1)"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>Dashboard</button>
+ <button id="n2" onclick="mtab(2)"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>People<span class="badge hide" id="b2"></span></button>
+ <button id="n3" onclick="mtab(3)"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Approvals<span class="badge hide" id="b3"></span></button>
+ <button id="n4" class="hide" onclick="mtab(4)"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9a2.5 2 0 00-2.5-1.5c-1.5 0-2.5.7-2.5 1.8 0 2.4 5 1.3 5 3.7 0 1.1-1 1.8-2.5 1.8A2.7 2.2 0 019.5 14.5M12 6v1.5M12 16.5V18"/></svg>Salary</button>
+ <button id="n5" class="hide" onclick="mtab(5)"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Sessions<span class="badge hide" id="b5"></span></button></div></div>
+
+<div class="sheetbg hide" id="rmBg" onclick="if(event.target===this)closeRm()"><div class="sheet" role="dialog" aria-modal="true">
+ <h2 id="rmName" style="margin-bottom:2px"></h2><div class="mute" id="rmSub" style="margin-bottom:12px"></div><div class="acts" id="rmCalls" style="margin-bottom:14px"></div>
+ <label for="rmReason">Absence reason</label><select id="rmReason"></select>
+ <label for="rmOut">Call outcome</label><select id="rmOut"></select>
+ <label class="sw"><input type="checkbox" id="rmEm"> Emergency situation</label>
+ <label for="rmText" style="margin-top:8px">Remarks</label><textarea id="rmText" rows="3" maxlength="300" placeholder="Add notes from the call"></textarea>
+ <div class="two"><button class="sec" onclick="closeRm()">Cancel</button><button id="rmSave" onclick="saveRm()">Save remark</button></div>
+</div></div>
+
+<!-- Force check-out form -->
+<div class="sheetbg hide" id="fcBg" onclick="if(event.target===this)closeFc()"><div class="sheet" role="dialog" aria-modal="true">
+ <h2 style="margin-bottom:2px">Force check-out</h2><div class="mute" style="margin-bottom:12px">This closes the employee's open attendance session. The original check-in time is not changed, and the action is recorded in the audit history.</div>
+ <div class="rm"><b id="fcName"></b><div class="mute" id="fcSub"></div><div style="margin-top:6px">Checked in: <b id="fcIn"></b></div></div>
+ <label for="fcReason">Reason *</label><select id="fcReason"></select>
+ <label for="fcOut">Check-out time *</label><input type="datetime-local" id="fcOut" onchange="fcHint()" oninput="fcHint()">
+ <div class="who" id="fcHint"></div>
+ <label for="fcText">Remarks *</label><textarea id="fcText" rows="3" maxlength="300" placeholder="Explain why this session is being closed"></textarea>
+ <div class="two"><button class="sec" onclick="closeFc()">Cancel</button><button class="stop" id="fcGo" onclick="submitFc()">Review &amp; confirm</button></div>
+</div></div>
+
+<!-- Generic confirmation dialog -->
+<div class="sheetbg hide" id="cfBg"><div class="sheet" role="dialog" aria-modal="true">
+ <h2 id="cfT"></h2><p class="mute" id="cfM"></p>
+ <div class="two"><button class="sec" id="cfN">Cancel</button><button id="cfY">OK</button></div>
+</div></div>
+<div id="toast" role="status"></div>
+
+<script>
+const $=id=>document.getElementById(id),pad=n=>String(n).padStart(2,'0');
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=ms=>new Date(ms).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:true,timeZone:'Asia/Dhaka'});
+const fd=iso=>iso?new Date(iso+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'2-digit'}):'';
+const ini=n=>String(n||'?').split(/\s+/).slice(0,2).map(x=>x[0]).join('').toUpperCase();
+const pct=r=>r==null?'-':r+'%';const C=527.8;
+const OT_X=2; /* OT is paid like Day-off-work (x2). Change here if the rate changes. */
+/* v9.1: attendance / salary period = PERIOD_START_DAY of one month to the day before it in the next month (21st -> 20th).
+   Keep these two values the same as in the GS file. PERIOD_LABEL_BY_END: true = a period is named after the month it ENDS in
+   (21 Sep - 20 Oct = October), false = named after the month it STARTS in (= September). */
+const PERIOD_START_DAY=21,PERIOD_LABEL_BY_END=true;
+function ymAdd(ym,n){let y=+ym.slice(0,4),m=+ym.slice(5,7)-1+n;y+=Math.floor(m/12);m=((m%12)+12)%12;return y+'-'+pad(m+1);}
+function periodOf(mo){const sYm=PERIOD_LABEL_BY_END?ymAdd(mo,-1):mo,eYm=ymAdd(sYm,1),s=sYm+'-'+pad(PERIOD_START_DAY),e=eYm+'-'+pad(PERIOD_START_DAY-1);
+ return {start:s,end:e,days:Math.round((new Date(e+'T12:00:00Z')-new Date(s+'T12:00:00Z'))/864e5)+1};}
+let S=null,offset=0,tick=null,empId='',busy=false,busyMsg='',lvBusy=false,TOKEN='',EMPTOKEN='',MD=null,MAIL='',DATE='',DEPT='',MT=1,SORT='risk',AF='todo',LF='act',SF='Absent',REM=null,curView='',lastSync=Date.now(),SUM=null,draftDone=false;
+let tt;function toast(m,k){const t=$('toast');t.textContent=m;t.className='show '+(k||'err');clearTimeout(tt);tt=setTimeout(()=>t.className='',4500);}
+const ls={get(k){try{return sessionStorage.getItem('portfolio-attendance:'+k)||''}catch(e){return''}},set(k,v){try{sessionStorage.setItem('portfolio-attendance:'+k,v)}catch(e){}}};
+const expired=e=>/session has expired/i.test(String(e&&e.message||e));
+const errMsg=e=>String(e&&e.message||e).replace(/^Error:\s*/,'');
+
+/* ---- loading feedback: top progress bar + button spinners ---- */
+let pend=0,pt;function prog(d){pend=Math.max(0,pend+d);const b=$('pbar');
+ if(pend){clearTimeout(pt);b.style.transition='none';if(!b.classList.contains('run')){b.style.width='0';void b.offsetWidth;}b.style.transition='';b.classList.add('run');}
+ else{b.style.width='100%';b.classList.remove('run');pt=setTimeout(()=>{b.style.transition='none';b.style.width='0';},300);}}
+const bl=(id,on)=>{const b=$(id);if(!b)return;b.classList.toggle('loading',!!on);b.setAttribute('aria-busy',!!on);};
+const isL=id=>$(id).classList.contains('loading');
+const BTNS=['bEmp','bOtp','bVer','bLv','rmSave','bFind','fcGo','rfBtn'];
+const fail=e=>{busy=false;lvBusy=false;document.body.classList.remove('loading');BTNS.forEach(i=>bl(i,0));$('lvProg').classList.add('hide');
+ if(expired(e)&&(TOKEN||EMPTOKEN)){forceLogin();return;}
+ toast(errMsg(e));if(S)render();};
+const call=(fn,ok,...a)=>{prog(1);google.script.run.withSuccessHandler(r=>{prog(-1);ok(r);}).withFailureHandler(e=>{prog(-1);fail(e);})[fn](...a);};
+function show(v){const was=curView;curView=v;['boot','login','emp','mgmt'].forEach(x=>$('v-'+x).classList.toggle('hide',x!==v));$('exit').classList.toggle('hide',v==='login'||v==='boot');
+ $('main').classList.toggle('wide',v==='mgmt');$('nav-emp').classList.toggle('hide',v!=='emp');$('nav-mgmt').classList.toggle('hide',v!=='mgmt');document.body.classList.toggle('nonav',v==='login'||v==='boot');document.body.classList.toggle('mg',v==='mgmt');if(was!==v)window.scrollTo(0,0);}
+function mode(n){$('m1').className=n===1?'on':'';$('m2').className=n===2?'on':'';$('f1').classList.toggle('hide',n!==1);$('f2').classList.toggle('hide',n!==2);}
+
+/* ---- confirmation dialog (returns a Promise<boolean>) ---- */
+function ask(t,m,yes,no){return new Promise(res=>{$('cfT').textContent=t;$('cfM').textContent=m;$('cfY').textContent=yes||'OK';$('cfN').textContent=no||'Cancel';
+ const bg=$('cfBg');bg.classList.remove('hide');const done=v=>{bg.classList.add('hide');res(v);};
+ $('cfY').onclick=()=>done(true);$('cfN').onclick=()=>done(false);bg.onclick=e=>{if(e.target===bg)done(false);};});}
+
+/* ---- sign-out / session reset ---- */
+async function exitAll(){
+ if(!(await ask('Sign out?','You will need to sign in again on this device.','Sign out','Stay signed in')))return;
+ const h=()=>{};
+ if(TOKEN)google.script.run.withFailureHandler(h).logoutMgmt(TOKEN);else if(EMPTOKEN)google.script.run.withFailureHandler(h).logoutEmp(EMPTOKEN);
+ localReset();}
+function localReset(){ls.set('mgmtToken','');ls.set('empToken','');TOKEN='';EMPTOKEN='';S=null;MD=null;SL=null;SLC={};SUM=null;draftDone=false;busy=false;lvBusy=false;clearInterval(tick);
+ $('otp').value='';backMail();$('empId').value=ls.get('empId');$('bootAct').classList.add('hide');show('login');}
+function forceLogin(){localReset();toast('Your session has expired. Please sign in again.');}
+/* another tab signed out -> this tab follows */
+window.addEventListener('storage',e=>{if(e.newValue)return;if((e.key==='empToken'&&EMPTOKEN)||(e.key==='mgmtToken'&&TOKEN))localReset();});
+
+/* ---------- Session restore (runs on every page open / reload) ---------- */
+function bootMsg(t,m,fail){$('bootT').textContent=t;$('bootM').textContent=m||'';$('bootSp').classList.toggle('hide',!!fail);$('bootAct').classList.toggle('hide',!fail);}
+function boot(){
+ const mt=ls.get('mgmtToken'),et=ls.get('empToken');
+ if(!mt&&!et){show('login');return;}
+ show('boot');bootMsg('Restoring your session...','Please wait a moment.');
+ const isM=!!mt;
+ const attempt=n=>{
+  const ok=r=>{if(isM){TOKEN=mt;MT=1;DEPT='';draw(r);}else{EMPTOKEN=et;setState(r);}};
+  const bad=e=>{
+   if(expired(e)){ls.set('mgmtToken','');ls.set('empToken','');show('login');toast('Your session has expired. Please sign in again.');return;}
+   /* temporary network / server problem: keep the saved session and retry, never log the user out */
+   if(n<3){bootMsg('Reconnecting...','Slow connection. Retrying automatically.');setTimeout(()=>attempt(n+1),1200*(n+1));return;}
+   bootMsg('Could not connect','Your session is saved. Check your internet connection and try again.',true);};
+  const g=google.script.run.withSuccessHandler(ok).withFailureHandler(bad);
+  if(isM)g.portalData(mt,'');else g.resume(et);};
+ attempt(0);}
+
+/* ---------- Employee ---------- */
+function empLogin(){
+ if(isL('bEmp'))return;
+ empId=$('empId').value.trim();
+ if(!empId)return toast('Please enter your Employee ID.');
+ bl('bEmp',1);
+ call('login',s=>{
+   bl('bEmp',0);
+   ls.set('empId',empId);ls.set('empToken',s.token);ls.set('mgmtToken','');EMPTOKEN=s.token;TOKEN='';
+   /* the server state is authoritative: an open shift opens straight onto the check-out view */
+   setState(s);
+   if(s.checkIn)toast('You are already checked in. Showing your current shift.','ok');
+ },empId);
+}
+function etab(n){['p1','p2','p3'].forEach((p,i)=>$(p).classList.toggle('hide',n!==i+1));['e1','e2','e3'].forEach((b,i)=>$(b).className=n===i+1?'on':'');window.scrollTo(0,0);if(n===3)loadSummary();}
+const LOC_MSG={denied:'Location permission is blocked. Open your browser / site settings, allow Location for this page, then try again.',
+ unavailable:'Your device could not find its location. Turn on GPS / Location services and try again.',
+ timeout:'Getting your location took too long. Move to an open area, make sure GPS is on, then try again.',
+ unsupported:'This browser does not support location. Please use an updated Chrome browser.'};
+function getLoc(){return Promise.resolve({loc:{lat:0,lng:0}});}
+function setLoc(k,t){$('locBox').className='locbox'+(k?' '+k:'');$('locTxt').textContent=t;}
+function drawLoc(){if(!S)return;const p=S.place,side=S.checkIn?'in':(S.last?'out':null);let k='',t='Your location is recorded at check-in and check-out.';
+ if(p&&side){const has=p[side+'Has'],nm=p[side+'Name'],lab=side==='in'?'Check-in':'Check-out';
+  if(has){k='ok';t=lab+' location recorded'+(nm?': '+nm:(p.fresh&&!p.tried)?' (finding place name...)':' (coordinates saved, place name not available)');}
+  else{k='err';t=lab+' was recorded without location.';}}
+ setLoc(k,t);}
+const NOTE={already_in:'You are already checked in. Showing your current shift.',done_today:'You have already completed today\'s attendance. Next check-in opens tomorrow.',not_in:'You are not checked in.'};
+async function mainAct(){
+ if(busy||!S)return;
+ const out=!!S.checkIn,fn=out?'checkOut':'checkIn';
+ if(!out&&S.doneToday)return toast(NOTE.done_today);
+ if(out&&!(await ask('Check out now?','Your check-out time and current location will be recorded.','Check out','Cancel')))return;
+ busy=true;busyMsg='getting your location...';render();setLoc('wait','Getting your location... allow the location prompt if your phone asks.');
+ const L=await getLoc();let loc=L.loc||null;
+ if(!loc){const m=LOC_MSG[L.err]||LOC_MSG.unavailable;setLoc('err',m);busy=false;render();
+  if(S.locReq)return toast('Location is required for attendance. '+m);
+  if(!(await ask('Location not available',m+'\n\nDo you want to record your '+(out?'check-out':'check-in')+' without location?','Record without location','Try again')))return;
+  busy=true;}
+ busyMsg='saving, please wait...';render();setLoc('wait',loc?'Location captured. Saving to the server...':'Saving without location...');
+ prog(1);
+ google.script.run.withSuccessHandler(s=>{prog(-1);busy=false;
+   if(s.note==='ok'&&s.place)s.place.fresh=true;
+   setState(s);SUM=null;
+   if(s.note==='ok')toast((out?'Checked out':'Checked in')+(loc?' successfully.':' (without location).'),loc?'ok':'err');
+   else toast(NOTE[s.note]||'Attendance status refreshed.','ok');
+   if(s.note==='ok'&&loc)google.script.run.withSuccessHandler(r=>{if(!S||!S.place)return;const nm=out?r.outLocation:r.inLocation;if(nm)S.place[out?'outName':'inName']=nm;S.place.tried=true;drawLoc();})
+    .withFailureHandler(()=>{if(S&&S.place){S.place.tried=true;drawLoc();}}).fillPlace(EMPTOKEN);})
+  .withFailureHandler(e=>{prog(-1);busy=false;if(expired(e))return forceLogin();render();drawLoc();toast(errMsg(e));resync();})[fn](EMPTOKEN,loc);}
+/* re-reads the real attendance state from the server (after an error, or when the tab becomes visible again) */
+function resync(){if(!EMPTOKEN)return;lastSync=Date.now();
+ google.script.run.withSuccessHandler(s=>{if(!busy&&EMPTOKEN)setState(s);}).withFailureHandler(e=>{if(expired(e))forceLogin();}).resume(EMPTOKEN);}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&EMPTOKEN&&S&&!busy&&!lvBusy&&Date.now()-lastSync>15000)resync();});
+
+/* ---- Leave form ---- */
+const addDay=(iso,n)=>{const d=new Date(iso+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);};
+const calDays=(f,t)=>Math.round((new Date(t+'T12:00:00Z')-new Date(f+'T12:00:00Z'))/86400000)+1;
+function lvDraftSave(){ls.set('lvDraft',JSON.stringify({ty:$('lty').value,f:$('lf').value,t:$('lt').value,r:$('lr').value,e:$('le').checked}));}
+function lvDraftClear(){ls.set('lvDraft','');}
+function lvInit(){if(!S||!S.policy)return;const p=S.policy;
+ if(!$('lty').options.length)$('lty').innerHTML=p.types.map(x=>`<option>${esc(x)}</option>`).join('');
+ if(!draftDone){draftDone=true;try{const d=JSON.parse(ls.get('lvDraft')||'null');if(d){if(p.types.indexOf(d.ty)>=0)$('lty').value=d.ty;$('lf').value=d.f||'';$('lt').value=d.t||'';$('lr').value=d.r||'';$('le').checked=!!d.e;}}catch(e){}}
+ $('lfHint').textContent=((p.attachExt||['pdf','jpg','png','doc','docx']).map(x=>x.toUpperCase()).join(', '))+'. Maximum '+(p.attachMb||5)+' MB.';
+ lvLimits();updateLeaveDuration();}
+function lvLimits(){const p=S.policy,f=$('lf').value;$('lf').min=addDay(S.today,-p.backDays);$('lt').min=f||$('lf').min;if(f)$('lt').max=addDay(f,p.maxDays-1);else $('lt').removeAttribute('max');}
+function lvChange(){const f=$('lf').value;if(f&&$('lt').value&&$('lt').value<f)$('lt').value=f;lvLimits();lvDraftSave();updateLeaveDuration();}
+let pvT,pvN=0;
+function lvCheck(f,t){ /* returns an error text, or '' when the range is acceptable */
+ const p=S.policy;if(!f||!t)return 'Please select the start and end date.';
+ const d=calDays(f,t);if(d<1)return 'The end date cannot be before the start date.';
+ if(f<addDay(S.today,-p.backDays))return 'Leave cannot start more than '+p.backDays+' days in the past.';
+ if(d>p.maxDays)return 'A single request cannot be longer than '+p.maxDays+' days.';
+ const ov=(S.leaves||[]).find(l=>(l.final==='Pending'||l.final==='Approved')&&l.fi<=t&&l.ti>=f);
+ if(ov)return 'A '+ov.final+' request ('+ov.id+', '+ov.from+' - '+ov.to+') already covers these dates. You cannot request the same date twice.';
+ return '';}
+function updateLeaveDuration(){const f=$('lf').value,t=$('lt').value,b=$('lvDuration');
+ if(!f||!t){b.className='who';b.textContent='Duration: select start and end date';return;}
+ const er=lvCheck(f,t);if(er){b.className='who err';b.textContent=er;return;}
+ const d=calDays(f,t);b.className='who ok';b.textContent='Duration: '+d+' day'+(d>1?'s':'');
+ if(S.policy.excludeOff){clearTimeout(pvT);const n=++pvN;b.textContent+=' (checking leave policy...)';
+  pvT=setTimeout(()=>google.script.run.withSuccessHandler(r=>{if(n!==pvN)return;b.textContent='Duration: '+r.days+' day'+(r.days>1?'s':'')+' counted'+(r.skipped?' ('+r.skipped+' weekly off / holiday excluded)':'');})
+   .withFailureHandler(()=>{}).leavePreview(EMPTOKEN,f,t),350);}}
+
+/* ---- v9.3: optional leave attachment ---- */
+const attExtOf=n=>{const i=String(n||'').lastIndexOf('.');return i>=0?String(n).slice(i+1).toLowerCase():'';};
+const fsize=b=>b>=1048576?(Math.round(b/104857.6)/10)+' MB':Math.max(1,Math.round(b/1024))+' KB';
+function attClear(){$('lfile').value='';$('lfPick').classList.add('hide');}
+function attChange(){const f=$('lfile').files[0];if(!f){$('lfPick').classList.add('hide');return;}
+ const p=(S&&S.policy)||{},ext=p.attachExt||['pdf','jpg','jpeg','png','doc','docx'],mb=p.attachMb||5;
+ if(ext.indexOf(attExtOf(f.name))<0){attClear();return toast('This file type is not allowed. Please attach a PDF, JPG, PNG, DOC or DOCX file.');}
+ if(f.size>mb*1048576){attClear();return toast('The file is too large ('+fsize(f.size)+'). Maximum size is '+mb+' MB.');}
+ if(!f.size){attClear();return toast('The selected file is empty.');}
+ $('lfName').textContent=f.name+' ('+fsize(f.size)+')';$('lfPick').classList.remove('hide');}
+function readAtt(){return new Promise((res,rej)=>{const f=$('lfile').files[0];if(!f)return res(null);
+ const r=new FileReader();r.onload=()=>res({name:f.name,type:f.type||'',data:String(r.result).split(',')[1]||''});
+ r.onerror=()=>rej(new Error('The selected file could not be read. Please choose it again.'));r.readAsDataURL(f);});}
+const attLn=u=>/^https:\/\//.test(u||'')?`<div style="margin-top:6px"><a class="alink" href="${esc(u)}" target="_blank" rel="noopener">View attachment</a></div>`:'';
+
+async function sendLeave(){
+ if(isL('bLv')||lvBusy||!S)return;
+ const type=$('lty').value,from=$('lf').value,to=$('lt').value,reason=$('lr').value.trim(),emergency=$('le').checked;
+ if(!type)return toast('Please select a leave type.');
+ if(!reason)return toast('Please write the reason for leave.');
+ const er=lvCheck(from,to);if(er){updateLeaveDuration();return toast(er);}
+ lvBusy=true;bl('bLv',1);$('lvProg').classList.remove('hide');
+ const hasF=!!$('lfile').files[0];$('lvProgT').textContent=hasF?'Uploading the attachment and saving your request...':'Submitting your request and saving it to the server...';
+ let att=null;
+ try{att=await readAtt();}catch(e){lvBusy=false;bl('bLv',0);$('lvProg').classList.add('hide');return toast(errMsg(e));}
+ call('requestLeave',s=>{
+   lvBusy=false;bl('bLv',0);$('lvProg').classList.add('hide');
+   $('lr').value='';$('lf').value='';$('lt').value='';$('le').checked=false;attClear();lvDraftClear();
+   setState(s);showSubmitted(s.submitted);
+   toast(s.submitted&&s.submitted.dup?'This request was already submitted.':'Leave request submitted successfully.','ok');
+ },EMPTOKEN,from,to,reason,emergency,type,att);
+}
+function showSubmitted(x){if(!x)return;$('lvOkT').textContent=x.dup?'Request already submitted':'Request submitted';
+ $('lvOkKv').innerHTML=`<span>Request ID</span><b>${esc(x.id)}</b><span>Submitted</span><b>${esc(x.at)}</b><span>Leave type</span><b>${esc(x.type)}</b><span>Dates</span><b>${esc(x.from)} - ${esc(x.to)}</b><span>Duration</span><b>${x.duration} day(s)</b><span>Status</span><b><span class="tag ${esc(x.status)}" style="color:inherit">${esc(x.status)}</span> (waiting for ${esc(x.waiting||'Floor Lead')})</b>`+(x.direct?`<span>Approval route</span><b>Sent directly to Manager</b>`:'')+(x.att?`<span>Attachment</span><b>${esc(x.att)}</b>`:'');
+ $('lvOk').classList.remove('hide');window.scrollTo(0,0);}
+async function cancelLv(btn){if(isL(btn.id)||btn.classList.contains('loading'))return;
+ if(!(await ask('Cancel this request?','The request will be marked Cancelled and approvers will no longer see it as pending. You can apply again afterwards.','Cancel request','Keep it')))return;
+ btn.classList.add('loading');call('cancelLeave',s=>{setState(s);toast('Leave request cancelled.','ok');},EMPTOKEN,btn.dataset.id);}
+const STEPNM=['Floor Lead','Line Lead','Manager'];
+function drawLeaves(){const L=S.leaves||[];
+ $('mine').innerHTML=L.length?L.map(l=>`<div class="leave"><div class="eh"><div><b>${esc(l.type||'Leave')}</b><div class="mute">${esc(l.id)}</div></div><span class="tag ${esc(l.final)}">${esc(l.final)}</span></div>
+  <div><b>${esc(l.from)} - ${esc(l.to)}</b> &middot; ${l.duration||0} day(s)${l.emerg==='Yes'?'<span class="emg">Emergency</span>':''}</div>
+  <div class="mute">Submitted ${esc(l.at)}</div><div class="mute">${esc(l.reason)}</div>${attLn(l.att)}
+  ${l.final==='Cancelled'?'':`<div class="steps">${l.st.map((x,i)=>`<div class="step ${esc(x)}">${STEPNM[i]}<br>${esc(x)}</div>`).join('')}</div>`}
+  ${l.remarks?'<div class="note">'+esc(l.remarks)+'</div>':''}
+  ${l.canCancel?`<button class="sec" id="cx-${esc(l.id)}" data-id="${esc(l.id)}" onclick="cancelLv(this)">Cancel request</button>`:''}</div>`).join(''):'<div class="mute">No leave requests yet.</div>';}
+
+/* ---- Summary tab ---- */
+function loadSummary(){if(!EMPTOKEN)return;if(SUM){drawSummary(SUM);}
+ else{$('sumK').innerHTML='<div class="sk"></div><div class="sk"></div><div class="sk"></div>';$('sumL').innerHTML='<div class="mute"><span class="spinner"></span>Loading...</div>';}
+ prog(1);google.script.run.withSuccessHandler(r=>{prog(-1);SUM=r;drawSummary(r);}).withFailureHandler(e=>{prog(-1);if(expired(e))return forceLogin();if(!SUM){$('sumL').innerHTML='<div class="mute">Could not load the summary. '+esc(errMsg(e))+'</div>';}}).mySummary(EMPTOKEN);}
+function drawSummary(r){$('sumT').textContent=(r.from&&r.to)?fd(r.from)+' - '+fd(r.to):new Date(r.month+'-15T12:00:00').toLocaleDateString('en-GB',{month:'long',year:'numeric'});
+ $('sumK').innerHTML=`<div class="stat ok"><b>${r.days}</b><span>Days present</span></div><div class="stat"><b>${r.hours}</b><span>Total hours</span></div><div class="stat"><b>${r.avg||'-'}</b><span>Avg hours / shift</span></div>`;
+ $('sumL').innerHTML=r.rows.length?r.rows.map(x=>`<div class="lg"><b>${esc(fd(x.d))}</b><div class="mute">${x.hrs!=null?x.hrs+' hours':'Shift in progress'}</div>
+ <div class="row"><i class="in">IN</i><div><b>${esc(x.inT)||'--'}</b>${locHtml(x.inLoc,x.inLL)}</div></div>
+ <div class="row"><i class="out">OUT</i><div><b>${x.outT?esc(x.outT):'Not checked out yet'}</b>${x.outT?locHtml(x.outLoc,x.outLL):''}${x.forced?'<span class="lead" style="margin:4px 0 0">Closed by management'+(x.forcedBy?' &middot; '+esc(x.forcedBy):'')+'</span>':''}</div></div></div>`).join(''):'<div class="empty">No attendance records yet.</div>';}
+
+function setState(s){if(!s.leaves)s.leaves=(S&&S.leaves)||[];if(!s.token&&EMPTOKEN)s.token=EMPTOKEN;S=s;offset=s.now-Date.now();lastSync=Date.now();show('emp');$('av').textContent=ini(s.emp.name);$('name').textContent=s.emp.name;$('dept').textContent=(s.emp.dept||'')+' · '+s.emp.id;
+ drawLeaves();lvInit();drawLoc();
+ clearInterval(tick);render();tick=setInterval(render,1000);}
+function render(){if(!S)return;const now=Date.now()+offset,ring=$('ring'),fg=$('fg'),b=$('bAct'),pill=$('stPill');
+ $('iIn').textContent=S.checkIn?fmt(S.checkIn):'--';$('iOpen').textContent=S.checkIn?fmt(S.checkIn+S.minMs):'--';
+ $('iEl').textContent=S.checkIn?Math.floor((now-S.checkIn)/3600000)+'h '+pad(Math.floor((now-S.checkIn)%3600000/60000))+'m':'--';
+ if(S.checkIn){const el=now-S.checkIn,left=S.minMs-el;fg.style.strokeDashoffset=C*(1-Math.min(1,el/S.minMs));
+  if(left>0){const t=Math.ceil(left/1000);$('timer').textContent=pad(Math.floor(t/3600))+':'+pad(Math.floor(t%3600/60))+':'+pad(t%60);$('status').textContent='until check-out opens';ring.classList.remove('ready');b.className='act';b.disabled=true;b.textContent='Check out at '+fmt(S.checkIn+S.minMs);pill.className='stpill on';$('stTxt').textContent='On shift';}
+  else{$('timer').textContent='Ready';$('status').textContent='check-out available';ring.classList.add('ready');b.className='act stop';b.disabled=false;b.textContent='Check out';pill.className='stpill rdy';$('stTxt').textContent='Ready to check out';}
+ }else if(S.doneToday){fg.style.strokeDashoffset=0;ring.classList.add('ready');$('timer').textContent='Done';$('status').textContent=S.last?'shift '+fmt(S.last.checkIn)+' - '+fmt(S.last.checkOut):'attendance completed';b.className='act';b.disabled=true;b.textContent='Completed for today';pill.className='stpill done';$('stTxt').textContent='Completed today';
+ }else{fg.style.strokeDashoffset=C;ring.classList.remove('ready');$('timer').textContent='--:--';$('status').textContent=S.last?'last shift '+fmt(S.last.checkIn)+' - '+fmt(S.last.checkOut):'not checked in';b.className='act go';b.disabled=false;b.textContent='Check in';pill.className='stpill';$('stTxt').textContent='Not checked in';}
+ if(busy){$('status').textContent=busyMsg;b.disabled=true;b.classList.add('loading');}}
+
+/* ---------- Management sign-in ---------- */
+function sendCode(){if(isL('bOtp'))return;const m=$('mail').value.trim();if(!m)return toast('Please enter your email address.');bl('bOtp',1);
+ call('sendOtp',()=>{bl('bOtp',0);MAIL=m;$('sentTo').textContent=m;$('s1').classList.add('hide');$('s2').classList.remove('hide');$('otp').focus();toast('Verification code sent.','ok');},m);}
+function backMail(){$('s1').classList.remove('hide');$('s2').classList.add('hide');}
+function verify(){if(isL('bVer'))return;const c=$('otp').value.trim();if(c.length<6)return toast('Please enter the 6-digit code.');bl('bVer',1);
+ call('verifyOtp',r=>{bl('bVer',0);TOKEN=r.token;EMPTOKEN='';ls.set('mgmtToken',TOKEN);ls.set('empToken','');MT=1;DEPT='';draw(r.data);},MAIL,c);}
+
+/* ---------- Management ---------- */
+function load(){document.body.classList.add('loading');call('portalData',d=>{document.body.classList.remove('loading');draw(d);},TOKEN,DATE);}
+function setDate(v){if(!v)return;DATE=v;load();}
+function shiftDay(n){const d=addDay(DATE,n);if(d>MD.overview.today)return;DATE=d;load();}
+function refresh(){load();}
+/* v10: refresh button in the page header. Reloads whatever page is open (Sessions page reloads its own list). */
+function refreshAll(){if(isL('rfBtn')||!TOKEN)return;bl('rfBtn',1);
+ if(MT===5&&MD&&MD.canForce)loadForce();
+ else{if(MT===4&&$('sId').value.trim()&&$('sMo').value)slLook(true);load();}}
+function mtab(n){MT=n;drawAll();window.scrollTo(0,0);if(n===5)loadForce();}
+function draw(d){bl('rfBtn',0);MD=d;DATE=d.overview.date;show('mgmt');$('mav').textContent=ini(d.user.name);$('mname').textContent=d.user.name;
+ const sc=d.user.scope.toUpperCase()==='ALL'?'All teams / departments':d.user.scope;$('mrole').textContent=d.user.role+(d.user.empId?' · '+d.user.empId:'')+' · '+sc+(d.canRemark||d.canApprove?'':' · View only');
+ const names=d.overview.depts.map(x=>x.dept).sort();if(DEPT&&names.indexOf(DEPT)<0)DEPT='';
+ $('deptSel').innerHTML=(names.length>1?`<option value="">All departments (${names.length})</option>`:'')+names.map(n=>`<option value="${esc(n)}" ${n===DEPT?'selected':''}>${esc(n)}</option>`).join('');
+ $('deptSel').classList.toggle('hide',names.length<2);
+ $('n4').classList.toggle('hide',!d.canSalary);if(MT===4&&!d.canSalary)MT=1;
+ $('n5').classList.toggle('hide',!d.canForce);if(MT===5&&!d.canForce)MT=1;
+ const mo=d.overview.periodMonth||d.overview.today.slice(0,7);$('sMo').max=mo;if(!$('sMo').value)$('sMo').value=mo;
+ $('dsel').value=DATE;$('dsel').max=d.overview.today;$('dnext').disabled=DATE>=d.overview.today;drawAll();}
+function inDept(x){return !DEPT||x===DEPT;}
+function drawAll(){['dash','abs','appr','sal','fco'].forEach((x,i)=>$(x).classList.toggle('hide',MT!==i+1));['n1','n2','n3','n4','n5'].forEach((x,i)=>$(x).classList.toggle('on',MT===i+1));
+ $('dtools').classList.toggle('hide',MT===4||MT===5);
+ const TT=['Dashboard','People follow-up','Leave approvals','Salary calculation','Attendance sessions'];$('pgT').textContent=TT[MT-1];
+ $('pgS').textContent=MT===4?'Calculate monthly salary from the attendance report':MT===5?'Close forgotten check-ins safely, with a full audit trail':fd(DATE)+(MD&&MD.overview?' · updated '+MD.overview.asOf:'');
+ drawDash();drawAbs();drawAppr();}
+function tot(L){const T={total:0,present:0,dayOff:0,leave:0,absent:0,called:0};L.forEach(x=>{for(const k in T)T[k]+=x[k]||0;});const s=T.total-T.dayOff-T.leave;T.rate=s>0?Math.round(T.present/s*1000)/10:null;return T;}
+function openList(st){SF=st;AF='todo';$('aq').value='';MT=2;drawAll();window.scrollTo(0,0);}
+function drawDash(){if(!MD)return;const o=MD.overview,L=o.depts.filter(x=>inDept(x.dept)),T=tot(L);
+ const k=[['Total employees',T.total,'',''],['Present',T.present,'ok','Present'],['Present rate',pct(T.rate),'',''],['Day off',T.dayOff,'off','Day off'],['On leave',T.leave,'lv','Leave'],['Absent',T.absent,'bad','Absent']];
+ $('kpis').innerHTML=k.map(x=>`<div class="stat ${x[2]} ${x[3]?'pk':''}" ${x[3]?`role="button" tabindex="0" onclick="openList('${x[3]}')"`:''}><b>${x[1]}</b><span>${x[0]}${x[3]?' &rsaquo;':''}</span></div>`).join('');
+ const low=L.filter(x=>x.rate!=null).sort((a,b)=>a.rate-b.rate)[0];
+ $('ins').innerHTML=`<div><span>${o.isToday?'On shift now':'Avg hours worked'}</span><b>${o.isToday?o.onShift:(o.avgHours||'-')}</b></div><div><span>Lowest rate</span><b>${low&&L.length>1?esc(low.dept)+' '+low.rate+'%':'-'}</b></div><div><span>Calls done</span><b>${T.called}/${T.absent}</b></div>`;
+ const mx=Math.max(1,...o.trend.map(t=>t.n));
+ $('trend').innerHTML=o.trend.map(t=>`<div class="tb"><b>${t.n}</b><div class="col"><i style="height:${Math.round(t.n/mx*100)}%"></i></div><span>${t.d.slice(8)}/${t.d.slice(5,7)}</span></div>`).join('');
+ const Q=L.slice();if(SORT==='az')Q.sort((a,b)=>a.dept.localeCompare(b.dept));else if(SORT==='abs')Q.sort((a,b)=>b.absent-a.absent);else Q.sort((a,b)=>(a.rate==null)-(b.rate==null)||a.rate-b.rate);
+ $('depts').innerHTML=Q.map(x=>{const p=v=>x.total?v/x.total*100:0;
+  return `<div class="dept"><div class="dh"><b>${esc(x.dept)}</b><span class="rate">${pct(x.rate)}</span></div>
+  <div class="bar"><i class="g" style="width:${p(x.present)}%"></i><i class="o" style="width:${p(x.dayOff)}%"></i><i class="l" style="width:${p(x.leave)}%"></i><i class="r" style="width:${p(x.absent)}%"></i></div>
+  <div class="leg"><span><i class="g"></i>Present ${x.present}</span><span><i class="o"></i>Day off ${x.dayOff}</span><span><i class="l"></i>Leave ${x.leave}</span><span><i class="r"></i>Absent ${x.absent}</span><span class="mute">of ${x.total}</span></div>
+  ${x.absent?`<button class="lnk" data-k="${esc(x.dept)}" onclick="goAbs(this.dataset.k)">View ${x.absent} absent (${x.called} called)</button>`:''}</div>`}).join('')||'<div class="empty">No employees in scope.</div>';
+ $('srcnote').textContent=o.dayOffMapped?'':'Day-off data was not found, so Day off shows 0. Check the Weekend column in the Attendance Report sheet.';
+ drawLogs();}
+function locHtml(name,ll){if(!name)return '<span class="mute">Location not captured</span>';
+ return ll?`<a href="https://www.google.com/maps?q=${encodeURIComponent(ll)}" target="_blank" rel="noopener">${esc(name)}</a>`:esc(name);}
+function drawLogs(){if(!MD)return;const q=($('lgq').value||'').toLowerCase();
+ const L=(MD.overview.logs||[]).filter(x=>inDept(x.dept)&&(!q||(x.name+x.id).toLowerCase().includes(q)));
+ $('lgSub').textContent=L.length+' record(s) on '+MD.overview.date;
+ $('lglist').innerHTML=L.length?L.map(x=>`<div class="lg"><b>${esc(x.name)}</b><div class="mute">${esc(x.id)} · ${esc(x.dept)}${x.hrs!=null?' · '+x.hrs+' h':''}</div>
+ <div class="row"><i class="in">IN</i><div><b>${esc(x.inT)||'--'}</b>${locHtml(x.inLoc,x.inLL)}</div></div>
+ <div class="row"><i class="out">OUT</i><div><b>${x.outT?esc(x.outT):'Not checked out yet'}</b>${x.outT?locHtml(x.outLoc,x.outLL):''}${x.forced?'<span class="lead" style="margin:4px 0 0">Closed by management'+(x.forcedBy?' &middot; '+esc(x.forcedBy):'')+'</span>':''}</div></div></div>`).join(''):'<div class="empty">No check-ins for this date.</div>';}
+function goAbs(dept){DEPT=dept;$('deptSel').value=dept;SF='Absent';AF='todo';MT=2;drawAll();window.scrollTo(0,0);}
+function copySummary(){const o=MD.overview,T=tot(o.depts);
+ let t='Attendance Summary\n'+o.date+' (updated '+o.asOf+')\nTotal '+T.total+' | Present '+T.present+' | Day off '+T.dayOff+' | Leave '+T.leave+' | Absent '+T.absent+' | Present rate '+pct(T.rate)+'\n';
+ o.depts.forEach(x=>t+='\n'+x.dept+': Present '+x.present+', Day off '+x.dayOff+', Leave '+x.leave+', Absent '+x.absent+' ('+pct(x.rate)+')');
+ const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();
+ toast(ok?'Summary copied. You can paste it into WhatsApp.':'Copy is not supported in this browser.',ok?'ok':'err');}
+
+/* ---- People lists: Absent / Present / Day off / Leave, with call, WhatsApp and SMS ---- */
+function msgFor(name,kind){return kind==='Absent'?`Hello ${name}, we noticed you were not at work on ${fd(DATE)}. Please let us know your status. - Central Sort Ops`:`Hello ${name}, this is the Central Sort Ops attendance team.`;}
+function contacts(ph,name,kind){
+ if(!ph||!ph.length)return MD.user.role!=='Viewer'?'<span class="mute">No valid mobile number on file.</span>':'';
+ const m=encodeURIComponent(msgFor(name,kind)),n=ph[0].n;
+ return ph.map(p=>`<a class="call" href="tel:${esc(p.n)}">Call ${esc(p.t)}<small>${esc(p.n)}</small></a>`).join('')+
+  `<a class="call wa" href="https://wa.me/88${esc(n)}?text=${m}" target="_blank" rel="noopener">WhatsApp<small>${esc(n)}</small></a><a class="call sms" href="sms:${esc(n)}?&body=${m}">SMS<small>${esc(n)}</small></a>`;}
+function absList(){const A=[];MD.overview.depts.forEach(x=>{if(inDept(x.dept))x.absentList.forEach(a=>A.push(Object.assign({dept:x.dept},a)));});return A;}
+/* v9.1: summary box shows the attendance period (21st - 20th) that contains the selected date */
+function sumHtml(a){const m=a.ms;if(!m||!m.span)return '';const t=m.span||1,p=v=>v/t*100,jn=a.join&&m.pStart&&a.join>m.pStart;
+ return `<div class="sum"><b>${m.pStart?fd(m.pStart)+' - '+fd(m.pEnd):new Date(DATE+'T12:00:00').toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</b> &middot; ${m.monthDays} days in period &middot; counted ${m.span} days from ${jn?'joining ('+fd(a.join)+')':'period start'}
+  <div class="bar"><i class="g" style="width:${p(m.present)}%"></i><i class="o" style="width:${p(m.off)}%"></i><i class="l" style="width:${p(m.leave)}%"></i><i class="r" style="width:${p(m.absent)}%"></i></div>
+  <span>Working <b>${m.work}</b></span> &middot; <span>Day off <b>${m.off}</b></span> &middot; <span>Leave <b>${m.leave}</b></span> &middot; <span>Present <b>${m.present}</b></span> &middot; <span>Absent <b>${m.absent}</b></span> &middot; <span>Rate <b>${pct(m.rate)}</b></span>${m.streak>1?` <span class="emg">${m.streak} days in a row</span>`:''}</div>`;}
+function drawAbs(){if(!MD)return;const A=absList(),todo=A.filter(a=>!a.rm).length;
+ $('b2').textContent=todo;$('b2').classList.toggle('hide',!todo);
+ const P=MD.overview.people.filter(p=>inDept(p.dept)),cnt={};['Absent','Present','Day off','Leave'].forEach(s=>cnt[s]=P.filter(p=>p.st===s).length);
+ $('spills').innerHTML=['Absent','Present','Day off','Leave'].map(s=>`<button class="${SF===s?'on':''}" onclick="SF='${s}';drawAbs()">${s} (${cnt[s]})</button>`).join('');
+ $('apills').classList.toggle('hide',SF!=='Absent');
+ const q=($('aq').value||'').toLowerCase();
+ if(SF==='Absent'){
+  $('apills').innerHTML=[['todo','To call',todo],['done','Called',A.length-todo],['all','All',A.length]].map(p=>`<button class="${AF===p[0]?'on':''}" onclick="AF='${p[0]}';drawAbs()">${p[1]} (${p[2]})</button>`).join('');
+  const R=A.filter(a=>(AF==='all'||(AF==='todo')===!a.rm)&&(!q||(a.name+a.id).toLowerCase().includes(q))).sort((a,b)=>((b.ms&&b.ms.streak)||0)-((a.ms&&a.ms.streak)||0));
+  $('alist').innerHTML=R.length?R.map(a=>{const r=a.rm;
+   return `<div class="emp"><div class="eh"><div><b>${esc(a.name)}</b><div class="mute">${esc(a.id)} · ${esc(a.dept)}${a.join?' · Joined '+fd(a.join):''}</div></div><span class="tag ${r?'Approved':''}">${r?'Called':'To call'}</span></div>
+   ${sumHtml(a)}
+   ${r?`<div class="rm"><b>${esc(r.reason)}</b> · ${esc(r.outcome)}${r.emerg==='Yes'?'<span class="emg">Emergency</span>':''}${r.text?'<div>'+esc(r.text)+'</div>':''}<div class="mute">${esc(r.by)} · ${esc(r.at)}</div></div>`:''}
+   <div class="acts">${contacts(a.phones,a.name,'Absent')}${MD.canRemark?`<button class="sec" data-id="${esc(a.id)}" onclick="openRm(this.dataset.id)">${r?'Update remark':'Add remark'}</button>`:''}</div></div>`}).join(''):`<div class="card empty">${AF==='todo'?'No pending calls. All absent employees have been contacted.':'No employees to show.'}</div>`;
+ }else{
+  const R=P.filter(p=>p.st===SF&&(!q||(p.name+p.id).toLowerCase().includes(q))),cls={Present:'Approved','Day off':'off',Leave:''};
+  $('alist').innerHTML=R.length?R.slice(0,300).map(p=>`<div class="emp"><div class="eh"><div><b>${esc(p.name)}</b><div class="mute">${esc(p.id)} · ${esc(p.dept)}</div></div><span class="tag ${cls[p.st]}">${p.st}</span></div>
+   ${p.st==='Present'?`<div class="mute" style="margin-bottom:10px">In ${esc(p.inT)||'--'} &middot; ${p.outT?'Out '+esc(p.outT):'On shift'}</div>`:''}
+   <div class="acts">${contacts(p.phones,p.name,p.st)}</div></div>`).join('')+(R.length>300?`<div class="mute" style="text-align:center">Showing 300 of ${R.length}. Use search to narrow the list.</div>`:''):`<div class="card empty">No ${SF.toLowerCase()} employees for this date.</div>`;}}
+function openRm(id){const a=absList().find(x=>x.id===id);if(!a)return;REM=a;
+ $('rmName').textContent=a.name;$('rmSub').textContent=a.id+' · '+a.dept+' · '+DATE;
+ $('rmCalls').innerHTML=contacts(a.phones,a.name,'Absent');
+ $('rmReason').innerHTML=MD.reasons.map(x=>`<option ${a.rm&&a.rm.reason===x?'selected':''}>${esc(x)}</option>`).join('');
+ $('rmOut').innerHTML=MD.outcomes.map(x=>`<option ${a.rm&&a.rm.outcome===x?'selected':''}>${esc(x)}</option>`).join('');
+ $('rmEm').checked=!!(a.rm&&a.rm.emerg==='Yes');$('rmText').value=a.rm?a.rm.text:'';$('rmBg').classList.remove('hide');}
+function closeRm(){$('rmBg').classList.add('hide');}
+function saveRm(){if(isL('rmSave'))return;bl('rmSave',1);call('saveRemark',d=>{bl('rmSave',0);closeRm();draw(d);toast('Remark saved.','ok');},TOKEN,REM.id,DATE,$('rmReason').value,$('rmOut').value,$('rmEm').checked,$('rmText').value);}
+
+/* ---- Leave approvals ---- */
+function drawAppr(){if(!MD)return;const d=MD,rows0=d.rows.filter(r=>inDept(r.dept));
+ const n=k=>rows0.filter(r=>r.final===k).length,act=rows0.filter(r=>r.canAct).length;
+ $('b3').textContent=act;$('b3').classList.toggle('hide',!act);
+ $('stats').innerHTML=`<div class="stat ${d.canApprove?'hot':''}"><b>${act}</b><span>Awaiting my action</span></div><div class="stat lv"><b>${n('Pending')}</b><span>Pending</span></div><div class="stat ok"><b>${n('Approved')}</b><span>Approved</span></div><div class="stat bad"><b>${n('Rejected')}</b><span>Rejected</span></div>`;
+ if(!d.canApprove&&LF==='act')LF='all';
+ const pills=(d.canApprove?[['act','My action']]:[]).concat([['day','On '+DATE.slice(5)],['all','All']]);
+ $('lpills').innerHTML=pills.map(p=>`<button class="${LF===p[0]?'on':''}" onclick="LF='${p[0]}';drawAppr()">${p[1]}</button>`).join('');
+ const q=($('q').value||'').toLowerCase();
+ const rows=rows0.filter(r=>(LF==='all'||(LF==='act'&&r.canAct)||(LF==='day'&&r.fi<=DATE&&DATE<=r.ti))&&(!q||(r.name+r.emp+r.dept).toLowerCase().includes(q)));
+ const nm=['Floor Lead','Line Lead','Manager'];
+ $('plist').innerHTML=rows.length?rows.map(r=>`<div class="req"><div class="eh"><div><b>${esc(r.name)}</b>${r.emerg==='Yes'?'<span class="emg">Emergency</span>':''}${r.direct?'<span class="lead">Lead request &middot; direct to Manager</span>':''}<div class="mute">${esc(r.emp)} · ${esc(r.dept)}</div></div><span class="tag ${esc(r.final)}">${esc(r.final)}</span></div>
+ <div><b>${esc(r.from)} - ${esc(r.to)}</b> &middot; ${r.days} day(s)${r.type?' &middot; '+esc(r.type):''}</div><div class="mute">${esc(r.reason)}</div>${attLn(r.att)}<div class="mute">Submitted ${esc(r.at)} &middot; ${esc(r.id)}</div>
+ <div class="steps">${r.st.map((s,i)=>`<div class="step ${esc(s)}">${nm[i]}<br>${esc(s)}</div>`).join('')}</div>
+ ${r.remarks?'<div class="note">'+esc(r.remarks)+'</div>':''}
+ ${r.canAct?`<div style="margin-top:12px"><input id="rm-${esc(r.id)}" placeholder="Remarks (required to reject)"><div class="two"><button class="go" data-id="${esc(r.id)}" onclick="dec(this,'Approved')">Approve as ${nm[r.st.indexOf('Pending')]}</button><button class="stop" data-id="${esc(r.id)}" onclick="dec(this,'Rejected')">Reject</button></div></div>`:''}</div>`).join(''):'<div class="card empty">No requests to show.</div>';}
+function dec(btn,d){if(btn.classList.contains('loading'))return;const id=btn.dataset.id;
+ const rmk=$('rm-'+id).value.trim();
+ if(d==='Rejected'&&!rmk)return toast('A remark is required to reject a request.');
+ btn.classList.add('loading');
+ call('decide',x=>{draw(x);toast(d==='Approved'?'Request approved.':'Request rejected.','ok');},TOKEN,id,d,rmk,DATE);}
+
+/* ---- Salary calculation ---- */
+let SL=null,SLC={},slTimer,slN=0;
+const num=v=>v===''?0:Number(v),fm=n=>(n===''||n==null||isNaN(n))?'-':Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const nameBox=(k,h)=>{$('sName').className='who'+(k?' '+k:'');$('sName').innerHTML=h;};
+function localEmp(id){const k=id.trim().toLowerCase();return MD?MD.overview.people.find(p=>String(p.id).toLowerCase()===k):null;}
+function clearSal(){$('sSum').innerHTML='';$('sInfo').textContent='';}
+/* name shows instantly from the already-loaded list; the report numbers load right after */
+function slType(){clearTimeout(slTimer);slN++;SL=null;const id=$('sId').value.trim();
+ if(!id){nameBox('','Enter an Employee ID to see the name.');clearSal();return;}
+ const p=localEmp(id);
+ if(p)nameBox('ok',`<b>${esc(p.name)}</b> <span class="mute">· ${esc(p.dept)}</span>`);else nameBox('load','<span class="spinner"></span>Looking up employee...');
+ clearSal();slTimer=setTimeout(()=>slLook(),p?200:600);}
+function slLook(force){const id=$('sId').value.trim(),mo=$('sMo').value;if(!id)return;
+ if(!mo)return toast('Please select a month.');
+ const key=id.toLowerCase()+'|'+mo,n=++slN;
+ if(force)delete SLC[key];
+ if(SLC[key]){applySl(SLC[key]);return;}
+ if(!localEmp(id))nameBox('load','<span class="spinner"></span>Looking up employee...');
+ $('sInfo').innerHTML='<span class="spinner"></span>Loading attendance data...';
+ $('sSum').innerHTML=Array(7).fill('<div class="sk"></div>').join('');
+ bl('bFind',1);prog(1);
+ google.script.run.withSuccessHandler(r=>{prog(-1);bl('bFind',0);if(n!==slN)return;SLC[key]=r;applySl(r);})
+  .withFailureHandler(e=>{prog(-1);bl('bFind',0);if(n!==slN)return;if(expired(e))return forceLogin();SL=null;nameBox('err',esc(errMsg(e)));clearSal();})
+  .salaryData(TOKEN,id,mo);}
+function applySl(r){SL=r;nameBox('ok',`<b>${esc(r.emp.name)}</b> <span class="mute">· ${esc(r.emp.dept)}${r.emp.join?' · Joined '+fd(r.emp.join):''}</span>`);
+ const v=x=>x==null?'-':x;
+ $('sSum').innerHTML=[['Working','working','ok'],['Public holiday','holiday','off'],['Day off work','dayOff','off'],['OT','ot','lv'],['Off day','offDay',''],['Leave','leave','lv'],['Absent','absent','bad']]
+  .map(x=>`<div class="stat ${x[2]}"><b>${v(r[x[1]])}</b><span>${x[0]}</span></div>`).join('');
+ $('sInfo').innerHTML=`<b>Source:</b> ${esc(r.source)}`+(r.from?`<br>Salary period: ${fd(r.from)} - ${fd(r.to)} (${r.monthDays} days)`:'')+(r.present!=null?`<br>Check-ins in period: ${r.present} of ${r.monthDays} days${r.offDays?' · Weekly day off: '+esc(r.offDays):''}`:'')+(r.holidayList.length?`<br>Holidays: ${r.holidayList.map(h=>fd(h.d)+' ('+esc(h.n)+')').join(', ')}`:'');
+ slReset();}
+function slReset(){if(!SL)return;$('sWk').value=SL.working;$('sHd').value=SL.holiday;$('sDo').value=SL.dayOff;$('sOt').value=SL.ot||0;
+ const a='<span class="auto">auto</span>';$('aWk').innerHTML=a;$('aHd').innerHTML=a;$('aDo').innerHTML=a;$('aOt').innerHTML=a;slCalc();}
+function slCalc(){const mo=$('sMo').value;if(!mo)return;const md=periodOf(mo).days,g=i=>$(i).value;
+ let total='',diff='',st='';
+ /* Total = (Basic / period days) x (Working + Day off work x2 + Holiday x3 + OT x2) + 50 x Night days */
+ if(g('sBas')!=='')total=(Number(g('sBas'))/md)*(num(g('sWk'))+num(g('sDo'))*2+num(g('sHd'))*3+num(g('sOt'))*OT_X)+50*num(g('sNt'));
+ if(g('sRec')!==''&&total!==''&&!isNaN(total))diff=(Number(g('sRec'))-total)+num(g('sCo'));
+ if(diff!==''&&!isNaN(diff))st=(diff>=-10&&diff<=2)?'Invalid':diff>2?'Extra':'Valid';
+ const cl=st==='Valid'?'ok':st==='Extra'?'lv':st==='Invalid'?'bad':'';
+ $('sRes').innerHTML=`<div class="stat"><b>${fm(total)}</b><span>Total summary</span></div><div class="stat ${cl}"><b>${fm(diff)}</b><span>Actual difference</span></div><div class="stat ${cl}"><b>${st||'-'}</b><span>Status</span></div>`;
+ $('sFx').textContent='Total = (Basic ÷ '+md+' period days) × (Working + Day off work × 2 + Holiday × 3 + OT × '+OT_X+') + 50 × Night allowance days. Difference = (Received − Total) + Compensation. Status: Invalid from −10 to 2, Extra above 2, otherwise Valid.';}
+['sWk','sHd','sDo','sNt','sOt'].forEach(i=>$(i).addEventListener('input',()=>{const a=$('a'+i.slice(1));if(a)a.innerHTML='';}));
+slCalc();
+
+/* ---- Force check-out / attendance session control (v9) ---- */
+let FD=null,FQ='',FF='all',FSEL=null,fT,fN=0;
+const fh=h=>h>=24?Math.floor(h/24)+'d '+Math.round(h%24)+'h':h+'h';
+const dhk=ms=>new Date(ms+6*36e5).toISOString().slice(0,16); /* Asia/Dhaka wall time for datetime-local */
+function loadForce(){if(!TOKEN||!MD||!MD.canForce){bl('rfBtn',0);return;}const q=($('fq').value||'').trim(),n=++fN;FQ=q;
+ if(!FD)$('fList').innerHTML='<div class="mute"><span class="spinner"></span>Loading sessions...</div>';
+ prog(1);google.script.run.withSuccessHandler(r=>{prog(-1);bl('rfBtn',0);if(n!==fN)return;FD=r;drawForce();})
+  .withFailureHandler(e=>{prog(-1);bl('rfBtn',0);if(n!==fN)return;if(expired(e))return forceLogin();toast(errMsg(e));if(!FD)$('fList').innerHTML='<div class="empty">Could not load sessions. Tap Refresh to try again.</div>';}).forceData(TOKEN,q);}
+function fSearchSoon(){clearTimeout(fT);fT=setTimeout(loadForce,400);}
+function sessHtml(a,btn){return `<div class="emp${a.stale?' stale':''}"><div class="eh"><div><b>${esc(a.name)}</b><div class="mute">${esc(a.id)} · ${esc(a.dept)}${a.email?' · '+esc(a.email):''}</div></div><span class="tag ${a.stale?'Rejected':''}">${a.stale?'Open too long':'Active'}</span></div>
+ <div class="rm">Checked in <b>${esc(a.inT)}</b> · open for <b>${fh(a.hrs)}</b>${a.inLoc?'<div class="mute">'+esc(a.inLoc)+'</div>':''}</div>
+ ${btn?`<button class="stop" data-id="${esc(a.id)}" data-in="${a.inMs}" onclick="openFc(this.dataset.id,this.dataset.in)">Force check-out</button>`:''}</div>`;}
+function drawForce(){if(!FD)return;const C=FD.counts;
+ $('fKpis').innerHTML=`<div class="stat lv"><b>${C.active}</b><span>Active sessions</span></div><div class="stat bad"><b>${C.stale}</b><span>Open too long (over ${FD.staleHours}h / previous day)</span></div><div class="stat ok"><b>${C.forcedToday}</b><span>Forced today</span></div><div class="stat"><b>${FD.history.length}</b><span>History records</span></div>`;
+ $('b5').textContent=C.stale;$('b5').classList.toggle('hide',!C.stale);
+ const R=FD.results;
+ if(R===null||R===undefined)$('fRes').innerHTML='<div class="mute">Type at least 2 characters to see an employee\'s current attendance status.</div>';
+ else $('fRes').innerHTML=R.length?R.map(r=>{
+  if(r.state==='active')return `<div class="emp"><div class="eh"><div><b>${esc(r.name)}</b><div class="mute">${esc(r.id)} · ${esc(r.dept)}${r.email?' · '+esc(r.email):''}</div></div><span class="tag">Active session</span></div>${r.sessions.map(a=>sessHtml(a,true)).join('')}</div>`;
+  const tg=r.state==='out'?'<span class="tag Approved">Checked out</span>':'<span class="tag off">No record</span>';
+  return `<div class="emp"><div class="eh"><div><b>${esc(r.name)}</b><div class="mute">${esc(r.id)} · ${esc(r.dept)}${r.email?' · '+esc(r.email):''}</div></div>${tg}</div>
+   <div class="mute">${r.state==='out'?'Last record '+esc(fd(r.date))+' · In '+esc(r.inT)+' · Out '+esc(r.outT)+(r.forced?' (closed by management)':''):'No attendance record found.'}</div>
+   <div class="mute" style="margin-top:6px">No open session, so force check-out is not needed.</div></div>`;}).join(''):'<div class="empty">No employee found in your scope.</div>';
+ $('fPills').innerHTML=[['all','All ('+C.active+')'],['stale','Open too long ('+C.stale+')']].map(p=>`<button class="${FF===p[0]?'on':''}" onclick="FF='${p[0]}';drawForce()">${p[1]}</button>`).join('');
+ const q=($('fAq').value||'').toLowerCase(),A=FD.active.filter(a=>(FF==='all'||a.stale)&&(!q||(a.name+a.id+a.dept).toLowerCase().includes(q)));
+ $('fList').innerHTML=A.length?A.map(a=>sessHtml(a,true)).join(''):`<div class="empty">${C.active?'No sessions match this filter.':'No active sessions. Everyone who checked in has checked out.'}</div>`;
+ const hq=($('fhq').value||'').toLowerCase(),H=FD.history.filter(h=>!hq||(h.name+h.empId+h.by+h.reason).toLowerCase().includes(hq));
+ $('fHist').innerHTML=H.length?H.map(h=>`<div class="emp fchist"><div class="eh"><div><b>${esc(h.name)}</b><div class="mute">${esc(h.empId)} · ${esc(h.dept)}</div></div><span class="tag off">${esc(h.id)}</span></div>
+  <div class="fr"><span>Attendance date</span><b>${esc(fd(h.date))}</b><span>Check-in</span><b>${esc(h.inT)}</b><span>Forced check-out</span><b>${esc(h.outT)}${h.hrs!=null?' · '+h.hrs+' h':''}</b><span>Reason</span><b>${esc(h.reason)}</b><span>Remarks</span><div>${esc(h.remarks)}</div><span>Action by</span><b>${esc(h.by)} (${esc(h.role)})</b><span>Action time</span><b>${esc(h.at)}</b></div></div>`).join(''):'<div class="empty">No force check-out history yet.</div>';}
+function openFc(id,inMs){const a=FD&&FD.active.find(x=>x.id===id&&String(x.inMs)===String(inMs));if(!a)return toast('Session not found. Please refresh the list.');
+ FSEL=a;$('fcName').textContent=a.name;$('fcSub').textContent=a.id+' · '+a.dept;$('fcIn').textContent=a.inT+' ('+fh(a.hrs)+' ago)';
+ $('fcReason').innerHTML='<option value="">Select a reason</option>'+FD.reasons.map(x=>`<option>${esc(x)}</option>`).join('');
+ $('fcOut').min=dhk(a.inMs);$('fcOut').max=dhk(Date.now());$('fcOut').value=dhk(Date.now());$('fcText').value='';fcHint();$('fcBg').classList.remove('hide');}
+function closeFc(){$('fcBg').classList.add('hide');FSEL=null;}
+function fcHint(){const b=$('fcHint');if(!FSEL)return;const v=$('fcOut').value;if(!v){b.className='who err';b.textContent='Select the check-out time.';return;}
+ const o=Date.parse(v+':00+06:00'),h=(o-FSEL.inMs)/36e5;
+ if(isNaN(o)||o<=FSEL.inMs){b.className='who err';b.textContent='The check-out time must be after the check-in time.';return;}
+ if(o>Date.now()+60000){b.className='who err';b.textContent='The check-out time cannot be in the future.';return;}
+ b.className='who'+(h>FD.staleHours?'':' ok');b.textContent='Worked time to be recorded: '+(Math.round(h*10)/10)+' h'+(h>FD.staleHours?'. This is long. If you know the real end of the shift, set that time instead, so working hours and salary data stay correct.':'.');}
+async function submitFc(){if(isL('fcGo')||!FSEL)return;const a=FSEL,reason=$('fcReason').value,rem=$('fcText').value.trim(),out=$('fcOut').value;
+ if(!reason)return toast('Please select a reason.');
+ if(rem.length<3)return toast('Please write a remark explaining why this session is being closed.');
+ const o=Date.parse(out+':00+06:00');if(!out||isNaN(o)||o<=a.inMs)return toast('The check-out time must be after the check-in time.');
+ if(o>Date.now()+60000)return toast('The check-out time cannot be in the future.');
+ if(!(await ask('Force check-out '+a.name+'?','Employee: '+a.name+' ('+a.id+')\nChecked in: '+a.inT+'\nCheck-out will be recorded as: '+out.replace('T',' ')+'\nReason: '+reason+'\n\nThe original check-in time stays unchanged and this action is saved in the audit history.','Force check-out','Cancel')))return;
+ bl('fcGo',1);prog(1);
+ google.script.run.withSuccessHandler(r=>{prog(-1);bl('fcGo',0);closeFc();FD=r.data;drawForce();toast(r.message,r.ok?'ok':'err');})
+  .withFailureHandler(e=>{prog(-1);bl('fcGo',0);if(expired(e))return forceLogin();toast(errMsg(e));})
+  .forceCheckout(TOKEN,a.id,a.inMs,reason,rem,out,FQ);}
+
+$('empId').value=ls.get('empId');
+$('empId').addEventListener('keydown',e=>{if(e.key==='Enter')empLogin();});
+$('mail').addEventListener('keydown',e=>{if(e.key==='Enter')sendCode();});
+$('otp').addEventListener('keydown',e=>{if(e.key==='Enter')verify();});
+$('sId').addEventListener('keydown',e=>{if(e.key==='Enter'){clearTimeout(slTimer);slLook(true);}});
+
+/* Open the right screen: saved session -> its dashboard / attendance page; no session -> login. */
+boot();
+/* warm the server cache in the background so the first sign-in is fast */
+google.script.run.withFailureHandler(()=>{}).warmup();
+</script></body></html>

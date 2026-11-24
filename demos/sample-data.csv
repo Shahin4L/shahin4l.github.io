@@ -1,0 +1,4 @@
+dataset,id,name,department,status
+Employees,DEMO-001,Demo Employee,Demo Operations,Active
+Complaints,CB-DEMO-001,Demo Visitor,Quality,Pending
+Jobs,JOB-DEMO-001,Operations Coordinator,Operations,Open

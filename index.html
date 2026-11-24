@@ -1329,7 +1329,8 @@
       "Gmail (MailApp)"
     ],
     "impact": "Centralizes complaint handling, recruitment, and internal information in one portal.",
-    "preview": "project-1-career-portal.html"
+    "preview": "project-1-career-portal.html",
+    "demo": "./demos/career-portal/"
   },
   {
     "title": "Central Sort Productivity Monitor",
@@ -1353,7 +1354,8 @@
       "CSS"
     ],
     "impact": "Turns on-floor time observations into comparable productivity data (units per hour and % of target).",
-    "preview": "project-2-productivity-monitor.html"
+    "preview": "project-2-productivity-monitor.html",
+    "demo": "./demos/productivity-monitor/"
   },
   {
     "title": "Central Sort Ops Resource Tracker",
@@ -1378,7 +1380,8 @@
       "CSS"
     ],
     "impact": "Gives operations leaders one place to plan manpower against capacity, turnover and order cost.",
-    "preview": "project3-preview.html"
+    "preview": "project3-preview.html",
+    "demo": "./demos/resource-tracker/"
   },
   {
     "title": "Attendance & Leave Management System",
@@ -1403,8 +1406,10 @@
       "CSS"
     ],
     "impact": "Gives staff and managers one place for attendance, leave and salary visibility, with an audit trail for manual corrections.",
-    "preview": "project-4-attendance-system-previews.html"
-  }
+    "preview": "project-4-attendance-system-previews.html",
+    "demo": "./demos/attendance/"
+  },
+  {"title":"Superstore Sales & Profit Analysis","category":"Business Intelligence","icon":"📊","summary":"A Tableau analysis of the public Superstore sample dataset covering sales trends, profitability by state, and customer segments.","tools":["Tableau","Data Visualization"],"link":"https://github.com/Shahin4L/Data-Analysis-Portfolio"}
 ];
     (function () {
       const grid = document.getElementById('projectGrid');
@@ -1427,6 +1432,7 @@
         const img = safeUrl(p.image);
         const link = safeUrl(p.link);
         const prev = safeUrl(p.preview);
+        const demo = safeUrl(p.demo);
         const tools = (p.tools || []).map(t => `<span class="mini-tag">${esc(t)}</span>`).join('');
         const thumb = prev
           ? `<button type="button" class="project-thumb has-preview" data-preview="${i}" aria-label="Open interface preview of ${esc(p.title)}"><span class="pv-icon" aria-hidden="true">${esc(p.icon || '')}</span><span class="pv-chip"><i>▶</i> Interface preview</span></button>`
@@ -1442,8 +1448,10 @@
               ${p.role ? `<p><b>Role:</b> ${esc(p.role)}</p>` : ''}
               ${p.impact ? `<p><b>Impact:</b> ${esc(p.impact)}</p>` : ''}
               ${tools ? `<div class="project-meta">${tools}</div>` : ''}
-              ${(prev || link) ? `<div class="project-actions">
+              ${demo ? `<p><b>Demo login</b><br>${p.demo.includes("/attendance/") ? "Employee ID <code>DEMO-001</code><br>Manager " : ""}<code>demo@example.invalid</code> · Code <code>123456</code></p>` : ''}
+              ${(prev || link || demo) ? `<div class="project-actions">
                 ${prev ? `<button type="button" class="btn btn-primary" data-preview="${i}">▶ View interface preview</button>` : ''}
+                ${demo ? `<a class="btn btn-secondary" href="${demo}" target="_blank" rel="noopener noreferrer">Try interactive demo ↗</a>` : ''}
                 ${link ? `<a class="btn btn-secondary" href="${link}" target="_blank" rel="noopener noreferrer">View project ↗</a>` : ''}
               </div>` : ''}
             </div>
