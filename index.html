@@ -1408,7 +1408,8 @@
     "impact": "Gives staff and managers one place for attendance, leave and salary visibility, with an audit trail for manual corrections.",
     "preview": "project-4-attendance-system-previews.html",
     "demo": "./demos/attendance/"
-  }
+  },
+  {"title":"Superstore Sales & Profit Analysis","category":"Business Intelligence","icon":"📊","summary":"A Tableau analysis of the public Superstore sample dataset covering sales trends, profitability by state, and customer segments.","tools":["Tableau","Data Visualization"],"link":"https://github.com/Shahin4L/Data-Analysis-Portfolio"}
 ];
     (function () {
       const grid = document.getElementById('projectGrid');
@@ -1447,6 +1448,7 @@
               ${p.role ? `<p><b>Role:</b> ${esc(p.role)}</p>` : ''}
               ${p.impact ? `<p><b>Impact:</b> ${esc(p.impact)}</p>` : ''}
               ${tools ? `<div class="project-meta">${tools}</div>` : ''}
+              ${demo ? `<p><b>Demo login</b><br>${p.demo.includes("/attendance/") ? "Employee ID <code>DEMO-001</code><br>Manager " : ""}<code>demo@example.invalid</code> · Code <code>123456</code></p>` : ''}
               ${(prev || link || demo) ? `<div class="project-actions">
                 ${prev ? `<button type="button" class="btn btn-primary" data-preview="${i}">▶ View interface preview</button>` : ''}
                 ${demo ? `<a class="btn btn-secondary" href="${demo}" target="_blank" rel="noopener noreferrer">Try interactive demo ↗</a>` : ''}
