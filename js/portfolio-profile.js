@@ -85,7 +85,7 @@ export function mountProfileEditor({authorize,notify}){
  try{await validateImage(chosen);const dataUrl=await previewFile(chosen);const test=new Image();test.src=dataUrl;await test.decode();if(generation!==epoch||n!==selection)return;pending.set(f.id,chosen);image.src=dataUrl;status.textContent='Picture selected. Save & publish to upload.';}
  catch(e){if(n===selection){file.value='';updatePreview(f,image,input);status.textContent=e.message;notify(e.message);}}finally{if(n===selection)validating.delete(f.id);}};
  input.oninput=()=>{selection++;pending.delete(f.id);validating.delete(f.id);file.value='';updatePreview(f,image,input);status.textContent='URL changed. Save & publish when ready.';};
- reset.onclick=()=>{selection++;pending.delete(f.id);file.value='';input.value=f.original;updatePreview(f,image,input);status.textContent='Original picture selected. Save & publish to apply.';};
+ reset.onclick=()=>{selection++;pending.delete(f.id);validating.delete(f.id);file.value='';input.value=f.original;updatePreview(f,image,input);status.textContent='Original picture selected. Save & publish to apply.';};
  card.append(heading,helper,image,fileLabel,urlLabel,reset,status);pictures.append(card);
  }
  active=true;
@@ -99,7 +99,7 @@ export function mountProfileEditor({authorize,notify}){
  const result=await api('/rest/v1/site_content?on_conflict=key',{method:'POST',headers:{Prefer:'return=representation,resolution=merge-duplicates'},body:{key:KEY,value_en:JSON.stringify(values),value_bn:'',updated_at:new Date().toISOString()}});
  if(!Array.isArray(result)||!result.length)throw Error('Save not confirmed.');
  for(const s of $('profile-image-fields').querySelectorAll('.profile-image-status'))s.textContent='';
- notify('Profile pictures and links saved. Reload the public portfolio.');
+ $('profile-save-status').textContent='Published to your home page. Open the live profile to verify.';notify('Profile pictures and links published.');
  }catch(e){notify(e.message);}finally{saving=false;b.disabled=false;controls.forEach(c=>c.disabled=false);}
  };
  return {refresh:()=>refresh().catch(e=>notify(e.message)),clear:()=>{epoch++;active=false;list=[];pending.clear();validating.clear();$('profile-link-fields').replaceChildren();$('profile-image-fields').replaceChildren();}};
