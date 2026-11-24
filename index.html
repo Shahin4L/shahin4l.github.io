@@ -753,7 +753,7 @@
 <div><strong>Role-based access</strong><span>Sign-in, permissions and dashboards</span></div>
 </div>
 <div class="project-grid" id="projectGrid"></div>
-<p class="proj-note">Live previews show the interface only; sign-in and data are not connected. The working systems run on Google Apps Script and require authorized sign-in.</p>
+<p class="proj-note">Open a project preview to try its sample-data workflow. Use the demo credentials on its card.</p>
 </div>
 </section>
 
@@ -1158,7 +1158,7 @@
 </div>
 </div>
 <div class="pv-stage" id="pvStage"><iframe id="pvIframe" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" title="Project preview"></iframe></div>
-<div class="pv-note">Interface preview only. The live system runs on Google Apps Script and requires authorized sign-in, so data is not connected here.</div>
+<div class="pv-note">Interactive preview with sample data. Use the demo credentials displayed on the project card.</div>
 </div>
 </div>
 <script>
@@ -1329,7 +1329,7 @@
       "Gmail (MailApp)"
     ],
     "impact": "Centralizes complaint handling, recruitment, and internal information in one portal.",
-    "preview": "project-1-career-portal.html",
+    "preview": "./demos/career-portal/",
     "demo": "./demos/career-portal/"
   },
   {
@@ -1354,7 +1354,7 @@
       "CSS"
     ],
     "impact": "Turns on-floor time observations into comparable productivity data (units per hour and % of target).",
-    "preview": "project-2-productivity-monitor.html",
+    "preview": "./demos/productivity-monitor/",
     "demo": "./demos/productivity-monitor/"
   },
   {
@@ -1380,7 +1380,7 @@
       "CSS"
     ],
     "impact": "Gives operations leaders one place to plan manpower against capacity, turnover and order cost.",
-    "preview": "project3-preview.html",
+    "preview": "./demos/resource-tracker/",
     "demo": "./demos/resource-tracker/"
   },
   {
@@ -1406,13 +1406,12 @@
       "CSS"
     ],
     "impact": "Gives staff and managers one place for attendance, leave and salary visibility, with an audit trail for manual corrections.",
-    "preview": "project-4-attendance-system-previews.html",
+    "preview": "./demos/attendance/",
     "demo": "./demos/attendance/"
   },
-  {"title":"Superstore Sales & Profit Analysis","category":"Business Intelligence","icon":"📊","summary":"A Tableau analysis of the public Superstore sample dataset covering sales trends, profitability by state, and customer segments.","tools":["Tableau","Data Visualization"],"link":"https://github.com/Shahin4L/Data-Analysis-Portfolio"},
-  {"title":"Issue Escalation & Resolution System","category":"Operations Workflow","icon":"📋","summary":"Follow a consignment issue from assignment and investigation through compensation review and audit.","tools":["Investigation","Approval","Audit"],"demo":"./demos/issues/"},
-  {"title":"SHOPYHAT Storefront & Order Management","category":"E-commerce Operations","icon":"🛍️","summary":"Pick a sample product, place an order, and manage fulfilment from confirmation to delivery.","tools":["Storefront","Orders","Fulfilment"],"demo":"./demos/shop/"},
-  {"title":"Recruitment Review Center","category":"Recruitment Operations","icon":"👥","summary":"Create an applicant record and move it through shortlisting, interview, review and a demo decision.","tools":["Applicant Review","Hiring Workflow"],"demo":"./demos/recruitment/"}
+  {"title":"Issue Escalation & Resolution System","category":"Operations Workflow","icon":"📋","summary":"Follow a consignment issue from assignment and investigation through compensation review and audit.","tools":["Investigation","Approval","Audit"],"preview":"./demos/issues/","demo":"./demos/issues/"},
+  {"title":"SHOPYHAT Storefront & Order Management","category":"E-commerce Operations","icon":"🛍️","summary":"Pick a sample product, place an order, and manage fulfilment from confirmation to delivery.","tools":["Storefront","Orders","Fulfilment"],"preview":"./demos/shop/","demo":"./demos/shop/"},
+  {"title":"Recruitment Review Center","category":"Recruitment Operations","icon":"👥","summary":"Create an applicant record and move it through shortlisting, interview, review and a demo decision.","tools":["Applicant Review","Hiring Workflow"],"preview":"./demos/recruitment/","demo":"./demos/recruitment/"}
 ];
     (function () {
       const grid = document.getElementById('projectGrid');
@@ -1688,7 +1687,7 @@
     "Designed and built by me":"আমার নকশা ও নির্মাণ",
     "Role-based access":"ভূমিকা অনুযায়ী প্রবেশাধিকার",
     "Sign-in, permissions and dashboards":"সাইন-ইন, অনুমতি ও ড্যাশবোর্ড",
-    "Live previews show the interface only; sign-in and data are not connected. The working systems run on Google Apps Script and require authorized sign-in.":"লাইভ প্রিভিউতে শুধু ইন্টারফেস দেখা যায়; সাইন-ইন ও ডেটা সংযুক্ত নয়। কার্যকর সিস্টেমগুলো Google Apps Script-এ চলে এবং অনুমোদিত সাইন-ইন প্রয়োজন।",
+    "Open a project preview to try its sample-data workflow. Use the demo credentials on its card.":"কার্ডে দেওয়া লগইন তথ্য দিয়ে নমুনা ডেটার ডেমো ব্যবহার করুন।",
     "Skills & expertise":"দক্ষতা ও বিশেষায়ন",
     "A multidisciplinary toolkit for operational performance.":"অপারেশনাল কর্মদক্ষতার জন্য বহুমুখী দক্ষতার সমন্বয়।",
     "Combining supply chain operations, team leadership, analysis, technical knowledge, and visual communication.":"সাপ্লাই চেইন অপারেশন, টিম নেতৃত্ব, বিশ্লেষণ, প্রযুক্তিগত জ্ঞান এবং ভিজ্যুয়াল যোগাযোগের সমন্বয়।",
@@ -1891,7 +1890,7 @@
     "▶ View interface preview":"▶ ইন্টারফেস প্রিভিউ দেখুন",
     "View project ↗":"প্রকল্প দেখুন ↗",
     "Interface preview":"ইন্টারফেস প্রিভিউ",
-    "Interface preview only. The live system runs on Google Apps Script and requires authorized sign-in, so data is not connected here.":"এখানে শুধু ইন্টারফেসের প্রিভিউ দেখানো হয়। প্রকৃত সিস্টেম Google Apps Script-এ চলে এবং অনুমোদিত সাইন-ইন প্রয়োজন; তাই এই প্রিভিউতে লাইভ ডেটা সংযুক্ত নেই।",
+    "Interactive preview with sample data. Use the demo credentials displayed on the project card.":"নমুনা ডেটার ইন্টার‌্যাক্টিভ প্রিভিউ। প্রজেক্ট কার্ডে দেওয়া লগইন তথ্য ব্যবহার করুন।",
     "Close preview":"প্রিভিউ বন্ধ করুন",
     "All rights reserved.":"সর্বস্বত্ব সংরক্ষিত।"
   };
@@ -1911,6 +1910,8 @@
       const original = node.__originalText;
       const key = original.replace(/\s+/g, " ").trim();
       if (!key) return;
+      const custom = window.portfolioCopyOverride?.(node, original, lang);
+      if (custom !== undefined && custom !== null) { node.nodeValue = custom; return; }
       if (lang === "bn" && BN[key]) {
         const leading = original.match(/^\s*/)[0], trailing = original.match(/\s*$/)[0];
         node.nodeValue = leading + BN[key] + trailing;
@@ -1982,5 +1983,5 @@
   } else root.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
 })();
 </script>
-<script type="module" src="/js/portfolio.js?v=flow-4"></script><script defer src="/js/home-nav.js?v=flow-4"></script><script type="module" src="/js/auth-nav.js?v=flow-4"></script></body>
+<script type="module" src="/js/portfolio.js?v=flow-4"></script><script defer src="/js/home-nav.js?v=flow-4"></script><script type="module" src="/js/auth-nav.js?v=flow-4"></script><script type="module">import {mountPublic} from "/js/portfolio-copy.js"; mountPublic();</script></body>
 </html>
