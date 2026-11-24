@@ -1329,7 +1329,8 @@
       "Gmail (MailApp)"
     ],
     "impact": "Centralizes complaint handling, recruitment, and internal information in one portal.",
-    "preview": "project-1-career-portal.html"
+    "preview": "project-1-career-portal.html",
+    "demo": "./demos/career-portal/"
   },
   {
     "title": "Central Sort Productivity Monitor",
@@ -1403,7 +1404,8 @@
       "CSS"
     ],
     "impact": "Gives staff and managers one place for attendance, leave and salary visibility, with an audit trail for manual corrections.",
-    "preview": "project-4-attendance-system-previews.html"
+    "preview": "project-4-attendance-system-previews.html",
+    "demo": "./demos/attendance/"
   }
 ];
     (function () {
@@ -1427,6 +1429,7 @@
         const img = safeUrl(p.image);
         const link = safeUrl(p.link);
         const prev = safeUrl(p.preview);
+        const demo = safeUrl(p.demo);
         const tools = (p.tools || []).map(t => `<span class="mini-tag">${esc(t)}</span>`).join('');
         const thumb = prev
           ? `<button type="button" class="project-thumb has-preview" data-preview="${i}" aria-label="Open interface preview of ${esc(p.title)}"><span class="pv-icon" aria-hidden="true">${esc(p.icon || '')}</span><span class="pv-chip"><i>▶</i> Interface preview</span></button>`
@@ -1442,8 +1445,9 @@
               ${p.role ? `<p><b>Role:</b> ${esc(p.role)}</p>` : ''}
               ${p.impact ? `<p><b>Impact:</b> ${esc(p.impact)}</p>` : ''}
               ${tools ? `<div class="project-meta">${tools}</div>` : ''}
-              ${(prev || link) ? `<div class="project-actions">
+              ${(prev || link || demo) ? `<div class="project-actions">
                 ${prev ? `<button type="button" class="btn btn-primary" data-preview="${i}">▶ View interface preview</button>` : ''}
+                ${demo ? `<a class="btn btn-secondary" href="${demo}" target="_blank" rel="noopener noreferrer">Try interactive demo ↗</a>` : ''}
                 ${link ? `<a class="btn btn-secondary" href="${link}" target="_blank" rel="noopener noreferrer">View project ↗</a>` : ''}
               </div>` : ''}
             </div>
