@@ -1,11 +1,71 @@
 {
   "version": 1,
-  "checked_at": "2026-11-23T09:10:43.831952Z",
-  "last_success_at": "2026-11-23T09:10:43.831952Z",
-  "last_changed_at": "2026-11-21T08:20:03.019803Z",
+  "checked_at": "2026-11-24T04:17:05.103769Z",
+  "last_success_at": "2026-11-24T04:17:05.103769Z",
+  "last_changed_at": "2026-11-24T04:17:05.103769Z",
   "status": "complete",
-  "new_count": 0,
+  "new_count": 6,
   "articles": [
+    {
+      "title": "Best Buy taps AI platform for supplier insights",
+      "url": "https://supplychaindive.com/news/best-buy-taps-ai-platform-for-supplier-insights/875211/",
+      "published_at": "2026-11-23T16:05:59Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "procurement",
+      "first_seen_at": "2026-11-24T04:17:05.103769Z"
+    },
+    {
+      "title": "Walgreens scales micro-fulfillment strategy with Pennsylvania site",
+      "url": "https://supplychaindive.com/news/walgreens-scales-micro-fulfillment-strategy-with-pennsylvania-site/875245/",
+      "published_at": "2026-11-23T15:19:16Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-24T04:17:05.103769Z"
+    },
+    {
+      "title": "Tractor Supply boosts same-day delivery options",
+      "url": "https://supplychaindive.com/news/tractor-supply-boosts-same-day-delivery-options/875304/",
+      "published_at": "2026-11-23T15:06:22Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "logistics",
+      "first_seen_at": "2026-11-24T04:17:05.103769Z"
+    },
+    {
+      "title": "Same Questions, Different Answers: A Lean Transformation at Year One and Year Five",
+      "url": "https://lean.org/the-lean-post/articles/same-questions-different-answers-a-lean-transformation-at-year-one-and-year-five/",
+      "published_at": "2026-11-23T10:35:00Z",
+      "date_kind": "published",
+      "source_id": "lean-enterprise",
+      "source": "Lean Enterprise Institute",
+      "topic": "operations",
+      "first_seen_at": "2026-11-24T04:17:05.103769Z"
+    },
+    {
+      "title": "Taking the busywork out of business buying",
+      "url": "https://supplychaindive.com/spons/taking-the-busywork-out-of-business-buying/874853/",
+      "published_at": "2026-11-23T10:00:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-24T04:17:05.103769Z"
+    },
+    {
+      "title": "Peak season optimization is out, year-round optimization is in",
+      "url": "https://supplychaindive.com/spons/peak-season-optimization-is-out-year-round-optimization-is-in/875297/",
+      "published_at": "2026-11-23T10:00:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-24T04:17:05.103769Z"
+    },
     {
       "title": "Walmart’s sub-30-minute delivery volume surges in Q3",
       "url": "https://supplychaindive.com/news/walmarts-sub-30-minute-delivery-volume-surges-in-q3/875339/",
@@ -37,16 +97,6 @@
       "first_seen_at": "2026-11-21T08:20:03.019803Z"
     },
     {
-      "title": "Target boosts on-shelf availability, aided by stronger tech",
-      "url": "https://supplychaindive.com/news/target-boosts-on-shelf-availability-aided-by-stronger-tech/875117/",
-      "published_at": "2026-11-20T14:38:53Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-21T08:20:03.019803Z"
-    },
-    {
       "title": "I Don’t Trust Visual Recordings Anymore. But One Day I Will Again",
       "url": "https://spectrum.ieee.org/fighting-back-against-deep-fakes",
       "published_at": "2026-11-20T14:00:03Z",
@@ -64,46 +114,6 @@
       "source_id": "ieee-spectrum",
       "source": "IEEE Spectrum",
       "topic": "engineering",
-      "first_seen_at": "2026-11-20T04:43:07.091105Z"
-    },
-    {
-      "title": "Meta strikes deals to boost low-carbon materials production",
-      "url": "https://supplychaindive.com/news/meta-strikes-deals-to-boost-low-carbon-materials-production/875095/",
-      "published_at": "2026-11-19T17:30:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-20T04:43:07.091105Z"
-    },
-    {
-      "title": "Honda invests $462M in Alabama plant to boost production",
-      "url": "https://supplychaindive.com/news/honda-invests-462m-in-alabama-plant-to-boost-production/875189/",
-      "published_at": "2026-11-19T16:33:34Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-20T04:43:07.091105Z"
-    },
-    {
-      "title": "How Home Depot built the missing logistics piece for its Pro business",
-      "url": "https://supplychaindive.com/news/how-home-depot-built-the-missing-logistics-piece-for-its-pro-business/874331/",
-      "published_at": "2026-11-19T15:58:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "logistics",
-      "first_seen_at": "2026-11-20T04:43:07.091105Z"
-    },
-    {
-      "title": "How Brooks Running is using supplier data to address human rights risks",
-      "url": "https://supplychaindive.com/news/how-brooks-running-is-using-supplier-data-to-address-human-rights-risks/875090/",
-      "published_at": "2026-11-19T15:07:46Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "procurement",
       "first_seen_at": "2026-11-20T04:43:07.091105Z"
     },
     {
@@ -243,9 +253,9 @@
       "name": "Supply Chain Dive",
       "url": "https://www.supplychaindive.com/",
       "feed": "https://www.supplychaindive.com/feeds/news/",
-      "checked_at": "2026-11-23T09:10:43.831952Z",
+      "checked_at": "2026-11-24T04:17:05.103769Z",
       "status": "success",
-      "last_success_at": "2026-11-23T09:10:43.831952Z",
+      "last_success_at": "2026-11-24T04:17:05.103769Z",
       "error": null,
       "article_count": 8
     },
@@ -254,9 +264,9 @@
       "name": "IEEE Spectrum",
       "url": "https://spectrum.ieee.org/",
       "feed": "https://spectrum.ieee.org/feeds/feed.rss",
-      "checked_at": "2026-11-23T09:10:43.831952Z",
+      "checked_at": "2026-11-24T04:17:05.103769Z",
       "status": "success",
-      "last_success_at": "2026-11-23T09:10:43.831952Z",
+      "last_success_at": "2026-11-24T04:17:05.103769Z",
       "error": null,
       "article_count": 8
     },
@@ -265,20 +275,20 @@
       "name": "Lean Enterprise Institute",
       "url": "https://www.lean.org/the-lean-post/",
       "feed": "https://www.lean.org/feed/",
-      "checked_at": "2026-11-23T09:10:43.831952Z",
+      "checked_at": "2026-11-24T04:17:05.103769Z",
       "status": "success",
-      "last_success_at": "2026-11-23T09:10:43.831952Z",
+      "last_success_at": "2026-11-24T04:17:05.103769Z",
       "error": null,
-      "article_count": 7
+      "article_count": 8
     },
     {
       "id": "mit-ctl",
       "name": "MIT Center for Transportation & Logistics",
       "url": "https://ctl.mit.edu/news",
       "feed": "https://ctl.mit.edu/rss.xml",
-      "checked_at": "2026-11-23T09:10:43.831952Z",
+      "checked_at": "2026-11-24T04:17:05.103769Z",
       "status": "success",
-      "last_success_at": "2026-11-23T09:10:43.831952Z",
+      "last_success_at": "2026-11-24T04:17:05.103769Z",
       "error": null,
       "article_count": 0
     }
