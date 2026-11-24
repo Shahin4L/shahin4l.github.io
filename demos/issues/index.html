@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Issue Escalation & Resolution · Portfolio Demo</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eff4f6;color:#153247;font:16px/1.5 system-ui,sans-serif}main{max-width:1060px;margin:auto;padding:clamp(14px,4vw,44px)}header{padding:clamp(22px,4vw,40px);border-radius:22px;background:#124743;color:white}h1{font-size:clamp(25px,4vw,40px);line-height:1.1;margin:.3em 0}h2{font-size:20px}p{margin:.5em 0 1em}header p{color:#d4eae8}a{color:inherit}section,article{padding:clamp(16px,3vw,24px);background:white;border:1px solid #d6e5e7;border-radius:16px;margin-top:16px}label{display:block;font-weight:650;margin:.7em 0}input,select,button{font:inherit;padding:9px 12px;border:1px solid #a8bec3;border-radius:9px;min-height:44px}input,select{margin-top:4px;width:100%;color:inherit;background:white}button{cursor:pointer;background:#12675c;color:white;font-weight:650}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #227e9a;outline-offset:2px}.minor{background:white;color:#12534d}.row{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.tag{display:inline-block;background:#e1f3ed;color:#124b40;border-radius:999px;padding:4px 10px;font-size:14px;font-weight:650}li{overflow-wrap:anywhere;margin:.4em 0}small{color:#496273}#status{min-height:24px;color:#12534d;margin-top:10px}[hidden]{display:none!important}@media(max-width:680px){.grid{grid-template-columns:1fr;gap:0}}
+</style>
+<main><header><a href="../../">← Portfolio</a><p>Operations · Issue lifecycle</p><h1>Issue Escalation & Resolution</h1><p>Interactive demo with sample data. Use fictional details. Changes reset when you reload.</p></header>
+<section id="login"><h2>Demo sign-in</h2><p>Email <code>demo@example.invalid</code> · code <code>123456</code></p><form id="loginForm"><label>Email<input type="email" id="email" required></label><label>Code<input id="code" inputmode="numeric" pattern="[0-9]{6}" required></label><button>Sign in</button><p id="error" aria-live="polite"></p></form></section>
+<div id="workspace" hidden><section class="row"><strong>Demo workspace</strong><button class="minor" id="signout">Sign out</button></section><div class="grid"><section><h2>New consignment issue</h2><form id="create"><label>Consignment ID or issue title<input id="name" required maxlength="100"></label><button>Create issue</button></form></section><section><h2>Workflow</h2><ol><li>Pending pool</li><li>Assigned</li><li>Investigation</li><li>Final IR</li><li>Compensation review</li><li>Approval</li><li>Final review</li><li>Audit</li><li>Closed</li></ol></section></div><section><h2>Consignment issue records</h2><p id="status" role="status"></p><div id="records"></div></section></div></main>
+<script>
+const config={"title":"Issue Escalation & Resolution","sub":"Operations · Issue lifecycle","name":"Consignment issue","label":"Consignment ID or issue title","seed":"CB-DEMO-1001 · Damaged parcel","stages":["Pending pool","Assigned","Investigation","Final IR","Compensation review","Approval","Final review","Audit","Closed"],"actions":["Assign to me","Start investigation","Record findings","Propose compensation","Send for approval","Approve compensation","Send to audit","Verify and close"],"hints":["Assignment note","Investigation note","Final investigation findings","Amount and responsible party","Reason for approval request","Approval remarks","Final review remarks","Audit verification remarks"],"add":"Create issue"};
+const byId=id=>document.getElementById(id);
+let nextId=2;
+const records=[{id:1,title:config.seed,stage:0,history:[]}];
+function node(tag,text){const element=document.createElement(tag);if(text!==undefined)element.textContent=text;return element;}
+function render(focusId){
+ const list=byId('records');list.replaceChildren();
+ for(const record of records){
+   const card=node('article'), title=node('h3','#'+record.id+' · '+record.title), badge=node('span',config.stages[record.stage]);
+   badge.className='tag';title.id='record-'+record.id;title.tabIndex=-1;card.append(title,badge);
+   if(record.history.length){
+     const history=node('ol');for(const entry of record.history)history.append(node('li',entry));card.append(history);
+   }
+   if(record.stage<config.actions.length){
+     const form=node('form'),label=node('label',config.hints[record.stage]),input=node('input');
+     input.required=true;input.maxLength=200;label.append(input);form.append(label,node('button',config.actions[record.stage]));
+     form.onsubmit=event=>{event.preventDefault();const note=input.value.trim();if(!note){input.focus();return;}record.stage++;record.history.push(config.stages[record.stage]+' · '+note);byId('status').textContent='Record #'+record.id+' moved to '+config.stages[record.stage]+'.';render(record.id);};card.append(form);
+   }
+   list.append(card);
+ }
+ if(focusId)byId('record-'+focusId)?.focus();
+}
+byId('loginForm').onsubmit=event=>{
+ event.preventDefault();
+ if(byId('email').value.trim().toLowerCase()!=='demo@example.invalid'||byId('code').value!=='123456'){byId('error').textContent='Enter the demo email and code above.';return;}
+ byId('error').textContent='';byId('login').hidden=true;byId('workspace').hidden=false;render();byId('name').focus();
+};
+byId('create').onsubmit=event=>{
+ event.preventDefault();const title=byId('name').value.trim();if(!title)return;
+ const selected=byId('product')?.value;const id=nextId++;
+ records.unshift({id,title:selected?title+' · '+selected:title,stage:0,history:[]});
+ event.currentTarget.reset();byId('status').textContent='Record #'+id+' created.';render(id);
+};
+byId('signout').onclick=()=>{byId('workspace').hidden=true;byId('login').hidden=false;byId('loginForm').reset();byId('email').focus();};
+</script></html>
