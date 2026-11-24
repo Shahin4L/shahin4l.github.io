@@ -74,7 +74,7 @@ export function mountEditor({authorize,notify}){
   if(subset.length)choose(subset.find(x=>x.id===selected?.id)||subset[0]);else{selected=null;$('copy-form').hidden=true;}
  }
  function choose(x){
-  selected=x;$('copy-list').value=x.id;$('copy-form').hidden=false;
+  selected=x;$('copy-live').href='/#'+encodeURIComponent(x.group);$('copy-list').value=x.id;$('copy-form').hidden=false;
   $('copy-original').textContent=x.original;
   $('copy-en').value=drafts.get(x.id)?.value_en??saved.get(x.id)?.value_en??'';$('copy-en').placeholder=x.original;
   $('copy-bn').value=drafts.get(x.id)?.value_bn??saved.get(x.id)?.value_bn??'';
@@ -90,7 +90,7 @@ export function mountEditor({authorize,notify}){
    const payload={key:item.id,value_en:$('copy-en').value.trim(),value_bn:$('copy-bn').value.trim(),updated_at:new Date().toISOString()};
    const written=await api('/rest/v1/site_content?on_conflict=key',{method:'POST',headers:{Prefer:'return=representation,resolution=merge-duplicates'},body:payload});
    if(!Array.isArray(written)||!written.length)throw Error('Save was not confirmed.');
-   saved.set(item.id,payload);drafts.delete(item.id);$('copy-status').textContent='Saved. Reload the public portfolio to see your changes.';showList();
+   saved.set(item.id,payload);drafts.delete(item.id);$('copy-status').textContent='Published. Open the live section to verify.';showList();
   }catch(e){notify(e.message)}finally{button.disabled=false;}
  };
  $('copy-reset').onclick=()=>{$('copy-en').value='';$('copy-bn').value='';$('copy-form').requestSubmit();};
