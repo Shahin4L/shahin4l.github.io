@@ -50,7 +50,8 @@ export async function mountPublic(){
 function label(tag,text){const elem=document.createElement(tag);elem.textContent=text;return elem;}
 export function mountEditor({authorize,notify}){
  const $=id=>document.getElementById(id);
- let all=[],saved=new Map(),selected=null,loaded=false;
+ let all=[],saved=new Map(),drafts=new Map(),selected=null,loaded=false;
+ function capture(){if(selected)drafts.set(selected.id,{value_en:$('copy-en').value,value_bn:$('copy-bn').value});}
  async function refresh(){
   await authorize();
   const source=await fetch('/index.html',{cache:'no-store'});if(!source.ok)throw Error('Could not load portfolio source.');
@@ -75,12 +76,12 @@ export function mountEditor({authorize,notify}){
  function choose(x){
   selected=x;$('copy-list').value=x.id;$('copy-form').hidden=false;
   $('copy-original').textContent=x.original;
-  $('copy-en').value=saved.get(x.id)?.value_en||'';
-  $('copy-bn').value=saved.get(x.id)?.value_bn||'';
+  $('copy-en').value=drafts.get(x.id)?.value_en??saved.get(x.id)?.value_en??'';$('copy-en').placeholder=x.original;
+  $('copy-bn').value=drafts.get(x.id)?.value_bn??saved.get(x.id)?.value_bn??'';
  }
- $('copy-group').onchange=showList;$('copy-search').oninput=showList;
- $('copy-list').onchange=()=>{const x=all.find(x=>x.id===$('copy-list').value);if(x)choose(x)};
- $('copy-refresh').onclick=()=>refresh().catch(e=>notify(e.message));
+ $('copy-group').onchange=()=>{capture();showList();};$('copy-search').oninput=()=>{capture();showList();};
+ $('copy-list').onchange=()=>{const x=all.find(x=>x.id===$('copy-list').value);if(x){capture();choose(x)}};
+ $('copy-refresh').onclick=()=>{capture();return refresh().catch(e=>notify(e.message));};
  $('copy-form').onsubmit=async event=>{
   event.preventDefault();if(!selected)return;const item=selected;
   const button=$('copy-save');button.disabled=true;
@@ -89,9 +90,9 @@ export function mountEditor({authorize,notify}){
    const payload={key:item.id,value_en:$('copy-en').value.trim(),value_bn:$('copy-bn').value.trim(),updated_at:new Date().toISOString()};
    const written=await api('/rest/v1/site_content?on_conflict=key',{method:'POST',headers:{Prefer:'return=representation,resolution=merge-duplicates'},body:payload});
    if(!Array.isArray(written)||!written.length)throw Error('Save was not confirmed.');
-   saved.set(item.id,payload);$('copy-status').textContent='Saved. Reload the public portfolio to see your changes.';showList();
+   saved.set(item.id,payload);drafts.delete(item.id);$('copy-status').textContent='Saved. Reload the public portfolio to see your changes.';showList();
   }catch(e){notify(e.message)}finally{button.disabled=false;}
  };
  $('copy-reset').onclick=()=>{$('copy-en').value='';$('copy-bn').value='';$('copy-form').requestSubmit();};
- return {refresh:()=>{if(!loaded)return refresh().catch(e=>notify(e.message));},clear:()=>{loaded=false;all=[];saved.clear();selected=null;$('copy-list').replaceChildren();$('copy-original').textContent='';$('copy-en').value='';$('copy-bn').value='';$('copy-form').hidden=true;}};
+ return {open:async group=>{capture();if(!loaded)await refresh();$('copy-group').value=[...$('copy-group').options].some(x=>x.value===group)?group:'';$('copy-search').value='';showList();},refresh:()=>{if(!loaded)return refresh().catch(e=>notify(e.message));},clear:()=>{loaded=false;all=[];saved.clear();drafts.clear();selected=null;$('copy-list').replaceChildren();$('copy-original').textContent='';$('copy-en').value='';$('copy-bn').value='';$('copy-form').hidden=true;}};
 }
