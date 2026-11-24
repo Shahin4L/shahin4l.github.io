@@ -128,7 +128,7 @@ function check(mail,code){if(String(mail).toLowerCase()!==email||(code!==undefin
 
 const bootstrap={token,user,employees:[{id:'DEMO-001',name:'Demo Operator',dept:'Demo Operations',department:'Demo Operations',team:'Sort'}],processes:[{name:'Parcel Sorting',target:120}],canDash:true};
 const rows=[];
-const methods={requestOtp:mail=>check(mail),verifyOtp:(mail,code)=>{check(mail,code);return bootstrap;},getAppData:()=>bootstrap,getObservations:()=>rows.slice(),submitObservation:(_,o)=>{rows.push({...o,id:o.employeeId,proc:o.process,ptn:o.ptnCount,ms:o.durationMs});return {success:true,rate:0};},logout:()=>true};})();</script></head>
+const methods={requestOtp:mail=>check(mail),verifyOtp:(mail,code)=>{check(mail,code);return bootstrap;},getAppData:()=>bootstrap,getObservations:()=>rows.slice(),submitObservation:(_,o)=>{const minutes=o.durationMs/60000;rows.push({id:o.employeeId,pr:o.process,s:o.startTimeMs,m:minutes,p:o.ptnCount,tg:120,by:user.name});return {process:o.process,employeeName:'Demo Operator',durationMinutes:minutes,ptnCount:o.ptnCount,ptnsPerHour:minutes>0?o.ptnCount*60/minutes:0};},logout:()=>true};})();</script></head>
 <body><aside style="padding:12px;background:#eaf4fd;color:#13314c;text-align:center;font:600 14px system-ui">Portfolio demo · Use <strong>demo@example.invalid</strong> and code <strong>123456</strong>. Only sample data is used.</aside>
 <div id="splash">Loading…</div>
 
@@ -267,7 +267,7 @@ function setMsg(id,t,type){const e=$(id);e.textContent=t||'';e.className='msg'+(
 async function api(fn,...a){try{return await run(fn,TOKEN,...a)}catch(e){if(/SESSION_EXPIRED/.test(msg(e)))forceOut();throw e}}
 function toLogin(note,type){
   clearInterval(tick);clearInterval(cd);
-  LS.del('portfolio_demo_productivity_token');LS.del('cs_timer');
+  LS.del('portfolio_demo_productivity_token');LS.del('portfolio_demo_productivity_timer');
   TOKEN=null;U=null;EMPS=[];PROCS=[];CAN=false;ROWS=null;PF='';view='observe';mode='self';
   T={emp:null,proc:'',state:'idle',start:0,acc:0,since:0,end:0};
   Object.keys(charts).forEach(k=>{charts[k].destroy()});charts={};
@@ -522,8 +522,8 @@ let T={emp:null,proc:'',state:'idle',start:0,acc:0,since:0,end:0},tick=null;
 const el=()=>T.acc+(T.state==='running'?Date.now()-T.since:0);
 function fmt(ms){const t=Math.floor(Math.max(0,ms)/100),h=Math.floor(t/36000),m=Math.floor(t%36000/600),s=Math.floor(t%600/10);return `${p2(h)}:${p2(m)}:${p2(s)}<small>.${t%10}</small>`}
 const curProc=()=>PROCS.find(p=>p.name===T.proc);
-function save(){if(T.state==='idle')LS.del('cs_timer');else LS.set('cs_timer',JSON.stringify({u:U.email,emp:T.emp&&T.emp.id,proc:T.proc,state:T.state,start:T.start,acc:T.acc,since:T.since,end:T.end}))}
-function tRestore(){try{const s=JSON.parse(LS.get('cs_timer')||'null');if(!s||s.u!==U.email)return;const e=EMPS.find(x=>x.id===s.emp);if(!e)return;
+function save(){if(T.state==='idle')LS.del('portfolio_demo_productivity_timer');else LS.set('portfolio_demo_productivity_timer',JSON.stringify({u:U.email,emp:T.emp&&T.emp.id,proc:T.proc,state:T.state,start:T.start,acc:T.acc,since:T.since,end:T.end}))}
+function tRestore(){try{const s=JSON.parse(LS.get('portfolio_demo_productivity_timer')||'null');if(!s||s.u!==U.email)return;const e=EMPS.find(x=>x.id===s.emp);if(!e)return;
   T={emp:e,proc:s.proc||'',state:s.state,start:s.start,acc:s.acc,since:s.since,end:s.end};CB.obs.set(e.id);showEmpInfo(e);$('procSel').value=T.proc;showProcInfo()}catch(x){}
   tUI();if(T.state==='stopped')showEntry()}
 function showEmpInfo(e){const i=$('empInfo');if(!e){i.classList.add('hidden');return}i.innerHTML=`<b>${esc(e.name)}</b> — ${esc(e.id)}<br>Department: ${esc(e.department||'Not specified')}`;i.classList.remove('hidden')}
@@ -560,5 +560,5 @@ async function submitObs(){
   catch(e){toast(msg(e))}
   b.disabled=false;b.textContent='Submit observation'}
 </script>
-<div style="position:fixed;left:0;right:0;bottom:0;background:#0B1F3F;color:#fff;font:12px sans-serif;padding:6px 10px;text-align:center;z-index:2147483647">Static UI preview · backend not connected</div></body>
+<div style="position:fixed;left:0;right:0;bottom:0;background:#0B1F3F;color:#fff;font:12px sans-serif;padding:6px 10px;text-align:center;z-index:2147483647">Portfolio demo · changes are kept in this tab</div></body>
 </html>
