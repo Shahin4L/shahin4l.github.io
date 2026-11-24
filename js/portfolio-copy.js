@@ -44,7 +44,7 @@ export async function mountPublic(){
    if(value!==null){if(!node.__originalText)node.__originalText=original;if(node.nodeValue!==value)node.nodeValue=value;}
   }
  };
- apply();document.addEventListener('portfolio-language-change',apply);
+ apply();document.addEventListener('portfolio-language-change',apply);document.addEventListener('portfolio-collections-change',apply);
  }catch(e){console.warn('Portfolio copy unavailable',e.message);}
 }
 function label(tag,text){const elem=document.createElement(tag);elem.textContent=text;return elem;}
@@ -56,7 +56,7 @@ export function mountEditor({authorize,notify}){
   const source=await fetch('/index.html',{cache:'no-store'});if(!source.ok)throw Error('Could not load portfolio source.');
   const html=await source.text(),doc=new DOMParser().parseFromString(html,'text/html');
   const entries=fields(doc);
-  const match=html.match(/const PROJECTS\s*=\s*(\[[\s\S]*?\])\s*;/);
+  const match=html.match(/(?:const|let) PROJECTS\s*=\s*(\[[\s\S]*?\])\s*;/);
   if(match){for(const project of JSON.parse(match[1]))for(const value of [project.title,project.category,project.summary,project.role,project.impact,...(project.features||[]),...(project.tools||[])]){
     const original=normalize(value);if(original){const id=key('projects',original);entries.set(id,{id,group:'projects',original});}
   }}

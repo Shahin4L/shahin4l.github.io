@@ -747,7 +747,7 @@
 </div>
 <!-- To add a project later: edit the PROJECTS list in the script at the bottom of this file. -->
 <div class="proj-overview reveal" aria-label="Project overview">
-<div><strong>4</strong><span>Internal web tools</span></div>
+<div><strong>7</strong><span>Interactive web tools</span></div>
 <div><strong>End to end</strong><span>Designed and built by me</span></div>
 <div><strong>Apps Script + Sheets</strong><span>Shared platform, Chart.js dashboards</span></div>
 <div><strong>Role-based access</strong><span>Sign-in, permissions and dashboards</span></div>
@@ -1175,12 +1175,11 @@
     }));
 
     const teamSearch = document.getElementById('teamSearch');
-    const teamCards = [...document.querySelectorAll('.team-card')];
     const teamCount = document.getElementById('teamCount');
     teamSearch.addEventListener('input', () => {
       const query = teamSearch.value.trim().toLowerCase();
       let visible = 0;
-      teamCards.forEach(card => {
+      document.querySelectorAll('.team-card').forEach(card => {
         const matches = (card.dataset.search + ' ' + card.innerText).toLowerCase().includes(query);
         card.hidden = !matches;
         if (matches) visible++;
@@ -1307,7 +1306,7 @@
     })();
 
     /* ===== Projects (edit this list to add or change projects) ===== */
-    const PROJECTS = [
+    let PROJECTS = [
   {
     "title": "Career & Service Portal",
     "icon": "📋",
@@ -1417,6 +1416,7 @@
       const grid = document.getElementById('projectGrid');
       const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
       const safeUrl = u => /^(https?:\/\/|assets\/|\.\/|\/|[\w.-]+\.html$)/i.test(u || '') ? esc(u) : '';
+      function renderProjects() {
       if (!PROJECTS.length) {
         const slots = [
           ['Project slot 01', 'Operations improvement project'],
@@ -1450,7 +1450,7 @@
               ${p.role ? `<p><b>Role:</b> ${esc(p.role)}</p>` : ''}
               ${p.impact ? `<p><b>Impact:</b> ${esc(p.impact)}</p>` : ''}
               ${tools ? `<div class="project-meta">${tools}</div>` : ''}
-              ${demo ? `<p><b>Demo login</b><br>${p.demo.includes("/attendance/") ? "Employee ID <code>DEMO-001</code><br>Manager " : ""}<code>demo@example.invalid</code> · Code <code>123456</code></p>` : ''}
+              ${demo && p.demoLogin !== undefined ? (p.demoLogin ? `<p><b>Demo login</b><br>${esc(p.demoLogin)}</p>` : '') : demo ? `<p><b>Demo login</b><br>${p.demo.includes("/attendance/") ? "Employee ID <code>DEMO-001</code><br>Manager " : ""}<code>demo@example.invalid</code> · Code <code>123456</code></p>` : ''}
               ${(prev || link || demo) ? `<div class="project-actions">
                 ${prev ? `<button type="button" class="btn btn-primary" data-preview="${i}">▶ View interface preview</button>` : ''}
                 ${demo ? `<a class="btn btn-secondary" href="${demo}" target="_blank" rel="noopener noreferrer">Try interactive demo ↗</a>` : ''}
@@ -1460,6 +1460,9 @@
           </article>`;
       }).join('');
 
+      }
+      renderProjects();
+      window.renderPortfolioProjects = items => { PROJECTS = items; renderProjects(); };
       /* scale the miniature live thumbnails to the card width */
       const thumbs = [...grid.querySelectorAll('.project-thumb.has-preview')];
       const fit = () => thumbs.forEach(t => {
@@ -1983,5 +1986,5 @@
   } else root.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
 })();
 </script>
-<script type="module" src="/js/portfolio.js?v=flow-4"></script><script defer src="/js/home-nav.js?v=flow-4"></script><script type="module" src="/js/auth-nav.js?v=flow-4"></script><script type="module">import {mountPublic} from "/js/portfolio-copy.js"; mountPublic();</script></body>
+<script type="module" src="/js/portfolio.js?v=flow-4"></script><script defer src="/js/home-nav.js?v=flow-4"></script><script type="module" src="/js/auth-nav.js?v=flow-4"></script><script type="module">import {mountPublic} from "/js/portfolio-copy.js"; mountPublic();</script><script type="module">import {mountCollectionsPublic} from "/js/portfolio-collections.js"; mountCollectionsPublic();</script><script type="module">import {mountProfilePublic} from "/js/portfolio-profile.js"; mountProfilePublic();</script></body>
 </html>
