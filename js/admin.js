@@ -2,7 +2,7 @@ import {storeSession,clearSession,markAdmin,refreshSession} from './editor-sessi
 import {$,esc,t,lang,shell,language,api,rows,session,markdown,safeURL,notify} from './core.js?v=flow-4';import {config} from './config.js';
 import {mountEditor} from './portfolio-copy.js';
 import {mountCollectionEditor} from './portfolio-collections.js';
-import {mountProfileEditor} from './portfolio-profile.js';
+import {mountProfileEditor} from './portfolio-profile.js?v=images-1';
 shell();let posts=[],comments=[],categories=[],activity=[],content=[];let refreshTimer;
 const write=(table,method,data,query='')=>api('/rest/v1/'+table+query,{method,body:data,headers:{Prefer:'return=representation,resolution=merge-duplicates'}});
 async function authorize(){const s=session();if(!s)throw Error(t('Please sign in.','লগইন করুন।'));if(s.expires_at<Date.now()+60000)await refresh();const user=await api('/auth/v1/user');const admins=await rows('admin_users','select=user_id&user_id=eq.'+user.id);if(!admins.length){const e=new Error(t('This account is not an authorized administrator.','এই অ্যাকাউন্ট অনুমোদিত অ্যাডমিন নয়।'));e.status=403;throw e;}markAdmin();return user}
