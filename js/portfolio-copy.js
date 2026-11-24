@@ -44,7 +44,7 @@ export async function mountPublic(){
    if(value!==null){if(!node.__originalText)node.__originalText=original;if(node.nodeValue!==value)node.nodeValue=value;}
   }
  };
- apply();document.addEventListener('portfolio-language-change',apply);
+ apply();document.addEventListener('portfolio-language-change',apply);document.addEventListener('portfolio-collections-change',apply);
  }catch(e){console.warn('Portfolio copy unavailable',e.message);}
 }
 function label(tag,text){const elem=document.createElement(tag);elem.textContent=text;return elem;}
