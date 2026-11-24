@@ -72,24 +72,48 @@ export async function mountCollectionsPublic(){
  }catch(e){console.warn('Portfolio collections unavailable',e.message);}
 }
 export function mountCollectionEditor({authorize,notify}){
- let base={},drafts={},active='projects',selected=-1,loaded=false;
- fields.forEach((f,i)=>{const label=el('label',labels[i]),input=el(arrays.has(f)||f.startsWith('body')?'textarea':'input');input.id='collection-'+f;input.maxLength=15000;if(input.tagName==='TEXTAREA')input.rows=4;label.append(input);$('collection-fields').append(label);});
+ let base={},drafts={},active='projects',selected=-1,loaded=false,editorLanguage='en';
+ const groups={primary:el('fieldset',undefined,'adm-field-group'),bangla:el('fieldset',undefined,'adm-field-group'),links:el('fieldset',undefined,'adm-field-group')};
+ for(const [id,title] of [['primary','English · content'],['bangla','বাংলা · optional translation'],['links','Links and project settings']]){groups[id].append(el('legend',title));$('collection-fields').append(groups[id]);}
+ const meta=new Set(['link','image','icon','preview','demo','demoLogin']);
+ fields.forEach((f,i)=>{
+ const label=el('label',labels[i]),input=el(arrays.has(f)||f.startsWith('body')?'textarea':'input');input.id='collection-'+f;
+ input.maxLength=15000;if(input.tagName==='TEXTAREA')input.rows=4;label.append(input);
+ groups[meta.has(f)?'links':f.endsWith('Bn')?'bangla':'primary'].append(label);
+ });
+ function allowed(f){
+ const common=['title','body','link'],specific={
+ projects:['category','features','tools','role','impact','image','icon','preview','demo','demoLogin'],experience:['subtitle','category','features'],education:['subtitle','features'],skills:['features','tools'],'profile-details':['subtitle','features'],teams:['subtitle','category','features','tools'],growth:['subtitle','features'],services:['subtitle','features','tools'],improvement:['category','features'],roadmap:['category','features'],faq:[],results:['category'],custom:['subtitle','features','tools']
+ };
+ return common.includes(f.replace(/Bn$/,''))||(specific[active]||[]).includes(f.replace(/Bn$/,''));
+ }
  const current=()=>drafts[active],status=s=>$('collection-status').textContent=s;
- function show(){const r=current()[selected];if(!r)return;$('collection-edit').hidden=false;fields.forEach(f=>{const input=$('collection-'+f);input.parentElement.hidden=active!=='projects'&&projectOnly.has(f);input.value=Array.isArray(r[f])?r[f].join('\n'):r[f]||'';});}
- function list(){const box=$('collection-items');box.replaceChildren(...current().map((r,i)=>new Option((i+1)+'. '+(r.title||'Untitled'),String(i))));if(current().length){selected=Math.min(Math.max(selected,0),current().length-1);box.value=String(selected);show();}else{selected=-1;$('collection-edit').hidden=true;}}
- function apply(){if(selected<0)return true;const previous=current()[selected],next={...previous};for(const f of fields){if(active!=='projects'&&projectOnly.has(f))continue;const v=$('collection-'+f).value.trim();next[f]=arrays.has(f)?lines(v):v;}
+ $('collection-fields').addEventListener('input',()=>status('Unsaved changes. Save & publish when ready.'));
+ function updateGroups(){groups.primary.hidden=editorLanguage!=='en';groups.bangla.hidden=editorLanguage!=='bn';groups.links.hidden=![...groups.links.querySelectorAll('label')].some(label=>!label.hidden);document.querySelectorAll('[data-editor-language]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.editorLanguage===editorLanguage)));}
+ const captions={
+ experience:{title:'Company / organization',subtitle:'Job title / designation',category:'Employment period',body:'Role overview (optional)',features:'Responsibilities & achievements (one per line)',link:'Company website'},
+ education:{title:'Degree / qualification',body:'Institution, dates and qualification details',subtitle:'Additional qualification details'},
+ projects:{title:'Project name',category:'Project category',body:'Project summary',features:'Key features (one per line)',tools:'Tools & technology (one per line)',link:'Project website'},
+ skills:{title:'Skill area',body:'Skills and capabilities',features:'Capabilities (one per line)',tools:'Tools (one per line)'},
+ faq:{title:'Question',body:'Answer'},results:{title:'Achievement',category:'Result / metric',body:'Supporting details'},
+ custom:{title:'Section title',subtitle:'Section introduction',body:'Section content'}
+ };
+ document.querySelectorAll('[data-editor-language]').forEach(b=>b.onclick=()=>{editorLanguage=b.dataset.editorLanguage;updateGroups();});
+ function show(){const r=current()[selected];if(!r)return;$('collection-edit').hidden=false;$('collection-empty').hidden=true;$('collection-record-title').textContent=r.title||'New item';$('collection-list-title').textContent=GROUPS[active][0];fields.forEach(f=>{const input=$('collection-'+f);input.parentElement.hidden=!allowed(f);input.parentElement.firstChild.nodeValue=captions[active]?.[f]||labels[fields.indexOf(f)];input.value=Array.isArray(r[f])?r[f].join('\n'):r[f]||'';});updateGroups();}
+ function list(){const box=$('collection-items');box.size=Math.max(2,Math.min(8,current().length));box.replaceChildren(...current().map((r,i)=>new Option((i+1)+'. '+(r.title||'Untitled'),String(i))));if(current().length){selected=Math.min(Math.max(selected,0),current().length-1);box.value=String(selected);show();}else{selected=-1;$('collection-edit').hidden=true;$('collection-empty').hidden=false;$('collection-record-title').textContent='New item';$('collection-list-title').textContent=GROUPS[active][0];}for(const id of ['collection-up','collection-down','collection-remove'])$(id).disabled=selected<0; $('collection-up').disabled=selected<=0; $('collection-down').disabled=selected<0||selected>=current().length-1;}
+ function apply(){if(selected<0)return true;const previous=current()[selected],next={...previous};for(const f of fields){if(!allowed(f))continue;const v=$('collection-'+f).value.trim();next[f]=arrays.has(f)?lines(v):v;}
  if(!next.title){notify('Title is required.');return false;}
  if(fields.some(f=>JSON.stringify(next[f]||(arrays.has(f)?[]:''))!==JSON.stringify(previous[f]||(arrays.has(f)?[]:''))))next.preserved=false;
  for(const f of ['link','image','preview','demo'])if(next[f]&&!safeLink(next[f],f==='preview')){notify('Use valid HTTPS links and same-site preview URLs.');return false;}current()[selected]=next;return true;}
  async function refresh(){if(loaded)return;await authorize();const response=await fetch('/index.html',{cache:'no-store'});if(!response.ok)throw Error('Portfolio source unavailable.');const html=await response.text();base=defaults(html,new DOMParser().parseFromString(html,'text/html'));drafts=JSON.parse(JSON.stringify({...base,...await read()}));$('collection-type').replaceChildren(...Object.entries(GROUPS).map(([id,g])=>new Option(g[0],id)));$('collection-type').value=active;loaded=true;selected=0;list();status('Choose a collection to add, edit or reorder items.');}
  $('collection-type').onchange=()=>{const next=$('collection-type').value;if(!apply()){$('collection-type').value=active;return;}active=next;selected=0;list();};
  $('collection-items').onchange=()=>{const i=Number($('collection-items').value);if(!apply()){$('collection-items').value=String(selected);return;}selected=i;show();};
- $('collection-new').onclick=()=>{if(!loaded||!apply())return;current().push({title:'New item',original:null,preserved:false});selected=current().length-1;list();$('collection-title').focus();$('collection-title').select();};
+ $('collection-new').onclick=()=>{if(!loaded||!apply())return;current().push({title:'New item',original:null,preserved:false});selected=current().length-1;editorLanguage='en';list();status('New draft item. Enter the details before publishing.');$('collection-title').focus();$('collection-title').select();};
  $('collection-apply').onclick=()=>{if(loaded&&apply()){list();status('Draft updated. Save collection to publish.');}};
- $('collection-remove').onclick=()=>{if(loaded&&selected>=0&&confirm('Remove this item from the draft? Save collection to publish.')){current().splice(selected,1);list();}};
- function move(step){if(!loaded||!apply()||selected<0)return;const to=selected+step;if(to<0||to>=current().length)return;const [r]=current().splice(selected,1);current().splice(to,0,r);selected=to;list();}
+ $('collection-remove').onclick=()=>{if(loaded&&selected>=0&&confirm('Remove this item from the draft? Save collection to publish.')){current().splice(selected,1);list();status('Draft list updated. Save & publish when ready.');}};
+ function move(step){if(!loaded||!apply()||selected<0)return;const to=selected+step;if(to<0||to>=current().length)return;const [r]=current().splice(selected,1);current().splice(to,0,r);selected=to;list();status('Draft order updated. Save & publish when ready.');}
  $('collection-up').onclick=()=>move(-1);$('collection-down').onclick=()=>move(1);
  $('collection-publish').onclick=async()=>{if(!loaded||!apply())return;const name=active,b=$('collection-publish');b.disabled=true;try{await authorize();const records=normalize(drafts[name]);const result=await api('/rest/v1/site_content?on_conflict=key',{method:'POST',headers:{Prefer:'return=representation,resolution=merge-duplicates'},body:{key:PREFIX+name,value_en:JSON.stringify(records),value_bn:'',updated_at:new Date().toISOString()}});if(!Array.isArray(result)||!result.length)throw Error('Save was not confirmed.');drafts[name]=records;if(name===active)list();status('Published. Open or reload the public portfolio.');}catch(e){notify(e.message);}finally{b.disabled=false;}};
  $('collection-restore').onclick=()=>{if(loaded&&confirm('Restore the original collection in the draft? Save to publish.')){drafts[active]=JSON.parse(JSON.stringify(base[active]));selected=0;list();status('Original list restored in draft.');}};
- return {refresh:()=>refresh().catch(e=>notify(e.message)),clear:()=>{loaded=false;base={};drafts={};selected=-1;$('collection-items').replaceChildren();$('collection-edit').hidden=true;fields.forEach(f=>$('collection-'+f).value='');status('');}};
+ return {open:async group=>{try{await refresh();if(group&&Object.hasOwn(GROUPS,group)&&group!==active){if(!apply())return false;active=group;selected=0;$('collection-type').value=group;list();status('Editing '+GROUPS[group][0]+'. Save & publish when ready.');}return true;}catch(e){notify(e.message);return false;}},refresh:()=>refresh().catch(e=>notify(e.message)),clear:()=>{loaded=false;base={};drafts={};selected=-1;$('collection-items').replaceChildren();$('collection-edit').hidden=true;fields.forEach(f=>$('collection-'+f).value='');status('');}};
 }
