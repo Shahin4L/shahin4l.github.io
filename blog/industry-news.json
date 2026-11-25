@@ -1,11 +1,81 @@
 {
   "version": 1,
-  "checked_at": "2026-11-24T04:17:05.103769Z",
-  "last_success_at": "2026-11-24T04:17:05.103769Z",
-  "last_changed_at": "2026-11-24T04:17:05.103769Z",
+  "checked_at": "2026-11-25T13:04:17.812761Z",
+  "last_success_at": "2026-11-25T13:04:17.812761Z",
+  "last_changed_at": "2026-11-25T13:04:17.812761Z",
   "status": "complete",
-  "new_count": 6,
+  "new_count": 7,
   "articles": [
+    {
+      "title": "Paving the Cow Paths at Machine Speed",
+      "url": "https://lean.org/the-lean-post/articles/paving-the-cow-paths-at-machine-speed/",
+      "published_at": "2026-11-25T11:00:00Z",
+      "date_kind": "published",
+      "source_id": "lean-enterprise",
+      "source": "Lean Enterprise Institute",
+      "topic": "operations",
+      "first_seen_at": "2026-11-25T13:04:17.812761Z"
+    },
+    {
+      "title": "Mitsubishi Electric Research Lab CEO on How He Reached the C-Suite",
+      "url": "https://spectrum.ieee.org/mitsubishi-electric-research-lab-ceo",
+      "published_at": "2026-11-24T19:00:01Z",
+      "date_kind": "published",
+      "source_id": "ieee-spectrum",
+      "source": "IEEE Spectrum",
+      "topic": "engineering",
+      "first_seen_at": "2026-11-25T13:04:17.812761Z"
+    },
+    {
+      "title": "Procter & Gamble plans supply chain workforce cuts as automation expands",
+      "url": "https://supplychaindive.com/news/procter-gamble-plans-supply-chain-workforce-cuts-as-automation-expands/875533/",
+      "published_at": "2026-11-24T17:11:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-25T13:04:17.812761Z"
+    },
+    {
+      "title": "Under Armour continues efforts to trim SKUs, lead times",
+      "url": "https://supplychaindive.com/news/under-armour-continues-efforts-to-trim-skus-lead-times/875483/",
+      "published_at": "2026-11-24T15:36:03Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-25T13:04:17.812761Z"
+    },
+    {
+      "title": "FedEx, UPS’ upcoming rate hikes: What shippers should know",
+      "url": "https://supplychaindive.com/news/fedex-ups-upcoming-rate-hikes-what-shippers-should-know/875495/",
+      "published_at": "2026-11-24T15:21:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-25T13:04:17.812761Z"
+    },
+    {
+      "title": "Tropical Smoothie powers expansion with strong supplier relationships, data strategy",
+      "url": "https://supplychaindive.com/news/tropical-smoothie-powers-expansion-with-strong-supplier-relationships-data/875588/",
+      "published_at": "2026-11-24T15:01:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "procurement",
+      "first_seen_at": "2026-11-25T13:04:17.812761Z"
+    },
+    {
+      "title": "Amazon enlists customers in fight against NYC delivery worker bill",
+      "url": "https://supplychaindive.com/news/amazon-enlists-customers-in-fight-against-nyc-delivery-worker-bill/875500/",
+      "published_at": "2026-11-24T14:50:45Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "logistics",
+      "first_seen_at": "2026-11-25T13:04:17.812761Z"
+    },
     {
       "title": "Best Buy taps AI platform for supplier insights",
       "url": "https://supplychaindive.com/news/best-buy-taps-ai-platform-for-supplier-insights/875211/",
@@ -45,56 +115,6 @@
       "source": "Lean Enterprise Institute",
       "topic": "operations",
       "first_seen_at": "2026-11-24T04:17:05.103769Z"
-    },
-    {
-      "title": "Taking the busywork out of business buying",
-      "url": "https://supplychaindive.com/spons/taking-the-busywork-out-of-business-buying/874853/",
-      "published_at": "2026-11-23T10:00:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-24T04:17:05.103769Z"
-    },
-    {
-      "title": "Peak season optimization is out, year-round optimization is in",
-      "url": "https://supplychaindive.com/spons/peak-season-optimization-is-out-year-round-optimization-is-in/875297/",
-      "published_at": "2026-11-23T10:00:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-24T04:17:05.103769Z"
-    },
-    {
-      "title": "Walmart’s sub-30-minute delivery volume surges in Q3",
-      "url": "https://supplychaindive.com/news/walmarts-sub-30-minute-delivery-volume-surges-in-q3/875339/",
-      "published_at": "2026-11-20T19:38:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "logistics",
-      "first_seen_at": "2026-11-21T08:20:03.019803Z"
-    },
-    {
-      "title": "Nvidia gets more supplier capacity to meet AI demand",
-      "url": "https://supplychaindive.com/news/nvidia-gets-more-supplier-capacity-to-meet-ai-demand/875238/",
-      "published_at": "2026-11-20T15:19:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "procurement",
-      "first_seen_at": "2026-11-21T08:20:03.019803Z"
-    },
-    {
-      "title": "Cal-Maine halts egg production at Florida plant after bird flu outbreak",
-      "url": "https://supplychaindive.com/news/cal-maine-halts-egg-production-at-florida-plant-after-bird-flu-outbreak/875316/",
-      "published_at": "2026-11-20T15:09:00Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-21T08:20:03.019803Z"
     },
     {
       "title": "I Don’t Trust Visual Recordings Anymore. But One Day I Will Again",
@@ -197,16 +217,6 @@
       "first_seen_at": "2026-11-17T00:42:24.709474Z"
     },
     {
-      "title": "28 Zero-Day Findings in Under Two Days. Is Robotics Security Keeping Pace?",
-      "url": "https://spectrum.ieee.org/zero-day-robotics-vulnerabilities-vicone-security",
-      "published_at": "2026-11-16T10:00:01Z",
-      "date_kind": "published",
-      "source_id": "ieee-spectrum",
-      "source": "IEEE Spectrum",
-      "topic": "engineering",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
       "title": "Revisiting the Toyota Production System in the Age of AI Coding Agents",
       "url": "https://lean.org/the-lean-post/articles/revisiting-the-toyota-production-system-in-the-age-of-ai-coding-agents/",
       "published_at": "2026-11-09T10:06:00Z",
@@ -235,16 +245,6 @@
       "source": "Lean Enterprise Institute",
       "topic": "operations",
       "first_seen_at": "2026-11-17T00:42:24.709474Z"
-    },
-    {
-      "title": "How an NGO developed a management system that looks a lot like Lean",
-      "url": "https://lean.org/the-lean-post/articles/how-an-ngo-developed-a-management-system-that-looks-a-lot-like-lean/",
-      "published_at": "2026-10-26T13:01:47Z",
-      "date_kind": "published",
-      "source_id": "lean-enterprise",
-      "source": "Lean Enterprise Institute",
-      "topic": "operations",
-      "first_seen_at": "2026-11-17T00:42:24.709474Z"
     }
   ],
   "sources": [
@@ -253,9 +253,9 @@
       "name": "Supply Chain Dive",
       "url": "https://www.supplychaindive.com/",
       "feed": "https://www.supplychaindive.com/feeds/news/",
-      "checked_at": "2026-11-24T04:17:05.103769Z",
+      "checked_at": "2026-11-25T13:04:17.812761Z",
       "status": "success",
-      "last_success_at": "2026-11-24T04:17:05.103769Z",
+      "last_success_at": "2026-11-25T13:04:17.812761Z",
       "error": null,
       "article_count": 8
     },
@@ -264,9 +264,9 @@
       "name": "IEEE Spectrum",
       "url": "https://spectrum.ieee.org/",
       "feed": "https://spectrum.ieee.org/feeds/feed.rss",
-      "checked_at": "2026-11-24T04:17:05.103769Z",
+      "checked_at": "2026-11-25T13:04:17.812761Z",
       "status": "success",
-      "last_success_at": "2026-11-24T04:17:05.103769Z",
+      "last_success_at": "2026-11-25T13:04:17.812761Z",
       "error": null,
       "article_count": 8
     },
@@ -275,9 +275,9 @@
       "name": "Lean Enterprise Institute",
       "url": "https://www.lean.org/the-lean-post/",
       "feed": "https://www.lean.org/feed/",
-      "checked_at": "2026-11-24T04:17:05.103769Z",
+      "checked_at": "2026-11-25T13:04:17.812761Z",
       "status": "success",
-      "last_success_at": "2026-11-24T04:17:05.103769Z",
+      "last_success_at": "2026-11-25T13:04:17.812761Z",
       "error": null,
       "article_count": 8
     },
@@ -286,9 +286,9 @@
       "name": "MIT Center for Transportation & Logistics",
       "url": "https://ctl.mit.edu/news",
       "feed": "https://ctl.mit.edu/rss.xml",
-      "checked_at": "2026-11-24T04:17:05.103769Z",
+      "checked_at": "2026-11-25T13:04:17.812761Z",
       "status": "success",
-      "last_success_at": "2026-11-24T04:17:05.103769Z",
+      "last_success_at": "2026-11-25T13:04:17.812761Z",
       "error": null,
       "article_count": 0
     }
