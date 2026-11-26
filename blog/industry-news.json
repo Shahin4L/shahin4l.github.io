@@ -1,11 +1,51 @@
 {
   "version": 1,
-  "checked_at": "2026-11-25T13:04:17.812761Z",
-  "last_success_at": "2026-11-25T13:04:17.812761Z",
-  "last_changed_at": "2026-11-25T13:04:17.812761Z",
+  "checked_at": "2026-11-26T05:08:17.363672Z",
+  "last_success_at": "2026-11-26T05:08:17.363672Z",
+  "last_changed_at": "2026-11-26T05:08:17.363672Z",
   "status": "complete",
-  "new_count": 7,
+  "new_count": 4,
   "articles": [
+    {
+      "title": "Molson Coors, Primo Brands use fuel hedging to tackle logistics costs",
+      "url": "https://supplychaindive.com/news/molson-coors-primo-brands-use-fuel-hedging-to-tackle-logistics-costs/875552/",
+      "published_at": "2026-11-25T18:41:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "logistics",
+      "first_seen_at": "2026-11-26T05:08:17.363672Z"
+    },
+    {
+      "title": "US readies tariffs over manufacturing capacity, production concerns",
+      "url": "https://supplychaindive.com/news/us-readies-tariffs-over-manufacturing-capacity-production-concerns/875639/",
+      "published_at": "2026-11-25T16:34:26Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-26T05:08:17.363672Z"
+    },
+    {
+      "title": "PETA alleges animal abuse in PepsiCo’s supply chain",
+      "url": "https://supplychaindive.com/news/peta-alleges-animal-abuse-in-pepsicos-supply-chain/875654/",
+      "published_at": "2026-11-25T16:17:00Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-26T05:08:17.363672Z"
+    },
+    {
+      "title": "USPS to upgrade 16 sites just before peak season rush",
+      "url": "https://supplychaindive.com/news/usps-to-upgrade-16-sites-just-before-peak-season-rush/875592/",
+      "published_at": "2026-11-25T13:57:27Z",
+      "date_kind": "published",
+      "source_id": "supply-chain-dive",
+      "source": "Supply Chain Dive",
+      "topic": "supply-chain",
+      "first_seen_at": "2026-11-26T05:08:17.363672Z"
+    },
     {
       "title": "Paving the Cow Paths at Machine Speed",
       "url": "https://lean.org/the-lean-post/articles/paving-the-cow-paths-at-machine-speed/",
@@ -65,46 +105,6 @@
       "source": "Supply Chain Dive",
       "topic": "procurement",
       "first_seen_at": "2026-11-25T13:04:17.812761Z"
-    },
-    {
-      "title": "Amazon enlists customers in fight against NYC delivery worker bill",
-      "url": "https://supplychaindive.com/news/amazon-enlists-customers-in-fight-against-nyc-delivery-worker-bill/875500/",
-      "published_at": "2026-11-24T14:50:45Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "logistics",
-      "first_seen_at": "2026-11-25T13:04:17.812761Z"
-    },
-    {
-      "title": "Best Buy taps AI platform for supplier insights",
-      "url": "https://supplychaindive.com/news/best-buy-taps-ai-platform-for-supplier-insights/875211/",
-      "published_at": "2026-11-23T16:05:59Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "procurement",
-      "first_seen_at": "2026-11-24T04:17:05.103769Z"
-    },
-    {
-      "title": "Walgreens scales micro-fulfillment strategy with Pennsylvania site",
-      "url": "https://supplychaindive.com/news/walgreens-scales-micro-fulfillment-strategy-with-pennsylvania-site/875245/",
-      "published_at": "2026-11-23T15:19:16Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "supply-chain",
-      "first_seen_at": "2026-11-24T04:17:05.103769Z"
-    },
-    {
-      "title": "Tractor Supply boosts same-day delivery options",
-      "url": "https://supplychaindive.com/news/tractor-supply-boosts-same-day-delivery-options/875304/",
-      "published_at": "2026-11-23T15:06:22Z",
-      "date_kind": "published",
-      "source_id": "supply-chain-dive",
-      "source": "Supply Chain Dive",
-      "topic": "logistics",
-      "first_seen_at": "2026-11-24T04:17:05.103769Z"
     },
     {
       "title": "Same Questions, Different Answers: A Lean Transformation at Year One and Year Five",
@@ -253,9 +253,9 @@
       "name": "Supply Chain Dive",
       "url": "https://www.supplychaindive.com/",
       "feed": "https://www.supplychaindive.com/feeds/news/",
-      "checked_at": "2026-11-25T13:04:17.812761Z",
+      "checked_at": "2026-11-26T05:08:17.363672Z",
       "status": "success",
-      "last_success_at": "2026-11-25T13:04:17.812761Z",
+      "last_success_at": "2026-11-26T05:08:17.363672Z",
       "error": null,
       "article_count": 8
     },
@@ -264,9 +264,9 @@
       "name": "IEEE Spectrum",
       "url": "https://spectrum.ieee.org/",
       "feed": "https://spectrum.ieee.org/feeds/feed.rss",
-      "checked_at": "2026-11-25T13:04:17.812761Z",
+      "checked_at": "2026-11-26T05:08:17.363672Z",
       "status": "success",
-      "last_success_at": "2026-11-25T13:04:17.812761Z",
+      "last_success_at": "2026-11-26T05:08:17.363672Z",
       "error": null,
       "article_count": 8
     },
@@ -275,9 +275,9 @@
       "name": "Lean Enterprise Institute",
       "url": "https://www.lean.org/the-lean-post/",
       "feed": "https://www.lean.org/feed/",
-      "checked_at": "2026-11-25T13:04:17.812761Z",
+      "checked_at": "2026-11-26T05:08:17.363672Z",
       "status": "success",
-      "last_success_at": "2026-11-25T13:04:17.812761Z",
+      "last_success_at": "2026-11-26T05:08:17.363672Z",
       "error": null,
       "article_count": 8
     },
@@ -286,9 +286,9 @@
       "name": "MIT Center for Transportation & Logistics",
       "url": "https://ctl.mit.edu/news",
       "feed": "https://ctl.mit.edu/rss.xml",
-      "checked_at": "2026-11-25T13:04:17.812761Z",
+      "checked_at": "2026-11-26T05:08:17.363672Z",
       "status": "success",
-      "last_success_at": "2026-11-25T13:04:17.812761Z",
+      "last_success_at": "2026-11-26T05:08:17.363672Z",
       "error": null,
       "article_count": 0
     }
