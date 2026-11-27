@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "checked_at": "2026-11-26T05:08:17.363672Z",
-  "last_success_at": "2026-11-26T05:08:17.363672Z",
+  "checked_at": "2026-11-27T09:43:23.111378Z",
+  "last_success_at": "2026-11-27T09:43:23.111378Z",
   "last_changed_at": "2026-11-26T05:08:17.363672Z",
   "status": "complete",
-  "new_count": 4,
+  "new_count": 0,
   "articles": [
     {
       "title": "Molson Coors, Primo Brands use fuel hedging to tackle logistics costs",
@@ -253,9 +253,9 @@
       "name": "Supply Chain Dive",
       "url": "https://www.supplychaindive.com/",
       "feed": "https://www.supplychaindive.com/feeds/news/",
-      "checked_at": "2026-11-26T05:08:17.363672Z",
+      "checked_at": "2026-11-27T09:43:23.111378Z",
       "status": "success",
-      "last_success_at": "2026-11-26T05:08:17.363672Z",
+      "last_success_at": "2026-11-27T09:43:23.111378Z",
       "error": null,
       "article_count": 8
     },
@@ -264,9 +264,9 @@
       "name": "IEEE Spectrum",
       "url": "https://spectrum.ieee.org/",
       "feed": "https://spectrum.ieee.org/feeds/feed.rss",
-      "checked_at": "2026-11-26T05:08:17.363672Z",
+      "checked_at": "2026-11-27T09:43:23.111378Z",
       "status": "success",
-      "last_success_at": "2026-11-26T05:08:17.363672Z",
+      "last_success_at": "2026-11-27T09:43:23.111378Z",
       "error": null,
       "article_count": 8
     },
@@ -275,9 +275,9 @@
       "name": "Lean Enterprise Institute",
       "url": "https://www.lean.org/the-lean-post/",
       "feed": "https://www.lean.org/feed/",
-      "checked_at": "2026-11-26T05:08:17.363672Z",
+      "checked_at": "2026-11-27T09:43:23.111378Z",
       "status": "success",
-      "last_success_at": "2026-11-26T05:08:17.363672Z",
+      "last_success_at": "2026-11-27T09:43:23.111378Z",
       "error": null,
       "article_count": 8
     },
@@ -286,9 +286,9 @@
       "name": "MIT Center for Transportation & Logistics",
       "url": "https://ctl.mit.edu/news",
       "feed": "https://ctl.mit.edu/rss.xml",
-      "checked_at": "2026-11-26T05:08:17.363672Z",
+      "checked_at": "2026-11-27T09:43:23.111378Z",
       "status": "success",
-      "last_success_at": "2026-11-26T05:08:17.363672Z",
+      "last_success_at": "2026-11-27T09:43:23.111378Z",
       "error": null,
       "article_count": 0
     }
